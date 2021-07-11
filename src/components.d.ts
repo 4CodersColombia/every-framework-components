@@ -18,6 +18,8 @@ export namespace Components {
     }
     interface XuachCheckbox {
         "checked": boolean;
+        "disabled": boolean;
+        "size": number;
     }
 }
 declare global {
@@ -72,6 +74,9 @@ declare namespace LocalJSX {
     }
     interface XuachCheckbox {
         "checked"?: boolean;
+        "disabled"?: boolean;
+        "onClickCheckBox"?: (event: CustomEvent<any>) => void;
+        "size"?: number;
     }
     interface IntrinsicElements {
         "app-home": AppHome;

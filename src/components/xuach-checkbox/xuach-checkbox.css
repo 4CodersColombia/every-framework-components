@@ -2,6 +2,39 @@
   display: block;
 }
 
-.disabled{
-  background-color: #A5A4A4;
+.checkbox {
+  display: inline-flex;
+  cursor: pointer;
+  position: relative;
 }
+
+.checkbox > input {
+  height: 25px;
+  width: 25px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 2px solid #091731;
+  border-radius: 7px;
+  outline: none;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+
+
+.checkbox > input:checked {
+  border: 2px solid #091731;
+  background-color: #091731;
+  background-size: 70%;
+  background-position:center;
+}
+
+.checkbox > input:disabled {
+  border: 2px solid #A5A4A4;
+  background-color: #A5A4A4;
+  background-size: 40%;
+  background-position:center;
+}
+
