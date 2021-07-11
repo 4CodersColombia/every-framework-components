@@ -9,8 +9,6 @@
 }
 
 .checkbox > input {
-  height: 25px;
-  width: 25px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;
@@ -35,6 +33,7 @@
   border: 2px solid #A5A4A4;
   background-color: #A5A4A4;
   background-size: 40%;
+  cursor: initial;
   background-position:center;
 }
 
