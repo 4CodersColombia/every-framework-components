@@ -42,7 +42,7 @@ export class XuachGlobalButton {
     return (
       <Host>
         <label class="button">
-          <button style={this.styleXuachGlobalButton} type="button" onClick={this.eventButton.bind(this)}>
+          <button disabled={this.disabled} style={this.styleXuachGlobalButton} type="button" onClick={this.eventButton.bind(this)}>
             {this.text}
             <img class={this.icon!==''?'imagen':''} src={this.icon} />
             

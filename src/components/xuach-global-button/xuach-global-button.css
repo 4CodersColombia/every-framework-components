@@ -6,6 +6,7 @@
   src: url('../../fonts/Quicksand-Regular.ttf');
 }
 .button > button {
+  cursor: pointer;
   width: 14vw;
   height: 34px;
   border-radius: 12px;
@@ -15,11 +16,13 @@
   font-weight: 700;
   font-size: 12px;
   border: 2px solid;
-  cursor: pointer;
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: center;
+}
+.button > button:disabled {
+  cursor: initial;
 }
 .imagen{
   width: 18px;
