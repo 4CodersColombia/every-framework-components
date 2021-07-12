@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
-import { CONST_SIZES_XUACH_GLOBAL_BOTTON, CONST_COLORS_XUACH_GLOBAL_BOTTON,  } from '../../const/constXuachGlobalButton';
+import { CONST_SIZES_XUACH_GLOBAL_BOTTON, CONST_COLORS_XUACH_GLOBAL_BOTTON } from '../../const/constXuachGlobalButton';
 
 @Component({
   tag: 'xuach-global-button',
@@ -14,9 +14,9 @@ export class XuachGlobalButton {
   @Prop() icon: string = '';
 
   //Event to emit any action from of parent
-  @Event() clickButton: EventEmitter;
+  @Event() click: EventEmitter;
   eventButton() {
-    this.clickButton.emit();
+    this.click.emit();
   }
   //get size of button
   getSizeOfBotton() {
@@ -35,7 +35,7 @@ export class XuachGlobalButton {
   styleXuachGlobalButton = {
     ...this.getSizeOfBotton(),
     backgroundColor: this.getBackgroundColor(),
-    borderColor: this.getColorOfButton()
+    borderColor: this.getColorOfButton(),
   };
 
   render() {
@@ -44,10 +44,9 @@ export class XuachGlobalButton {
         <label class="button">
           <button disabled={this.disabled} style={this.styleXuachGlobalButton} type="button" onClick={this.eventButton.bind(this)}>
             {this.text}
-            <img class={this.icon!==''?'imagen':''} src={this.icon} />
-            
-            </button>
-            </label>
+            <img class={this.icon !== '' ? 'imagen' : ''} src={this.icon} />
+          </button>
+        </label>
       </Host>
     );
   }

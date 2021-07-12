@@ -27,7 +27,3 @@ SECONDARY:{
 },
 TRANSPARENT: 'rgba(0,0,0,0)'
 }as const
-
-export const CONST_IMAGES_XUACH_GLOBAL_BOTTON={
-    CHARGE:'https://firebasestorage.googleapis.com/v0/b/logico-sandbox.appspot.com/o/assets_xuach_components%2Fxuach_global_button%2FVector.png?alt=media&token=485702d5-b88c-4282-b7e7-f00b95325405'
-}as const

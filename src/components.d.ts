@@ -78,7 +78,7 @@ declare namespace LocalJSX {
         "color"?: 'PRIMARY' | 'SECONDARY';
         "disabled"?: boolean;
         "icon"?: string;
-        "onClickButton"?: (event: CustomEvent<any>) => void;
+        "onClick"?: (event: CustomEvent<any>) => void;
         "size"?: 'LARGE' | 'MEDIUM' | 'SMALL';
         "text"?: string;
     }
