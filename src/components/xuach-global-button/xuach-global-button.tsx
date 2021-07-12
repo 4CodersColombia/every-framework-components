@@ -11,7 +11,7 @@ export class XuachGlobalButton {
   @Prop() disabled: boolean = false;
   @Prop() size: 'LARGE' | 'MEDIUM' | 'SMALL' = 'LARGE';
   @Prop() text: string;
-  @Prop() icon: string = '';
+  @Prop() icon: string;
 
   //Event to emit any action from of parent
   @Event() click: EventEmitter;
@@ -44,7 +44,7 @@ export class XuachGlobalButton {
         <label class="button">
           <button disabled={this.disabled} style={this.styleXuachGlobalButton} type="button" onClick={this.eventButton.bind(this)}>
             {this.text}
-            <img class={this.icon !== '' ? 'imagen' : ''} src={this.icon} />
+            <img class="imagen" src={this.icon} />
           </button>
         </label>
       </Host>
