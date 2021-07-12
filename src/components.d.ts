@@ -75,7 +75,7 @@ declare namespace LocalJSX {
     interface XuachCheckbox {
         "checked"?: boolean;
         "disabled"?: boolean;
-        "onClickCheckBox"?: (event: CustomEvent<any>) => void;
+        "onClick"?: (event: CustomEvent<any>) => void;
         "size"?: number;
     }
     interface IntrinsicElements {

@@ -12,10 +12,10 @@ export class XuachCheckbox {
   @Prop() size: number = 24;
 
   //Event to emit any action from of parent
-  @Event() clickCheckBox: EventEmitter;
+  @Event() click: EventEmitter;
   eventCheckBox(ev: Event) {
     ev.preventDefault();
-    this.clickCheckBox.emit();
+    this.click.emit();
   }
 
   //get background images for checkbox states
