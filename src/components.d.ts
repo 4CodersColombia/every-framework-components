@@ -16,6 +16,15 @@ export namespace Components {
     interface HelloWorld {
         "name": string;
     }
+    interface XuachGlobalInput {
+        "disabled": boolean;
+        "errorMessages": [];
+        "icon": string;
+        "iconPosition": 'LEFT' | 'RIGHT';
+        "label": string;
+        "text": string;
+        "type": 'TEXT' | 'DROPDOWN' | 'PASSWORD';
+    }
 }
 declare global {
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
@@ -42,11 +51,18 @@ declare global {
         prototype: HTMLHelloWorldElement;
         new (): HTMLHelloWorldElement;
     };
+    interface HTMLXuachGlobalInputElement extends Components.XuachGlobalInput, HTMLStencilElement {
+    }
+    var HTMLXuachGlobalInputElement: {
+        prototype: HTMLXuachGlobalInputElement;
+        new (): HTMLXuachGlobalInputElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
         "hello-world": HTMLHelloWorldElement;
+        "xuach-global-input": HTMLXuachGlobalInputElement;
     }
 }
 declare namespace LocalJSX {
@@ -60,11 +76,21 @@ declare namespace LocalJSX {
     interface HelloWorld {
         "name"?: string;
     }
+    interface XuachGlobalInput {
+        "disabled"?: boolean;
+        "errorMessages"?: [];
+        "icon"?: string;
+        "iconPosition"?: 'LEFT' | 'RIGHT';
+        "label"?: string;
+        "text"?: string;
+        "type"?: 'TEXT' | 'DROPDOWN' | 'PASSWORD';
+    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
         "hello-world": HelloWorld;
+        "xuach-global-input": XuachGlobalInput;
     }
 }
 export { LocalJSX as JSX };
@@ -75,6 +101,7 @@ declare module "@stencil/core" {
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "hello-world": LocalJSX.HelloWorld & JSXBase.HTMLAttributes<HTMLHelloWorldElement>;
+            "xuach-global-input": LocalJSX.XuachGlobalInput & JSXBase.HTMLAttributes<HTMLXuachGlobalInputElement>;
         }
     }
 }
