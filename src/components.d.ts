@@ -17,13 +17,12 @@ export namespace Components {
         "name": string;
     }
     interface XuachGlobalInput {
+        "append_icon": string;
         "disabled": boolean;
-        "errorMessages": [];
-        "icon": string;
-        "iconPosition": 'LEFT' | 'RIGHT';
+        "error_message": string;
         "label": string;
+        "prepend_icon": string;
         "text": string;
-        "type": 'TEXT' | 'DROPDOWN' | 'PASSWORD';
     }
 }
 declare global {
@@ -77,13 +76,12 @@ declare namespace LocalJSX {
         "name"?: string;
     }
     interface XuachGlobalInput {
+        "append_icon"?: string;
         "disabled"?: boolean;
-        "errorMessages"?: [];
-        "icon"?: string;
-        "iconPosition"?: 'LEFT' | 'RIGHT';
+        "error_message"?: string;
         "label"?: string;
+        "prepend_icon"?: string;
         "text"?: string;
-        "type"?: 'TEXT' | 'DROPDOWN' | 'PASSWORD';
     }
     interface IntrinsicElements {
         "app-home": AppHome;

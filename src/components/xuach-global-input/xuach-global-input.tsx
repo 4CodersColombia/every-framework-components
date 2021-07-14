@@ -1,5 +1,4 @@
 import { Component, Host, h, Prop } from '@stencil/core';
-import { CONST_TYPES_XUACH_GLOBAL_INPUT } from '../../const/constXuachGlobalInput';
 
 @Component({
   tag: 'xuach-global-input',
@@ -8,23 +7,26 @@ import { CONST_TYPES_XUACH_GLOBAL_INPUT } from '../../const/constXuachGlobalInpu
 })
 export class XuachGlobalInput {
   @Prop() disabled: boolean = false;
-  @Prop() icon: string;
-  @Prop() type: 'TEXT' | 'DROPDOWN' | 'PASSWORD' = 'TEXT';
   @Prop() text: string;
-  @Prop() errorMessages: [];
-  @Prop() iconPosition: 'LEFT' | 'RIGHT' = 'LEFT';
+  @Prop() error_message: string;
   @Prop() label: string;
+  @Prop() append_icon: string;
+  @Prop() prepend_icon: string;
 
-  //get type of input
-  getTypeOfInput() {
-    return CONST_TYPES_XUACH_GLOBAL_INPUT[this.type];
+  //get style disabled
+  getStyleDisabled(){
+    return this.disabled?'disabled':'not-disabled'
   }
+
   render() {
     return (
       <Host>
-        <label class='input'>
-        <input type="text" />
-        </label>
+        <div class={'input '+this.getStyleDisabled()}>
+        <img src={this.prepend_icon} class="imagen"  />
+        <input   disabled={this.disabled} type={'text'} class="form-control" placeholder={this.label} />
+          <label class="control-label"> {this.label}</label>
+          <img src={this.append_icon} class="imagen"  />
+        </div>
       </Host>
     );
   }
