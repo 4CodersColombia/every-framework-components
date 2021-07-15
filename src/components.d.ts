@@ -22,7 +22,7 @@ export namespace Components {
         "errorMessage": string;
         "label": string;
         "prependIcon": string;
-        "text": string;
+        "value": string;
     }
 }
 declare global {
@@ -80,8 +80,9 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "errorMessage"?: string;
         "label"?: string;
+        "onValueChange"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
-        "text"?: string;
+        "value"?: string;
     }
     interface IntrinsicElements {
         "app-home": AppHome;

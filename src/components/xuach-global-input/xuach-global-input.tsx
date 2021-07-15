@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, Host, h, Prop,Event,EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'xuach-global-input',
@@ -7,11 +7,20 @@ import { Component, Host, h, Prop } from '@stencil/core';
 })
 export class XuachGlobalInput {
   @Prop() disabled: boolean = false;
-  @Prop() text: string;
+  @Prop({reflect: true, mutable: true}) value: string;
   @Prop({ attribute: 'error-message' }) errorMessage: string;
-  @Prop() label: string;
+  @Prop({reflect: true, mutable: true}) label: string;
   @Prop({ attribute: 'append-icon' }) appendIcon: string;
   @Prop({ attribute: 'prepend-icon' }) prependIcon: string;
+
+  
+  //Event to emit any action from of parent
+  @Event() valueChange: EventEmitter<string>;
+ 
+  onInputChangeValue(event: Event) {
+    this.value = (event.target as HTMLInputElement).value;
+    this.valueChange.emit(this.value);
+  }
 
   //get style disabled
   getStyleDisabled() {
@@ -28,7 +37,11 @@ export class XuachGlobalInput {
       <Host>
         <div class={this.getStyleErrorMessage()+' input '+this.getStyleDisabled()}>
           <img src={this.prependIcon} class="imagen" />
-          <input disabled={this.disabled} type={'text'} class="form-control" placeholder={this.label} />
+          <input value={this.value} disabled={this.disabled}
+           type={'text'} class="form-control" 
+           placeholder={this.label}
+           onInput={this.onInputChangeValue.bind(this)}
+            />
           <label class="control-label"> {this.label}</label>
           <img src={this.appendIcon} class="imagen" />
         </div>
