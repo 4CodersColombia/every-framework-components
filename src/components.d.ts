@@ -17,11 +17,11 @@ export namespace Components {
         "name": string;
     }
     interface XuachGlobalInput {
-        "append_icon": string;
+        "appendIcon": string;
         "disabled": boolean;
-        "error_message": string;
+        "errorMessage": string;
         "label": string;
-        "prepend_icon": string;
+        "prependIcon": string;
         "text": string;
     }
 }
@@ -76,11 +76,11 @@ declare namespace LocalJSX {
         "name"?: string;
     }
     interface XuachGlobalInput {
-        "append_icon"?: string;
+        "appendIcon"?: string;
         "disabled"?: boolean;
-        "error_message"?: string;
+        "errorMessage"?: string;
         "label"?: string;
-        "prepend_icon"?: string;
+        "prependIcon"?: string;
         "text"?: string;
     }
     interface IntrinsicElements {
