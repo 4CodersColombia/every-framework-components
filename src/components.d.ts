@@ -22,6 +22,7 @@ export namespace Components {
         "errorMessage": string;
         "label": string;
         "prependIcon": string;
+        "type": 'text' | 'password';
         "value": string;
     }
 }
@@ -82,6 +83,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "onValueChange"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
+        "type"?: 'text' | 'password';
         "value"?: string;
     }
     interface IntrinsicElements {
