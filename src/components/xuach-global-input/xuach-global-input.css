@@ -24,7 +24,7 @@
   height: 28px;
   color: #091731;
   background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #939393;
+  border: 1.5px solid #939393;
   border-radius: 10px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -39,18 +39,16 @@
 
 /* styles css for hover input */
 .input:hover {
-  border: 1px solid #091731;
+  border: 1.5px solid #091731;
   outline: 0px solid;
 }
 
 /* styles css for focus  input */
 .input:focus-within {
-  border: 1px solid #67bf72;
-  outline: 1px solid #67bf72;
+  border: 1.5px solid #67bf72;
 }
 .input:focus-within:hover {
-  border: 1px solid #67bf72;
-  outline: 1px solid #67bf72;
+  border: 1.5px solid #67bf72;
 }
 .input:focus-within > .form-control + .control-label {
   visibility: visible;
@@ -85,7 +83,7 @@
   bottom: 1.23rem;
   color: #a5a4a4;
   transition: 0.2s ease-in-out transform;
-  font-size: 12px;
+  font-size: 11.5px;
 }
 
 /* styles css for animation label hidden */
@@ -108,9 +106,8 @@
 /* style css for disable */
 .disabled {
   background: #e4e4e4 !important;
-  border: 1px solid #4b4b4b !important;
+  border: 1.5px solid #4b4b4b !important;
   cursor: initial !important;
-  outline: 1px solid #4b4b4b !important ;
 }
 .disabled > .control-label {
   color: #091731 !important;
@@ -138,8 +135,7 @@
 /* style css for error message */
 
 .error {
-  border: 1px solid #ee0000 !important ;
-  outline: 1px solid #ee0000 !important ;
+  border: 1.5px solid #ee0000 !important ;
 }
 .error > .form-control {
   color: #ee0000;
@@ -167,6 +163,6 @@
   line-height: 20px;
 
   /* identical to box height, or 156% */
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1.5px;
   color: #ee0000;
 }
