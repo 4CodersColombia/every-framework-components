@@ -7,9 +7,9 @@ import { Component, Host, h, Prop,Event,EventEmitter } from '@stencil/core';
 })
 export class XuachGlobalInput {
   @Prop() disabled: boolean = false;
-  @Prop({reflect: true, mutable: true}) value: string;
+  @Prop() value: string;
   @Prop({ attribute: 'error-message' }) errorMessage: string;
-  @Prop({reflect: true, mutable: true}) label: string;
+  @Prop() label: string;
   @Prop({ attribute: 'append-icon' }) appendIcon: string;
   @Prop({ attribute: 'prepend-icon' }) prependIcon: string;
 
@@ -18,8 +18,10 @@ export class XuachGlobalInput {
   @Event() valueChange: EventEmitter<string>;
  
   onInputChangeValue(event: Event) {
-    this.value = (event.target as HTMLInputElement).value;
-    this.valueChange.emit(this.value);
+    const value = (event.target as HTMLInputElement).value;
+    console.log(value)
+    console.log(this.value)
+    this.valueChange.emit(value);
   }
 
   //get style disabled
