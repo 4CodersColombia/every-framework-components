@@ -1,0 +1,31 @@
+:host {
+  display: block;
+}
+@font-face {
+  font-family: 'QuickSand';
+  src: url('../../fonts/Quicksand-Regular.ttf');
+}
+.button > button {
+  cursor: pointer;
+  width: 14vw;
+  height: 34px;
+  border-radius: 12px;
+  border: initial;
+  color: white;
+  font-family:'QuickSand', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+.button > button:disabled {
+  cursor: initial;
+}
+.imagen{
+  max-width: 18px;
+  max-height: 12px;
+  margin-left: 7px;
+}

@@ -16,10 +16,12 @@ export namespace Components {
     interface HelloWorld {
         "name": string;
     }
-    interface XuachCheckbox {
-        "checked": boolean;
+    interface XuachGlobalButton {
+        "color": 'PRIMARY' | 'SECONDARY';
         "disabled": boolean;
-        "size": number;
+        "icon": string;
+        "size": 'LARGE' | 'MEDIUM' | 'SMALL';
+        "text": string;
     }
 }
 declare global {
@@ -47,18 +49,18 @@ declare global {
         prototype: HTMLHelloWorldElement;
         new (): HTMLHelloWorldElement;
     };
-    interface HTMLXuachCheckboxElement extends Components.XuachCheckbox, HTMLStencilElement {
+    interface HTMLXuachGlobalButtonElement extends Components.XuachGlobalButton, HTMLStencilElement {
     }
-    var HTMLXuachCheckboxElement: {
-        prototype: HTMLXuachCheckboxElement;
-        new (): HTMLXuachCheckboxElement;
+    var HTMLXuachGlobalButtonElement: {
+        prototype: HTMLXuachGlobalButtonElement;
+        new (): HTMLXuachGlobalButtonElement;
     };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
         "hello-world": HTMLHelloWorldElement;
-        "xuach-checkbox": HTMLXuachCheckboxElement;
+        "xuach-global-button": HTMLXuachGlobalButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -72,18 +74,20 @@ declare namespace LocalJSX {
     interface HelloWorld {
         "name"?: string;
     }
-    interface XuachCheckbox {
-        "checked"?: boolean;
+    interface XuachGlobalButton {
+        "color"?: 'PRIMARY' | 'SECONDARY';
         "disabled"?: boolean;
+        "icon"?: string;
         "onClick"?: (event: CustomEvent<any>) => void;
-        "size"?: number;
+        "size"?: 'LARGE' | 'MEDIUM' | 'SMALL';
+        "text"?: string;
     }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
         "hello-world": HelloWorld;
-        "xuach-checkbox": XuachCheckbox;
+        "xuach-global-button": XuachGlobalButton;
     }
 }
 export { LocalJSX as JSX };
@@ -94,7 +98,7 @@ declare module "@stencil/core" {
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "hello-world": LocalJSX.HelloWorld & JSXBase.HTMLAttributes<HTMLHelloWorldElement>;
-            "xuach-checkbox": LocalJSX.XuachCheckbox & JSXBase.HTMLAttributes<HTMLXuachCheckboxElement>;
+            "xuach-global-button": LocalJSX.XuachGlobalButton & JSXBase.HTMLAttributes<HTMLXuachGlobalButtonElement>;
         }
     }
 }
