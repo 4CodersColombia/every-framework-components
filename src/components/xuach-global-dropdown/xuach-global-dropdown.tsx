@@ -9,7 +9,7 @@ import { ClickOutside } from 'stencil-click-outside';
 export class XuachGlobalDropdown {
   @Prop() disabled: boolean = false;
   @Prop() value: string;
-  @Prop() items: { id: string | number; text: string }[];
+  @Prop() items: { id: string | number; text: string }[]=[{id:0,text:'option1'},{id:1,text:'option2'},{id:2,text:'option3'},{id:3,text:'option4'}];
   @Prop({ attribute: 'error-message' }) errorMessage: string;
   @Prop() label: string;
   @Prop() icon: string;
@@ -78,14 +78,14 @@ export class XuachGlobalDropdown {
   getOptionsValue() {
     if (!this.items) {
       return (
-        <li role="option" onClick={this.changeVisibilityMenuDropdown.bind(this)}>
+        <li role="option" tabIndex={0} onClick={this.changeVisibilityMenuDropdown.bind(this)}>
           No hay opciones
         </li>
       );
     }
     return this.items.map((item) => {
       return (
-        <li role="option" onClick={this.onDropdownChangeValue.bind(this, item)}>
+        <li role="option" tabindex={item.id} onClick={this.onDropdownChangeValue.bind(this, item)}>
           {item.text}
         </li>
       );

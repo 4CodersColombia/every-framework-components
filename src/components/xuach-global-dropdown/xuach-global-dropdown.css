@@ -192,7 +192,7 @@ styles for dropdown menu */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 10px;
+  padding: 8px 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -213,7 +213,7 @@ styles for dropdown menu */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 10px;
+  padding: 8px 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
