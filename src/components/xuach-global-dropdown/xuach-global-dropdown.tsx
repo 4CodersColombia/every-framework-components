@@ -9,7 +9,7 @@ import { ClickOutside } from 'stencil-click-outside';
 export class XuachGlobalDropdown {
   @Prop() disabled: boolean = false;
   @Prop() value: string;
-  @Prop() items: string[];
+  @Prop() items: { id: string | number; text: string }[];
   @Prop({ attribute: 'error-message' }) errorMessage: string;
   @Prop() label: string;
   @Prop() icon: string;
@@ -18,17 +18,16 @@ export class XuachGlobalDropdown {
   @State() visibilityMenuDropdown: boolean = false;
 
   //Event to emit any action from of parent
-  @Event() valueChange: EventEmitter<number>;
+  @Event() valueChange: EventEmitter<object>;
 
-
-  //click outside component 
+  //click outside component
   @ClickOutside()
   clickOutComponent() {
-   this.visibilityMenuDropdown=false
+    this.visibilityMenuDropdown = false;
   }
 
   //emit event of Dropdown text
-  onDropdownChangeValue(newValue: number) {
+  onDropdownChangeValue(newValue: object) {
     this.changeVisibilityMenuDropdown();
     this.valueChange.emit(newValue);
   }
@@ -39,8 +38,14 @@ export class XuachGlobalDropdown {
   }
   //get style Label animation
   getStyleLabel() {
-    if(!this.items) return 'control-label'
-    return this.items.includes(this.value) ? 'control-label-animation' : 'control-label';
+    if (!this.items) return 'control-label';
+    return this.items
+      .map(item => {
+        return item.text;
+      })
+      .includes(this.value)
+      ? 'control-label-animation'
+      : 'control-label';
   }
 
   //get style error message
@@ -58,22 +63,30 @@ export class XuachGlobalDropdown {
 
   //get value of select dropdown
   getValueOfSelectDropdown() {
-    if(!this.items) return (<span class="dropdown-text">{this.label}</span>)
-    return this.items.includes(this.value) ? <span class="dropdown-text">{this.value}</span> : <span class="dropdown-text">{this.label}</span>;
+    if (!this.items) return <span class="dropdown-text">{this.label}</span>;
+    return this.items
+      .map(item => {
+        return item.text;
+      })
+      .includes(this.value) ? (
+      <span class="dropdown-text">{this.value}</span>
+    ) : (
+      <span class="dropdown-text">{this.label}</span>
+    );
   }
   //get opstions value
   getOptionsValue() {
     if (!this.items) {
       return (
-        <li role="option" tabIndex={0} onClick={this.onDropdownChangeValue.bind(this, null)}>
+        <li role="option" onClick={this.changeVisibilityMenuDropdown.bind(this)}>
           No hay opciones
         </li>
       );
     }
-    return this.items.map((item, index) => {
+    return this.items.map((item) => {
       return (
-        <li role="option" tabIndex={index} onClick={this.onDropdownChangeValue.bind(this, index)}>
-          {item}
+        <li role="option" onClick={this.onDropdownChangeValue.bind(this, item)}>
+          {item.text}
         </li>
       );
     });
@@ -81,7 +94,7 @@ export class XuachGlobalDropdown {
 
   render() {
     return (
-      <Host >
+      <Host>
         <div class="scroll-hide">
           <div class={this.getStyleErrorMessage() + ' dropdown ' + this.getStyleDisabled()}>
             <button disabled={this.disabled} class="form-control" onClick={this.changeVisibilityMenuDropdown.bind(this)}>
