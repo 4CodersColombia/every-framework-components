@@ -1,5 +1,6 @@
-import { Component, Host, h, Prop, EventEmitter, Event, State } from '@stencil/core';
-
+import { Component, Host, h, Prop, EventEmitter, Event, State, Listen } from '@stencil/core';
+import { CONST_ICON_XUACH_GLOBAL_DOPDOWN } from '../../const/constXuachGlobalDropdown';
+import { ClickOutside } from 'stencil-click-outside';
 @Component({
   tag: 'xuach-global-dropdown',
   styleUrl: 'xuach-global-dropdown.css',
@@ -8,55 +9,95 @@ import { Component, Host, h, Prop, EventEmitter, Event, State } from '@stencil/c
 export class XuachGlobalDropdown {
   @Prop() disabled: boolean = false;
   @Prop() value: string;
+  @Prop() items: string[] = ['option1', 'option2', 'option3', 'option4', 'option4', 'option4', 'option4', 'option4', 'option4'];
   @Prop({ attribute: 'error-message' }) errorMessage: string;
   @Prop() label: string;
-  @Prop({ attribute: 'append-icon' }) appendIcon: string;
-  @Prop({ attribute: 'prepend-icon' }) prependIcon: string;
-  @Prop() type: 'text' | 'password' = 'text';
+  @Prop() icon: string;
 
-  //data of config input for text or password
-  @State() configInputType: string = this.type;
+  //state visibility menu
+  @State() visibilityMenuDropdown: boolean = false;
+
   //Event to emit any action from of parent
-  @Event() valueChange: EventEmitter<string>;
+  @Event() valueChange: EventEmitter<number>;
 
-  //emit event of input text
-  onInputChangeValue(event: Event) {
-    const value = (event.target as HTMLInputElement).value;
-    this.valueChange.emit(value);
+
+  //click outside component 
+  @ClickOutside()
+  clickOutComponent() {
+   this.visibilityMenuDropdown=false
   }
 
-  //set Visible Password
-  setVisiblePasswod() {
-    if (this.type === 'password') {
-      this.configInputType = this.configInputType == 'text' ? 'password' : 'text';
-    }
+  //emit event of Dropdown text
+  onDropdownChangeValue(newValue: number) {
+    console.log(newValue)
+    this.changeVisibilityMenuDropdown();
+    this.valueChange.emit(newValue);
   }
+
   //get style disabled
   getStyleDisabled() {
     return this.disabled ? 'disabled' : '';
+  }
+  //get style Label animation
+  getStyleLabel() {
+    return this.items.includes(this.value) ? 'control-label-animation' : 'control-label';
   }
 
   //get style error message
   getStyleErrorMessage() {
     return this.errorMessage && !this.disabled ? 'error' : '';
   }
+  //get class of menu dropdown
+  getClassDropdownMenu() {
+    return this.visibilityMenuDropdown ? 'dropdown-menu' : 'dropdown-menu-hide';
+  }
+  //change status of visibility of dropdown menu
+  changeVisibilityMenuDropdown() {
+    this.visibilityMenuDropdown = !this.visibilityMenuDropdown;
+  }
+
+  //get value of select dropdown
+  getValueOfSelectDropdown() {
+    return this.items.includes(this.value) ? <span class="dropdown-text">{this.value}</span> : <span class="dropdown-text">{this.label}</span>;
+  }
+  //get opstions value
+  getOptionsValue() {
+    if (!this.items) {
+      return (
+        <li role="option" tabIndex={0} onClick={this.onDropdownChangeValue.bind(this, null)}>
+          No hay opciones
+        </li>
+      );
+    }
+    return this.items.map((item, index) => {
+      return (
+        <li role="option" tabIndex={index} onClick={this.onDropdownChangeValue.bind(this, index)}>
+          {item}
+        </li>
+      );
+    });
+  }
+
   render() {
     return (
-      <Host>
-        <div class={this.getStyleErrorMessage() + ' input ' + this.getStyleDisabled()}>
-          <img onClick={this.setVisiblePasswod.bind(this)} src={this.prependIcon} class="imagen" />
-          <input
-            value={this.value}
-            disabled={this.disabled}
-            type={this.configInputType}
-            class="form-control"
-            placeholder={this.label}
-            onInput={this.onInputChangeValue.bind(this)}
-          />
-          <label class="control-label"> {this.label}</label>
-          <img onClick={this.setVisiblePasswod.bind(this)} src={this.appendIcon} class="imagen" />
+      <Host >
+        <div class="scroll-hide">
+          <div class={this.getStyleErrorMessage() + ' dropdown ' + this.getStyleDisabled()}>
+            <button disabled={this.disabled} class="form-control" onClick={this.changeVisibilityMenuDropdown.bind(this)}>
+              <div class="dropdown-text">
+                <img src={this.icon} class="imagen" />
+                {this.getValueOfSelectDropdown()}
+              </div>
+              <img src={CONST_ICON_XUACH_GLOBAL_DOPDOWN['ARROW']} class="icon-image" />
+            </button>
+            <label class={this.getStyleLabel()}> {this.label}</label>
+          </div>
+          <span class="error-message">{this.errorMessage}</span>
+          <ul class={this.getClassDropdownMenu()} role="listbox">
+            {this.label}
+            {this.getOptionsValue()}
+          </ul>
         </div>
-        <span class="error-message">{this.errorMessage}</span>
       </Host>
     );
   }
