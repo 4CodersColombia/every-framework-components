@@ -9,7 +9,7 @@ import { ClickOutside } from 'stencil-click-outside';
 export class XuachGlobalDropdown {
   @Prop() disabled: boolean = false;
   @Prop() value: string;
-  @Prop() items: string[] = ['option1', 'option2', 'option3', 'option4', 'option4', 'option4', 'option4', 'option4', 'option4'];
+  @Prop() items: string[];
   @Prop({ attribute: 'error-message' }) errorMessage: string;
   @Prop() label: string;
   @Prop() icon: string;
@@ -20,11 +20,10 @@ export class XuachGlobalDropdown {
   //Event to emit any action from of parent
   @Event() valueChange: EventEmitter<number>;
 
-
-  //click outside component 
+  //click outside component
   @ClickOutside()
   clickOutComponent() {
-   this.visibilityMenuDropdown=false
+    this.visibilityMenuDropdown = false;
   }
 
   //emit event of Dropdown text
@@ -79,7 +78,7 @@ export class XuachGlobalDropdown {
 
   render() {
     return (
-      <Host >
+      <Host>
         <div class="scroll-hide">
           <div class={this.getStyleErrorMessage() + ' dropdown ' + this.getStyleDisabled()}>
             <button disabled={this.disabled} class="form-control" onClick={this.changeVisibilityMenuDropdown.bind(this)}>
