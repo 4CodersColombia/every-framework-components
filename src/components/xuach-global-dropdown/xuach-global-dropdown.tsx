@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, EventEmitter, Event, State, Listen } from '@stencil/core';
+import { Component, Host, h, Prop, EventEmitter, Event, State } from '@stencil/core';
 import { CONST_ICON_XUACH_GLOBAL_DOPDOWN } from '../../const/constXuachGlobalDropdown';
 import { ClickOutside } from 'stencil-click-outside';
 @Component({
