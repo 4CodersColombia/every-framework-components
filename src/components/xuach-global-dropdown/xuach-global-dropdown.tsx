@@ -29,7 +29,6 @@ export class XuachGlobalDropdown {
 
   //emit event of Dropdown text
   onDropdownChangeValue(newValue: number) {
-    console.log(newValue)
     this.changeVisibilityMenuDropdown();
     this.valueChange.emit(newValue);
   }
