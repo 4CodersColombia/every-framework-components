@@ -20,10 +20,11 @@ export class XuachGlobalDropdown {
   //Event to emit any action from of parent
   @Event() valueChange: EventEmitter<number>;
 
-  //click outside component
+
+  //click outside component 
   @ClickOutside()
   clickOutComponent() {
-    this.visibilityMenuDropdown = false;
+   this.visibilityMenuDropdown=false
   }
 
   //emit event of Dropdown text
@@ -38,6 +39,7 @@ export class XuachGlobalDropdown {
   }
   //get style Label animation
   getStyleLabel() {
+    if(!this.items) return 'control-label'
     return this.items.includes(this.value) ? 'control-label-animation' : 'control-label';
   }
 
@@ -56,6 +58,7 @@ export class XuachGlobalDropdown {
 
   //get value of select dropdown
   getValueOfSelectDropdown() {
+    if(!this.items) return (<span class="dropdown-text">{this.label}</span>)
     return this.items.includes(this.value) ? <span class="dropdown-text">{this.value}</span> : <span class="dropdown-text">{this.label}</span>;
   }
   //get opstions value
@@ -78,7 +81,7 @@ export class XuachGlobalDropdown {
 
   render() {
     return (
-      <Host>
+      <Host >
         <div class="scroll-hide">
           <div class={this.getStyleErrorMessage() + ' dropdown ' + this.getStyleDisabled()}>
             <button disabled={this.disabled} class="form-control" onClick={this.changeVisibilityMenuDropdown.bind(this)}>
