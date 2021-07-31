@@ -1,4 +1,4 @@
-export const CONST_SIZES_XUACH_GLOBAL_BOTTON={
+export const CONST_SIZES_BUTTON={
     LARGE:{
         width:'60%',
         height:'34px',
@@ -16,7 +16,7 @@ export const CONST_SIZES_XUACH_GLOBAL_BOTTON={
     }
 } as const
 
-export const CONST_COLORS_XUACH_GLOBAL_BOTTON={
+export const CONST_COLORS_BUTTON={
 PRIMARY:{
     DISABLED:'#67BF72',
     ENABLED:'#67BF72'

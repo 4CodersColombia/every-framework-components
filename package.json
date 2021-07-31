@@ -1,9 +1,13 @@
 {
-  "name": "components-module",
-  "private": true,
-  "version": "0.0.1",
-  "description": "components-module",
+  "name": "perritas-ricas-components",
+  "private": false,
+  "version": "0.0.2",
+  "description": "perritas-ricas-components",
   "license": "MIT",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"
   ],
@@ -14,7 +18,8 @@
     "test.watch": "stencil test --spec --e2e --watch",
     "generate": "stencil generate",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
