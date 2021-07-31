@@ -1,26 +1,51 @@
 {
   "name": "perritas-ricas-components",
-  "private": false,
-  "version": "0.0.2",
-  "description": "perritas-ricas-components",
-  "license": "MIT",
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.js",
-  "types": "dist/types/components.d.ts",
+  "version": "0.0.4",
+  "description": "Stencil Component Starter",
+  "main": "dist/index.cjs.js",
+  "module": "dist/custom-elements/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/custom-elements/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/perritas-ricas-components/perritas-ricas-components.esm.js",
   "files": [
-    "dist/"
+    "dist/",
+    "loader/",
+    "build-react/"
   ],
   "scripts": {
-    "build": "stencil build",
+    "build": "stencil build --docs && npm run build:react",
+    "build:react": "cd react && tsc",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watch",
+    "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "prepublish": "npm run build"
   },
-  "devDependencies": {
-    "@ionic/core": "^5.3.2",
+  "dependencies": {
     "@stencil/core": "^2.0.1"
-  }
+  },
+  "devDependencies": {
+    "@stencil/react-output-target": "^0.0.9",
+    "@types/jest": "^26.0.24",
+    "@types/puppeteer": "^5.4.3",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "puppeteer": "^5.5.0",
+    "@types/node": "^15.12.2",
+    "@types/react": "16.7.6",
+    "@types/react-dom": "16.0.9",
+    "jest-dom": "^3.0.2",
+    "np": "^3.1.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "typescript": "^3.3.4000"
+  },
+  "peerDependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "license": "MIT"
 }
