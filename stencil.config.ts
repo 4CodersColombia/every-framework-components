@@ -9,5 +9,10 @@ export const config: Config = {
   outputTargets: [{
     type: 'www',
     serviceWorker: null
-  }],
+  },
+  {
+    type: 'docs-json',
+    file: 'json/docs.json'
+  }
+],
 };
