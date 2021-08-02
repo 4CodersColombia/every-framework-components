@@ -20,8 +20,7 @@ export class XuachCheckbox {
 
   //get background images for checkbox states
   getBackgroundImageCheckBox() {
-    const backgroundImageCheckBox = this.disabled ? CONST_IMAGES_CHECKBOX['DISABLED'] : CONST_IMAGES_CHECKBOX['CHECKED'];
-    return backgroundImageCheckBox;
+    return this.disabled ? CONST_IMAGES_CHECKBOX['DISABLED'] : CONST_IMAGES_CHECKBOX['CHECKED'];
   }
 
   //get object css for checkbox "size and image"
