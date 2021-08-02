@@ -5,8 +5,8 @@ import { Component, h, Host, Prop } from '@stencil/core';
   styleUrl: 'pr-data-table.css',
 })
 export class PrDataTable {
-    @Prop() headers: string[]= ['Name', 'Position', 'Office', 'Age', 'Start date', 'Salary']
-    @Prop() data: { name: string, value: string | number }[][] = [[{name: 'Name', value: 'Tiger Nixon'},{name: 'Position', value: 'System Architect'},{name: 'Office', value: 'Edinburgh'},{name: 'Age', value: 61},{name: 'Start date', value: '2011/04/25'},{name: 'Salary', value: '$170,750'}],[{name: 'Name', value: 'Tiger Nixon'},{name: 'Position', value: 'System Architect'},{name: 'Office', value: 'Edinburgh'},{name: 'Age', value: 61},{name: 'Start date', value: '2011/04/25'},{name: 'Salary', value: '$170,750'}],[{name: 'Name', value: 'Tiger Nixon'},{name: 'Position', value: 'System Architect'},{name: 'Office', value: 'Edinburgh'},{name: 'Age', value: 61},{name: 'Start date', value: '2011/04/25'},{name: 'Salary', value: '$170,750'}],[{name: 'Name', value: 'Tiger Nixon'},{name: 'Position', value: 'System Architect'},{name: 'Office', value: 'Edinburgh'},{name: 'Age', value: 61},{name: 'Start date', value: '2011/04/25'},{name: 'Salary', value: '$170,750'}],[{name: 'Name', value: 'Tiger Nixon'},{name: 'Position', value: 'System Architect'},{name: 'Office', value: 'Edinburgh'},{name: 'Age', value: 61},{name: 'Start date', value: '2011/04/25'},{name: 'Salary', value: '$170,750'}]]
+    @Prop() headers: string[]
+    @Prop() data: { name: string, value: string | number }[][]
 
   renderTableIndex(index: number) {
     const dataArrayShort = this.headers.map((header)=>{
