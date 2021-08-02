@@ -1,4 +1,7 @@
 dist/
+loader/
+build-react/
+react/react-component-lib/
 !www/favicon.ico
 www/
 
@@ -25,4 +28,4 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 .env
 src/components.d.ts
-src/components.d.ts
+react/components.ts
