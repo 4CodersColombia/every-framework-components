@@ -1,11 +1,11 @@
 import { Component, Host, h, Prop, Event, EventEmitter, State } from '@stencil/core';
 
 @Component({
-  tag: 'xuach-global-input',
-  styleUrl: 'xuach-global-input.css',
+  tag: 'pr-input',
+  styleUrl: 'pr-input.css',
   shadow: true,
 })
-export class XuachGlobalInput {
+export class PrInput {
   @Prop() disabled: boolean = false;
   @Prop() value: string;
   @Prop({ attribute: 'error-message' }) errorMessage: string;
