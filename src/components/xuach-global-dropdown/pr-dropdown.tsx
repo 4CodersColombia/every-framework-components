@@ -1,15 +1,20 @@
 import { Component, Host, h, Prop, EventEmitter, Event, State } from '@stencil/core';
-import { CONST_ICON_XUACH_GLOBAL_DOPDOWN } from '../../const/constXuachGlobalDropdown';
+import { CONST_ICON_XUACH_GLOBAL_DOPDOWN } from './constants';
 import { ClickOutside } from 'stencil-click-outside';
 @Component({
-  tag: 'xuach-global-dropdown',
-  styleUrl: 'xuach-global-dropdown.css',
+  tag: 'pr-dropdown',
+  styleUrl: 'pr-dropdown.css',
   shadow: true,
 })
 export class XuachGlobalDropdown {
   @Prop() disabled: boolean = false;
   @Prop() value: string;
-  @Prop() items: { id: string | number; text: string }[]=[{id:0,text:'option1'},{id:1,text:'option2'},{id:2,text:'option3'},{id:3,text:'option4'}];
+  @Prop() items: { id: string | number; text: string }[] = [
+    { id: 0, text: 'option1' },
+    { id: 1, text: 'option2' },
+    { id: 2, text: 'option3' },
+    { id: 3, text: 'option4' },
+  ];
   @Prop({ attribute: 'error-message' }) errorMessage: string;
   @Prop() label: string;
   @Prop() icon: string;
@@ -83,7 +88,7 @@ export class XuachGlobalDropdown {
         </li>
       );
     }
-    return this.items.map((item) => {
+    return this.items.map(item => {
       return (
         <li role="option" tabindex={item.id} onClick={this.onDropdownChangeValue.bind(this, item)}>
           {item.text}
