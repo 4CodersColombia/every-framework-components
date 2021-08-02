@@ -1,9 +1,9 @@
 import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
-import { CONST_IMAGES_CHECKBOX } from '../../const/constCheckBox';
+import { CONST_IMAGES_CHECKBOX } from './constCheckBox';
 
 @Component({
-  tag: 'xuach-checkbox',
-  styleUrl: 'xuach-checkbox.css',
+  tag: 'pr-checkbox',
+  styleUrl: 'pr-checkbox.css',
   shadow: true,
 })
 export class XuachCheckbox {
@@ -25,23 +25,17 @@ export class XuachCheckbox {
   }
 
   //get object css for checkbox "size and image"
-    styleCheckbox = {
-      backgroundImage: `url(${this.getBackgroundImageCheckBox()})`,
-      height: `${this.size}px`,
-      width: `${this.size}px`,
-    };
+  styleCheckbox = {
+    backgroundImage: `url(${this.getBackgroundImageCheckBox()})`,
+    height: `${this.size}px`,
+    width: `${this.size}px`,
+  };
 
   render() {
     return (
       <Host>
         <label class="checkbox">
-          <input
-            type="checkbox"
-            checked={this.checked}
-            disabled={this.disabled}
-            onClick={this.eventCheckBox.bind(this)}
-            style={this.styleCheckbox}
-          />
+          <input type="checkbox" checked={this.checked} disabled={this.disabled} onClick={this.eventCheckBox.bind(this)} style={this.styleCheckbox} />
         </label>
       </Host>
     );
