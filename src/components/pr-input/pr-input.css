@@ -56,6 +56,7 @@
   opacity: 1;
   transform: translateY(-25px);
   transition: 0.2s ease-in-out transform;
+ 
 }
 .input:focus-within > .form-control::-webkit-input-placeholder {
   color: transparent;
@@ -84,6 +85,7 @@
   color: #a5a4a4;
   transition: 0.2s ease-in-out transform;
   font-size: 11.5px;
+  font-weight: bold;
 }
 
 /* styles css for animation label hidden */
@@ -126,11 +128,6 @@
   transition: 0.2s ease-in-out transform;
 }
 
-.disabled > .form-control {
-  visibility: hidden;
-  z-index: -1;
-  transition: 0.2s ease-in-out;
-}
 
 /* style css for error message */
 
@@ -163,6 +160,6 @@
   line-height: 20px;
 
   /* identical to box height, or 156% */
-  letter-spacing: 0.1.5px;
+  letter-spacing: 0.1 .5px;
   color: #ee0000;
 }
