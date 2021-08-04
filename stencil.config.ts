@@ -18,6 +18,10 @@ export const config: Config = {
       type: 'www',
       serviceWorker: null, // disable service workers
     },
+    {
+      type: 'docs-json',
+      file: 'json/docs.json'
+    },
     reactOutputTarget({
       componentCorePackage: '../',
       proxiesFile: './react/components.ts',
