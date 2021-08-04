@@ -14,9 +14,9 @@ export class PrButton {
   @Prop() icon: string;
 
   //Event to emit any action from of parent
-  @Event() clickButton: EventEmitter;
+  @Event() event: EventEmitter;
   eventButton() {
-    this.clickButton.emit();
+    this.event.emit();
   }
   //get size of button
   getSizeOfBotton() {
@@ -41,12 +41,10 @@ export class PrButton {
   render() {
     return (
       <Host>
-        <label class="button">
-          <button disabled={this.disabled} style={this.stylePrButton} type="button" onClick={this.eventButton.bind(this)}>
-            {this.text}
-            <img class="imagen" src={this.icon} />
-          </button>
-        </label>
+        <button class="pr-button" disabled={this.disabled} style={this.stylePrButton} type="button" onClick={this.eventButton.bind(this)}>
+          {this.text}
+          <img class="imagen" src={this.icon} />
+        </button>
       </Host>
     );
   }
