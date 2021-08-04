@@ -1,27 +1,46 @@
 {
   "name": "perritas-ricas-components",
-  "private": false,
-  "version": "0.0.2",
-  "description": "perritas-ricas-components",
-  "license": "MIT",
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.js",
-  "types": "dist/types/components.d.ts",
+  "version": "0.1.0",
+  "description": "Stencil Component Starter",
+  "main": "dist/index.cjs.js",
+  "module": "dist/custom-elements/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/custom-elements/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/perritas-ricas-components/perritas-ricas-components.esm.js",
   "files": [
-    "dist/"
+    "dist/",
+    "loader/",
+    "build-react/"
   ],
   "scripts": {
-    "build": "stencil build",
+    "build": "stencil build --docs && npm run build:react",
+    "build:react": "cd react && tsc",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watch",
+    "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepublish": "npm run build"
   },
+  "dependencies": {
+    "@stencil/core": "^2.0.1",
+    "stencil-click-outside": "^1.7.1"
+  },
   "devDependencies": {
+    "@stencil/react-output-target": "^0.0.9",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^15.12.2",
+    "@types/react": "16.7.6",
+    "@types/react-dom": "16.0.9",
+    "jest-dom": "^3.0.2",
+    "np": "^3.1.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "typescript": "^3.3.4000",
     "@babel/core": "^7.14.8",
     "@ionic/core": "^5.3.2",
     "@pxtrn/storybook-addon-docs-stencil": "^1.0.0",
@@ -32,5 +51,9 @@
     "@storybook/html": "^6.3.6",
     "babel-loader": "^8.2.2"
   },
-  "dependencies": {}
+  "peerDependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "license": "MIT"
 }

@@ -1,0 +1,261 @@
+:host {
+  display: block;
+}
+@font-face {
+  font-family: 'QuickSand';
+  src: url('../../fonts/Quicksand-Regular.ttf');
+}
+
+/* styles css for image icon */
+.icon-image {
+  max-width: 14.41px;
+  max-height: 8.62px;
+  padding-left: 5px;
+}
+.imagen {
+  max-width: 1rem;
+  max-height: 1rem;
+  padding-inline: 5px;
+}
+
+/* styles css for div dropdown */
+.dropdown {
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  font-family: 'QuickSand', sans-serif;
+  /*width: 100%;*/
+  height: 28px;
+  color: #091731;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1.5px solid #939393;
+  border-radius: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-weight: 500;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-size: small;
+}
+
+/* styles css for hover dropdown */
+.dropdown:hover {
+  border: 1.5px solid #091731;
+  outline: 0px solid;
+}
+
+/* styles css for focus  dropdown */
+.dropdown:focus-within {
+  border: 1.5px solid #67bf72;
+}
+.dropdown:focus-within:hover {
+  border: 1.5px solid #67bf72;
+}
+
+
+/* styles css for dropdown inside div */
+.form-control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0);
+  border: 0px solid;
+  outline: 0px solid;
+  color: #091731;
+  padding-right: 15px;
+  height: 100%;
+}
+/* styles for text dropdown */
+.dropdown-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+/* styles css for label inside div */
+.control-label {
+  font-family: 'QuickSand', sans-serif;
+  display: block;
+  position: absolute;
+  opacity: 0;
+  bottom: 1.23rem;
+  color: #a5a4a4;
+  transition: 0.2s ease-in-out transform;
+  font-size: 11.5px;
+  font-weight: bold;
+  z-index: -1;
+}
+.control-label-animation {
+  font-family: 'QuickSand', sans-serif;
+  display: block;
+  position: absolute;
+  bottom: 1.23rem;
+  color: #a5a4a4;
+  transition: 0.2s ease-in-out transform;
+  font-size: 11.5px;
+  font-weight: bold;
+  visibility: visible;
+  z-index: 1;
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+/* style css for disable */
+.disabled {
+  background: #e4e4e4 !important;
+  border: 1.5px solid #4b4b4b !important;
+  cursor: initial !important;
+}
+.disabled > .control-label {
+  color: #091731 !important;
+}
+
+.disabled .error-message {
+  color: #091731 !important;
+}
+
+/* style css for error message */
+
+.error {
+  border: 1.5px solid #ee0000 !important ;
+}
+.error > .form-control {
+  color: #ee0000;
+}
+.error > .form-control + .control-label {
+  color: #ee0000;
+}
+
+.error-message {
+  margin-left: 5px;
+  display: flex;
+  /* Mobile / Text field title */
+  font-family: 'QuickSand', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 20px;
+  height: 20px;
+  /* identical to box height, or 156% */
+  letter-spacing: 0.1 .5px;
+  color: #ee0000;
+}
+
+/* 
+styles for dropdown menu */
+
+.dropdown-menu {
+  position: absolute;
+  transform: translateY(-60px);
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(150, 150, 150, 0.65);
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  border-radius: 16px;
+  overflow: auto;
+  max-height: 100px;
+  z-index: 100;
+  opacity: 1;
+  transition: 0.5s;
+  visibility: visible;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: -100px;
+}
+
+.dropdown-menu-hide {
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(150, 150, 150, 0.65);
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  border-radius: 16px;
+  overflow: auto;
+  max-height: 100px;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: -100px;
+}
+
+.dropdown-menu-hide > li {
+  height: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  font-feature-settings: 'liga' off;
+  color: #a5a4a4;
+  cursor: default;
+}
+
+.dropdown-menu > li {
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  font-feature-settings: 'liga' off;
+  color: #a5a4a4;
+  cursor: default;
+}
+
+.dropdown-menu > li:hover,
+.dropdown-menu > li:focus {
+  outline: none;
+  background: #f2f2f2;
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  font-feature-settings: 'liga' off;
+  color: #a5a4a4;
+}
+
+/* hide scroll bar */
+.scroll-hide ul {
+  position: relative;
+  /* this will hide the scrollbar in mozilla based browsers */
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+  /* this will hide the scrollbar in internet explorers */
+  -ms-overflow-style: none;
+}
+
+/* this will hide the scrollbar in webkit based browsers - safari, chrome, etc */
+.scroll-hide ul::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+}

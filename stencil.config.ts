@@ -1,17 +1,31 @@
 import { Config } from '@stencil/core';
-
-// https://stenciljs.com/docs/config
+import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
-  globalScript: 'src/global/app.ts',
-  globalStyle: 'src/global/app.css',
-  namespace:"pr-components",
-  taskQueue: 'async',
-  outputTargets: [{
-    type: 'dist',
-  },
-  {
-    type: 'docs-json',
-    file: 'json/docs.json'
-  }],
+  namespace: 'perritas-ricas-components',
+  outputTargets: [
+    {
+      type: 'dist',
+      esmLoaderPath: '../loader',
+    },
+    {
+      type: 'dist-custom-elements-bundle',
+    },
+    {
+      type: 'docs-readme',
+    },
+    {
+      type: 'www',
+      serviceWorker: null, // disable service workers
+    },
+    {
+      type: 'docs-json',
+      file: 'json/docs.json'
+    },
+    reactOutputTarget({
+      componentCorePackage: '../',
+      proxiesFile: './react/components.ts',
+      includeDefineCustomElements: true,
+    }),
+  ],
 };
