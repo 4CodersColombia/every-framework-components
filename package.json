@@ -1,6 +1,6 @@
 {
   "name": "perritas-ricas-components",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
@@ -25,7 +25,8 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@stencil/core": "^2.0.1"
+    "@stencil/core": "^2.0.1",
+    "stencil-click-outside": "^1.7.1"
   },
   "devDependencies": {
     "@stencil/react-output-target": "^0.0.9",

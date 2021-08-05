@@ -20,9 +20,9 @@
 
 ## Events
 
-| Event         | Description | Type                  |
-| ------------- | ----------- | --------------------- |
-| `valueChange` |             | `CustomEvent<string>` |
+| Event   | Description | Type                  |
+| ------- | ----------- | --------------------- |
+| `event` |             | `CustomEvent<string>` |
 
 
 ----------------------------------------------
