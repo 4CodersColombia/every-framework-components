@@ -1,8 +1,8 @@
 import { Component, Host, h, Prop, Event, EventEmitter, State } from '@stencil/core';
 
 @Component({
-  tag: 'pr-input',
-  styleUrl: 'pr-input.css',
+  tag: 'ef-input',
+  styleUrl: 'ef-input.css',
   shadow: true,
 })
 export class PrInput {

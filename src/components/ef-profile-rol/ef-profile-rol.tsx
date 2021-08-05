@@ -1,8 +1,8 @@
 import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'pr-profile-rol',
-  styleUrl: 'pr-profile-rol.css',
+  tag: 'ef-profile-rol',
+  styleUrl: 'ef-profile-rol.css',
   shadow: true,
 })
 export class PrProfileRol {
@@ -14,7 +14,7 @@ export class PrProfileRol {
     return (
       <Host>
         <div class="profile-rol-div">
-          <img src={this.image} alt="image-profile" />
+          <img src={this.image} alt="image-profile" class="imagen" />
           <div class="name-rol-column">
             <span class="name">{this.name}</span>
             <span class="rol">{this.rol}</span>

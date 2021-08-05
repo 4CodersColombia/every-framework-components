@@ -2,8 +2,8 @@ import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
 import { CONST_IMAGES_CHECKBOX } from './constCheckBox';
 
 @Component({
-  tag: 'pr-checkbox',
-  styleUrl: 'pr-checkbox.css',
+  tag: 'ef-checkbox',
+  styleUrl: 'ef-checkbox.css',
   shadow: true,
 })
 export class XuachCheckbox {

@@ -2,8 +2,8 @@ import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
 import { CONST_SIZES_BUTTON, CONST_COLORS_BUTTON } from './constants';
 
 @Component({
-  tag: 'pr-button',
-  styleUrl: 'pr-button.css',
+  tag: 'ef-button',
+  styleUrl: 'ef-button.css',
   shadow: true,
 })
 export class PrButton {
@@ -41,7 +41,7 @@ export class PrButton {
   render() {
     return (
       <Host>
-        <button class="pr-button" disabled={this.disabled} style={this.stylePrButton} type="button" onClick={this.eventButton.bind(this)}>
+        <button class="ef-button" disabled={this.disabled} style={this.stylePrButton} type="button" onClick={this.eventButton.bind(this)}>
           {this.text}
           <img class="imagen" src={this.icon} />
         </button>
