@@ -18,35 +18,18 @@
   <meta name="apple-mobile-web-app-title" content="Ionic PWA">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <script type="module" src="/build/perritas-ricas-components.esm.js"></script>
+    <script nomodule src="/build/perritas-ricas-components.js"></script>
 
-  <script type="module" src="/build/app.esm.js"></script>
-  <script nomodule src="/build/app.js"></script>
-
-  <link href="/build/app.css" rel="stylesheet">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png">
-  <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico">
-  <link rel="manifest" href="/manifest.json">
-</head>
-
-<body>
-  <div style="margin-left: auto; margin-right: auto; margin-top: 5%; 
-  text-align: center; background-color: rgb(207, 206, 206); padding: 5px;">
-    <p>COMPONENT PR-PROFILE-ROL</p>
-    <div style="margin-bottom: 4%;">
-      <div style="margin-top: 1%;display: flex; width: 100%; align-items: center;justify-content: center;" class="row">
-        <pr-profile-rol name="Alvaro Javier" rol="Admin Traguatan"
-          image="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
-        </pr-profile-rol>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  </div>
-
-</body>
-
+    <link href="/build/app.css" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+  </style>
+  <body>
+    <pr-data-table></pr-data-table>
+  </body>
 </html>
