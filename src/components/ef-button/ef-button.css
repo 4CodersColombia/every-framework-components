@@ -10,12 +10,11 @@
   src: url('../../fonts/Quicksand-Regular.ttf');
 }
 
-.pr-button {
+.ef-button {
   width: 100%;
   cursor: pointer;
   height: 34px;
   border-radius: 12px;
-  border: initial;
   color: white;
   font-family: 'QuickSand', sans-serif;
   font-weight: 700;
@@ -26,7 +25,7 @@
   flex-direction: row;
   justify-content: center;
 }
-.pr-button:disabled {
+.ef-button:disabled {
   cursor: initial;
 }
 .imagen {

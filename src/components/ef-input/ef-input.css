@@ -19,7 +19,6 @@
   position: relative;
   align-items: center;
   flex-direction: row;
-  font-family: 'QuickSand', sans-serif;
   width: 100%;
   height: 45px;
   color: #091731;
@@ -56,7 +55,6 @@
   opacity: 1;
   transform: translateY(-25px);
   transition: 0.2s ease-in-out transform;
- 
 }
 .input:focus-within > .form-control::-webkit-input-placeholder {
   color: transparent;
@@ -128,7 +126,6 @@
   transition: 0.2s ease-in-out transform;
 }
 
-
 /* style css for error message */
 
 .error {
@@ -160,6 +157,6 @@
   line-height: 20px;
 
   /* identical to box height, or 156% */
-  letter-spacing: 0.1 .5px;
+  letter-spacing: 0.1 0.5px;
   color: #ee0000;
 }

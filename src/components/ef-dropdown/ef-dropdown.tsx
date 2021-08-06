@@ -2,8 +2,8 @@ import { Component, Host, h, Prop, EventEmitter, Event, State } from '@stencil/c
 import { CONST_ICON_XUACH_GLOBAL_DOPDOWN } from './constants';
 import { ClickOutside } from 'stencil-click-outside';
 @Component({
-  tag: 'pr-dropdown',
-  styleUrl: 'pr-dropdown.css',
+  tag: 'ef-dropdown',
+  styleUrl: 'ef-dropdown.css',
   shadow: true,
 })
 export class XuachGlobalDropdown {
