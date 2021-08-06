@@ -27,5 +27,4 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
-src/components.d.ts
 react/components.ts
