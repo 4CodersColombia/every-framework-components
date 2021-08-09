@@ -5,26 +5,28 @@ import { Component, h, Host, Prop } from '@stencil/core';
   styleUrl: 'ef-data-table.css',
 })
 export class PrDataTable {
-  @Prop() headers: string[];
-  @Prop() data: { name: string; value: string | number }[][];
+  @Prop() headers: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[]
+  @Prop() data: { [key: string]: string | number }[]
 
-  renderTableIndex(index: number) {
-    const dataArrayShort = this.headers.map(header => {
-      if (this.data[index] !== undefined) {
-        var indexRow = this.data[index].find(x => x.name === header);
-        if (index !== undefined) {
-          return indexRow.value;
-        }
-      }
-    });
+  renderRowData(dataRow: { [key: string]: string | number }) {
     return (
       <tr class="border-table">
-        {dataArrayShort.map(value => (
-          <td>{value}</td>
-        ))}
+        {this.headers.map(header => {
+          if(header.slot){
+            return (
+              <td>{header.slot(dataRow)}</td>
+            )
+          }
+          else{
+            return (
+              <td>{dataRow[header.value]}</td>
+            )
+          }
+        })}
       </tr>
     );
   }
+
   render() {
     return (
       <Host>
@@ -32,11 +34,11 @@ export class PrDataTable {
           <thead class="head-table">
             <tr class="border-table">
               {this.headers.map(header => (
-                <th>{header}</th>
+                <th>{header.text}</th>
               ))}
             </tr>
           </thead>
-          <tbody class="table-body">{this.data.map((_, index) => this.renderTableIndex(index))}</tbody>
+          <tbody class="table-body">{this.data.map(item => this.renderRowData(item))}</tbody>
         </table>
       </Host>
     );

@@ -18,10 +18,6 @@ export namespace Components {
         "disabled": boolean;
         "size": number;
     }
-    interface EfDataTable {
-        "data": { name: string; value: string | number }[][];
-        "headers": string[];
-    }
     interface EfDropdown {
         "disabled": boolean;
         "errorMessage": string;
@@ -62,12 +58,6 @@ declare global {
         prototype: HTMLEfCheckboxElement;
         new (): HTMLEfCheckboxElement;
     };
-    interface HTMLEfDataTableElement extends Components.EfDataTable, HTMLStencilElement {
-    }
-    var HTMLEfDataTableElement: {
-        prototype: HTMLEfDataTableElement;
-        new (): HTMLEfDataTableElement;
-    };
     interface HTMLEfDropdownElement extends Components.EfDropdown, HTMLStencilElement {
     }
     var HTMLEfDropdownElement: {
@@ -95,7 +85,6 @@ declare global {
     interface HTMLElementTagNameMap {
         "ef-button": HTMLEfButtonElement;
         "ef-checkbox": HTMLEfCheckboxElement;
-        "ef-data-table": HTMLEfDataTableElement;
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
         "ef-profile-rol": HTMLEfProfileRolElement;
@@ -116,10 +105,6 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "onEvent"?: (event: CustomEvent<any>) => void;
         "size"?: number;
-    }
-    interface EfDataTable {
-        "data"?: { name: string; value: string | number }[][];
-        "headers"?: string[];
     }
     interface EfDropdown {
         "disabled"?: boolean;
@@ -152,7 +137,6 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "ef-button": EfButton;
         "ef-checkbox": EfCheckbox;
-        "ef-data-table": EfDataTable;
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
         "ef-profile-rol": EfProfileRol;
@@ -165,7 +149,6 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ef-button": LocalJSX.EfButton & JSXBase.HTMLAttributes<HTMLEfButtonElement>;
             "ef-checkbox": LocalJSX.EfCheckbox & JSXBase.HTMLAttributes<HTMLEfCheckboxElement>;
-            "ef-data-table": LocalJSX.EfDataTable & JSXBase.HTMLAttributes<HTMLEfDataTableElement>;
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
             "ef-profile-rol": LocalJSX.EfProfileRol & JSXBase.HTMLAttributes<HTMLEfProfileRolElement>;
