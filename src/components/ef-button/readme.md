@@ -1,6 +1,4 @@
-# pr-button
-
-
+# ef-button
 
 <!-- Auto Generated Below -->
 
@@ -18,9 +16,9 @@
 
 ## Events
 
-| Event         | Description | Type               |
-| ------------- | ----------- | ------------------ |
-| `clickButton` |             | `CustomEvent<any>` |
+| Event   | Description | Type               |
+| ------- | ----------- | ------------------ |
+| `event` |             | `CustomEvent<any>` |
 
 
 ----------------------------------------------

@@ -1,7 +1,7 @@
 {
-  "name": "perritas-ricas-components",
-  "version": "0.0.4",
-  "description": "Stencil Component Starter",
+  "name": "every-framework-components",
+  "version": "0.3.0",
+  "description": "Stencil Components",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -9,7 +9,7 @@
   "types": "dist/custom-elements/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/perritas-ricas-components/perritas-ricas-components.esm.js",
+  "unpkg": "dist/every-framework-components/every-framework-components.esm.js",
   "files": [
     "dist/",
     "loader/",
@@ -21,11 +21,11 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate",
-    "prepublish": "npm run build"
+    "generate": "stencil generate"
   },
   "dependencies": {
-    "@stencil/core": "^2.0.1"
+    "@stencil/core": "^2.0.1",
+    "stencil-click-outside": "^1.7.1"
   },
   "devDependencies": {
     "@stencil/react-output-target": "^0.0.9",

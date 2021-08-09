@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+:host {
+  display: block;
+}
+
+.profile-rol-div {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: center;
+}
+
+.imagen {
+  border: 0px solid;
+  border-radius: 100%;
+  height: 60px;
+  width: 60px;
+  min-height: 60px;
+  min-width: 60px;
+  margin: 4px;
+}
+
+.name-rol-column {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  margin: 4px;
+}
+.name {
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  color: #091731;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px;
+  text-transform: capitalize;
+}
+.rol {
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #a5a4a4;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 0px;
+  text-transform: capitalize;
+}

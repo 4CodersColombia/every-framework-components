@@ -1,8 +1,8 @@
 import { Component, Host, h, Prop, Event, EventEmitter, State } from '@stencil/core';
 
 @Component({
-  tag: 'pr-input',
-  styleUrl: 'pr-input.css',
+  tag: 'ef-input',
+  styleUrl: 'ef-input.css',
   shadow: true,
 })
 export class PrInput {
@@ -14,22 +14,27 @@ export class PrInput {
   @Prop({ attribute: 'prepend-icon' }) prependIcon: string;
   @Prop() type: 'text' | 'password' = 'text';
 
-   //data of config input for text or password
-  @State() configInputType:string=this.type;
+  //data of config input for text or password
+  @State() configInputType: string;
   //Event to emit any action from of parent
-  @Event() valueChange: EventEmitter<string>;
+  @Event() event: EventEmitter<string>;
+
+  //event when component will load
+  componentWillLoad() {
+    this.configInputType = this.type;
+  }
 
   //emit event of input text
   onInputChangeValue(event: Event) {
     const value = (event.target as HTMLInputElement).value;
-    this.valueChange.emit(value);
+    this.event.emit(value);
   }
 
   //set Visible Password
-  setVisiblePasswod(){
-    if(this.type==='password'){
-      this.configInputType=this.configInputType=='text'?'password':'text'
-    } 
+  setVisiblePasswod() {
+    if (this.type === 'password') {
+      this.configInputType = this.configInputType == 'text' ? 'password' : 'text';
+    }
   }
   //get style disabled
   getStyleDisabled() {
@@ -45,7 +50,7 @@ export class PrInput {
     return (
       <Host>
         <div class={this.getStyleErrorMessage() + ' input ' + this.getStyleDisabled()}>
-          <img  onClick={this.setVisiblePasswod.bind(this)} src={this.prependIcon} class="imagen" />
+          <img src={this.prependIcon} class="imagen" />
           <input
             value={this.value}
             disabled={this.disabled}

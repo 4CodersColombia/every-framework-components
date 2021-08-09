@@ -19,9 +19,8 @@
   position: relative;
   align-items: center;
   flex-direction: row;
-  font-family: 'QuickSand', sans-serif;
   width: 100%;
-  height: 28px;
+  height: 45px;
   color: #091731;
   background: rgba(255, 255, 255, 0.8);
   border: 1.5px solid #939393;
@@ -54,7 +53,7 @@
   visibility: visible;
   z-index: 1;
   opacity: 1;
-  transform: translateY(-10px);
+  transform: translateY(-25px);
   transition: 0.2s ease-in-out transform;
 }
 .input:focus-within > .form-control::-webkit-input-placeholder {
@@ -84,6 +83,7 @@
   color: #a5a4a4;
   transition: 0.2s ease-in-out transform;
   font-size: 11.5px;
+  font-weight: bold;
 }
 
 /* styles css for animation label hidden */
@@ -99,7 +99,7 @@
   visibility: visible;
   z-index: 1;
   opacity: 1;
-  transform: translateY(-10px);
+  transform: translateY(-25px);
   transition: 0.2s ease-in-out transform;
 }
 
@@ -113,8 +113,8 @@
   color: #091731 !important;
 }
 
-.disabled +.error-message{
-  color:#091731 !important;
+.disabled + .error-message {
+  color: #091731 !important;
 }
 
 .disabled > .form-control + .control-label,
@@ -122,14 +122,8 @@
   visibility: visible;
   z-index: 1;
   opacity: 1;
-  transform: translateY(-10px);
+  transform: translateY(-25px);
   transition: 0.2s ease-in-out transform;
-}
-
-.disabled > .form-control {
-  visibility: hidden;
-  z-index: -1;
-  transition: 0.2s ease-in-out;
 }
 
 /* style css for error message */
@@ -163,6 +157,6 @@
   line-height: 20px;
 
   /* identical to box height, or 156% */
-  letter-spacing: 0.1.5px;
+  letter-spacing: 0.1 0.5px;
   color: #ee0000;
 }

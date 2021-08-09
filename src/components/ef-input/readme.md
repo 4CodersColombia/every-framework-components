@@ -1,6 +1,4 @@
-# pr-input
-
-
+# ef-input
 
 <!-- Auto Generated Below -->
 
@@ -20,9 +18,9 @@
 
 ## Events
 
-| Event         | Description | Type                  |
-| ------------- | ----------- | --------------------- |
-| `valueChange` |             | `CustomEvent<string>` |
+| Event   | Description | Type                  |
+| ------- | ----------- | --------------------- |
+| `event` |             | `CustomEvent<string>` |
 
 
 ----------------------------------------------
