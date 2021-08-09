@@ -4,19 +4,24 @@ import { Component, h, Host, Prop } from '@stencil/core';
   tag: 'pr-data-table',
   styleUrl: 'pr-data-table.css',
 })
-export class PrDataTable{
-  @Prop() headers: {text: string, value: string}[] = [
+export class PrDataTable {
+  @Prop() headers: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[] = [
     {
       text: 'Dessert (100g serving)',
       value: 'name',
+      slot: (item: { [key: string]: string | number }) => {
+        return <button>{`hola ${item.name}`}</button>;
+      },
     },
-    { text: 'Calories', value: 'calories' },
+    { text: 'Calories', value: 'calories', slot: (item: { [key: string]: string | number }) => {
+      return <div style={{backgroundColor: 'green', width: '100px', color: 'white'}}>{`hola ${item.calories}`}</div>;
+    }, },
     { text: 'Fat (g)', value: 'fat' },
     { text: 'Carbs (g)', value: 'carbs' },
     { text: 'Protein (g)', value: 'protein' },
-    { text: 'Iron (%)', value: 'iron' }
-  ]
-  @Prop() data: {[key: string]: string | number}[] = [
+    { text: 'Iron (%)', value: 'iron' },
+  ];
+  @Prop() data: { [key: string]: string | number }[] = [
     {
       name: 'Frozen Yogurt',
       calories: 159,
@@ -75,8 +80,8 @@ export class PrDataTable{
     },
     {
       calories: 408,
-      fat: 3.2,
       carbs: 87,
+      fat: 3.2,
       name: 'Honeycomb',
       protein: 6.5,
       iron: '45%',
@@ -85,31 +90,37 @@ export class PrDataTable{
       calories: 452,
       fat: 25.0,
       carbs: 51,
-      name: 'Donut',
       protein: 4.9,
+      name: 'Donut',
       iron: '22%',
     },
     {
       name: 'KitKat',
       calories: 518,
-      fat: 26.0,
       iron: '6%',
+      fat: 26.0,
       carbs: 65,
       protein: 7,
     },
   ];
 
-  renderRowData(dataRow: Object) {
-    const dataSorted = this.headers.map((header)=>{
-      return dataRow[header.value]
-    })
+  renderRowData(dataRow: { [key: string]: string | number }) {
     return (
       <tr class="border-table">
-        {dataSorted.map((item)=>(
-          <td>{item}</td>
-        ))}
+        {this.headers.map(header => {
+          if(header.slot){
+            return (
+              <td>{header.slot(dataRow)}</td>
+            )
+          }
+          else{
+            return (
+              <td>{dataRow[header.value]}</td>
+            )
+          }
+        })}
       </tr>
-    )
+    );
   }
 
   render() {
@@ -123,11 +134,7 @@ export class PrDataTable{
               ))}
             </tr>
           </thead>
-          <tbody class="table-body">
-            {this.data.map(item => (
-              this.renderRowData(item)
-            ))}
-          </tbody>
+          <tbody class="table-body">{this.data.map(item => this.renderRowData(item))}</tbody>
         </table>
       </Host>
     );
