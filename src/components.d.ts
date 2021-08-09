@@ -44,6 +44,10 @@ export namespace Components {
         "name": string;
         "rol": string;
     }
+    interface PrDataTable {
+        "data": { [key: string]: string | number }[];
+        "headers": { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+    }
 }
 declare global {
     interface HTMLEfButtonElement extends Components.EfButton, HTMLStencilElement {
@@ -82,6 +86,12 @@ declare global {
         prototype: HTMLEfProfileRolElement;
         new (): HTMLEfProfileRolElement;
     };
+    interface HTMLPrDataTableElement extends Components.PrDataTable, HTMLStencilElement {
+    }
+    var HTMLPrDataTableElement: {
+        prototype: HTMLPrDataTableElement;
+        new (): HTMLPrDataTableElement;
+    };
     interface HTMLElementTagNameMap {
         "ef-button": HTMLEfButtonElement;
         "ef-checkbox": HTMLEfCheckboxElement;
@@ -89,6 +99,7 @@ declare global {
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
         "ef-profile-rol": HTMLEfProfileRolElement;
+        "pr-data-table": HTMLPrDataTableElement;
     }
 }
 declare namespace LocalJSX {
@@ -134,6 +145,10 @@ declare namespace LocalJSX {
         "name"?: string;
         "rol"?: string;
     }
+    interface PrDataTable {
+        "data"?: { [key: string]: string | number }[];
+        "headers"?: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+    }
     interface IntrinsicElements {
         "ef-button": EfButton;
         "ef-checkbox": EfCheckbox;
@@ -141,6 +156,7 @@ declare namespace LocalJSX {
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
         "ef-profile-rol": EfProfileRol;
+        "pr-data-table": PrDataTable;
     }
 }
 export { LocalJSX as JSX };
@@ -153,6 +169,7 @@ declare module "@stencil/core" {
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
             "ef-profile-rol": LocalJSX.EfProfileRol & JSXBase.HTMLAttributes<HTMLEfProfileRolElement>;
+            "pr-data-table": LocalJSX.PrDataTable & JSXBase.HTMLAttributes<HTMLPrDataTableElement>;
         }
     }
 }
