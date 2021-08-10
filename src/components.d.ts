@@ -18,10 +18,6 @@ export namespace Components {
         "disabled": boolean;
         "size": number;
     }
-    interface EfDataTable {
-        "data": { name: string; value: string | number }[][];
-        "headers": string[];
-    }
     interface EfDropdown {
         "disabled": boolean;
         "errorMessage": string;
@@ -44,6 +40,10 @@ export namespace Components {
         "name": string;
         "rol": string;
     }
+    interface PrDataTable {
+        "data": { [key: string]: string | number }[];
+        "headers": { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+    }
 }
 declare global {
     interface HTMLEfButtonElement extends Components.EfButton, HTMLStencilElement {
@@ -57,12 +57,6 @@ declare global {
     var HTMLEfCheckboxElement: {
         prototype: HTMLEfCheckboxElement;
         new (): HTMLEfCheckboxElement;
-    };
-    interface HTMLEfDataTableElement extends Components.EfDataTable, HTMLStencilElement {
-    }
-    var HTMLEfDataTableElement: {
-        prototype: HTMLEfDataTableElement;
-        new (): HTMLEfDataTableElement;
     };
     interface HTMLEfDropdownElement extends Components.EfDropdown, HTMLStencilElement {
     }
@@ -82,13 +76,19 @@ declare global {
         prototype: HTMLEfProfileRolElement;
         new (): HTMLEfProfileRolElement;
     };
+    interface HTMLPrDataTableElement extends Components.PrDataTable, HTMLStencilElement {
+    }
+    var HTMLPrDataTableElement: {
+        prototype: HTMLPrDataTableElement;
+        new (): HTMLPrDataTableElement;
+    };
     interface HTMLElementTagNameMap {
         "ef-button": HTMLEfButtonElement;
         "ef-checkbox": HTMLEfCheckboxElement;
-        "ef-data-table": HTMLEfDataTableElement;
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
         "ef-profile-rol": HTMLEfProfileRolElement;
+        "pr-data-table": HTMLPrDataTableElement;
     }
 }
 declare namespace LocalJSX {
@@ -105,10 +105,6 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "onEvent"?: (event: CustomEvent<any>) => void;
         "size"?: number;
-    }
-    interface EfDataTable {
-        "data"?: { name: string; value: string | number }[][];
-        "headers"?: string[];
     }
     interface EfDropdown {
         "disabled"?: boolean;
@@ -134,13 +130,17 @@ declare namespace LocalJSX {
         "name"?: string;
         "rol"?: string;
     }
+    interface PrDataTable {
+        "data"?: { [key: string]: string | number }[];
+        "headers"?: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+    }
     interface IntrinsicElements {
         "ef-button": EfButton;
         "ef-checkbox": EfCheckbox;
-        "ef-data-table": EfDataTable;
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
         "ef-profile-rol": EfProfileRol;
+        "pr-data-table": PrDataTable;
     }
 }
 export { LocalJSX as JSX };
@@ -149,10 +149,10 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ef-button": LocalJSX.EfButton & JSXBase.HTMLAttributes<HTMLEfButtonElement>;
             "ef-checkbox": LocalJSX.EfCheckbox & JSXBase.HTMLAttributes<HTMLEfCheckboxElement>;
-            "ef-data-table": LocalJSX.EfDataTable & JSXBase.HTMLAttributes<HTMLEfDataTableElement>;
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
             "ef-profile-rol": LocalJSX.EfProfileRol & JSXBase.HTMLAttributes<HTMLEfProfileRolElement>;
+            "pr-data-table": LocalJSX.PrDataTable & JSXBase.HTMLAttributes<HTMLPrDataTableElement>;
         }
     }
 }
