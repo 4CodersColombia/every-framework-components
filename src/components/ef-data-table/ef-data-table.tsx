@@ -1,32 +1,25 @@
 import { Component, h, Host, Prop } from '@stencil/core';
-
-@Component({
-  tag: 'ef-data-table',
-  styleUrl: 'ef-data-table.css',
-})
+@Component({ tag: 'ef-data-table', styleUrl: 'ef-data-table.css', shadow: true })
 export class PrDataTable {
-  @Prop() headers: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[]
-  @Prop() data: { [key: string]: string | number }[]
-
-  renderRowData(dataRow: { [key: string]: string | number }) {
+  @Prop() headers: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+  @Prop() data: { [key: string]: string | number }[];
+  renderRowData(dataRow: { [key: string]: string | number }, key: number) {
     return (
       <tr class="border-table">
         {this.headers.map(header => {
-          if(header.slot){
+          if (header.slot) {
+            return <td>{header.slot(dataRow)}</td>;
+          } else {
             return (
-              <td>{header.slot(dataRow)}</td>
-            )
-          }
-          else{
-            return (
-              <td>{dataRow[header.value]}</td>
-            )
+              <td>
+                <slot name={`${dataRow[header.value]}${key}`}>{dataRow[header.value]}</slot>
+              </td>
+            );
           }
         })}
       </tr>
     );
   }
-
   render() {
     return (
       <Host>
@@ -38,7 +31,7 @@ export class PrDataTable {
               ))}
             </tr>
           </thead>
-          <tbody class="table-body">{this.data.map(item => this.renderRowData(item))}</tbody>
+          <tbody class="table-body">{this.data.map((item, key) => this.renderRowData(item, key))}</tbody>
         </table>
       </Host>
     );
