@@ -1,11 +1,10 @@
 on:
-  push:
-    tags:
-      - "*"
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  publish:
-    if: github.event.base_ref == 'refs/heads/main'
+  check-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -13,8 +12,6 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
+
       - run: npm install
       - run: npm run build
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
