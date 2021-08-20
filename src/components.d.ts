@@ -39,6 +39,10 @@ export namespace Components {
         "type": 'text' | 'password';
         "value": string;
     }
+    interface EfModal {
+        "modal": boolean;
+        "width": string;
+    }
     interface EfProfileRol {
         "image": string;
         "name": string;
@@ -76,6 +80,12 @@ declare global {
         prototype: HTMLEfInputElement;
         new (): HTMLEfInputElement;
     };
+    interface HTMLEfModalElement extends Components.EfModal, HTMLStencilElement {
+    }
+    var HTMLEfModalElement: {
+        prototype: HTMLEfModalElement;
+        new (): HTMLEfModalElement;
+    };
     interface HTMLEfProfileRolElement extends Components.EfProfileRol, HTMLStencilElement {
     }
     var HTMLEfProfileRolElement: {
@@ -88,6 +98,7 @@ declare global {
         "ef-data-table": HTMLEfDataTableElement;
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
+        "ef-modal": HTMLEfModalElement;
         "ef-profile-rol": HTMLEfProfileRolElement;
     }
 }
@@ -129,6 +140,10 @@ declare namespace LocalJSX {
         "type"?: 'text' | 'password';
         "value"?: string;
     }
+    interface EfModal {
+        "modal"?: boolean;
+        "width"?: string;
+    }
     interface EfProfileRol {
         "image"?: string;
         "name"?: string;
@@ -140,6 +155,7 @@ declare namespace LocalJSX {
         "ef-data-table": EfDataTable;
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
+        "ef-modal": EfModal;
         "ef-profile-rol": EfProfileRol;
     }
 }
@@ -152,6 +168,7 @@ declare module "@stencil/core" {
             "ef-data-table": LocalJSX.EfDataTable & JSXBase.HTMLAttributes<HTMLEfDataTableElement>;
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
+            "ef-modal": LocalJSX.EfModal & JSXBase.HTMLAttributes<HTMLEfModalElement>;
             "ef-profile-rol": LocalJSX.EfProfileRol & JSXBase.HTMLAttributes<HTMLEfProfileRolElement>;
         }
     }
