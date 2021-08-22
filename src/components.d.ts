@@ -47,6 +47,7 @@ export namespace Components {
         "image": string;
         "name": string;
         "rol": string;
+        "styleName": { [key: string]: string };
     }
 }
 declare global {
@@ -148,6 +149,7 @@ declare namespace LocalJSX {
         "image"?: string;
         "name"?: string;
         "rol"?: string;
+        "styleName"?: { [key: string]: string };
     }
     interface IntrinsicElements {
         "ef-button": EfButton;

@@ -5,11 +5,12 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `image`  | `image`   |             | `string` | `undefined` |
-| `name`   | `name`    |             | `string` | `undefined` |
-| `rol`    | `rol`     |             | `string` | `undefined` |
+| Property    | Attribute | Description | Type                         | Default     |
+| ----------- | --------- | ----------- | ---------------------------- | ----------- |
+| `image`     | `image`   |             | `string`                     | `undefined` |
+| `name`      | `name`    |             | `string`                     | `undefined` |
+| `rol`       | `rol`     |             | `string`                     | `undefined` |
+| `styleName` | --        |             | `{ [key: string]: string; }` | `undefined` |
 
 
 ----------------------------------------------

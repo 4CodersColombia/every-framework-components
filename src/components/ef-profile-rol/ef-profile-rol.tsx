@@ -9,14 +9,16 @@ export class PrProfileRol {
   @Prop() image: string;
   @Prop() name: string;
   @Prop() rol: string;
-
+  @Prop() styleName: { [key: string]: string };
   render() {
     return (
       <Host>
         <div class="profile-rol-div">
           <img src={this.image} alt="image-profile" class="imagen" />
           <div class="name-rol-column">
-            <span class="name">{this.name}</span>
+            <span class="name" style={this.styleName}>
+              {this.name}
+            </span>
             <span class="rol">{this.rol}</span>
           </div>
         </div>
