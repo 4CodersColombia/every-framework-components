@@ -32,8 +32,8 @@
 
 <body>
   <div style="display:flex;flex-direction:row;align-items:center;justify-content:space-around;">
-    <ef-checkbox size="50" checked=true>
-    </ef-checkbox>
+    <ef-profile-rol :name="dataUser.userName" :rol="dataUser.rol" :image="dataUser.userImage"
+      :styleName="{ color: 'white', 'font-Size': '17px' }"></ef-profile-rol>
   </div>
 </body>
 
