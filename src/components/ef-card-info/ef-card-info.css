@@ -3,7 +3,7 @@
   display: block;
 }
 
-.profile-rol-div {
+.card-info-div {
   display: flex;
   flex-direction: row;
   align-items: left;
@@ -20,14 +20,14 @@
   margin: 4px;
 }
 
-.name-rol-column {
+.title-column {
   display: flex;
   flex-direction: column;
   align-items: left;
   justify-content: center;
   margin: 4px;
 }
-.name {
+.title-info {
   font-family: 'Quicksand', sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -41,7 +41,7 @@
   margin: 0px 0px;
   text-transform: capitalize;
 }
-.rol {
+.subtitle-info {
   font-family: 'Quicksand', sans-serif;
   font-style: normal;
   font-weight: bold;
