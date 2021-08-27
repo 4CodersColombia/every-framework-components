@@ -30,14 +30,15 @@
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 </style>
 
-<body>
-  <div style="display:flex;flex-direction:row;align-items:center;justify-content:space-around;">
-    <ef-card-info title="hola" subtitle="hola"
-      image="https://depor.com/resizer/QPAATuRp3-QBEaLxuMFJ73ta92E=/1200x900/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/K4EGYRJM2VH5TAF5FKAPFLANJ4.jpg">
-    </ef-card-info>
-
-
-  </div>
+<body style="height: 98vh;">
+  <ef-template-admin show-modal="true">
+    <div slot="content-left">
+      hola
+    </div>
+    <div slot="content-right">
+      hola, soy el componente modal right
+    </div>
+  </ef-template-admin>
 </body>
 
 </html>

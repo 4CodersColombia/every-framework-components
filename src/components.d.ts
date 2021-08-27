@@ -49,6 +49,13 @@ export namespace Components {
         "modal": boolean;
         "width": string;
     }
+    interface EfModalRight {
+        "showModal": boolean;
+        "width": string;
+    }
+    interface EfTemplateAdmin {
+        "showModal": boolean;
+    }
 }
 declare global {
     interface HTMLEfButtonElement extends Components.EfButton, HTMLStencilElement {
@@ -93,6 +100,18 @@ declare global {
         prototype: HTMLEfModalElement;
         new (): HTMLEfModalElement;
     };
+    interface HTMLEfModalRightElement extends Components.EfModalRight, HTMLStencilElement {
+    }
+    var HTMLEfModalRightElement: {
+        prototype: HTMLEfModalRightElement;
+        new (): HTMLEfModalRightElement;
+    };
+    interface HTMLEfTemplateAdminElement extends Components.EfTemplateAdmin, HTMLStencilElement {
+    }
+    var HTMLEfTemplateAdminElement: {
+        prototype: HTMLEfTemplateAdminElement;
+        new (): HTMLEfTemplateAdminElement;
+    };
     interface HTMLElementTagNameMap {
         "ef-button": HTMLEfButtonElement;
         "ef-card-info": HTMLEfCardInfoElement;
@@ -101,6 +120,8 @@ declare global {
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
         "ef-modal": HTMLEfModalElement;
+        "ef-modal-right": HTMLEfModalRightElement;
+        "ef-template-admin": HTMLEfTemplateAdminElement;
     }
 }
 declare namespace LocalJSX {
@@ -151,6 +172,13 @@ declare namespace LocalJSX {
         "modal"?: boolean;
         "width"?: string;
     }
+    interface EfModalRight {
+        "showModal"?: boolean;
+        "width"?: string;
+    }
+    interface EfTemplateAdmin {
+        "showModal"?: boolean;
+    }
     interface IntrinsicElements {
         "ef-button": EfButton;
         "ef-card-info": EfCardInfo;
@@ -159,6 +187,8 @@ declare namespace LocalJSX {
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
         "ef-modal": EfModal;
+        "ef-modal-right": EfModalRight;
+        "ef-template-admin": EfTemplateAdmin;
     }
 }
 export { LocalJSX as JSX };
@@ -172,6 +202,8 @@ declare module "@stencil/core" {
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
             "ef-modal": LocalJSX.EfModal & JSXBase.HTMLAttributes<HTMLEfModalElement>;
+            "ef-modal-right": LocalJSX.EfModalRight & JSXBase.HTMLAttributes<HTMLEfModalRightElement>;
+            "ef-template-admin": LocalJSX.EfTemplateAdmin & JSXBase.HTMLAttributes<HTMLEfTemplateAdminElement>;
         }
     }
 }
