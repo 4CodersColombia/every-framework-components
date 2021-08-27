@@ -6,7 +6,7 @@ export class PrDataTable {
   @Prop() data: { [key: string]: string | number }[];
   @Prop() icon_arrow: string = IMAGES_DATA_TABLE['ARROW_DOWN'];
 
-  @State() array_drawer_item: boolean[] = Array.from({ length: this.getLengthData() }, i => false);
+  @State() array_drawer_item: boolean[] = Array.from({ length: this.getLengthData() }, () => false);
 
   getLengthData() {
     return this.data ? this.data.length : 0;
