@@ -49,6 +49,9 @@ export namespace Components {
         "modal": boolean;
         "width": string;
     }
+    interface EfTabs {
+        "titles": { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+    }
 }
 declare global {
     interface HTMLEfButtonElement extends Components.EfButton, HTMLStencilElement {
@@ -93,6 +96,12 @@ declare global {
         prototype: HTMLEfModalElement;
         new (): HTMLEfModalElement;
     };
+    interface HTMLEfTabsElement extends Components.EfTabs, HTMLStencilElement {
+    }
+    var HTMLEfTabsElement: {
+        prototype: HTMLEfTabsElement;
+        new (): HTMLEfTabsElement;
+    };
     interface HTMLElementTagNameMap {
         "ef-button": HTMLEfButtonElement;
         "ef-card-info": HTMLEfCardInfoElement;
@@ -101,6 +110,7 @@ declare global {
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
         "ef-modal": HTMLEfModalElement;
+        "ef-tabs": HTMLEfTabsElement;
     }
 }
 declare namespace LocalJSX {
@@ -151,6 +161,9 @@ declare namespace LocalJSX {
         "modal"?: boolean;
         "width"?: string;
     }
+    interface EfTabs {
+        "titles"?: { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+    }
     interface IntrinsicElements {
         "ef-button": EfButton;
         "ef-card-info": EfCardInfo;
@@ -159,6 +172,7 @@ declare namespace LocalJSX {
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
         "ef-modal": EfModal;
+        "ef-tabs": EfTabs;
     }
 }
 export { LocalJSX as JSX };
@@ -172,6 +186,7 @@ declare module "@stencil/core" {
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
             "ef-modal": LocalJSX.EfModal & JSXBase.HTMLAttributes<HTMLEfModalElement>;
+            "ef-tabs": LocalJSX.EfTabs & JSXBase.HTMLAttributes<HTMLEfTabsElement>;
         }
     }
 }
