@@ -1,4 +1,4 @@
-import { Component, getAssetPath, h, Prop, State } from '@stencil/core';
+import { Component, h, Prop, State } from '@stencil/core';
 @Component({
   tag: 'ef-tabs',
   styleUrl: 'ef-tabs.css',
