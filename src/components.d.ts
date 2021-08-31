@@ -50,12 +50,8 @@ export namespace Components {
         "modal": boolean;
         "width": string;
     }
-    interface EfModalRight {
-        "showModal": boolean;
-        "width": string;
-    }
-    interface EfTemplateAdmin {
-        "showModal": boolean;
+    interface EfTabs {
+        "titles": { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
     }
 }
 declare global {
@@ -101,17 +97,11 @@ declare global {
         prototype: HTMLEfModalElement;
         new (): HTMLEfModalElement;
     };
-    interface HTMLEfModalRightElement extends Components.EfModalRight, HTMLStencilElement {
+    interface HTMLEfTabsElement extends Components.EfTabs, HTMLStencilElement {
     }
-    var HTMLEfModalRightElement: {
-        prototype: HTMLEfModalRightElement;
-        new (): HTMLEfModalRightElement;
-    };
-    interface HTMLEfTemplateAdminElement extends Components.EfTemplateAdmin, HTMLStencilElement {
-    }
-    var HTMLEfTemplateAdminElement: {
-        prototype: HTMLEfTemplateAdminElement;
-        new (): HTMLEfTemplateAdminElement;
+    var HTMLEfTabsElement: {
+        prototype: HTMLEfTabsElement;
+        new (): HTMLEfTabsElement;
     };
     interface HTMLElementTagNameMap {
         "ef-button": HTMLEfButtonElement;
@@ -121,8 +111,7 @@ declare global {
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
         "ef-modal": HTMLEfModalElement;
-        "ef-modal-right": HTMLEfModalRightElement;
-        "ef-template-admin": HTMLEfTemplateAdminElement;
+        "ef-tabs": HTMLEfTabsElement;
     }
 }
 declare namespace LocalJSX {
@@ -174,12 +163,8 @@ declare namespace LocalJSX {
         "modal"?: boolean;
         "width"?: string;
     }
-    interface EfModalRight {
-        "showModal"?: boolean;
-        "width"?: string;
-    }
-    interface EfTemplateAdmin {
-        "showModal"?: boolean;
+    interface EfTabs {
+        "titles"?: { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
     }
     interface IntrinsicElements {
         "ef-button": EfButton;
@@ -189,8 +174,7 @@ declare namespace LocalJSX {
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
         "ef-modal": EfModal;
-        "ef-modal-right": EfModalRight;
-        "ef-template-admin": EfTemplateAdmin;
+        "ef-tabs": EfTabs;
     }
 }
 export { LocalJSX as JSX };
@@ -204,8 +188,7 @@ declare module "@stencil/core" {
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
             "ef-modal": LocalJSX.EfModal & JSXBase.HTMLAttributes<HTMLEfModalElement>;
-            "ef-modal-right": LocalJSX.EfModalRight & JSXBase.HTMLAttributes<HTMLEfModalRightElement>;
-            "ef-template-admin": LocalJSX.EfTemplateAdmin & JSXBase.HTMLAttributes<HTMLEfTemplateAdminElement>;
+            "ef-tabs": LocalJSX.EfTabs & JSXBase.HTMLAttributes<HTMLEfTabsElement>;
         }
     }
 }
