@@ -5,41 +5,7 @@ import { Component, h, Prop, State } from '@stencil/core';
   shadow: true,
 })
 export class EfTabs {
-  @Prop() titles: { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[] = [
-    {
-      text: 'INICIO',
-      value: 'HOME',
-      icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/1200px-Flat_tick_icon.svg.png',
-    },
-    {
-      text: 'putos',
-      value: 'putos',
-      slot: (item: { [key: string]: string | number }) => {
-        return <div>hola putos</div>;
-      },
-    },
-    {
-      text: 'putos',
-      value: 'putos',
-      slot: (item: { [key: string]: string | number }) => {
-        return <div>hola putos</div>;
-      },
-    },
-    {
-      text: 'putos',
-      value: 'putos',
-      slot: (item: { [key: string]: string | number }) => {
-        return <div>hola putos</div>;
-      },
-    },
-    {
-      text: 'putos',
-      value: 'putos',
-      slot: (item: { [key: string]: string | number }) => {
-        return <div>hola putos</div>;
-      },
-    },
-  ];
+  @Prop() titles: { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
 
   @State() tabActiveIndex: string | number = 0;
 
