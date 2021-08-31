@@ -2,7 +2,6 @@
   display: flex;
   width: 100%;
   height: 100%;
-  padding: 10px;
 }
 .ef-tabs-container {
   display: flex;
@@ -17,45 +16,57 @@
   width: 100%;
   list-style-type: none;
   margin: 0;
-  padding: 0;
-  overflow: hidden;
+  padding: 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: left;
+  overflow: hidden;
+  overflow-x: auto;
+  background-color: #182845;
+  position: relative;
 }
-
+::-webkit-scrollbar {
+  display: none;
+}
 .ef-tabs li button {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  padding: 10px;
-  padding-left: 40px;
-  padding-right: 40px;
-  margin-right: 20px;
   cursor: pointer;
-  font-family: 'Quicksand', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
-  letter-spacing: 0.5px;
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
   border: 0px solid;
+  color: white;
+  width: 90px;
+  padding: 16px;
+  height: 25px;
 }
 .ef-tab-button-icon {
-  width: 23.34px;
-  height: 23.33px;
+  width: 15px;
+  height: 15px;
   padding-right: 10px;
 }
 .ef-tab-button-active {
-  background-color: white;
-  color: #091731;
+  background-color: #091731;
 }
 .ef-tab-button-hidden {
-  background-color: #e4e4e4;
-  color: #4b4b4b;
+  background-color: #182845;
+  opacity: 0.98;
+}
+.ef-tabs-animation {
+  position: absolute;
+  height: 2px;
+  bottom: 0;
+  z-index: 0;
+  min-width: 90px;
+  max-width: 90px;
+  background-color: white;
+  transition: all 0.5s ease 0s;
+}
+.ef-tabs-animation-start,
+.ef-tabs:nth-child(n):hover ~ .ef-tabs-animation {
+  width: 100px;
+  left: 0;
 }
 .ef-tabs-content {
   width: 100%;
@@ -69,10 +80,9 @@
   width: 100%;
   height: 100%;
   border-radius: 38px;
-  background-color: white;
-}
-.ef-tab-content-active:first-child {
   border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  background-color: white;
 }
 .ef-tab-content-hidden {
   display: none;

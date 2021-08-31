@@ -1,5 +1,4 @@
-import { Component, h, Prop, State } from '@stencil/core';
-
+import { Component, getAssetPath, h, Prop, State } from '@stencil/core';
 @Component({
   tag: 'ef-tabs',
   styleUrl: 'ef-tabs.css',
@@ -11,6 +10,27 @@ export class EfTabs {
       text: 'INICIO',
       value: 'HOME',
       icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/1200px-Flat_tick_icon.svg.png',
+    },
+    {
+      text: 'putos',
+      value: 'putos',
+      slot: (item: { [key: string]: string | number }) => {
+        return <div>hola putos</div>;
+      },
+    },
+    {
+      text: 'putos',
+      value: 'putos',
+      slot: (item: { [key: string]: string | number }) => {
+        return <div>hola putos</div>;
+      },
+    },
+    {
+      text: 'putos',
+      value: 'putos',
+      slot: (item: { [key: string]: string | number }) => {
+        return <div>hola putos</div>;
+      },
     },
     {
       text: 'putos',
@@ -31,6 +51,9 @@ export class EfTabs {
   }
   setContentActiveTab(newIndexTab) {
     this.tabActiveIndex = newIndexTab;
+  }
+  getAnimationLineTab(indexTab) {
+    return indexTab * 90 + 'px';
   }
 
   renderIconTab(itemTab) {
@@ -61,10 +84,14 @@ export class EfTabs {
       }
     });
   }
+
   render() {
     return (
       <div class="ef-tabs-container">
-        <ul class="ef-tabs">{this.renderButtonsTabs()}</ul>
+        <ul class="ef-tabs">
+          {this.renderButtonsTabs()}
+          <div class="ef-tabs-animation ef-tabs-animation-start" style={{ left: this.getAnimationLineTab(this.tabActiveIndex) }}></div>
+        </ul>
         <div class="ef-tabs-content">{this.renderTabs()}</div>
       </div>
     );
