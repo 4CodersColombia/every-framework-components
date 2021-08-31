@@ -30,10 +30,15 @@
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 </style>
 
-<body>
-  <div style="display:flex;flex-direction:row;align-items:center;justify-content:space-around;">
-    <ef-data-table></ef-data-table>
-  </div>
+<body style="height: 98vh;">
+  <ef-template-admin show-modal="true">
+    <div slot="content-left">
+      hola
+    </div>
+    <div slot="content-right">
+      hola, soy el componente modal right
+    </div>
+  </ef-template-admin>
 </body>
 
 </html>
