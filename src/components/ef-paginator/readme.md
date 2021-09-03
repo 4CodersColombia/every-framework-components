@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property       | Attribute       | Description | Type               | Default |
-| -------------- | --------------- | ----------- | ------------------ | ------- |
-| `pageActive`   | `page-active`   |             | `number \| string` | `'2'`   |
-| `pages`        | `pages`         |             | `number \| string` | `'11'`  |
-| `visiblePages` | `visible-pages` |             | `number \| string` | `'4'`   |
+| Property       | Attribute       | Description | Type     | Default |
+| -------------- | --------------- | ----------- | -------- | ------- |
+| `pageActive`   | `page-active`   |             | `number` | `1`     |
+| `pages`        | `pages`         |             | `number` | `17`    |
+| `visiblePages` | `visible-pages` |             | `number` | `3`     |
 
 
 ## Events
