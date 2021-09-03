@@ -49,11 +49,3 @@
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-.ef-page-arrow-disabled {
-  filter: gray;
-  -webkit-filter: grayscale(1);
-  filter: grayscale(1);
-}
-
-@media only screen and (max-width: 600px) {
-}
