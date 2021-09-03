@@ -50,8 +50,20 @@ export namespace Components {
         "modal": boolean;
         "width": string;
     }
+    interface EfModalRight {
+        "showModal": boolean;
+        "width": string;
+    }
+    interface EfPaginator {
+        "pageActive": number;
+        "pages": number;
+        "visiblePages": number;
+    }
     interface EfTabs {
         "titles": { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+    }
+    interface EfTemplateAdmin {
+        "showModal": boolean;
     }
 }
 declare global {
@@ -97,11 +109,29 @@ declare global {
         prototype: HTMLEfModalElement;
         new (): HTMLEfModalElement;
     };
+    interface HTMLEfModalRightElement extends Components.EfModalRight, HTMLStencilElement {
+    }
+    var HTMLEfModalRightElement: {
+        prototype: HTMLEfModalRightElement;
+        new (): HTMLEfModalRightElement;
+    };
+    interface HTMLEfPaginatorElement extends Components.EfPaginator, HTMLStencilElement {
+    }
+    var HTMLEfPaginatorElement: {
+        prototype: HTMLEfPaginatorElement;
+        new (): HTMLEfPaginatorElement;
+    };
     interface HTMLEfTabsElement extends Components.EfTabs, HTMLStencilElement {
     }
     var HTMLEfTabsElement: {
         prototype: HTMLEfTabsElement;
         new (): HTMLEfTabsElement;
+    };
+    interface HTMLEfTemplateAdminElement extends Components.EfTemplateAdmin, HTMLStencilElement {
+    }
+    var HTMLEfTemplateAdminElement: {
+        prototype: HTMLEfTemplateAdminElement;
+        new (): HTMLEfTemplateAdminElement;
     };
     interface HTMLElementTagNameMap {
         "ef-button": HTMLEfButtonElement;
@@ -111,7 +141,10 @@ declare global {
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
         "ef-modal": HTMLEfModalElement;
+        "ef-modal-right": HTMLEfModalRightElement;
+        "ef-paginator": HTMLEfPaginatorElement;
         "ef-tabs": HTMLEfTabsElement;
+        "ef-template-admin": HTMLEfTemplateAdminElement;
     }
 }
 declare namespace LocalJSX {
@@ -163,8 +196,21 @@ declare namespace LocalJSX {
         "modal"?: boolean;
         "width"?: string;
     }
+    interface EfModalRight {
+        "showModal"?: boolean;
+        "width"?: string;
+    }
+    interface EfPaginator {
+        "onEvent"?: (event: CustomEvent<any>) => void;
+        "pageActive"?: number;
+        "pages"?: number;
+        "visiblePages"?: number;
+    }
     interface EfTabs {
         "titles"?: { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+    }
+    interface EfTemplateAdmin {
+        "showModal"?: boolean;
     }
     interface IntrinsicElements {
         "ef-button": EfButton;
@@ -174,7 +220,10 @@ declare namespace LocalJSX {
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
         "ef-modal": EfModal;
+        "ef-modal-right": EfModalRight;
+        "ef-paginator": EfPaginator;
         "ef-tabs": EfTabs;
+        "ef-template-admin": EfTemplateAdmin;
     }
 }
 export { LocalJSX as JSX };
@@ -188,7 +237,10 @@ declare module "@stencil/core" {
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
             "ef-modal": LocalJSX.EfModal & JSXBase.HTMLAttributes<HTMLEfModalElement>;
+            "ef-modal-right": LocalJSX.EfModalRight & JSXBase.HTMLAttributes<HTMLEfModalRightElement>;
+            "ef-paginator": LocalJSX.EfPaginator & JSXBase.HTMLAttributes<HTMLEfPaginatorElement>;
             "ef-tabs": LocalJSX.EfTabs & JSXBase.HTMLAttributes<HTMLEfTabsElement>;
+            "ef-template-admin": LocalJSX.EfTemplateAdmin & JSXBase.HTMLAttributes<HTMLEfTemplateAdminElement>;
         }
     }
 }
