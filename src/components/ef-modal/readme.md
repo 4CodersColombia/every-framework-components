@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default     |
-| -------- | --------- | ----------- | --------- | ----------- |
-| `modal`  | `modal`   |             | `boolean` | `false`     |
-| `width`  | `width`   |             | `string`  | `undefined` |
+| Property    | Attribute    | Description | Type      | Default     |
+| ----------- | ------------ | ----------- | --------- | ----------- |
+| `showModal` | `show-modal` |             | `boolean` | `false`     |
+| `width`     | `width`      |             | `string`  | `undefined` |
 
 
 ----------------------------------------------

@@ -6,12 +6,12 @@ import { Component, Host, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class EfModal {
-  @Prop() modal: boolean = false;
+  @Prop() showModal: boolean = false;
   @Prop() width: string;
   render() {
     return (
       <Host>
-        <div class={this.modal ? 'wrapper visible' : 'wrapper'}>
+        <div class={this.showModal ? 'wrapper visible' : 'wrapper'}>
           <div class="modal" style={{ width: this.width }}>
             <slot />
           </div>
