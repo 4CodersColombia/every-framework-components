@@ -47,11 +47,24 @@ export namespace Components {
         "value": string;
     }
     interface EfModal {
-        "modal": boolean;
+        "showModal": boolean;
+        "width": string;
+    }
+    interface EfModalConfirmation {
+        "showModal": boolean;
+        "textCancel": string;
+        "textConfirmation": string;
+        "width": string;
+    }
+    interface EfModalRight {
+        "showModal": boolean;
         "width": string;
     }
     interface EfTabs {
         "titles": { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+    }
+    interface EfTemplateAdmin {
+        "showModal": boolean;
     }
 }
 declare global {
@@ -97,11 +110,29 @@ declare global {
         prototype: HTMLEfModalElement;
         new (): HTMLEfModalElement;
     };
+    interface HTMLEfModalConfirmationElement extends Components.EfModalConfirmation, HTMLStencilElement {
+    }
+    var HTMLEfModalConfirmationElement: {
+        prototype: HTMLEfModalConfirmationElement;
+        new (): HTMLEfModalConfirmationElement;
+    };
+    interface HTMLEfModalRightElement extends Components.EfModalRight, HTMLStencilElement {
+    }
+    var HTMLEfModalRightElement: {
+        prototype: HTMLEfModalRightElement;
+        new (): HTMLEfModalRightElement;
+    };
     interface HTMLEfTabsElement extends Components.EfTabs, HTMLStencilElement {
     }
     var HTMLEfTabsElement: {
         prototype: HTMLEfTabsElement;
         new (): HTMLEfTabsElement;
+    };
+    interface HTMLEfTemplateAdminElement extends Components.EfTemplateAdmin, HTMLStencilElement {
+    }
+    var HTMLEfTemplateAdminElement: {
+        prototype: HTMLEfTemplateAdminElement;
+        new (): HTMLEfTemplateAdminElement;
     };
     interface HTMLElementTagNameMap {
         "ef-button": HTMLEfButtonElement;
@@ -111,7 +142,10 @@ declare global {
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
         "ef-modal": HTMLEfModalElement;
+        "ef-modal-confirmation": HTMLEfModalConfirmationElement;
+        "ef-modal-right": HTMLEfModalRightElement;
         "ef-tabs": HTMLEfTabsElement;
+        "ef-template-admin": HTMLEfTemplateAdminElement;
     }
 }
 declare namespace LocalJSX {
@@ -160,11 +194,25 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface EfModal {
-        "modal"?: boolean;
+        "showModal"?: boolean;
+        "width"?: string;
+    }
+    interface EfModalConfirmation {
+        "onEvent"?: (event: CustomEvent<any>) => void;
+        "showModal"?: boolean;
+        "textCancel"?: string;
+        "textConfirmation"?: string;
+        "width"?: string;
+    }
+    interface EfModalRight {
+        "showModal"?: boolean;
         "width"?: string;
     }
     interface EfTabs {
         "titles"?: { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+    }
+    interface EfTemplateAdmin {
+        "showModal"?: boolean;
     }
     interface IntrinsicElements {
         "ef-button": EfButton;
@@ -174,7 +222,10 @@ declare namespace LocalJSX {
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
         "ef-modal": EfModal;
+        "ef-modal-confirmation": EfModalConfirmation;
+        "ef-modal-right": EfModalRight;
         "ef-tabs": EfTabs;
+        "ef-template-admin": EfTemplateAdmin;
     }
 }
 export { LocalJSX as JSX };
@@ -188,7 +239,10 @@ declare module "@stencil/core" {
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
             "ef-modal": LocalJSX.EfModal & JSXBase.HTMLAttributes<HTMLEfModalElement>;
+            "ef-modal-confirmation": LocalJSX.EfModalConfirmation & JSXBase.HTMLAttributes<HTMLEfModalConfirmationElement>;
+            "ef-modal-right": LocalJSX.EfModalRight & JSXBase.HTMLAttributes<HTMLEfModalRightElement>;
             "ef-tabs": LocalJSX.EfTabs & JSXBase.HTMLAttributes<HTMLEfTabsElement>;
+            "ef-template-admin": LocalJSX.EfTemplateAdmin & JSXBase.HTMLAttributes<HTMLEfTemplateAdminElement>;
         }
     }
 }
