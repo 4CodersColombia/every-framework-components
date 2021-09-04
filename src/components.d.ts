@@ -33,8 +33,12 @@ export namespace Components {
         "appendIcon": string;
         "date": string;
         "label": string;
+        "maxDate": string;
+        "minDate": string;
         "prependIcon": string;
         "showModal": boolean;
+        "textCancel": string;
+        "textConfirm": string;
     }
     interface EfDropdown {
         "disabled": boolean;
@@ -179,9 +183,13 @@ declare namespace LocalJSX {
         "appendIcon"?: string;
         "date"?: string;
         "label"?: string;
-        "onEvent"?: (event: CustomEvent<any>) => void;
+        "maxDate"?: string;
+        "minDate"?: string;
+        "onEvent"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
         "showModal"?: boolean;
+        "textCancel"?: string;
+        "textConfirm"?: string;
     }
     interface EfDropdown {
         "disabled"?: boolean;

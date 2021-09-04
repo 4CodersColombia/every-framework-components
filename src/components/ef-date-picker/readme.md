@@ -28,11 +28,13 @@
 ### Depends on
 
 - [ef-input](../ef-input)
+- [ef-modal](../ef-modal)
 
 ### Graph
 ```mermaid
 graph TD;
   ef-date-picker --> ef-input
+  ef-date-picker --> ef-modal
   style ef-date-picker fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
