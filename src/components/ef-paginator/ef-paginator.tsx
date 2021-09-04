@@ -8,7 +8,7 @@ import { Component, getAssetPath, h, Prop, EventEmitter, Event, State } from '@s
 })
 export class EfPaginator {
   @Prop({ mutable: true }) pageActive: number = 1;
-  @Prop() pages: number = 17;
+  @Prop() pages: number = 3;
   @Prop() visiblePages: number = 3;
   //Event to emit any action from of parent
   @Event() event: EventEmitter;
