@@ -10,15 +10,11 @@ app-datepicker::part(header) {
   font-size: 36px;
   line-height: 42px;
   letter-spacing: -0.02em;
-
-  color: #ffffff;
 }
 app-datepicker::part(year-selector) {
   background-color: #7099e5;
   color: white;
   font-family: 'Roboto', sans-serif;
-
-  color: #ffffff;
 }
 
 app-datepicker {
