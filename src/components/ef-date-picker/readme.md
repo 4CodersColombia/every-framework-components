@@ -7,20 +7,24 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type      | Default                 |
-| ------------- | -------------- | ----------- | --------- | ----------------------- |
-| `appendIcon`  | `append-icon`  |             | `string`  | `undefined`             |
-| `date`        | `date`         |             | `string`  | `undefined`             |
-| `label`       | `label`        |             | `string`  | `'Fecha de nacimiento'` |
-| `prependIcon` | `prepend-icon` |             | `string`  | `undefined`             |
-| `showModal`   | `show-modal`   |             | `boolean` | `false`                 |
+| Property      | Attribute      | Description | Type      | Default        |
+| ------------- | -------------- | ----------- | --------- | -------------- |
+| `appendIcon`  | `append-icon`  |             | `string`  | `undefined`    |
+| `date`        | `date`         |             | `string`  | `undefined`    |
+| `label`       | `label`        |             | `string`  | `undefined`    |
+| `maxDate`     | `max-date`     |             | `string`  | `undefined`    |
+| `minDate`     | `min-date`     |             | `string`  | `'1921-01-01'` |
+| `prependIcon` | `prepend-icon` |             | `string`  | `undefined`    |
+| `showModal`   | `show-modal`   |             | `boolean` | `false`        |
+| `textCancel`  | `text-cancel`  |             | `string`  | `'CANCELAR'`   |
+| `textConfirm` | `text-confirm` |             | `string`  | `'OK'`         |
 
 
 ## Events
 
-| Event   | Description | Type               |
-| ------- | ----------- | ------------------ |
-| `event` |             | `CustomEvent<any>` |
+| Event   | Description | Type                  |
+| ------- | ----------- | --------------------- |
+| `event` |             | `CustomEvent<string>` |
 
 
 ## Dependencies

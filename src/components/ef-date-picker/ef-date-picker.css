@@ -3,18 +3,30 @@ app-datepicker::part(calendar-day):focus {
 }
 app-datepicker::part(header) {
   background-color: #7099e5;
-  color: white;
+  color: white !important;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 36px;
   line-height: 42px;
   letter-spacing: -0.02em;
+  text-transform: capitalize;
 }
 app-datepicker::part(year-selector) {
   background-color: #7099e5;
-  color: white;
+  color: white !important;
   font-family: 'Roboto', sans-serif;
+}
+app-datepicker::part(calendar-selector) {
+  background-color: #7099e5;
+  color: white !important;
+  font-family: 'Roboto', sans-serif;
+}
+app-datepicker::part(calendar-view) {
+  text-transform: capitalize;
+}
+app-datepicker::part(year-list) {
+  margin-bottom: 40px;
 }
 
 app-datepicker {
