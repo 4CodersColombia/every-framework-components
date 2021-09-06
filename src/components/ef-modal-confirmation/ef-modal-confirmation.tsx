@@ -26,15 +26,19 @@ export class EfModalConfirmation {
               onEvent={() => {
                 this.eventButton(true);
               }}
+              size="LARGE"
               color="PRIMARY"
               text={this.textConfirmation}
+              class="ef-modaL-confirmation__options-button-left"
             ></ef-button>
             <ef-button
               onEvent={() => {
                 this.eventButton(false);
               }}
+              size="LARGE"
               color="SECONDARY"
               text={this.textCancel}
+              class="ef-modaL-confirmation__options-button-right"
             ></ef-button>
           </div>
         </div>
