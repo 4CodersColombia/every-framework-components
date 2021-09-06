@@ -65,6 +65,11 @@ export namespace Components {
         "showModal": boolean;
         "width": string;
     }
+    interface EfPaginator {
+        "pageActive": number;
+        "pages": number;
+        "visiblePages": number;
+    }
     interface EfTabs {
         "titles": { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
     }
@@ -127,6 +132,12 @@ declare global {
         prototype: HTMLEfModalRightElement;
         new (): HTMLEfModalRightElement;
     };
+    interface HTMLEfPaginatorElement extends Components.EfPaginator, HTMLStencilElement {
+    }
+    var HTMLEfPaginatorElement: {
+        prototype: HTMLEfPaginatorElement;
+        new (): HTMLEfPaginatorElement;
+    };
     interface HTMLEfTabsElement extends Components.EfTabs, HTMLStencilElement {
     }
     var HTMLEfTabsElement: {
@@ -149,6 +160,7 @@ declare global {
         "ef-input": HTMLEfInputElement;
         "ef-modal": HTMLEfModalElement;
         "ef-modal-right": HTMLEfModalRightElement;
+        "ef-paginator": HTMLEfPaginatorElement;
         "ef-tabs": HTMLEfTabsElement;
         "ef-template-admin": HTMLEfTemplateAdminElement;
     }
@@ -218,6 +230,12 @@ declare namespace LocalJSX {
         "showModal"?: boolean;
         "width"?: string;
     }
+    interface EfPaginator {
+        "onEvent"?: (event: CustomEvent<any>) => void;
+        "pageActive"?: number;
+        "pages"?: number;
+        "visiblePages"?: number;
+    }
     interface EfTabs {
         "titles"?: { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
     }
@@ -234,6 +252,7 @@ declare namespace LocalJSX {
         "ef-input": EfInput;
         "ef-modal": EfModal;
         "ef-modal-right": EfModalRight;
+        "ef-paginator": EfPaginator;
         "ef-tabs": EfTabs;
         "ef-template-admin": EfTemplateAdmin;
     }
@@ -251,6 +270,7 @@ declare module "@stencil/core" {
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
             "ef-modal": LocalJSX.EfModal & JSXBase.HTMLAttributes<HTMLEfModalElement>;
             "ef-modal-right": LocalJSX.EfModalRight & JSXBase.HTMLAttributes<HTMLEfModalRightElement>;
+            "ef-paginator": LocalJSX.EfPaginator & JSXBase.HTMLAttributes<HTMLEfPaginatorElement>;
             "ef-tabs": LocalJSX.EfTabs & JSXBase.HTMLAttributes<HTMLEfTabsElement>;
             "ef-template-admin": LocalJSX.EfTemplateAdmin & JSXBase.HTMLAttributes<HTMLEfTemplateAdminElement>;
         }
