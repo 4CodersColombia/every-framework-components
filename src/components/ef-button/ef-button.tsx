@@ -38,12 +38,16 @@ export class PrButton {
     borderColor: this.getColorOfButton(),
   };
 
+  renderImage() {
+    if (this.icon) return <img class="imagen" src={this.icon} />;
+  }
+
   render() {
     return (
       <Host>
         <button class="ef-button" disabled={this.disabled} style={this.stylePrButton} type="button" onClick={this.eventButton.bind(this)}>
           {this.text}
-          <img class="imagen" src={this.icon} />
+          {this.renderImage()}
         </button>
       </Host>
     );
