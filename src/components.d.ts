@@ -29,6 +29,17 @@ export namespace Components {
         "headers": { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
         "icon_arrow": string;
     }
+    interface EfDatePicker {
+        "appendIcon": string;
+        "date": string;
+        "label": string;
+        "maxDate": string;
+        "minDate": string;
+        "prependIcon": string;
+        "showModal": boolean;
+        "textCancel": string;
+        "textConfirm": string;
+    }
     interface EfDropdown {
         "disabled": boolean;
         "errorMessage": string;
@@ -47,7 +58,7 @@ export namespace Components {
         "value": string;
     }
     interface EfModal {
-        "modal": boolean;
+        "showModal": boolean;
         "width": string;
     }
     interface EfModalRight {
@@ -90,6 +101,12 @@ declare global {
     var HTMLEfDataTableElement: {
         prototype: HTMLEfDataTableElement;
         new (): HTMLEfDataTableElement;
+    };
+    interface HTMLEfDatePickerElement extends Components.EfDatePicker, HTMLStencilElement {
+    }
+    var HTMLEfDatePickerElement: {
+        prototype: HTMLEfDatePickerElement;
+        new (): HTMLEfDatePickerElement;
     };
     interface HTMLEfDropdownElement extends Components.EfDropdown, HTMLStencilElement {
     }
@@ -138,6 +155,7 @@ declare global {
         "ef-card-info": HTMLEfCardInfoElement;
         "ef-checkbox": HTMLEfCheckboxElement;
         "ef-data-table": HTMLEfDataTableElement;
+        "ef-date-picker": HTMLEfDatePickerElement;
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
         "ef-modal": HTMLEfModalElement;
@@ -173,6 +191,18 @@ declare namespace LocalJSX {
         "headers"?: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
         "icon_arrow"?: string;
     }
+    interface EfDatePicker {
+        "appendIcon"?: string;
+        "date"?: string;
+        "label"?: string;
+        "maxDate"?: string;
+        "minDate"?: string;
+        "onEvent"?: (event: CustomEvent<string>) => void;
+        "prependIcon"?: string;
+        "showModal"?: boolean;
+        "textCancel"?: string;
+        "textConfirm"?: string;
+    }
     interface EfDropdown {
         "disabled"?: boolean;
         "errorMessage"?: string;
@@ -193,7 +223,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface EfModal {
-        "modal"?: boolean;
+        "showModal"?: boolean;
         "width"?: string;
     }
     interface EfModalRight {
@@ -217,6 +247,7 @@ declare namespace LocalJSX {
         "ef-card-info": EfCardInfo;
         "ef-checkbox": EfCheckbox;
         "ef-data-table": EfDataTable;
+        "ef-date-picker": EfDatePicker;
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
         "ef-modal": EfModal;
@@ -234,6 +265,7 @@ declare module "@stencil/core" {
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;
             "ef-checkbox": LocalJSX.EfCheckbox & JSXBase.HTMLAttributes<HTMLEfCheckboxElement>;
             "ef-data-table": LocalJSX.EfDataTable & JSXBase.HTMLAttributes<HTMLEfDataTableElement>;
+            "ef-date-picker": LocalJSX.EfDatePicker & JSXBase.HTMLAttributes<HTMLEfDatePickerElement>;
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
             "ef-modal": LocalJSX.EfModal & JSXBase.HTMLAttributes<HTMLEfModalElement>;

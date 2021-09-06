@@ -23,6 +23,19 @@
 | `event` |             | `CustomEvent<string>` |
 
 
+## Dependencies
+
+### Used by
+
+ - [ef-date-picker](../ef-date-picker)
+
+### Graph
+```mermaid
+graph TD;
+  ef-date-picker --> ef-input
+  style ef-input fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
