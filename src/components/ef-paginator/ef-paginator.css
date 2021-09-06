@@ -1,0 +1,51 @@
+.ef-paginations {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.ef-page {
+  cursor: pointer;
+  margin: 5px 10px 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  color: white;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+.ef-page::before {
+  content: '';
+  width: 30px;
+  height: 30px;
+  background-color: #091731;
+  border-radius: 50%;
+  position: absolute;
+  transform: scale(0);
+  z-index: -1;
+  transition: 0.3s ease-in-out;
+}
+.ef-page:hover {
+  transition: 0.3s ease-in-out;
+  transform: scale(1.5) translateY(-5px);
+}
+
+.ef-page-selected::before {
+  transform: scale(1);
+}
+
+.ef-page-arrow {
+  cursor: pointer;
+  padding: 10px;
+}
+.ef-page-arrow-left {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
