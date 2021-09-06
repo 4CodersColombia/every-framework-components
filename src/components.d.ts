@@ -29,6 +29,17 @@ export namespace Components {
         "headers": { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
         "icon_arrow": string;
     }
+    interface EfDatePicker {
+        "appendIcon": string;
+        "date": string;
+        "label": string;
+        "maxDate": string;
+        "minDate": string;
+        "prependIcon": string;
+        "showModal": boolean;
+        "textCancel": string;
+        "textConfirm": string;
+    }
     interface EfDropdown {
         "disabled": boolean;
         "errorMessage": string;
@@ -59,6 +70,11 @@ export namespace Components {
     interface EfModalRight {
         "showModal": boolean;
         "width": string;
+    }
+    interface EfPaginator {
+        "pageActive": number;
+        "pages": number;
+        "visiblePages": number;
     }
     interface EfTabs {
         "titles": { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
@@ -92,6 +108,12 @@ declare global {
         prototype: HTMLEfDataTableElement;
         new (): HTMLEfDataTableElement;
     };
+    interface HTMLEfDatePickerElement extends Components.EfDatePicker, HTMLStencilElement {
+    }
+    var HTMLEfDatePickerElement: {
+        prototype: HTMLEfDatePickerElement;
+        new (): HTMLEfDatePickerElement;
+    };
     interface HTMLEfDropdownElement extends Components.EfDropdown, HTMLStencilElement {
     }
     var HTMLEfDropdownElement: {
@@ -122,6 +144,12 @@ declare global {
         prototype: HTMLEfModalRightElement;
         new (): HTMLEfModalRightElement;
     };
+    interface HTMLEfPaginatorElement extends Components.EfPaginator, HTMLStencilElement {
+    }
+    var HTMLEfPaginatorElement: {
+        prototype: HTMLEfPaginatorElement;
+        new (): HTMLEfPaginatorElement;
+    };
     interface HTMLEfTabsElement extends Components.EfTabs, HTMLStencilElement {
     }
     var HTMLEfTabsElement: {
@@ -139,11 +167,13 @@ declare global {
         "ef-card-info": HTMLEfCardInfoElement;
         "ef-checkbox": HTMLEfCheckboxElement;
         "ef-data-table": HTMLEfDataTableElement;
+        "ef-date-picker": HTMLEfDatePickerElement;
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
         "ef-modal": HTMLEfModalElement;
         "ef-modal-confirmation": HTMLEfModalConfirmationElement;
         "ef-modal-right": HTMLEfModalRightElement;
+        "ef-paginator": HTMLEfPaginatorElement;
         "ef-tabs": HTMLEfTabsElement;
         "ef-template-admin": HTMLEfTemplateAdminElement;
     }
@@ -173,6 +203,18 @@ declare namespace LocalJSX {
         "data"?: { [key: string]: string | number }[];
         "headers"?: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
         "icon_arrow"?: string;
+    }
+    interface EfDatePicker {
+        "appendIcon"?: string;
+        "date"?: string;
+        "label"?: string;
+        "maxDate"?: string;
+        "minDate"?: string;
+        "onEvent"?: (event: CustomEvent<string>) => void;
+        "prependIcon"?: string;
+        "showModal"?: boolean;
+        "textCancel"?: string;
+        "textConfirm"?: string;
     }
     interface EfDropdown {
         "disabled"?: boolean;
@@ -208,6 +250,12 @@ declare namespace LocalJSX {
         "showModal"?: boolean;
         "width"?: string;
     }
+    interface EfPaginator {
+        "onEvent"?: (event: CustomEvent<any>) => void;
+        "pageActive"?: number;
+        "pages"?: number;
+        "visiblePages"?: number;
+    }
     interface EfTabs {
         "titles"?: { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
     }
@@ -219,11 +267,13 @@ declare namespace LocalJSX {
         "ef-card-info": EfCardInfo;
         "ef-checkbox": EfCheckbox;
         "ef-data-table": EfDataTable;
+        "ef-date-picker": EfDatePicker;
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
         "ef-modal": EfModal;
         "ef-modal-confirmation": EfModalConfirmation;
         "ef-modal-right": EfModalRight;
+        "ef-paginator": EfPaginator;
         "ef-tabs": EfTabs;
         "ef-template-admin": EfTemplateAdmin;
     }
@@ -236,11 +286,13 @@ declare module "@stencil/core" {
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;
             "ef-checkbox": LocalJSX.EfCheckbox & JSXBase.HTMLAttributes<HTMLEfCheckboxElement>;
             "ef-data-table": LocalJSX.EfDataTable & JSXBase.HTMLAttributes<HTMLEfDataTableElement>;
+            "ef-date-picker": LocalJSX.EfDatePicker & JSXBase.HTMLAttributes<HTMLEfDatePickerElement>;
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
             "ef-modal": LocalJSX.EfModal & JSXBase.HTMLAttributes<HTMLEfModalElement>;
             "ef-modal-confirmation": LocalJSX.EfModalConfirmation & JSXBase.HTMLAttributes<HTMLEfModalConfirmationElement>;
             "ef-modal-right": LocalJSX.EfModalRight & JSXBase.HTMLAttributes<HTMLEfModalRightElement>;
+            "ef-paginator": LocalJSX.EfPaginator & JSXBase.HTMLAttributes<HTMLEfPaginatorElement>;
             "ef-tabs": LocalJSX.EfTabs & JSXBase.HTMLAttributes<HTMLEfTabsElement>;
             "ef-template-admin": LocalJSX.EfTemplateAdmin & JSXBase.HTMLAttributes<HTMLEfTemplateAdminElement>;
         }

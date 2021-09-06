@@ -8,8 +8,8 @@ import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 export class EfModalConfirmation {
   @Prop() showModal: boolean = false;
   @Prop() width: string;
-  @Prop() textConfirmation: string = 'ACEPTAR';
-  @Prop() textCancel: string = 'CANCELAR';
+  @Prop() textConfirmation: string = 'Aceptar';
+  @Prop() textCancel: string = 'Cancelar';
 
   //Event to emit any action from of parent
   @Event() event: EventEmitter;
