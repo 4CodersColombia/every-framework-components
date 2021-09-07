@@ -1,0 +1,60 @@
+app-datepicker::part(calendar-day):focus {
+  outline: none;
+}
+app-datepicker::part(header) {
+  background-color: #7099e5;
+  color: white !important;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 42px;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+}
+app-datepicker::part(year-selector) {
+  background-color: #7099e5;
+  color: white !important;
+  font-family: 'Roboto', sans-serif;
+}
+app-datepicker::part(calendar-selector) {
+  background-color: #7099e5;
+  color: white !important;
+  font-family: 'Roboto', sans-serif;
+}
+app-datepicker::part(calendar-view) {
+  text-transform: capitalize;
+}
+app-datepicker::part(year-list) {
+  margin-bottom: 40px;
+}
+
+app-datepicker {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.ef-date-picker__options {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ef-date-picker__options-button {
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  color: #7099e5;
+}
