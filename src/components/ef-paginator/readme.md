@@ -10,7 +10,7 @@
 | Property       | Attribute       | Description | Type     | Default |
 | -------------- | --------------- | ----------- | -------- | ------- |
 | `pageActive`   | `page-active`   |             | `number` | `1`     |
-| `pages`        | `pages`         |             | `number` | `17`    |
+| `pages`        | `pages`         |             | `number` | `3`     |
 | `visiblePages` | `visible-pages` |             | `number` | `3`     |
 
 

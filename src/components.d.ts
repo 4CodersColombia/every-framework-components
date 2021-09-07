@@ -29,6 +29,21 @@ export namespace Components {
         "headers": { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
         "icon_arrow": string;
     }
+    interface EfDataTableFooter {
+        "dataType": string;
+        "disabledFilter": boolean;
+        "errorMessageFilter": string;
+        "iconFilter": string;
+        "itemsCount": string;
+        "itemsFilter": { id: string | number; text: string }[];
+        "labelFilter": string;
+        "leftText": string;
+        "pageActive": number;
+        "pages": number;
+        "rightText": string;
+        "valueFilter": string;
+        "visiblePages": number;
+    }
     interface EfDatePicker {
         "appendIcon": string;
         "date": string;
@@ -102,6 +117,12 @@ declare global {
         prototype: HTMLEfDataTableElement;
         new (): HTMLEfDataTableElement;
     };
+    interface HTMLEfDataTableFooterElement extends Components.EfDataTableFooter, HTMLStencilElement {
+    }
+    var HTMLEfDataTableFooterElement: {
+        prototype: HTMLEfDataTableFooterElement;
+        new (): HTMLEfDataTableFooterElement;
+    };
     interface HTMLEfDatePickerElement extends Components.EfDatePicker, HTMLStencilElement {
     }
     var HTMLEfDatePickerElement: {
@@ -155,6 +176,7 @@ declare global {
         "ef-card-info": HTMLEfCardInfoElement;
         "ef-checkbox": HTMLEfCheckboxElement;
         "ef-data-table": HTMLEfDataTableElement;
+        "ef-data-table-footer": HTMLEfDataTableFooterElement;
         "ef-date-picker": HTMLEfDatePickerElement;
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
@@ -190,6 +212,23 @@ declare namespace LocalJSX {
         "data"?: { [key: string]: string | number }[];
         "headers"?: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
         "icon_arrow"?: string;
+    }
+    interface EfDataTableFooter {
+        "dataType"?: string;
+        "disabledFilter"?: boolean;
+        "errorMessageFilter"?: string;
+        "iconFilter"?: string;
+        "itemsCount"?: string;
+        "itemsFilter"?: { id: string | number; text: string }[];
+        "labelFilter"?: string;
+        "leftText"?: string;
+        "onValueChangeFilter"?: (event: CustomEvent<number>) => void;
+        "onValueChangePageActive"?: (event: CustomEvent<number>) => void;
+        "pageActive"?: number;
+        "pages"?: number;
+        "rightText"?: string;
+        "valueFilter"?: string;
+        "visiblePages"?: number;
     }
     interface EfDatePicker {
         "appendIcon"?: string;
@@ -231,7 +270,7 @@ declare namespace LocalJSX {
         "width"?: string;
     }
     interface EfPaginator {
-        "onEvent"?: (event: CustomEvent<any>) => void;
+        "onEvent"?: (event: CustomEvent<number>) => void;
         "pageActive"?: number;
         "pages"?: number;
         "visiblePages"?: number;
@@ -247,6 +286,7 @@ declare namespace LocalJSX {
         "ef-card-info": EfCardInfo;
         "ef-checkbox": EfCheckbox;
         "ef-data-table": EfDataTable;
+        "ef-data-table-footer": EfDataTableFooter;
         "ef-date-picker": EfDatePicker;
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
@@ -265,6 +305,7 @@ declare module "@stencil/core" {
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;
             "ef-checkbox": LocalJSX.EfCheckbox & JSXBase.HTMLAttributes<HTMLEfCheckboxElement>;
             "ef-data-table": LocalJSX.EfDataTable & JSXBase.HTMLAttributes<HTMLEfDataTableElement>;
+            "ef-data-table-footer": LocalJSX.EfDataTableFooter & JSXBase.HTMLAttributes<HTMLEfDataTableFooterElement>;
             "ef-date-picker": LocalJSX.EfDatePicker & JSXBase.HTMLAttributes<HTMLEfDatePickerElement>;
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;

@@ -14,7 +14,7 @@
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  color: white;
+  color: #000000;
   position: relative;
   transition: 0.3s ease-in-out;
 }
@@ -36,6 +36,9 @@
 
 .ef-page-selected::before {
   transform: scale(1);
+}
+.ef-page-selected {
+  color: white;
 }
 
 .ef-page-arrow {

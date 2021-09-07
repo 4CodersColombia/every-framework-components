@@ -11,10 +11,10 @@ export class EfPaginator {
   @Prop() pages: number = 3;
   @Prop() visiblePages: number = 3;
   //Event to emit any action from of parent
-  @Event() event: EventEmitter;
+  @Event() event: EventEmitter<number>;
   eventSelectedPage(indexPage) {
     this.pageActive = indexPage;
-    this.event.emit();
+    this.event.emit(indexPage);
   }
 
   @State() arrayVisiblesPages: number[] = new Array(this.visiblePages).fill(undefined).map((_val, idx) => idx + 1);
