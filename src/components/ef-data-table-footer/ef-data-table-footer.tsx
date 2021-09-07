@@ -9,10 +9,10 @@ export class EfDataTableFooter {
   @Prop() dataType: string = 'Usuarios';
   @Prop() leftText: string = 'Mostrando:';
   @Prop() rightText: string = 'Total';
-  @Prop() pageActive: number = 1;
+  @Prop({ mutable: true }) pageActive: number = 1;
   @Prop() pages: number = 1;
   @Prop() visiblePages: number = 1;
-  @Prop() valueFilter: string = '10';
+  @Prop({ mutable: true }) valueFilter: number = 10;
   @Prop() errorMessageFilter: string;
   @Prop() labelFilter: string;
   @Prop() iconFilter: string;
@@ -23,10 +23,11 @@ export class EfDataTableFooter {
     { id: 2, text: '30' },
     { id: 3, text: '40' },
     { id: 4, text: '40' },
+    { id: 5, text: '50' },
   ];
   @Prop() itemsCount: string = '200';
 
-  @Event() valueChangeFilter: EventEmitter<number>;
+  @Event() valueChangeFilter: EventEmitter<object>;
   @Event() valueChangePageActive: EventEmitter<number>;
 
   onValeChangePageActive(newValue: number) {
@@ -35,8 +36,8 @@ export class EfDataTableFooter {
   }
 
   onDropdownChangeValue(newValue: { [key: string]: unknown }) {
-    this.valueFilter = newValue.text as string;
-    this.valueChangeFilter.emit(newValue.text as number);
+    this.valueFilter = newValue.text as number;
+    this.valueChangeFilter.emit(newValue);
   }
   render() {
     return (
@@ -44,7 +45,7 @@ export class EfDataTableFooter {
         <div class="ef-data-table-footer__left">
           <span>{this.leftText}</span>
           <ef-dropdown
-            value={this.valueFilter}
+            value={this.valueFilter + ''}
             disabled={this.disabledFilter}
             items={this.itemsFilter}
             errorMessage={this.errorMessageFilter}

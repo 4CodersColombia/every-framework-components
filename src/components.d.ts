@@ -41,7 +41,7 @@ export namespace Components {
         "pageActive": number;
         "pages": number;
         "rightText": string;
-        "valueFilter": string;
+        "valueFilter": number;
         "visiblePages": number;
     }
     interface EfDatePicker {
@@ -222,12 +222,12 @@ declare namespace LocalJSX {
         "itemsFilter"?: { id: string | number; text: string }[];
         "labelFilter"?: string;
         "leftText"?: string;
-        "onValueChangeFilter"?: (event: CustomEvent<number>) => void;
+        "onValueChangeFilter"?: (event: CustomEvent<object>) => void;
         "onValueChangePageActive"?: (event: CustomEvent<number>) => void;
         "pageActive"?: number;
         "pages"?: number;
         "rightText"?: string;
-        "valueFilter"?: string;
+        "valueFilter"?: number;
         "visiblePages"?: number;
     }
     interface EfDatePicker {
