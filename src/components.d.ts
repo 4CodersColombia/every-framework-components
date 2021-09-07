@@ -61,6 +61,12 @@ export namespace Components {
         "showModal": boolean;
         "width": string;
     }
+    interface EfModalConfirmation {
+        "showModal": boolean;
+        "textCancel": string;
+        "textConfirmation": string;
+        "width": string;
+    }
     interface EfModalRight {
         "showModal": boolean;
         "width": string;
@@ -126,6 +132,12 @@ declare global {
         prototype: HTMLEfModalElement;
         new (): HTMLEfModalElement;
     };
+    interface HTMLEfModalConfirmationElement extends Components.EfModalConfirmation, HTMLStencilElement {
+    }
+    var HTMLEfModalConfirmationElement: {
+        prototype: HTMLEfModalConfirmationElement;
+        new (): HTMLEfModalConfirmationElement;
+    };
     interface HTMLEfModalRightElement extends Components.EfModalRight, HTMLStencilElement {
     }
     var HTMLEfModalRightElement: {
@@ -159,6 +171,7 @@ declare global {
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
         "ef-modal": HTMLEfModalElement;
+        "ef-modal-confirmation": HTMLEfModalConfirmationElement;
         "ef-modal-right": HTMLEfModalRightElement;
         "ef-paginator": HTMLEfPaginatorElement;
         "ef-tabs": HTMLEfTabsElement;
@@ -226,6 +239,13 @@ declare namespace LocalJSX {
         "showModal"?: boolean;
         "width"?: string;
     }
+    interface EfModalConfirmation {
+        "onEvent"?: (event: CustomEvent<any>) => void;
+        "showModal"?: boolean;
+        "textCancel"?: string;
+        "textConfirmation"?: string;
+        "width"?: string;
+    }
     interface EfModalRight {
         "showModal"?: boolean;
         "width"?: string;
@@ -251,6 +271,7 @@ declare namespace LocalJSX {
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
         "ef-modal": EfModal;
+        "ef-modal-confirmation": EfModalConfirmation;
         "ef-modal-right": EfModalRight;
         "ef-paginator": EfPaginator;
         "ef-tabs": EfTabs;
@@ -269,6 +290,7 @@ declare module "@stencil/core" {
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
             "ef-modal": LocalJSX.EfModal & JSXBase.HTMLAttributes<HTMLEfModalElement>;
+            "ef-modal-confirmation": LocalJSX.EfModalConfirmation & JSXBase.HTMLAttributes<HTMLEfModalConfirmationElement>;
             "ef-modal-right": LocalJSX.EfModalRight & JSXBase.HTMLAttributes<HTMLEfModalRightElement>;
             "ef-paginator": LocalJSX.EfPaginator & JSXBase.HTMLAttributes<HTMLEfPaginatorElement>;
             "ef-tabs": LocalJSX.EfTabs & JSXBase.HTMLAttributes<HTMLEfTabsElement>;

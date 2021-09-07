@@ -24,6 +24,7 @@
   align-items: center;
   flex-direction: row;
   justify-content: center;
+  text-align: center;
 }
 .ef-button:disabled {
   cursor: initial;

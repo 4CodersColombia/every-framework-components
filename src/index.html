@@ -25,15 +25,17 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png" />
   <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico" />
   <link rel="manifest" href="/manifest.json" />
-
 </head>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 </style>
 
-<body>
+<body style="
+background-color: rgb(167, 164, 164);">
   <div style="display:flex;flex-direction:row;align-items:center;justify-content:space-around;height: 58vh;">
-    <ef-date-picker label="Fecha de nacimiento"></ef-date-picker>
+    <ef-modal-confirmation show-modal="true">
+      <div>¿Deseas eliminar permanentemente <br> a Cristian Quintero de <br> la lista de usuarios?</div>
+    </ef-modal-confirmation>
   </div>
 </body>
 
