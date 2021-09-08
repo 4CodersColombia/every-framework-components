@@ -60,6 +60,7 @@ export class PrDataTable {
           </thead>
           <tbody class="table-body">{this.data.map((item, key) => this.renderRowData(item, key))}</tbody>
         </table>
+        <slot name="ef-data-table-footer"></slot>
       </Host>
     );
   }
