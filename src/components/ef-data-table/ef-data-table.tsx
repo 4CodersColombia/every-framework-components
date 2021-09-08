@@ -3,7 +3,7 @@ import { IMAGES_DATA_TABLE } from './constDataTable';
 @Component({ tag: 'ef-data-table', styleUrl: 'ef-data-table.css', shadow: true })
 export class PrDataTable {
   @Prop() headers: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
-  @Prop() data: { [key: string]: string | number }[] ;
+  @Prop() data: { [key: string]: string | number }[];
   @Prop() icon_arrow: string = IMAGES_DATA_TABLE['ARROW_DOWN'];
 
   @State() array_drawer_item: boolean[] = Array.from({ length: this.getLengthData() }, () => false);
