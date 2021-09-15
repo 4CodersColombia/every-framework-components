@@ -6,8 +6,8 @@ import { Component, Host, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class EfListChips {
-  @Prop() chipGroup: { value?: string | number; text: string; cancel?: boolean }[]=[];
-  ];
+  @Prop() chipGroup: { value?: string | number; text: string; cancel?: boolean }[] = [];
+
   @Prop() visibleChips: number = this.chipGroup.length;
 
   componentWillLoad() {
