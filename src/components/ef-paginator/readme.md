@@ -16,10 +16,23 @@
 
 ## Events
 
-| Event   | Description | Type               |
-| ------- | ----------- | ------------------ |
-| `event` |             | `CustomEvent<any>` |
+| Event   | Description | Type                  |
+| ------- | ----------- | --------------------- |
+| `event` |             | `CustomEvent<number>` |
 
+
+## Dependencies
+
+### Used by
+
+ - [ef-data-table-footer](../ef-data-table-footer)
+
+### Graph
+```mermaid
+graph TD;
+  ef-data-table-footer --> ef-paginator
+  style ef-paginator fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
