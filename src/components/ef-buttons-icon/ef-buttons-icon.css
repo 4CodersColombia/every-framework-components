@@ -1,0 +1,17 @@
+.ef-buttons-icon_button {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.ef-buttons-icon_container-horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.ef-buttons-icon_container-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}

@@ -13,6 +13,10 @@ export namespace Components {
         "size": 'LARGE' | 'MEDIUM' | 'SMALL';
         "text": string;
     }
+    interface EfButtonsIcon {
+        "align": 'HORIZONTAL' | 'VERTICAL';
+        "buttons": { urlIcon: string; id: string }[];
+    }
     interface EfCardInfo {
         "image": string;
         "styleTitle": { [key: string]: string };
@@ -105,6 +109,12 @@ declare global {
         prototype: HTMLEfButtonElement;
         new (): HTMLEfButtonElement;
     };
+    interface HTMLEfButtonsIconElement extends Components.EfButtonsIcon, HTMLStencilElement {
+    }
+    var HTMLEfButtonsIconElement: {
+        prototype: HTMLEfButtonsIconElement;
+        new (): HTMLEfButtonsIconElement;
+    };
     interface HTMLEfCardInfoElement extends Components.EfCardInfo, HTMLStencilElement {
     }
     var HTMLEfCardInfoElement: {
@@ -185,6 +195,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "ef-button": HTMLEfButtonElement;
+        "ef-buttons-icon": HTMLEfButtonsIconElement;
         "ef-card-info": HTMLEfCardInfoElement;
         "ef-checkbox": HTMLEfCheckboxElement;
         "ef-data-table": HTMLEfDataTableElement;
@@ -208,6 +219,11 @@ declare namespace LocalJSX {
         "onEvent"?: (event: CustomEvent<any>) => void;
         "size"?: 'LARGE' | 'MEDIUM' | 'SMALL';
         "text"?: string;
+    }
+    interface EfButtonsIcon {
+        "align"?: 'HORIZONTAL' | 'VERTICAL';
+        "buttons"?: { urlIcon: string; id: string }[];
+        "onEvent"?: (event: CustomEvent<string>) => void;
     }
     interface EfCardInfo {
         "image"?: string;
@@ -303,6 +319,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "ef-button": EfButton;
+        "ef-buttons-icon": EfButtonsIcon;
         "ef-card-info": EfCardInfo;
         "ef-checkbox": EfCheckbox;
         "ef-data-table": EfDataTable;
@@ -323,6 +340,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ef-button": LocalJSX.EfButton & JSXBase.HTMLAttributes<HTMLEfButtonElement>;
+            "ef-buttons-icon": LocalJSX.EfButtonsIcon & JSXBase.HTMLAttributes<HTMLEfButtonsIconElement>;
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;
             "ef-checkbox": LocalJSX.EfCheckbox & JSXBase.HTMLAttributes<HTMLEfCheckboxElement>;
             "ef-data-table": LocalJSX.EfDataTable & JSXBase.HTMLAttributes<HTMLEfDataTableElement>;
