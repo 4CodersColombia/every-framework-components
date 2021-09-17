@@ -16,6 +16,7 @@
   width: 69%;
   height: 100%;
   border-radius: 18px;
+  background-color: white;
 }
 .content-right {
   display: flex;
