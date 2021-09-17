@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+.ef-chip__container {
+  background-color: #e4e4e4;
+  border-radius: 29px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 7px;
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #000000;
+}
+.ef-chip__button-cancel {
+  width: 18px;
+  height: 18px;
+  margin: 2px;
+  cursor: pointer;
+}

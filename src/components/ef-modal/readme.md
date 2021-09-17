@@ -18,11 +18,13 @@
 ### Used by
 
  - [ef-date-picker](../ef-date-picker)
+ - [ef-modal-confirmation](../ef-modal-confirmation)
 
 ### Graph
 ```mermaid
 graph TD;
   ef-date-picker --> ef-modal
+  ef-modal-confirmation --> ef-modal
   style ef-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
