@@ -21,6 +21,19 @@
 | `event` |             | `CustomEvent<any>` |
 
 
+## Dependencies
+
+### Used by
+
+ - [ef-modal-confirmation](../ef-modal-confirmation)
+
+### Graph
+```mermaid
+graph TD;
+  ef-modal-confirmation --> ef-button
+  style ef-button fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

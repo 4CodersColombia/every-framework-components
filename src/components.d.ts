@@ -28,6 +28,11 @@ export namespace Components {
         "disabled": boolean;
         "size": number;
     }
+    interface EfChip {
+        "cancel": boolean;
+        "text": string;
+        "value": string | number;
+    }
     interface EfDataTable {
         "data": { [key: string]: string | number }[];
         "headers": { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
@@ -75,6 +80,10 @@ export namespace Components {
         "prependIcon": string;
         "type": 'text' | 'password';
         "value": string;
+    }
+    interface EfListChips {
+        "chipGroup": { value?: string | number; text: string; cancel?: boolean }[];
+        "visibleChips": number;
     }
     interface EfModal {
         "showModal": boolean;
@@ -127,6 +136,12 @@ declare global {
         prototype: HTMLEfCheckboxElement;
         new (): HTMLEfCheckboxElement;
     };
+    interface HTMLEfChipElement extends Components.EfChip, HTMLStencilElement {
+    }
+    var HTMLEfChipElement: {
+        prototype: HTMLEfChipElement;
+        new (): HTMLEfChipElement;
+    };
     interface HTMLEfDataTableElement extends Components.EfDataTable, HTMLStencilElement {
     }
     var HTMLEfDataTableElement: {
@@ -156,6 +171,12 @@ declare global {
     var HTMLEfInputElement: {
         prototype: HTMLEfInputElement;
         new (): HTMLEfInputElement;
+    };
+    interface HTMLEfListChipsElement extends Components.EfListChips, HTMLStencilElement {
+    }
+    var HTMLEfListChipsElement: {
+        prototype: HTMLEfListChipsElement;
+        new (): HTMLEfListChipsElement;
     };
     interface HTMLEfModalElement extends Components.EfModal, HTMLStencilElement {
     }
@@ -198,11 +219,13 @@ declare global {
         "ef-buttons-icon": HTMLEfButtonsIconElement;
         "ef-card-info": HTMLEfCardInfoElement;
         "ef-checkbox": HTMLEfCheckboxElement;
+        "ef-chip": HTMLEfChipElement;
         "ef-data-table": HTMLEfDataTableElement;
         "ef-data-table-footer": HTMLEfDataTableFooterElement;
         "ef-date-picker": HTMLEfDatePickerElement;
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
+        "ef-list-chips": HTMLEfListChipsElement;
         "ef-modal": HTMLEfModalElement;
         "ef-modal-confirmation": HTMLEfModalConfirmationElement;
         "ef-modal-right": HTMLEfModalRightElement;
@@ -236,6 +259,12 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "onEvent"?: (event: CustomEvent<any>) => void;
         "size"?: number;
+    }
+    interface EfChip {
+        "cancel"?: boolean;
+        "onEvent"?: (event: CustomEvent<string | number>) => void;
+        "text"?: string;
+        "value"?: string | number;
     }
     interface EfDataTable {
         "data"?: { [key: string]: string | number }[];
@@ -290,6 +319,10 @@ declare namespace LocalJSX {
         "type"?: 'text' | 'password';
         "value"?: string;
     }
+    interface EfListChips {
+        "chipGroup"?: { value?: string | number; text: string; cancel?: boolean }[];
+        "visibleChips"?: number;
+    }
     interface EfModal {
         "showModal"?: boolean;
         "width"?: string;
@@ -322,11 +355,13 @@ declare namespace LocalJSX {
         "ef-buttons-icon": EfButtonsIcon;
         "ef-card-info": EfCardInfo;
         "ef-checkbox": EfCheckbox;
+        "ef-chip": EfChip;
         "ef-data-table": EfDataTable;
         "ef-data-table-footer": EfDataTableFooter;
         "ef-date-picker": EfDatePicker;
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
+        "ef-list-chips": EfListChips;
         "ef-modal": EfModal;
         "ef-modal-confirmation": EfModalConfirmation;
         "ef-modal-right": EfModalRight;
@@ -343,11 +378,13 @@ declare module "@stencil/core" {
             "ef-buttons-icon": LocalJSX.EfButtonsIcon & JSXBase.HTMLAttributes<HTMLEfButtonsIconElement>;
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;
             "ef-checkbox": LocalJSX.EfCheckbox & JSXBase.HTMLAttributes<HTMLEfCheckboxElement>;
+            "ef-chip": LocalJSX.EfChip & JSXBase.HTMLAttributes<HTMLEfChipElement>;
             "ef-data-table": LocalJSX.EfDataTable & JSXBase.HTMLAttributes<HTMLEfDataTableElement>;
             "ef-data-table-footer": LocalJSX.EfDataTableFooter & JSXBase.HTMLAttributes<HTMLEfDataTableFooterElement>;
             "ef-date-picker": LocalJSX.EfDatePicker & JSXBase.HTMLAttributes<HTMLEfDatePickerElement>;
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
+            "ef-list-chips": LocalJSX.EfListChips & JSXBase.HTMLAttributes<HTMLEfListChipsElement>;
             "ef-modal": LocalJSX.EfModal & JSXBase.HTMLAttributes<HTMLEfModalElement>;
             "ef-modal-confirmation": LocalJSX.EfModalConfirmation & JSXBase.HTMLAttributes<HTMLEfModalConfirmationElement>;
             "ef-modal-right": LocalJSX.EfModalRight & JSXBase.HTMLAttributes<HTMLEfModalRightElement>;
