@@ -19,7 +19,6 @@ export class EfAddFile {
   //Event to emit any action from of parent
   @Event() event: EventEmitter<Blob>;
   eventUpload(file: Blob) {
-    console.log(file);
     this.event.emit(file);
   }
 
