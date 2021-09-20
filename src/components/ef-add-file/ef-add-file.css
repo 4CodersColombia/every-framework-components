@@ -1,0 +1,73 @@
+:host {
+  display: block;
+}
+.ef-add-archive__contentainer {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.ef-add-archive__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding-inline: 10px;
+}
+.ef-add-archive__archive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 90px;
+  min-width: 90px;
+  border-radius: 12px;
+  background-color: #e4e4e4;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.ef-add-archive__archive-img {
+  width: 40px;
+  height: auto;
+}
+.ef-add-archive__archive-img-upload {
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+.ef-add-archive__archive-title {
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #091731;
+  padding: 5px;
+}
+.ef-add-archive__archive-subtitle {
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #091731;
+}
+.ef-add-archive__archive-info {
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #676767;
+}
