@@ -256,7 +256,7 @@ declare namespace LocalJSX {
         "height"?: number;
         "infoIcon"?: string;
         "multiple"?: boolean;
-        "onEvent"?: (event: CustomEvent<Blob>) => void;
+        "onEvent"?: (event: CustomEvent<File>) => void;
         "subTitle"?: string;
         "title"?: string;
         "width"?: number;

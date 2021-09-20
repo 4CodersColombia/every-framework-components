@@ -1,4 +1,5 @@
 import { Component, getAssetPath, h, Prop, Event, EventEmitter, State } from '@stencil/core';
+import imageCompression from 'browser-image-compression';
 
 @Component({
   tag: 'ef-add-file',
@@ -17,11 +18,26 @@ export class EfAddFile {
 
   @State() previewImage: string;
   //Event to emit any action from of parent
-  @Event() event: EventEmitter<Blob>;
-  eventUpload(file: Blob) {
-    this.event.emit(file);
+  @Event() event: EventEmitter<File>;
+  async eventUpload(file: File) {
+    this.event.emit(await this.compressImage(file));
   }
+  async compressImage(photoP: File) {
+    var options = {
+      maxSizeMB: 0.7,
+      maxWidthOrHeight: 1920,
+      useWebWorker: true,
+    };
+    try {
+      const compressedFile = await imageCompression(photoP, options);
+      console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+      console.log('compressedFile size 700KB'); // smaller than maxSizeMB
 
+      return compressedFile;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   onInputChange(files: FileList) {
     // check if 1 image is uploaded
     if (files.length === 1) {
@@ -33,7 +49,7 @@ export class EfAddFile {
     }
   }
 
-  uploadImage(file) {
+  uploadImage(file: File) {
     // create a new instance of HTML5 FileReader api to handle uploading
     const reader = new FileReader();
 
