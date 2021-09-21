@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface EfAddFile {
+    interface EfAddFileImage {
         "circle": boolean;
         "height": number;
         "infoIcon": string;
@@ -121,11 +121,11 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLEfAddFileElement extends Components.EfAddFile, HTMLStencilElement {
+    interface HTMLEfAddFileImageElement extends Components.EfAddFileImage, HTMLStencilElement {
     }
-    var HTMLEfAddFileElement: {
-        prototype: HTMLEfAddFileElement;
-        new (): HTMLEfAddFileElement;
+    var HTMLEfAddFileImageElement: {
+        prototype: HTMLEfAddFileImageElement;
+        new (): HTMLEfAddFileImageElement;
     };
     interface HTMLEfButtonElement extends Components.EfButton, HTMLStencilElement {
     }
@@ -230,7 +230,7 @@ declare global {
         new (): HTMLEfTemplateAdminElement;
     };
     interface HTMLElementTagNameMap {
-        "ef-add-file": HTMLEfAddFileElement;
+        "ef-add-file-image": HTMLEfAddFileImageElement;
         "ef-button": HTMLEfButtonElement;
         "ef-buttons-icon": HTMLEfButtonsIconElement;
         "ef-card-info": HTMLEfCardInfoElement;
@@ -251,7 +251,7 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface EfAddFile {
+    interface EfAddFileImage {
         "circle"?: boolean;
         "height"?: number;
         "infoIcon"?: string;
@@ -377,7 +377,7 @@ declare namespace LocalJSX {
         "showModal"?: boolean;
     }
     interface IntrinsicElements {
-        "ef-add-file": EfAddFile;
+        "ef-add-file-image": EfAddFileImage;
         "ef-button": EfButton;
         "ef-buttons-icon": EfButtonsIcon;
         "ef-card-info": EfCardInfo;
@@ -401,7 +401,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "ef-add-file": LocalJSX.EfAddFile & JSXBase.HTMLAttributes<HTMLEfAddFileElement>;
+            "ef-add-file-image": LocalJSX.EfAddFileImage & JSXBase.HTMLAttributes<HTMLEfAddFileImageElement>;
             "ef-button": LocalJSX.EfButton & JSXBase.HTMLAttributes<HTMLEfButtonElement>;
             "ef-buttons-icon": LocalJSX.EfButtonsIcon & JSXBase.HTMLAttributes<HTMLEfButtonsIconElement>;
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;

@@ -2,12 +2,12 @@ import { Component, getAssetPath, h, Prop, Event, EventEmitter, State } from '@s
 import imageCompression from 'browser-image-compression';
 
 @Component({
-  tag: 'ef-add-file',
-  styleUrl: 'ef-add-file.css',
+  tag: 'ef-add-file-image',
+  styleUrl: 'ef-add-file-image.css',
   shadow: true,
   assetsDirs: ['assets'],
 })
-export class EfAddFile {
+export class EfAddFileImage {
   @Prop() title: string = 'Foto de perfil ';
   @Prop() subTitle: string = '(640 x 640px)';
   @Prop() infoIcon: string = 'Agregar';
@@ -82,12 +82,12 @@ export class EfAddFile {
     if (this.previewImage)
       return (
         <label htmlFor={'add-file'} class="ef-add-archive__archive" style={this.getStyleArchive()}>
-          <img id="add-file-img" class="ef-add-archive__archive-img-upload" style={this.getStyleArchive()} src={this.previewImage} alt="addArchive" />
+          <img class="ef-add-archive__archive-img-upload" style={this.getStyleArchive()} src={this.previewImage} alt="addArchive" />
         </label>
       );
     return (
       <label htmlFor={'add-file'} class="ef-add-archive__archive" style={this.getStyleArchive()}>
-        <img id="add-file-img" class="ef-add-archive__archive-img" src={getAssetPath(`./assets/addArchive.png`)} alt="addArchive" />
+        <img class="ef-add-archive__archive-img" src={getAssetPath(`./assets/addArchive.png`)} alt="addArchive" />
         <span class="ef-add-archive__archive-info">{this.infoIcon}</span>
       </label>
     );
