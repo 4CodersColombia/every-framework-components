@@ -50,14 +50,10 @@ export class EfAddFileImage {
     // create a new instance of HTML5 FileReader api to handle uploading
     const reader = new FileReader();
 
-    // reader.onloadstart = () => {};
-
     reader.onload = () => {
       this.previewImage = URL.createObjectURL(file);
       this.eventUpload(file);
     };
-
-    // reader.onloadend = () => {};
 
     reader.onerror = err => {
       this.error = 'something went wrong...' + err;
