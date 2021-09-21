@@ -61,7 +61,7 @@ export class EfAddFileImage {
     reader.onloadend = () => {};
 
     reader.onerror = err => {
-      (this.error = 'something went wrong...'), err;
+      this.error = 'something went wrong...' + err;
     };
     reader.readAsDataURL(file);
   }
