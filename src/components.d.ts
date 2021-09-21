@@ -6,6 +6,15 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface EfAddFileImage {
+        "circle": boolean;
+        "height": number;
+        "infoIcon": string;
+        "multiple": boolean;
+        "subTitle": string;
+        "title": string;
+        "width": number;
+    }
     interface EfButton {
         "color": 'PRIMARY' | 'SECONDARY';
         "disabled": boolean;
@@ -119,6 +128,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLEfAddFileImageElement extends Components.EfAddFileImage, HTMLStencilElement {
+    }
+    var HTMLEfAddFileImageElement: {
+        prototype: HTMLEfAddFileImageElement;
+        new (): HTMLEfAddFileImageElement;
+    };
     interface HTMLEfButtonElement extends Components.EfButton, HTMLStencilElement {
     }
     var HTMLEfButtonElement: {
@@ -234,6 +249,7 @@ declare global {
         new (): HTMLEfTemplateAdminElement;
     };
     interface HTMLElementTagNameMap {
+        "ef-add-file-image": HTMLEfAddFileImageElement;
         "ef-button": HTMLEfButtonElement;
         "ef-buttons-icon": HTMLEfButtonsIconElement;
         "ef-card-info": HTMLEfCardInfoElement;
@@ -256,6 +272,16 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface EfAddFileImage {
+        "circle"?: boolean;
+        "height"?: number;
+        "infoIcon"?: string;
+        "multiple"?: boolean;
+        "onEvent"?: (event: CustomEvent<File>) => void;
+        "subTitle"?: string;
+        "title"?: string;
+        "width"?: number;
+    }
     interface EfButton {
         "color"?: 'PRIMARY' | 'SECONDARY';
         "disabled"?: boolean;
@@ -381,6 +407,7 @@ declare namespace LocalJSX {
         "showModal"?: boolean;
     }
     interface IntrinsicElements {
+        "ef-add-file-image": EfAddFileImage;
         "ef-button": EfButton;
         "ef-buttons-icon": EfButtonsIcon;
         "ef-card-info": EfCardInfo;
@@ -406,6 +433,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ef-add-file-image": LocalJSX.EfAddFileImage & JSXBase.HTMLAttributes<HTMLEfAddFileImageElement>;
             "ef-button": LocalJSX.EfButton & JSXBase.HTMLAttributes<HTMLEfButtonElement>;
             "ef-buttons-icon": LocalJSX.EfButtonsIcon & JSXBase.HTMLAttributes<HTMLEfButtonsIconElement>;
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;
