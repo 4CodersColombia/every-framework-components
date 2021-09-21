@@ -70,3 +70,12 @@
   letter-spacing: 0.2px;
   color: #676767;
 }
+.ef-add-archive__archive-error {
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: red;
+}

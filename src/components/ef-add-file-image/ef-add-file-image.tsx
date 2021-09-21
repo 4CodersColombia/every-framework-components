@@ -8,15 +8,16 @@ import imageCompression from 'browser-image-compression';
   assetsDirs: ['assets'],
 })
 export class EfAddFileImage {
-  @Prop() title: string = 'Foto de perfil ';
-  @Prop() subTitle: string = '(640 x 640px)';
-  @Prop() infoIcon: string = 'Agregar';
+  @Prop() title: string = 'Title';
+  @Prop() subTitle: string = 'subtitle';
+  @Prop() infoIcon: string = 'add';
   @Prop() circle: boolean = false;
   @Prop() width: number = 100;
   @Prop() height: number = 100;
   @Prop() multiple: boolean = false;
 
   @State() previewImage: string;
+  @State() error: string;
   //Event to emit any action from of parent
   @Event() event: EventEmitter<File>;
   async eventUpload(file: File) {
@@ -30,12 +31,9 @@ export class EfAddFileImage {
     };
     try {
       const compressedFile = await imageCompression(photoP, options);
-      console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
-      console.log('compressedFile size 700KB'); // smaller than maxSizeMB
-
       return compressedFile;
     } catch (error) {
-      console.log(error);
+      this.error = error;
     }
   }
   onInputChange(files: FileList) {
@@ -44,7 +42,7 @@ export class EfAddFileImage {
       const imageFile = files[0];
       this.uploadImage(imageFile);
     } else {
-      console.error(files.length === 0 ? 'NO IMAGE UPLOADED' : 'YOU CAN ONLY UPLOAD ONE IMAGE AT THE TIME');
+      this.error = files.length === 0 ? 'NO IMAGE UPLOADED' : 'YOU CAN ONLY UPLOAD ONE IMAGE AT THE TIME';
       return false;
     }
   }
@@ -53,21 +51,17 @@ export class EfAddFileImage {
     // create a new instance of HTML5 FileReader api to handle uploading
     const reader = new FileReader();
 
-    reader.onloadstart = () => {
-      console.log('started uploading');
-    };
+    reader.onloadstart = () => {};
 
     reader.onload = () => {
       this.previewImage = URL.createObjectURL(file);
       this.eventUpload(file);
     };
 
-    reader.onloadend = () => {
-      console.log('upload finished');
-    };
+    reader.onloadend = () => {};
 
     reader.onerror = err => {
-      console.error('something went wrong...', err);
+      (this.error = 'something went wrong...'), err;
     };
     reader.readAsDataURL(file);
   }
@@ -106,6 +100,7 @@ export class EfAddFileImage {
           id={'add-file'}
           style={{ display: 'none', visibility: 'none' }}
         ></input>
+        <span class="ef-add-archive__archive-error ">{this.error}</span>
       </div>
     );
   }
