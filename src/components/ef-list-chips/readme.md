@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property    | Attribute | Description | Type                                                              | Default                                                                                                          |
-| ----------- | --------- | ----------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `chipGroup` | --        |             | `{ value?: string \| number; text: string; cancel?: boolean; }[]` | `[     { text: 'Creación' },     {       text: 'Creación',       cancel: true,       value: '21342',     },   ]` |
+| Property       | Attribute       | Description | Type                                                              | Default                 |
+| -------------- | --------------- | ----------- | ----------------------------------------------------------------- | ----------------------- |
+| `chipGroup`    | --              |             | `{ value?: string \| number; text: string; cancel?: boolean; }[]` | `[]`                    |
+| `visibleChips` | `visible-chips` |             | `number`                                                          | `this.chipGroup.length` |
 
 
 ## Dependencies
