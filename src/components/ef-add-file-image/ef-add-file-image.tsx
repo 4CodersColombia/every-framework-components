@@ -30,8 +30,7 @@ export class EfAddFileImage {
       useWebWorker: true,
     };
     try {
-      const compressedFile = await imageCompression(photoP, options);
-      return compressedFile;
+      return imageCompression(photoP, options);
     } catch (error) {
       this.error = error;
     }
@@ -51,14 +50,14 @@ export class EfAddFileImage {
     // create a new instance of HTML5 FileReader api to handle uploading
     const reader = new FileReader();
 
-    reader.onloadstart = () => {};
+    // reader.onloadstart = () => {};
 
     reader.onload = () => {
       this.previewImage = URL.createObjectURL(file);
       this.eventUpload(file);
     };
 
-    reader.onloadend = () => {};
+    // reader.onloadend = () => {};
 
     reader.onerror = err => {
       this.error = 'something went wrong...' + err;
