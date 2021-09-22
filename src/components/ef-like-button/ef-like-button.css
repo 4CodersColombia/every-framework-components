@@ -1,0 +1,11 @@
+.ef-like-button__container {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

@@ -90,6 +90,9 @@ export namespace Components {
         "type": 'text' | 'password';
         "value": string;
     }
+    interface EfLikeButton {
+        "checked": boolean;
+    }
     interface EfListChips {
         "chipGroup": { value?: string | number; text: string; cancel?: boolean }[];
         "visibleChips": number;
@@ -112,6 +115,10 @@ export namespace Components {
         "pageActive": number;
         "pages": number;
         "visiblePages": number;
+    }
+    interface EfSwitch {
+        "checked": boolean;
+        "disabled": boolean;
     }
     interface EfTabs {
         "titles": { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
@@ -187,6 +194,12 @@ declare global {
         prototype: HTMLEfInputElement;
         new (): HTMLEfInputElement;
     };
+    interface HTMLEfLikeButtonElement extends Components.EfLikeButton, HTMLStencilElement {
+    }
+    var HTMLEfLikeButtonElement: {
+        prototype: HTMLEfLikeButtonElement;
+        new (): HTMLEfLikeButtonElement;
+    };
     interface HTMLEfListChipsElement extends Components.EfListChips, HTMLStencilElement {
     }
     var HTMLEfListChipsElement: {
@@ -217,6 +230,12 @@ declare global {
         prototype: HTMLEfPaginatorElement;
         new (): HTMLEfPaginatorElement;
     };
+    interface HTMLEfSwitchElement extends Components.EfSwitch, HTMLStencilElement {
+    }
+    var HTMLEfSwitchElement: {
+        prototype: HTMLEfSwitchElement;
+        new (): HTMLEfSwitchElement;
+    };
     interface HTMLEfTabsElement extends Components.EfTabs, HTMLStencilElement {
     }
     var HTMLEfTabsElement: {
@@ -241,11 +260,13 @@ declare global {
         "ef-date-picker": HTMLEfDatePickerElement;
         "ef-dropdown": HTMLEfDropdownElement;
         "ef-input": HTMLEfInputElement;
+        "ef-like-button": HTMLEfLikeButtonElement;
         "ef-list-chips": HTMLEfListChipsElement;
         "ef-modal": HTMLEfModalElement;
         "ef-modal-confirmation": HTMLEfModalConfirmationElement;
         "ef-modal-right": HTMLEfModalRightElement;
         "ef-paginator": HTMLEfPaginatorElement;
+        "ef-switch": HTMLEfSwitchElement;
         "ef-tabs": HTMLEfTabsElement;
         "ef-template-admin": HTMLEfTemplateAdminElement;
     }
@@ -345,6 +366,10 @@ declare namespace LocalJSX {
         "type"?: 'text' | 'password';
         "value"?: string;
     }
+    interface EfLikeButton {
+        "checked"?: boolean;
+        "onEvent"?: (event: CustomEvent<any>) => void;
+    }
     interface EfListChips {
         "chipGroup"?: { value?: string | number; text: string; cancel?: boolean }[];
         "visibleChips"?: number;
@@ -370,6 +395,11 @@ declare namespace LocalJSX {
         "pages"?: number;
         "visiblePages"?: number;
     }
+    interface EfSwitch {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "onEvent"?: (event: CustomEvent<any>) => void;
+    }
     interface EfTabs {
         "titles"?: { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
     }
@@ -388,11 +418,13 @@ declare namespace LocalJSX {
         "ef-date-picker": EfDatePicker;
         "ef-dropdown": EfDropdown;
         "ef-input": EfInput;
+        "ef-like-button": EfLikeButton;
         "ef-list-chips": EfListChips;
         "ef-modal": EfModal;
         "ef-modal-confirmation": EfModalConfirmation;
         "ef-modal-right": EfModalRight;
         "ef-paginator": EfPaginator;
+        "ef-switch": EfSwitch;
         "ef-tabs": EfTabs;
         "ef-template-admin": EfTemplateAdmin;
     }
@@ -412,11 +444,13 @@ declare module "@stencil/core" {
             "ef-date-picker": LocalJSX.EfDatePicker & JSXBase.HTMLAttributes<HTMLEfDatePickerElement>;
             "ef-dropdown": LocalJSX.EfDropdown & JSXBase.HTMLAttributes<HTMLEfDropdownElement>;
             "ef-input": LocalJSX.EfInput & JSXBase.HTMLAttributes<HTMLEfInputElement>;
+            "ef-like-button": LocalJSX.EfLikeButton & JSXBase.HTMLAttributes<HTMLEfLikeButtonElement>;
             "ef-list-chips": LocalJSX.EfListChips & JSXBase.HTMLAttributes<HTMLEfListChipsElement>;
             "ef-modal": LocalJSX.EfModal & JSXBase.HTMLAttributes<HTMLEfModalElement>;
             "ef-modal-confirmation": LocalJSX.EfModalConfirmation & JSXBase.HTMLAttributes<HTMLEfModalConfirmationElement>;
             "ef-modal-right": LocalJSX.EfModalRight & JSXBase.HTMLAttributes<HTMLEfModalRightElement>;
             "ef-paginator": LocalJSX.EfPaginator & JSXBase.HTMLAttributes<HTMLEfPaginatorElement>;
+            "ef-switch": LocalJSX.EfSwitch & JSXBase.HTMLAttributes<HTMLEfSwitchElement>;
             "ef-tabs": LocalJSX.EfTabs & JSXBase.HTMLAttributes<HTMLEfTabsElement>;
             "ef-template-admin": LocalJSX.EfTemplateAdmin & JSXBase.HTMLAttributes<HTMLEfTemplateAdminElement>;
         }
