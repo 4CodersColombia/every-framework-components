@@ -44,7 +44,7 @@ export namespace Components {
     }
     interface EfDataTable {
         "data": { [key: string]: string | number }[];
-        "headers": { text: string; value: string; slot?:JSX.Element }[];
+        "headers": { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
         "icon_arrow": string;
     }
     interface EfDataTableFooter {
@@ -315,7 +315,7 @@ declare namespace LocalJSX {
     }
     interface EfDataTable {
         "data"?: { [key: string]: string | number }[];
-        "headers"?: { text: string; value: string; slot?:JSX.Element }[];
+        "headers"?: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
         "icon_arrow"?: string;
     }
     interface EfDataTableFooter {
