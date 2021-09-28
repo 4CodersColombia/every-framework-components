@@ -39,6 +39,7 @@ export class EfDataTableFooter {
     this.valueFilter = newValue.text as number;
     this.valueChangeFilter.emit(newValue);
   }
+
   render() {
     return (
       <div class="ef-data-table-footer__container ef-data-table-footer__text">
@@ -61,7 +62,7 @@ export class EfDataTableFooter {
         <div class="ef-data-table-center">
           <ef-paginator
             onEvent={value => {
-              console.log(value);
+              this.onValeChangePageActive(value.detail);
             }}
             pageActive={this.pageActive}
             pages={this.pages}
