@@ -2,7 +2,7 @@ import { Component, h, Host, Prop, State } from '@stencil/core';
 import { IMAGES_DATA_TABLE } from './constDataTable';
 @Component({ tag: 'ef-data-table', styleUrl: 'ef-data-table.css', shadow: true })
 export class PrDataTable {
-  @Prop() headers: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+  @Prop() headers: { text: string; value: string; slot?:JSX.Element }[];
   @Prop() data: { [key: string]: string | number }[];
   @Prop() icon_arrow: string = IMAGES_DATA_TABLE['ARROW_DOWN'];
 
@@ -30,7 +30,7 @@ export class PrDataTable {
             return (
               <td class={this.getDrawerStateItem(key)}>
                 <span class="before-content-table">{header.text}</span>
-                {header.slot(dataRow)}
+                {header.slot}
                 <img onClick={this.setDrawerStateItem.bind(this, key)} src={this.getIconArrowDrawer(key)} alt="arrow_down" class="icon-arrow" />
               </td>
             );
