@@ -1,6 +1,6 @@
 {
   "name": "every-framework-components",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Stencil Components",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
