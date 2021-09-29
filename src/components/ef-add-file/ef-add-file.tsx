@@ -35,7 +35,7 @@ export class EfAddFile {
       <div class="ef-add-archive__card-info-file">
         <div class="ef-add-archive__card-info-file-icon">
           <img src={EVERYFRAMEWORKICONS['ICON_PDF']} alt="icon_pdf" />
-          <span class="ef-add-archive__card-info-file-name">{file.name}</span>
+          <span class="ef-add-archive__card-info-file-name">{file.name.slice(0,20)+'...'}</span>
         </div>
         <ef-buttons-icon
           onEvent={value => {
