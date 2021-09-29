@@ -15,6 +15,7 @@
 | `multiple` | `multiple`  |             | `boolean` | `false`      |
 | `subTitle` | `sub-title` |             | `string`  | `'subtitle'` |
 | `title`    | `title`     |             | `string`  | `'Title'`    |
+| `urlIcon`  | `url-icon`  |             | `string`  | `undefined`  |
 | `width`    | `width`     |             | `number`  | `100`        |
 
 

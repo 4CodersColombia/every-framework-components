@@ -9,9 +9,9 @@
 | ---------- | ---------- | ----------- | -------------------------------- | ----------- |
 | `color`    | `color`    |             | `"PRIMARY" \| "SECONDARY"`       | `'PRIMARY'` |
 | `disabled` | `disabled` |             | `boolean`                        | `false`     |
-| `icon`     | `icon`     |             | `string`                         | `undefined` |
 | `size`     | `size`     |             | `"LARGE" \| "MEDIUM" \| "SMALL"` | `'LARGE'`   |
 | `text`     | `text`     |             | `string`                         | `undefined` |
+| `urlIcon`  | `url-icon` |             | `string`                         | `undefined` |
 
 
 ## Events

@@ -5,11 +5,13 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default |
-| ---------- | ---------- | ----------- | --------- | ------- |
-| `checked`  | `checked`  |             | `boolean` | `false` |
-| `disabled` | `disabled` |             | `boolean` | `false` |
-| `size`     | `size`     |             | `number`  | `24`    |
+| Property          | Attribute           | Description | Type      | Default     |
+| ----------------- | ------------------- | ----------- | --------- | ----------- |
+| `checked`         | `checked`           |             | `boolean` | `false`     |
+| `disabled`        | `disabled`          |             | `boolean` | `false`     |
+| `size`            | `size`              |             | `number`  | `24`        |
+| `urlIcon`         | `url-icon`          |             | `string`  | `undefined` |
+| `urlIconDisabled` | `url-icon-disabled` |             | `string`  | `undefined` |
 
 
 ## Events

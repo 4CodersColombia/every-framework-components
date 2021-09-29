@@ -13,14 +13,15 @@ export namespace Components {
         "multiple": boolean;
         "subTitle": string;
         "title": string;
+        "urlIcon": string;
         "width": number;
     }
     interface EfButton {
         "color": 'PRIMARY' | 'SECONDARY';
         "disabled": boolean;
-        "icon": string;
         "size": 'LARGE' | 'MEDIUM' | 'SMALL';
         "text": string;
+        "urlIcon": string;
     }
     interface EfButtonsIcon {
         "align": 'HORIZONTAL' | 'VERTICAL';
@@ -36,22 +37,24 @@ export namespace Components {
         "checked": boolean;
         "disabled": boolean;
         "size": number;
+        "urlIcon": string;
+        "urlIconDisabled": string;
     }
     interface EfChip {
         "cancel": boolean;
         "text": string;
+        "urlIcon": string;
         "value": string | number;
     }
     interface EfDataTable {
         "data": { [key: string]: string | number }[];
         "headers": { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
-        "icon_arrow": string;
+        "urlIconArrow": string;
     }
     interface EfDataTableFooter {
         "dataType": string;
         "disabledFilter": boolean;
         "errorMessageFilter": string;
-        "iconFilter": string;
         "itemsCount": string;
         "itemsFilter": { id: string | number; text: string }[];
         "labelFilter": string;
@@ -76,9 +79,10 @@ export namespace Components {
     interface EfDropdown {
         "disabled": boolean;
         "errorMessage": string;
-        "icon": string;
         "items": { id: string | number; text: string }[];
         "label": string;
+        "urlIcon": string;
+        "urlIconArrow": string;
         "value": string;
     }
     interface EfInput {
@@ -92,9 +96,11 @@ export namespace Components {
     }
     interface EfLikeButton {
         "checked": boolean;
+        "urlIConLike": string;
+        "urlIconUnlike": string;
     }
     interface EfListChips {
-        "chipGroup": { value?: string | number; text: string; cancel?: boolean }[];
+        "chipGroup": { value?: string | number; text: string; cancel?: boolean;urlIcon?:string; }[];
         "visibleChips": number;
     }
     interface EfModal {
@@ -280,15 +286,16 @@ declare namespace LocalJSX {
         "onEvent"?: (event: CustomEvent<File>) => void;
         "subTitle"?: string;
         "title"?: string;
+        "urlIcon"?: string;
         "width"?: number;
     }
     interface EfButton {
         "color"?: 'PRIMARY' | 'SECONDARY';
         "disabled"?: boolean;
-        "icon"?: string;
         "onEvent"?: (event: CustomEvent<any>) => void;
         "size"?: 'LARGE' | 'MEDIUM' | 'SMALL';
         "text"?: string;
+        "urlIcon"?: string;
     }
     interface EfButtonsIcon {
         "align"?: 'HORIZONTAL' | 'VERTICAL';
@@ -306,23 +313,25 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "onEvent"?: (event: CustomEvent<any>) => void;
         "size"?: number;
+        "urlIcon"?: string;
+        "urlIconDisabled"?: string;
     }
     interface EfChip {
         "cancel"?: boolean;
         "onEvent"?: (event: CustomEvent<string | number>) => void;
         "text"?: string;
+        "urlIcon"?: string;
         "value"?: string | number;
     }
     interface EfDataTable {
         "data"?: { [key: string]: string | number }[];
         "headers"?: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
-        "icon_arrow"?: string;
+        "urlIconArrow"?: string;
     }
     interface EfDataTableFooter {
         "dataType"?: string;
         "disabledFilter"?: boolean;
         "errorMessageFilter"?: string;
-        "iconFilter"?: string;
         "itemsCount"?: string;
         "itemsFilter"?: { id: string | number; text: string }[];
         "labelFilter"?: string;
@@ -350,10 +359,11 @@ declare namespace LocalJSX {
     interface EfDropdown {
         "disabled"?: boolean;
         "errorMessage"?: string;
-        "icon"?: string;
         "items"?: { id: string | number; text: string }[];
         "label"?: string;
         "onValueChange"?: (event: CustomEvent<object>) => void;
+        "urlIcon"?: string;
+        "urlIconArrow"?: string;
         "value"?: string;
     }
     interface EfInput {
@@ -369,9 +379,11 @@ declare namespace LocalJSX {
     interface EfLikeButton {
         "checked"?: boolean;
         "onEvent"?: (event: CustomEvent<any>) => void;
+        "urlIConLike"?: string;
+        "urlIconUnlike"?: string;
     }
     interface EfListChips {
-        "chipGroup"?: { value?: string | number; text: string; cancel?: boolean }[];
+        "chipGroup"?: { value?: string | number; text: string; cancel?: boolean;urlIcon?:string; }[];
         "visibleChips"?: number;
     }
     interface EfModal {

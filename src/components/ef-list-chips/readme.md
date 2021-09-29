@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property       | Attribute       | Description | Type                                                              | Default                 |
-| -------------- | --------------- | ----------- | ----------------------------------------------------------------- | ----------------------- |
-| `chipGroup`    | --              |             | `{ value?: string \| number; text: string; cancel?: boolean; }[]` | `[]`                    |
-| `visibleChips` | `visible-chips` |             | `number`                                                          | `this.chipGroup.length` |
+| Property       | Attribute       | Description | Type                                                                                | Default                 |
+| -------------- | --------------- | ----------- | ----------------------------------------------------------------------------------- | ----------------------- |
+| `chipGroup`    | --              |             | `{ value?: string \| number; text: string; cancel?: boolean; urlIcon?: string; }[]` | `[]`                    |
+| `visibleChips` | `visible-chips` |             | `number`                                                                            | `this.chipGroup.length` |
 
 
 ## Dependencies

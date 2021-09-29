@@ -4,7 +4,6 @@ import 'app-datepicker';
   tag: 'ef-date-picker',
   styleUrl: 'ef-date-picker.css',
   shadow: true,
-  assetsDirs: ['assets'],
 })
 export class EfDatePicker {
   @Prop({ mutable: true }) showModal: boolean = false;

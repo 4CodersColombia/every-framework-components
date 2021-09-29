@@ -15,7 +15,6 @@ export class EfDataTableFooter {
   @Prop({ mutable: true }) valueFilter: number = 10;
   @Prop() errorMessageFilter: string;
   @Prop() labelFilter: string;
-  @Prop() iconFilter: string;
   @Prop() disabledFilter: boolean = false;
   @Prop() itemsFilter: { id: string | number; text: string }[] = [
     { id: 0, text: '10' },
@@ -51,7 +50,6 @@ export class EfDataTableFooter {
             items={this.itemsFilter}
             errorMessage={this.errorMessageFilter}
             label={this.labelFilter}
-            icon={this.iconFilter}
             onValueChange={value => {
               this.onDropdownChangeValue(value.detail as { [key: string]: unknown });
             }}
