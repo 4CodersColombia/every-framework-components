@@ -10,7 +10,7 @@ export class PrDataTable {
   @Prop() data: { [key: string]: string | number }[] ;
   @Prop() urlIconArrow: string =EVERYFRAMEWORKICONS['ARROW_DOWN'];
   @State() array_drawer_item: boolean[] = Array.from({ length: this.getLengthData() }, () => false);
-
+  
   getLengthData() {
     return this.data ? this.data.length : 0;
   }
@@ -44,7 +44,7 @@ export class PrDataTable {
             return (
               <td class={this.array_drawer_item[key] ? 'open' : 'close'}>
                 <span class="before-content-table">{header.text}</span>
-                <slot name={`${dataRow[header.value]}${key}`}>{dataRow[header.value]}</slot>
+                <slot name={`${dataRow}${dataRow[header.value]}`}>{dataRow[header.value]}</slot>
                 {this.getArrowDrawer(key)}
               </td>
             );
