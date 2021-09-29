@@ -7,10 +7,10 @@ import { EVERYFRAMEWORKICONS } from '../../EVERYFRAMEWORKICONS/EVERYFRAMEWORKICO
   shadow: true,
 })
 export class EfAddFile {
-  @Prop() title: string = 'Agrega aquí los documentos que consideres pertinentes para tu perfil. Ej: Registro de la empresa, documentación ante la DIAN, etc.';
+  @Prop() title: string = 'add file here';
   @Prop() buttonText: string = 'Add Files';
   @State() error: string;
-  @State() files: File[];
+  @State() files: File[]=[];
   @Event() event: EventEmitter<File[]>;
   async eventUpload(files: File[]) {
     this.event.emit(files);
