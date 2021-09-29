@@ -18,7 +18,7 @@ export class EfAddFile {
 
   uploadFile(files: File[]) {
     // create a new instance of HTML5 FileReader api to handle uploading
-    Array.from(files).map(item => {
+    Array.from(files).forEach(item => {
       if (!this.files.filter(file => file.name == item.name).length) this.files = this.files.concat(item);
     });
     this.eventUpload(files);
