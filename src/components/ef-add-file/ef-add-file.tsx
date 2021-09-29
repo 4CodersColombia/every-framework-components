@@ -29,13 +29,18 @@ export class EfAddFile {
       return item.name !== nameFile;
     });
   }
+
+  getTextFile( textName:string){
+    if(textName.length>=20) return textName.slice(0,20)+'...'
+    return textName
+  }
   renderCardInfoFile = (file: File) => {
     const buttons = [{ urlIcon: EVERYFRAMEWORKICONS['TRASH'], id: file.name }];
     return (
       <div class="ef-add-archive__card-info-file">
         <div class="ef-add-archive__card-info-file-icon">
           <img src={EVERYFRAMEWORKICONS['ICON_PDF']} alt="icon_pdf" />
-          <span class="ef-add-archive__card-info-file-name">{file.name.slice(0,20)+'...'}</span>
+          <span class="ef-add-archive__card-info-file-name">{this.getTextFile(file.name)}</span>
         </div>
         <ef-buttons-icon
           onEvent={value => {

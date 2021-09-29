@@ -44,7 +44,7 @@ export class PrDataTable {
             return (
               <td class={this.array_drawer_item[key] ? 'open' : 'close'}>
                 <span class="before-content-table">{header.text}</span>
-                <slot name={`${dataRow.id}${dataRow[header.value]}`}>{dataRow[header.value]}</slot>
+                <slot name={`${Object.values(dataRow).join()}${dataRow[header.value]}`}>{dataRow[header.value]}</slot>
                 {this.getArrowDrawer(key)}
               </td>
             );
