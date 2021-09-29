@@ -21,7 +21,7 @@ export class EfAddFile {
     Array.from(files).forEach(item => {
       if (!this.files.filter(file => file.name == item.name).length) this.files = this.files.concat(item);
     });
-    this.eventUpload(files);
+    this.eventUpload(this.files);
   }
 
   deleteFile(nameFile: string) {
