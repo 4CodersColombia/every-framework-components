@@ -12,7 +12,7 @@
   max-width: 320px;
   padding: 10px;
   text-align: justify;
-  font-family: 'Quicksand',sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
@@ -65,6 +65,12 @@
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
   border-radius: 13px;
   padding: 5px;
+  text-align: left;
+}
+.ef-add-archive__card-info-file-icon{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .ef-add-archive__card-info-file-name {
   font-family: 'Quicksand', sans-serif;
@@ -73,10 +79,7 @@
   font-size: 20px;
   line-height: 20px;
   /* identical to box height, or 100% */
-
-  display: flex;
-  align-items: flex-end;
   letter-spacing: 0.2px;
-
+  padding: 10px;
   color: #000000;
 }

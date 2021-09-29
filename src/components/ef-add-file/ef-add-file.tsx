@@ -10,7 +10,7 @@ export class EfAddFile {
   @Prop() title: string = 'add file here';
   @Prop() buttonText: string = 'Add Files';
   @State() error: string;
-  @State() files: File[]=[];
+  @State() files: File[] = [];
   @Event() event: EventEmitter<File[]>;
   async eventUpload(files: File[]) {
     this.event.emit(files);
@@ -18,7 +18,10 @@ export class EfAddFile {
 
   uploadFile(files: File[]) {
     // create a new instance of HTML5 FileReader api to handle uploading
-    this.files = Object.keys(files).map(item => files[item]);
+    const arrayFiles = Array.from(files);
+    arrayFiles.map(item => {
+      if (!this.files.filter(file => file.name == item.name).length) this.files = this.files.concat(item);
+    });
     this.eventUpload(files);
   }
 
@@ -28,17 +31,13 @@ export class EfAddFile {
     });
   }
   renderCardInfoFile = (file: File) => {
-    const buttons = [
-      {
-        urlIcon: EVERYFRAMEWORKICONS['COMUNITY'],
-        id: file.name,
-      },
-      { urlIcon: EVERYFRAMEWORKICONS['TRASH'], id: file.name },
-    ];
+    const buttons = [{ urlIcon: EVERYFRAMEWORKICONS['TRASH'], id: file.name }];
     return (
       <div class="ef-add-archive__card-info-file">
-        <img src={EVERYFRAMEWORKICONS['ICON_PDF']} alt="icon_pdf" />
-        <span class="ef-add-archive__card-info-file-name ">{file.name.slice(0, 8)}</span>
+        <div class="ef-add-archive__card-info-file-icon">
+          <img src={EVERYFRAMEWORKICONS['ICON_PDF']} alt="icon_pdf" />
+          <span class="ef-add-archive__card-info-file-name">{file.name}</span>
+        </div>
         <ef-buttons-icon
           onEvent={value => {
             this.deleteFile(value.detail);
@@ -62,7 +61,10 @@ export class EfAddFile {
         <div class="ef-add-file_container">
           {this.renderInfo(this.files)}
           <input
-            onChange={($event: any) => this.uploadFile($event.target.files)}
+            onChange={($event: any) => {
+              this.uploadFile($event.target.files);
+              $event.target.value=null;
+            }}
             accept=".pdf"
             type="file"
             multiple
