@@ -1,4 +1,4 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css");
+
 .table,
 .head-table tr th,
 .table-body tr td {
@@ -75,11 +75,11 @@
     position: relative;
     transition: ease-in-out 0.5s;
   }
-  .table-body tr td.close {
+  .table-body tr .close {
     display: none;
     transition: ease-in-out 0.5s;
   }
-  .table-body tr td.open {
+  .table-body tr .open {
     display: block;
     transition: ease-in-out 0.5s;
   }

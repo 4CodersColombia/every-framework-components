@@ -1,4 +1,3 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css");
 .ef-paginations {
   display: flex;
   flex-direction: row;
@@ -19,6 +18,10 @@
   position: relative;
   transition: 0.3s ease-in-out;
 }
+.ef-page span{
+  position: absolute;
+  z-index: 0;
+}
 .ef-page::before {
   content: '';
   width: 30px;
@@ -27,12 +30,12 @@
   border-radius: 50%;
   position: absolute;
   transform: scale(0);
-  z-index: -1;
+  z-index: 0;
   transition: 0.3s ease-in-out;
 }
 .ef-page:hover {
   transition: 0.3s ease-in-out;
-  transform: scale(1.5) translateY(-5px);
+  transform: scale(1.3) translateY(-5px);
 }
 
 .ef-page-selected::before {
@@ -45,4 +48,11 @@
 .ef-page-arrow {
   cursor: pointer;
   padding: 10px;
+}
+.ef-page-arrow-left {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
 }

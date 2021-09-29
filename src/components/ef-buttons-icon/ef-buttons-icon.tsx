@@ -12,7 +12,6 @@ export class EfButtonsIcon {
   //Event to emit any action from of parent
   @Event() event: EventEmitter<string>;
   eventButton(id: string) {
-    console.log(id);
     this.event.emit(id);
   }
 

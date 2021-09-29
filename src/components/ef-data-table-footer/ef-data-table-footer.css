@@ -57,9 +57,8 @@
 
   .ef-data-table-center {
     top: -15px;
-    left: 50%;
-    right: 50%;
     position: absolute;
+    width: 100%;
   }
   .ef-data-table-right {
     margin-top: 0px;

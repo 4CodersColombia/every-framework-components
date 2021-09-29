@@ -11,8 +11,8 @@
 | `errorMessage` | `error-message`  |             | `string`                                    | `undefined`                                                                                                                             |
 | `items`        | --               |             | `{ id: string \| number; text: string; }[]` | `[     { id: 0, text: 'option1' },     { id: 1, text: 'option2' },     { id: 2, text: 'option3' },     { id: 3, text: 'option4' },   ]` |
 | `label`        | `label`          |             | `string`                                    | `undefined`                                                                                                                             |
-| `urlIcon`      | `url-icon`       |             | `string`                                    | `undefined`                                                                                                                             |
-| `urlIconArrow` | `url-icon-arrow` |             | `string`                                    | `undefined`                                                                                                                             |
+| `urlIconLeft`  | `url-icon-left`  |             | `string`                                    | `undefined`                                                                                                                             |
+| `urlIconRight` | `url-icon-right` |             | `string`                                    | `EVERYFRAMEWORKICONS['ARROW_DOWN']`                                                                                                     |
 | `value`        | `value`          |             | `string`                                    | `undefined`                                                                                                                             |
 
 

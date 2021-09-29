@@ -6,6 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface EfAddFile {
+        "buttonText": string;
+        "title": string;
+    }
     interface EfAddFileImage {
         "circle": boolean;
         "height": number;
@@ -81,8 +85,8 @@ export namespace Components {
         "errorMessage": string;
         "items": { id: string | number; text: string }[];
         "label": string;
-        "urlIcon": string;
-        "urlIconArrow": string;
+        "urlIconLeft": string;
+        "urlIconRight": string;
         "value": string;
     }
     interface EfInput {
@@ -134,6 +138,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLEfAddFileElement extends Components.EfAddFile, HTMLStencilElement {
+    }
+    var HTMLEfAddFileElement: {
+        prototype: HTMLEfAddFileElement;
+        new (): HTMLEfAddFileElement;
+    };
     interface HTMLEfAddFileImageElement extends Components.EfAddFileImage, HTMLStencilElement {
     }
     var HTMLEfAddFileImageElement: {
@@ -255,6 +265,7 @@ declare global {
         new (): HTMLEfTemplateAdminElement;
     };
     interface HTMLElementTagNameMap {
+        "ef-add-file": HTMLEfAddFileElement;
         "ef-add-file-image": HTMLEfAddFileImageElement;
         "ef-button": HTMLEfButtonElement;
         "ef-buttons-icon": HTMLEfButtonsIconElement;
@@ -278,6 +289,11 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface EfAddFile {
+        "buttonText"?: string;
+        "onEvent"?: (event: CustomEvent<File[]>) => void;
+        "title"?: string;
+    }
     interface EfAddFileImage {
         "circle"?: boolean;
         "height"?: number;
@@ -362,8 +378,8 @@ declare namespace LocalJSX {
         "items"?: { id: string | number; text: string }[];
         "label"?: string;
         "onValueChange"?: (event: CustomEvent<object>) => void;
-        "urlIcon"?: string;
-        "urlIconArrow"?: string;
+        "urlIconLeft"?: string;
+        "urlIconRight"?: string;
         "value"?: string;
     }
     interface EfInput {
@@ -402,7 +418,7 @@ declare namespace LocalJSX {
         "width"?: string;
     }
     interface EfPaginator {
-        "onEvent"?: (event: CustomEvent<number>) => void;
+        "onEvent"?: (event: CustomEvent<any>) => void;
         "pageActive"?: number;
         "pages"?: number;
         "visiblePages"?: number;
@@ -419,6 +435,7 @@ declare namespace LocalJSX {
         "showModal"?: boolean;
     }
     interface IntrinsicElements {
+        "ef-add-file": EfAddFile;
         "ef-add-file-image": EfAddFileImage;
         "ef-button": EfButton;
         "ef-buttons-icon": EfButtonsIcon;
@@ -445,6 +462,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ef-add-file": LocalJSX.EfAddFile & JSXBase.HTMLAttributes<HTMLEfAddFileElement>;
             "ef-add-file-image": LocalJSX.EfAddFileImage & JSXBase.HTMLAttributes<HTMLEfAddFileImageElement>;
             "ef-button": LocalJSX.EfButton & JSXBase.HTMLAttributes<HTMLEfButtonElement>;
             "ef-buttons-icon": LocalJSX.EfButtonsIcon & JSXBase.HTMLAttributes<HTMLEfButtonsIconElement>;

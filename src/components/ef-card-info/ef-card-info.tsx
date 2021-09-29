@@ -10,11 +10,15 @@ export class EfCardInfo {
   @Prop() title: string;
   @Prop() subtitle: string;
   @Prop() styleTitle: { [key: string]: string };
+  
+  getImage() {
+    if (this.image) return <img src={this.image} alt="image" class="imagen" />;
+  }
   render() {
     return (
       <Host>
         <div class="card-info-div">
-          <img src={this.image} alt="image" class="imagen" />
+          {this.getImage()}
           <div class="title-column">
             <span class="title-info" style={this.styleTitle}>
               {this.title}
