@@ -6,7 +6,7 @@ import { Component, Host, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class EfListChips {
-  @Prop() chipGroup: { value?: string | number; text: string; cancel?: boolean }[] = [];
+  @Prop() chipGroup: { value?: string | number; text: string; cancel?: boolean;urlIcon?:string; }[] = [];
 
   @Prop() visibleChips: number = this.chipGroup.length;
 
@@ -16,7 +16,7 @@ export class EfListChips {
   renderListChips() {
     return this.chipGroup.map((item, index) => {
       if (index + 1 <= this.visibleChips) {
-        return <ef-chip class="ef-list-chips__chip" text={item.text} value={item.value} cancel={item.cancel}></ef-chip>;
+        return <ef-chip class="ef-list-chips__chip" text={item.text} value={item.value} cancel={item.cancel} urlIcon={item.urlIcon}></ef-chip>;
       }
     });
   }

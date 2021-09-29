@@ -1,5 +1,4 @@
 import { Component, Host, h, Prop, Event, EventEmitter, State } from '@stencil/core';
-import { CONST_IMAGES_CHECKBOX } from './constCheckBox';
 
 @Component({
   tag: 'ef-checkbox',
@@ -10,7 +9,8 @@ export class XuachCheckbox {
   @Prop() checked: boolean = false;
   @Prop() disabled: boolean = false;
   @Prop() size: number = 24;
-
+  @Prop() urlIcon:string;
+  @Prop() urlIconDisabled:string;
   @State() styleCheckbox: { backgroundImage: string; height: string; width: string };
 
   //Event to emit any action from of parent
@@ -22,7 +22,6 @@ export class XuachCheckbox {
 
   //function for load state info
   componentWillLoad() {
-    console.log(CONST_IMAGES_CHECKBOX['DISABLED']);
     this.styleCheckbox = {
       backgroundImage: `url(${this.getBackgroundImageCheckBox()})`,
       height: `${this.size}px`,
@@ -38,8 +37,8 @@ export class XuachCheckbox {
 
   //get background images for checkbox states
   getBackgroundImageCheckBox() {
-    if (this.disabled) return CONST_IMAGES_CHECKBOX['DISABLED'];
-    return this.checked ? CONST_IMAGES_CHECKBOX['CHECKED'] : '';
+    if (this.disabled && this.urlIconDisabled) return this.urlIconDisabled;
+    return this.checked ? this.urlIcon : '';
   }
 
   render() {

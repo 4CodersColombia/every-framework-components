@@ -1,5 +1,4 @@
 import { Component, Host, h, Prop, EventEmitter, Event, State } from '@stencil/core';
-import { CONST_ICON_XUACH_GLOBAL_DOPDOWN } from './constants';
 import { ClickOutside } from 'stencil-click-outside';
 @Component({
   tag: 'ef-dropdown',
@@ -17,7 +16,8 @@ export class XuachGlobalDropdown {
   ];
   @Prop({ attribute: 'error-message' }) errorMessage: string;
   @Prop() label: string;
-  @Prop() icon: string;
+  @Prop() urlIcon: string;
+  @Prop() urlIconArrow:string;
 
   //state visibility menu
   @State() visibilityMenuDropdown: boolean = false;
@@ -96,6 +96,9 @@ export class XuachGlobalDropdown {
       );
     });
   }
+  getIconArrow(){
+     return this.urlIconArrow? <img src={this.urlIconArrow} class="icon-image" />:  <i class="fas fa-chevron-down"></i>
+  }
 
   render() {
     return (
@@ -104,10 +107,10 @@ export class XuachGlobalDropdown {
           <div class={this.getStyleErrorMessage() + ' dropdown ' + this.getStyleDisabled()}>
             <button disabled={this.disabled} class="form-control" onClick={this.changeVisibilityMenuDropdown.bind(this)}>
               <div class="dropdown-text">
-                <img src={this.icon} class="imagen" />
+                <img src={this.urlIcon} class="imagen" />
                 {this.getValueOfSelectDropdown()}
               </div>
-              <img src={CONST_ICON_XUACH_GLOBAL_DOPDOWN['ARROW']} class="icon-image" />
+             {this.getIconArrow()}
             </button>
             <label class={this.getStyleLabel()}> {this.label}</label>
           </div>

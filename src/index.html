@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>PWA Toolkit</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>PWA Toolkit</title>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Welcome to the Ionic PWA Toolkit. You can use this starter to build fast PWAs using Ionic and Stencil!" />
+    <meta name="theme-color" content="#16161d" />
 
-  <meta name="viewport"
-    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="description"
-    content="Welcome to the Ionic PWA Toolkit. You can use this starter to build fast PWAs using Ionic and Stencil!">
-  <meta name="theme-color" content="#16161d">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
 
-  <meta name="format-detection" content="telephone=no">
-  <meta name="msapplication-tap-highlight" content="no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Ionic PWA" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Ionic PWA">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type="module" src="/build/every-framework-components.esm.js"></script>
+    <script nomodule src="/build/every-framework-components.js"></script>
 
-  <script type="module" src="/build/every-framework-components.esm.js"></script>
-  <script nomodule src="/build/every-framework-components.js"></script>
+    <link href="/build/app.css" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+  </style>
 
-  <link href="/build/app.css" rel="stylesheet" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png" />
-  <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico" />
-  <link rel="manifest" href="/manifest.json" />
-
-</head>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-</style>
-
-<body>
-  <div style="display:flex;flex-direction:row;align-items:center;justify-content:space-around;">
-    <ef-switch checked="true"></ef-switch>
-    <ef-like-button checked="false" />
-  </div>
-</body>
-
+  <body>
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-around">
+      <ef-like-button checked="true"></ef-like-button>
+      <ef-data-table
+        url-icon-arrow="https://xuach-assets.s3.amazonaws.com/every-framework-components/data-table/arrow_down.png"
+      >
+        <ef-data-table-footer
+          slot="ef-data-table-footer"
+        ></ef-data-table-footer>
+      </ef-data-table>
+    </div>
+  </body>
 </html>

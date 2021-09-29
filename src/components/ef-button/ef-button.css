@@ -1,9 +1,5 @@
 :host {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  display: block;
 }
 @font-face {
   font-family: 'QuickSand';
@@ -18,7 +14,7 @@
   color: white;
   font-family: 'QuickSand', sans-serif;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 16px;
   border: 2px solid;
   display: flex;
   align-items: center;

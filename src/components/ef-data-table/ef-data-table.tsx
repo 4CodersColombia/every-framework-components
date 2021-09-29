@@ -1,11 +1,31 @@
 import { Component, h, Host, Prop, State } from '@stencil/core';
-import { IMAGES_DATA_TABLE } from './constDataTable';
-@Component({ tag: 'ef-data-table', styleUrl: 'ef-data-table.css', shadow: true })
+@Component({
+  tag: 'ef-data-table',
+  styleUrl: 'ef-data-table.css',
+  shadow: true,
+})
 export class PrDataTable {
-  @Prop() headers: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
-  @Prop() data: { [key: string]: string | number }[];
-  @Prop() icon_arrow: string = IMAGES_DATA_TABLE['ARROW_DOWN'];
-
+  @Prop() headers: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[] = [
+    {
+      text: 'Dessert (100g serving)',
+      value: 'name',
+      slot: (item: { [key: string]: string | number }) => {
+        return <button>{`hola ${item.name}`}</button>;
+      },
+    },
+    { text: 'Calories', value: 'calories' },
+  ];
+  @Prop() data: { [key: string]: string | number }[] = [
+    {
+      name: 'Frozen Yogurt',
+      calories: 159,
+    },
+    {
+      name: 'Ice cream sandwich',
+      calories: 237,
+    },
+  ];
+  @Prop() urlIconArrow: string;
   @State() array_drawer_item: boolean[] = Array.from({ length: this.getLengthData() }, () => false);
 
   getLengthData() {
@@ -19,9 +39,25 @@ export class PrDataTable {
       return index == indexItem ? !item : item;
     });
   }
-  getIconArrowDrawer(index) {
-    return this.array_drawer_item[index] ? IMAGES_DATA_TABLE['ARROW_UP'] : IMAGES_DATA_TABLE['ARROW_DOWN'];
+
+  getImageArrowAlign(open: boolean) {
+    return open ? 'icon-arrow-up' : 'icon-arrow';
   }
+
+  getIconArrow(open: boolean, index: number) {
+    return open ? (
+      <i onClick={this.setDrawerStateItem.bind(this, index)} class="fas fa-chevron-up icon-arrow"></i>
+    ) : (
+      <i onClick={this.setDrawerStateItem.bind(this, index)} class="fas fa-chevron-down icon-arrow"></i>
+    );
+  }
+  getArrowDrawer(index: number) {
+    if (this.urlIconArrow) {
+      return <img onClick={this.setDrawerStateItem.bind(this, index)} src={this.urlIconArrow} alt="arrow_down" class={this.getImageArrowAlign(this.array_drawer_item[index])} />;
+    }
+    return this.getIconArrow(this.array_drawer_item[index], index);
+  }
+
   renderRowData(dataRow: { [key: string]: string | number }, key: number) {
     return (
       <tr class="border-table">
@@ -31,7 +67,7 @@ export class PrDataTable {
               <td class={this.getDrawerStateItem(key)}>
                 <span class="before-content-table">{header.text}</span>
                 {header.slot(dataRow)}
-                <img onClick={this.setDrawerStateItem.bind(this, key)} src={this.getIconArrowDrawer(key)} alt="arrow_down" class="icon-arrow" />
+                {this.getArrowDrawer(key)}
               </td>
             );
           } else {
@@ -39,7 +75,7 @@ export class PrDataTable {
               <td class={this.getDrawerStateItem(key)}>
                 <span class="before-content-table">{header.text}</span>
                 <slot name={`${dataRow[header.value]}${key}`}>{dataRow[header.value]}</slot>
-                <img onClick={this.setDrawerStateItem.bind(this, key)} src={this.icon_arrow} alt="arrow_down" class="icon-arrow" />
+                {this.getArrowDrawer(key)}
               </td>
             );
           }

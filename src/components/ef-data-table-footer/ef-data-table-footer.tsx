@@ -15,7 +15,6 @@ export class EfDataTableFooter {
   @Prop({ mutable: true }) valueFilter: number = 10;
   @Prop() errorMessageFilter: string;
   @Prop() labelFilter: string;
-  @Prop() iconFilter: string;
   @Prop() disabledFilter: boolean = false;
   @Prop() itemsFilter: { id: string | number; text: string }[] = [
     { id: 0, text: '10' },
@@ -39,6 +38,7 @@ export class EfDataTableFooter {
     this.valueFilter = newValue.text as number;
     this.valueChangeFilter.emit(newValue);
   }
+
   render() {
     return (
       <div class="ef-data-table-footer__container ef-data-table-footer__text">
@@ -50,7 +50,6 @@ export class EfDataTableFooter {
             items={this.itemsFilter}
             errorMessage={this.errorMessageFilter}
             label={this.labelFilter}
-            icon={this.iconFilter}
             onValueChange={value => {
               this.onDropdownChangeValue(value.detail as { [key: string]: unknown });
             }}
@@ -61,7 +60,7 @@ export class EfDataTableFooter {
         <div class="ef-data-table-center">
           <ef-paginator
             onEvent={value => {
-              console.log(value);
+              this.onValeChangePageActive(value.detail);
             }}
             pageActive={this.pageActive}
             pages={this.pages}

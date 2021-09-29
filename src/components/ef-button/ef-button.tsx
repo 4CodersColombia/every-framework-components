@@ -11,7 +11,7 @@ export class PrButton {
   @Prop() disabled: boolean = false;
   @Prop() size: 'LARGE' | 'MEDIUM' | 'SMALL' = 'LARGE';
   @Prop() text: string;
-  @Prop() icon: string;
+  @Prop() urlIcon: string;
 
   //Event to emit any action from of parent
   @Event() event: EventEmitter;
@@ -39,7 +39,7 @@ export class PrButton {
   };
 
   renderImage() {
-    if (this.icon) return <img class="imagen" src={this.icon} />;
+    if (this.urlIcon) return <img class="imagen" src={this.urlIcon} />;
   }
 
   render() {

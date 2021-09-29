@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type               | Default     |
-| -------- | --------- | ----------- | ------------------ | ----------- |
-| `cancel` | `cancel`  |             | `boolean`          | `undefined` |
-| `text`   | `text`    |             | `string`           | `undefined` |
-| `value`  | `value`   |             | `number \| string` | `undefined` |
+| Property  | Attribute  | Description | Type               | Default     |
+| --------- | ---------- | ----------- | ------------------ | ----------- |
+| `cancel`  | `cancel`   |             | `boolean`          | `undefined` |
+| `text`    | `text`     |             | `string`           | `undefined` |
+| `urlIcon` | `url-icon` |             | `string`           | `undefined` |
+| `value`   | `value`    |             | `number \| string` | `undefined` |
 
 
 ## Events

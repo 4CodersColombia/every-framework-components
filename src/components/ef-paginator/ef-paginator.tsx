@@ -1,10 +1,9 @@
-import { Component, getAssetPath, h, Prop, EventEmitter, Event, State } from '@stencil/core';
+import { Component, h, Prop, EventEmitter, Event, State } from '@stencil/core';
 
 @Component({
   tag: 'ef-paginator',
   styleUrl: 'ef-paginator.css',
   shadow: true,
-  assetsDirs: ['assets'],
 })
 export class EfPaginator {
   @Prop({ mutable: true }) pageActive: number = 1;
@@ -38,15 +37,21 @@ export class EfPaginator {
     this.setVisiblepages(option);
     this.pageActive = this.pageActive + option;
   }
-  getImageArrow(option: string) {
-    //funcion para retornar el tipo de flecha desactivada o activada
-    if ((this.arrayVisiblesPages[0] == 1 && option == 'left') || (this.arrayVisiblesPages[this.visiblePages - 1] == this.pages && option == 'right'))
-      return 'ef-arrow-disabled.png';
-    return 'ef-arrow.png';
+
+  getLastPositionVerification(option: string) {
+    if ((this.arrayVisiblesPages[0] == 1 && option == 'left') || (this.arrayVisiblesPages[this.visiblePages - 1] == this.pages && option == 'right')) return 'true';
+    return 'false';
   }
   getSelectedPage(indexPage) {
     //funcion para obtencion de la clase de la animacion de la pagina seleccionada
     return this.pageActive == indexPage ? 'ef-page-selected ef-page' : 'ef-page';
+  }
+  getIconArrow(option: string) {
+    return this.getLastPositionVerification(option) ? (
+      <i class={`fas fa-chevron-${option} ef-page-arrow`} style={{color:'gray'}}></i>
+    ) : (
+      <i class={`fas fa-chevron-${option} ef-page-arrow`}></i>
+    );
   }
   renderPages() {
     return this.arrayVisiblesPages.map(index => {
@@ -60,9 +65,9 @@ export class EfPaginator {
   render() {
     return (
       <div class="ef-paginations">
-        <img onClick={this.setPageActive.bind(this, -1)} class="ef-page-arrow ef-page-arrow-left" src={getAssetPath(`./assets/${this.getImageArrow('left')}`)} alt="arrow-left" />
+        {this.getIconArrow('left')}
         {this.renderPages()}
-        <img onClick={this.setPageActive.bind(this, 1)} class="ef-page-arrow " src={getAssetPath(`./assets/${this.getImageArrow('right')}`)} alt="arrow-right" />
+        {this.getIconArrow('right')}
       </div>
     );
   }

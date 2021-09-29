@@ -1,6 +1,26 @@
 :host {
   display: block;
 }
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  
+  font-family: 'QuickSand', sans-serif;
+  font-size: 18px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  
+  font-family: 'QuickSand', sans-serif;
+  font-size: 18px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  
+  font-family: 'QuickSand', sans-serif;
+  font-size: 18px;
+}
+:-moz-placeholder { /* Firefox 18- */
+  
+  font-family: 'QuickSand', sans-serif;
+  font-size: 18px;
+}
 @font-face {
   font-family: 'QuickSand';
   src: url('../../fonts/Quicksand-Regular.ttf');
