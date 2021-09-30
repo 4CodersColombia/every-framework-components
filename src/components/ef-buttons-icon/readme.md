@@ -20,6 +20,19 @@
 | `event` |             | `CustomEvent<string>` |
 
 
+## Dependencies
+
+### Used by
+
+ - [ef-add-file](../ef-add-file)
+
+### Graph
+```mermaid
+graph TD;
+  ef-add-file --> ef-buttons-icon
+  style ef-buttons-icon fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

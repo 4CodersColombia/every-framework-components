@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, Event, EventEmitter, State } from '@stencil/core';
-
+ import { EVERYFRAMEWORKICONS } from '../../EVERYFRAMEWORKICONS/EVERYFRAMEWORKICONS';
 @Component({
   tag: 'ef-checkbox',
   styleUrl: 'ef-checkbox.css',
@@ -9,8 +9,8 @@ export class XuachCheckbox {
   @Prop() checked: boolean = false;
   @Prop() disabled: boolean = false;
   @Prop() size: number = 24;
-  @Prop() urlIcon:string;
-  @Prop() urlIconDisabled:string;
+  @Prop() urlIcon:string =EVERYFRAMEWORKICONS['CHECK'];
+  @Prop() urlIconDisabled:string=EVERYFRAMEWORKICONS['CHECK_DISABLED'];
   @State() styleCheckbox: { backgroundImage: string; height: string; width: string };
 
   //Event to emit any action from of parent
@@ -37,7 +37,7 @@ export class XuachCheckbox {
 
   //get background images for checkbox states
   getBackgroundImageCheckBox() {
-    if (this.disabled && this.urlIconDisabled) return this.urlIconDisabled;
+    if (this.disabled) return this.urlIconDisabled;
     return this.checked ? this.urlIcon : '';
   }
 

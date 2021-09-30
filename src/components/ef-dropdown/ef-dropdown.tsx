@@ -1,5 +1,6 @@
 import { Component, Host, h, Prop, EventEmitter, Event, State } from '@stencil/core';
 import { ClickOutside } from 'stencil-click-outside';
+import { EVERYFRAMEWORKICONS } from '../../EVERYFRAMEWORKICONS/EVERYFRAMEWORKICONS';
 @Component({
   tag: 'ef-dropdown',
   styleUrl: 'ef-dropdown.css',
@@ -16,8 +17,8 @@ export class XuachGlobalDropdown {
   ];
   @Prop({ attribute: 'error-message' }) errorMessage: string;
   @Prop() label: string;
-  @Prop() urlIcon: string;
-  @Prop() urlIconArrow:string;
+  @Prop() urlIconLeft: string;
+  @Prop() urlIconRight:string=EVERYFRAMEWORKICONS['ARROW_DOWN'];
 
   //state visibility menu
   @State() visibilityMenuDropdown: boolean = false;
@@ -96,9 +97,6 @@ export class XuachGlobalDropdown {
       );
     });
   }
-  getIconArrow(){
-     return this.urlIconArrow? <img src={this.urlIconArrow} class="icon-image" />:  <i class="fas fa-chevron-down"></i>
-  }
 
   render() {
     return (
@@ -107,10 +105,10 @@ export class XuachGlobalDropdown {
           <div class={this.getStyleErrorMessage() + ' dropdown ' + this.getStyleDisabled()}>
             <button disabled={this.disabled} class="form-control" onClick={this.changeVisibilityMenuDropdown.bind(this)}>
               <div class="dropdown-text">
-                <img src={this.urlIcon} class="imagen" />
+                <img src={this.urlIconLeft} class="imagen" />
                 {this.getValueOfSelectDropdown()}
               </div>
-             {this.getIconArrow()}
+              <img src={this.urlIconRight} class="icon-image" />
             </button>
             <label class={this.getStyleLabel()}> {this.label}</label>
           </div>

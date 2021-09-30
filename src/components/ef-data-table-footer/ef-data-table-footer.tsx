@@ -29,6 +29,7 @@ export class EfDataTableFooter {
   @Event() valueChangeFilter: EventEmitter<object>;
   @Event() valueChangePageActive: EventEmitter<number>;
 
+
   onValeChangePageActive(newValue: number) {
     this.pageActive = newValue;
     this.valueChangePageActive.emit(newValue);

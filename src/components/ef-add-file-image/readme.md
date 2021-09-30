@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type      | Default      |
-| ---------- | ----------- | ----------- | --------- | ------------ |
-| `circle`   | `circle`    |             | `boolean` | `false`      |
-| `height`   | `height`    |             | `number`  | `100`        |
-| `infoIcon` | `info-icon` |             | `string`  | `'add'`      |
-| `multiple` | `multiple`  |             | `boolean` | `false`      |
-| `subTitle` | `sub-title` |             | `string`  | `'subtitle'` |
-| `title`    | `title`     |             | `string`  | `'Title'`    |
-| `urlIcon`  | `url-icon`  |             | `string`  | `undefined`  |
-| `width`    | `width`     |             | `number`  | `100`        |
+| Property   | Attribute   | Description | Type      | Default                            |
+| ---------- | ----------- | ----------- | --------- | ---------------------------------- |
+| `circle`   | `circle`    |             | `boolean` | `false`                            |
+| `height`   | `height`    |             | `number`  | `100`                              |
+| `infoIcon` | `info-icon` |             | `string`  | `'add'`                            |
+| `multiple` | `multiple`  |             | `boolean` | `false`                            |
+| `subTitle` | `sub-title` |             | `string`  | `'subtitle'`                       |
+| `title`    | `title`     |             | `string`  | `'Title'`                          |
+| `urlIcon`  | `url-icon`  |             | `string`  | `EVERYFRAMEWORKICONS['ADD_IMAGE']` |
+| `width`    | `width`     |             | `number`  | `100`                              |
 
 
 ## Events

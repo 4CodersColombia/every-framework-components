@@ -1,5 +1,5 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
-
+import { EVERYFRAMEWORKICONS } from '../../EVERYFRAMEWORKICONS/EVERYFRAMEWORKICONS';
 @Component({
   tag: 'ef-like-button',
   styleUrl: 'ef-like-button.css',
@@ -7,18 +7,15 @@ import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 })
 export class EfLikeButton {
   @Prop() checked: boolean = false;
-  @Prop() urlIConLike:string;
-  @Prop() urlIconUnlike:string;
+  @Prop() urlIConLike:string=EVERYFRAMEWORKICONS['ICON_HEART_SOLID'];
+  @Prop() urlIconUnlike:string=EVERYFRAMEWORKICONS['ICON_HEART'];
   //Event to emit any action from of parent
   @Event() event: EventEmitter;
   eventButton() {
     this.event.emit();
   }
   getBackgroundChecked(checked: boolean) {
-    if(checked){
-      return  this.urlIConLike? <img src={this.urlIConLike} alt="like.png" />:<i class="fas fa-heart" style={{color:'red'}}></i>
-    }
-    return  this.urlIconUnlike? <img src={this.urlIconUnlike} alt="like.png" />:<i class="far fa-heart"></i>
+    return checked? <img src={this.urlIConLike} alt="like.png" />:<img src={this.urlIconUnlike} alt="like.png" />
   }
 
   render() {

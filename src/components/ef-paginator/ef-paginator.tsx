@@ -1,5 +1,5 @@
 import { Component, h, Prop, EventEmitter, Event, State } from '@stencil/core';
-
+import { EVERYFRAMEWORKICONS } from '../../EVERYFRAMEWORKICONS/EVERYFRAMEWORKICONS';
 @Component({
   tag: 'ef-paginator',
   styleUrl: 'ef-paginator.css',
@@ -10,10 +10,10 @@ export class EfPaginator {
   @Prop() pages: number = 3;
   @Prop() visiblePages: number = 3;
   //Event to emit any action from of parent
-  @Event() event: EventEmitter<number>;
+  @Event() event: EventEmitter;
   eventSelectedPage(indexPage) {
     this.pageActive = indexPage;
-    this.event.emit(indexPage);
+    this.event.emit();
   }
 
   @State() arrayVisiblesPages: number[] = new Array(this.visiblePages).fill(undefined).map((_val, idx) => idx + 1);
@@ -37,27 +37,21 @@ export class EfPaginator {
     this.setVisiblepages(option);
     this.pageActive = this.pageActive + option;
   }
-
-  getLastPositionVerification(option: string) {
-    if ((this.arrayVisiblesPages[0] == 1 && option == 'left') || (this.arrayVisiblesPages[this.visiblePages - 1] == this.pages && option == 'right')) return 'true';
-    return 'false';
+  getImageArrow(option: string) {
+    //funcion para retornar el tipo de flecha desactivada o activada
+    if ((this.arrayVisiblesPages[0] == 1 && option == 'left') || (this.arrayVisiblesPages[this.visiblePages - 1] == this.pages && option == 'right'))
+      return EVERYFRAMEWORKICONS['ARROW_LEFT_DISABLED'];
+    return EVERYFRAMEWORKICONS['ARROW_LEFT'];
   }
   getSelectedPage(indexPage) {
     //funcion para obtencion de la clase de la animacion de la pagina seleccionada
     return this.pageActive == indexPage ? 'ef-page-selected ef-page' : 'ef-page';
   }
-  getIconArrow(option: string) {
-    return this.getLastPositionVerification(option) ? (
-      <i class={`fas fa-chevron-${option} ef-page-arrow`} style={{color:'gray'}}></i>
-    ) : (
-      <i class={`fas fa-chevron-${option} ef-page-arrow`}></i>
-    );
-  }
   renderPages() {
     return this.arrayVisiblesPages.map(index => {
       return (
         <div onClick={this.eventSelectedPage.bind(this, index)} class={this.getSelectedPage(index)}>
-          {index}
+         <span> {index}</span>
         </div>
       );
     });
@@ -65,9 +59,9 @@ export class EfPaginator {
   render() {
     return (
       <div class="ef-paginations">
-        {this.getIconArrow('left')}
+        <img onClick={this.setPageActive.bind(this, -1)} class="ef-page-arrow ef-page-arrow-left" src={this.getImageArrow('left')} alt="arrow-left" />
         {this.renderPages()}
-        {this.getIconArrow('right')}
+        <img onClick={this.setPageActive.bind(this, 1)} class="ef-page-arrow " src={this.getImageArrow('right')} alt="arrow-right" />
       </div>
     );
   }

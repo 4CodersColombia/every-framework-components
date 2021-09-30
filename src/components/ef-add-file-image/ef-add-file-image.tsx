@@ -1,13 +1,13 @@
 import { Component, h, Prop, Event, EventEmitter, State } from '@stencil/core';
 import imageCompression from 'browser-image-compression';
-
+import { EVERYFRAMEWORKICONS } from '../../EVERYFRAMEWORKICONS/EVERYFRAMEWORKICONS';
 @Component({
   tag: 'ef-add-file-image',
   styleUrl: 'ef-add-file-image.css',
   shadow: true,
 })
 export class EfAddFileImage {
-  @Prop() urlIcon: string;
+  @Prop() urlIcon: string = EVERYFRAMEWORKICONS['ADD_IMAGE'];
   @Prop() title: string = 'Title';
   @Prop() subTitle: string = 'subtitle';
   @Prop() infoIcon: string = 'add';
@@ -73,16 +73,9 @@ export class EfAddFileImage {
           <img class="ef-add-archive__archive-img-upload" style={this.getStyleArchive()} src={this.previewImage} alt="addArchive" />
         </label>
       );
-    if (this.urlIcon)
-      return (
-        <label htmlFor={'add-file'} class="ef-add-archive__archive" style={this.getStyleArchive()}>
-          <img class="ef-add-archive__archive-img" src={this.urlIcon} alt="addArchive" />
-          <span class="ef-add-archive__archive-info">{this.infoIcon}</span>
-        </label>
-      );
     return (
       <label htmlFor={'add-file'} class="ef-add-archive__archive" style={this.getStyleArchive()}>
-        <i class="far fa-images fa-2x"></i>
+        <img class="ef-add-archive__archive-img" src={this.urlIcon} alt="addArchive" />
         <span class="ef-add-archive__archive-info">{this.infoIcon}</span>
       </label>
     );
