@@ -1,5 +1,5 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
-import { EVERYFRAMEWORKICONS } from '../../EVERYFRAMEWORKICONS/EVERYFRAMEWORKICONS';
+import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIcons';
 @Component({
   tag: 'ef-like-button',
   styleUrl: 'ef-like-button.css',

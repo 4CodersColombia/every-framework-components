@@ -1,5 +1,5 @@
 import { Component, h, Prop, EventEmitter, Event, State } from '@stencil/core';
-import { EVERYFRAMEWORKICONS } from '../../EVERYFRAMEWORKICONS/EVERYFRAMEWORKICONS';
+import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIcons';
 @Component({
   tag: 'ef-paginator',
   styleUrl: 'ef-paginator.css',

@@ -1,12 +1,12 @@
 import { Component, h, Host, Prop, State } from '@stencil/core';
-import { EVERYFRAMEWORKICONS } from '../../EVERYFRAMEWORKICONS/EVERYFRAMEWORKICONS';
+import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIcons';
 @Component({
   tag: 'ef-data-table',
   styleUrl: 'ef-data-table.css',
   shadow: true,
 })
 export class PrDataTable {
-  @Prop() headers: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+  @Prop() headers: { text: string; value: string; slot?: any }[];
   @Prop() data: { [key: string]: string | number }[];
   @Prop() urlIconArrow: string = EVERYFRAMEWORKICONS['ARROW_DOWN'];
   @State() array_drawer_item: boolean[] = Array.from({ length: this.getLengthData() }, () => false);
@@ -36,7 +36,7 @@ export class PrDataTable {
             return (
               <td class={this.array_drawer_item[key] ? 'open' : 'close'}>
                 <span class="before-content-table">{header.text}</span>
-                {header.slot(dataRow)}
+                {header.slot}
                 {this.getArrowDrawer(key)}
               </td>
             );
@@ -44,7 +44,7 @@ export class PrDataTable {
             return (
               <td class={this.array_drawer_item[key] ? 'open' : 'close'}>
                 <span class="before-content-table">{header.text}</span>
-                <slot name={`${Object.values(dataRow).join()}${dataRow[header.value]}`}>{dataRow[header.value]}</slot>
+                <slot name={`${key}${dataRow[header.value]}`}>{dataRow[header.value]}</slot>
                 {this.getArrowDrawer(key)}
               </td>
             );
