@@ -1,5 +1,5 @@
 const BUCKET_URL='https://xuach-assets.s3.amazonaws.com/every-framework-icons/'
- const EVERYFRAMEWORKICONS={
+export const EVERYFRAMEWORKICONS={
     ADD_IMAGE:BUCKET_URL+'add_image.png',
     CHECK_DISABLED:BUCKET_URL+'check_disabled.png',
     CHECK:BUCKET_URL+'check.png',
@@ -13,4 +13,3 @@ const BUCKET_URL='https://xuach-assets.s3.amazonaws.com/every-framework-icons/'
     COMUNITY:BUCKET_URL+'comunity.png',
     TRASH:BUCKET_URL+'trash.png'
 }
-export default EVERYFRAMEWORKICONS

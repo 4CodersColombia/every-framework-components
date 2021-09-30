@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
-import EVERYFRAMEWORKICONS from '../../everyFrameWorkIcons/everyFrameworkIcons';
+import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIcons';
 @Component({
   tag: 'ef-chip',
   styleUrl: 'ef-chip.css',
