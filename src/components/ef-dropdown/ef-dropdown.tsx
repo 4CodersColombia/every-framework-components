@@ -1,6 +1,6 @@
 import { Component, Host, h, Prop, EventEmitter, Event, State } from '@stencil/core';
 import { ClickOutside } from 'stencil-click-outside';
-import { EVERYFRAMEWORKICONS } from '../../everyFrameworkIcons/everyFrameworkIcons';
+import EVERYFRAMEWORKICONS from '../../everyFrameWorkIcons/everyFrameworkIcons';
 @Component({
   tag: 'ef-dropdown',
   styleUrl: 'ef-dropdown.css',

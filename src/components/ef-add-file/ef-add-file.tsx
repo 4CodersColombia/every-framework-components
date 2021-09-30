@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, Event, EventEmitter, State } from '@stencil/core';
-import { EVERYFRAMEWORKICONS } from '../../everyFrameworkIcons/everyFrameworkIcons';
+import EVERYFRAMEWORKICONS from '../../everyFrameWorkIcons/everyFrameworkIcons';
 
 @Component({
   tag: 'ef-add-file',

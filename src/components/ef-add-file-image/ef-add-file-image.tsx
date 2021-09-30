@@ -1,6 +1,6 @@
 import { Component, h, Prop, Event, EventEmitter, State } from '@stencil/core';
 import imageCompression from 'browser-image-compression';
-import { EVERYFRAMEWORKICONS } from '../../everyFrameworkIcons/everyFrameworkIcons';
+import EVERYFRAMEWORKICONS from '../../everyFrameWorkIcons/everyFrameworkIcons';
 @Component({
   tag: 'ef-add-file-image',
   styleUrl: 'ef-add-file-image.css',
