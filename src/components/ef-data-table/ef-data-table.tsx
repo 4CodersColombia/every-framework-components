@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop, State } from '@stencil/core';
-import { EVERYFRAMEWORKICONS } from '../../EVERYFRAMEWORKICONS/EVERYFRAMEWORKICONS';
+import { EVERYFRAMEWORKICONS } from '../../everyFrameworkIcons/everyFrameworkIcons';
 @Component({
   tag: 'ef-data-table',
   styleUrl: 'ef-data-table.css',
