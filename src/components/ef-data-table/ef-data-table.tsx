@@ -6,11 +6,10 @@ import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIco
   shadow: true,
 })
 export class PrDataTable {
-  @Prop() headers: { text: string; value: string; slot?: any }[];
+  @Prop() headers: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
   @Prop() data: { [key: string]: string | number }[];
   @Prop() urlIconArrow: string = EVERYFRAMEWORKICONS['ARROW_DOWN'];
   @State() array_drawer_item: boolean[] = Array.from({ length: this.getLengthData() }, () => false);
-
   getLengthData() {
     return this.data ? this.data.length : 0;
   }
@@ -36,7 +35,7 @@ export class PrDataTable {
             return (
               <td class={this.array_drawer_item[key] ? 'open' : 'close'}>
                 <span class="before-content-table">{header.text}</span>
-                {header.slot}
+                {header.slot(dataRow)}
                 {this.getArrowDrawer(key)}
               </td>
             );
@@ -44,7 +43,7 @@ export class PrDataTable {
             return (
               <td class={this.array_drawer_item[key] ? 'open' : 'close'}>
                 <span class="before-content-table">{header.text}</span>
-                <slot name={`${key}${dataRow[header.value]}`}>{dataRow[header.value]}</slot>
+                <slot name={`${key}${header.value}`}>{dataRow[header.value]}</slot>
                 {this.getArrowDrawer(key)}
               </td>
             );
@@ -56,7 +55,7 @@ export class PrDataTable {
   render() {
     return (
       <Host>
-        <table id="example" class="table" style={{ width: '100%' }}>
+        <table id="ef-data-table" class="table" style={{ width: '100%' }}>
           <thead class="head-table">
             <tr class="border-table">
               {this.headers.map(header => (

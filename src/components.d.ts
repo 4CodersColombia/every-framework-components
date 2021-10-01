@@ -52,7 +52,7 @@ export namespace Components {
     }
     interface EfDataTable {
         "data": { [key: string]: string | number }[];
-        "headers": { text: string; value: string; slot?: any }[];
+        "headers": { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
         "urlIconArrow": string;
     }
     interface EfDataTableFooter {
@@ -341,7 +341,7 @@ declare namespace LocalJSX {
     }
     interface EfDataTable {
         "data"?: { [key: string]: string | number }[];
-        "headers"?: { text: string; value: string; slot?: any }[];
+        "headers"?: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
         "urlIconArrow"?: string;
     }
     interface EfDataTableFooter {
@@ -418,7 +418,7 @@ declare namespace LocalJSX {
         "width"?: string;
     }
     interface EfPaginator {
-        "onEvent"?: (event: CustomEvent<any>) => void;
+        "onEvent"?: (event: CustomEvent<number>) => void;
         "pageActive"?: number;
         "pages"?: number;
         "visiblePages"?: number;
