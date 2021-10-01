@@ -10,8 +10,8 @@ export class EfDataTableFooter {
   @Prop() leftText: string = 'Mostrando:';
   @Prop() rightText: string = 'Total';
   @Prop({ mutable: true }) pageActive: number = 1;
-  @Prop() pages: number = 1;
-  @Prop() visiblePages: number = 1;
+  @Prop() pages: number = 4;
+  @Prop() visiblePages: number = 3;
   @Prop({ mutable: true }) valueFilter: number = 10;
   @Prop() errorMessageFilter: string;
   @Prop() labelFilter: string;

@@ -17,10 +17,10 @@
 | `labelFilter`        | `label-filter`         |             | `string`                                    | `undefined`                                                                                                                                                               |
 | `leftText`           | `left-text`            |             | `string`                                    | `'Mostrando:'`                                                                                                                                                            |
 | `pageActive`         | `page-active`          |             | `number`                                    | `1`                                                                                                                                                                       |
-| `pages`              | `pages`                |             | `number`                                    | `1`                                                                                                                                                                       |
+| `pages`              | `pages`                |             | `number`                                    | `4`                                                                                                                                                                       |
 | `rightText`          | `right-text`           |             | `string`                                    | `'Total'`                                                                                                                                                                 |
 | `valueFilter`        | `value-filter`         |             | `number`                                    | `10`                                                                                                                                                                      |
-| `visiblePages`       | `visible-pages`        |             | `number`                                    | `1`                                                                                                                                                                       |
+| `visiblePages`       | `visible-pages`        |             | `number`                                    | `3`                                                                                                                                                                       |
 
 
 ## Events

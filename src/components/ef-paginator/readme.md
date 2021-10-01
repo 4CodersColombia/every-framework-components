@@ -16,9 +16,9 @@
 
 ## Events
 
-| Event   | Description | Type               |
-| ------- | ----------- | ------------------ |
-| `event` |             | `CustomEvent<any>` |
+| Event   | Description | Type                  |
+| ------- | ----------- | --------------------- |
+| `event` |             | `CustomEvent<number>` |
 
 
 ## Dependencies
