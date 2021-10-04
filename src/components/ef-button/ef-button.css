@@ -5,10 +5,6 @@
   font-family: 'QuickSand';
   src: url('../../fonts/Quicksand-Regular.ttf');
 }
-
-:host {
-  display: block;
-}
 .ef-button {
   cursor: pointer;
   height: 34px;
