@@ -12,7 +12,7 @@ export class PrInput {
   @Prop() label: string;
   @Prop({ attribute: 'append-icon' }) appendIcon: string;
   @Prop({ attribute: 'prepend-icon' }) prependIcon: string;
-  @Prop() type: 'text' | 'password' = 'text';
+  @Prop() type: 'text' | 'password'|'number' = 'text';
 
   //data of config input for text or password
   @State() configInputType: string;
@@ -27,6 +27,7 @@ export class PrInput {
   //emit event of input text
   onInputChangeValue(event: Event) {
     const value = (event.target as HTMLInputElement).value;
+    if(this.type=='number'&& isNaN(parseInt(value))) event.preventDefault();
     this.event.emit(value);
   }
 

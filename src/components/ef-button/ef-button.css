@@ -6,15 +6,17 @@
   src: url('../../fonts/Quicksand-Regular.ttf');
 }
 
+:host {
+  display: block;
+}
 .ef-button {
-  width: 100%;
   cursor: pointer;
   height: 34px;
-  border-radius: 15px;
+  border-radius: 10px;
   color: white;
   font-family: 'QuickSand', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: bold;
+  font-size: 14px;
   border: 2px solid;
   display: flex;
   align-items: center;

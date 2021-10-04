@@ -95,7 +95,7 @@ export namespace Components {
         "errorMessage": string;
         "label": string;
         "prependIcon": string;
-        "type": 'text' | 'password';
+        "type": 'text' | 'password'|'number';
         "value": string;
     }
     interface EfLikeButton {
@@ -389,7 +389,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "onEvent"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
-        "type"?: 'text' | 'password';
+        "type"?: 'text' | 'password'|'number';
         "value"?: string;
     }
     interface EfLikeButton {
