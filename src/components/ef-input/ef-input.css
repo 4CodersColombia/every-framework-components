@@ -1,23 +1,27 @@
 :host {
   display: block;
 }
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+
   font-family: 'QuickSand', sans-serif;
   font-size: 18px;
 }
-::-moz-placeholder { /* Firefox 19+ */
-  
+::-moz-placeholder {
+  /* Firefox 19+ */
+
   font-family: 'QuickSand', sans-serif;
   font-size: 18px;
 }
-:-ms-input-placeholder { /* IE 10+ */
-  
+:-ms-input-placeholder {
+  /* IE 10+ */
+
   font-family: 'QuickSand', sans-serif;
   font-size: 18px;
 }
-:-moz-placeholder { /* Firefox 18- */
-  
+:-moz-placeholder {
+  /* Firefox 18- */
+
   font-family: 'QuickSand', sans-serif;
   font-size: 18px;
 }
@@ -179,4 +183,20 @@
   /* identical to box height, or 156% */
   letter-spacing: 0.1 0.5px;
   color: #ee0000;
+}
+.message {
+  margin-left: 5px;
+  display: flex;
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12.8px;
+  line-height: 20px;
+  /* identical to box height, or 156% */
+
+  letter-spacing: 0.2px;
+
+  /* Disabled secondary button */
+
+  color: #7099e5;
 }

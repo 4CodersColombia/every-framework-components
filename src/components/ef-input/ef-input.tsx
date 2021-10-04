@@ -8,7 +8,8 @@ import { Component, Host, h, Prop, Event, EventEmitter, State } from '@stencil/c
 export class PrInput {
   @Prop() disabled: boolean = false;
   @Prop() value: string;
-  @Prop({ attribute: 'error-message' }) errorMessage: string;
+  @Prop() message: string;
+  @Prop() error:boolean=false;
   @Prop() label: string;
   @Prop({ attribute: 'append-icon' }) appendIcon: string;
   @Prop({ attribute: 'prepend-icon' }) prependIcon: string;
@@ -44,7 +45,12 @@ export class PrInput {
 
   //get style error message
   getStyleErrorMessage() {
-    return this.errorMessage && !this.disabled ? 'error' : '';
+    return this.error && !this.disabled ? 'error' : '';
+  }
+
+  //get style message
+  getStyleMessage(){
+    return this.error && !this.disabled ? 'error-message' : 'message';
   }
 
   render() {
@@ -63,7 +69,7 @@ export class PrInput {
           <label class="control-label"> {this.label}</label>
           <img onClick={this.setVisiblePasswod.bind(this)} src={this.appendIcon} class="imagen" />
         </div>
-        <span class="error-message">{this.errorMessage}</span>
+        <span class={this.getStyleMessage()}>{this.message}</span>
       </Host>
     );
   }
