@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, State } from '@stencil/core';
+import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
 import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIcons';
 @Component({
   tag: 'ef-data-table',
@@ -10,6 +10,11 @@ export class PrDataTable {
   @Prop() data: { [key: string]: string | number }[];
   @Prop() urlIconArrow: string = EVERYFRAMEWORKICONS['ARROW_DOWN'];
   @State() array_drawer_item: boolean[] = Array.from({ length: this.getLengthData() }, () => false);
+
+  @Watch('data')
+  watchPropHandler(newValue: boolean, oldValue: boolean) {
+   if(newValue!==oldValue) this.array_drawer_item= Array.from({ length: this.getLengthData() }, () => false);
+  }
   getLengthData() {
     return this.data ? this.data.length : 0;
   }
@@ -17,6 +22,7 @@ export class PrDataTable {
     this.array_drawer_item = this.array_drawer_item.map((item, indexItem) => {
       return index == indexItem ? !item : item;
     });
+    console.log(this.array_drawer_item)
   }
 
   getImageArrowAlign(open: boolean) {
@@ -26,7 +32,7 @@ export class PrDataTable {
   getArrowDrawer(index: number) {
     return <img onClick={this.setDrawerStateItem.bind(this, index)} src={this.urlIconArrow} alt="arrow_down" class={this.getImageArrowAlign(this.array_drawer_item[index])} />;
   }
-
+  
   renderRowData(dataRow: { [key: string]: string | number }, key: number) {
     return (
       <tr class="border-table">

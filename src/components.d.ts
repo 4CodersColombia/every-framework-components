@@ -92,10 +92,11 @@ export namespace Components {
     interface EfInput {
         "appendIcon": string;
         "disabled": boolean;
-        "errorMessage": string;
+        "error": boolean;
         "label": string;
+        "message": string;
         "prependIcon": string;
-        "type": 'text' | 'password';
+        "type": 'text' | 'password'|'number';
         "value": string;
     }
     interface EfLikeButton {
@@ -385,11 +386,12 @@ declare namespace LocalJSX {
     interface EfInput {
         "appendIcon"?: string;
         "disabled"?: boolean;
-        "errorMessage"?: string;
+        "error"?: boolean;
         "label"?: string;
+        "message"?: string;
         "onEvent"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
-        "type"?: 'text' | 'password';
+        "type"?: 'text' | 'password'|'number';
         "value"?: string;
     }
     interface EfLikeButton {

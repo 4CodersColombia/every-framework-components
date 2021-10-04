@@ -5,15 +5,13 @@
   font-family: 'QuickSand';
   src: url('../../fonts/Quicksand-Regular.ttf');
 }
-
 .ef-button {
-  width: 100%;
   cursor: pointer;
   height: 34px;
-  border-radius: 15px;
+  border-radius: 10px;
   color: white;
   font-family: 'QuickSand', sans-serif;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 16px;
   border: 2px solid;
   display: flex;

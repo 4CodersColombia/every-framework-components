@@ -1,15 +1,18 @@
 export const CONST_SIZES_BUTTON = {
   LARGE: {
-    width: '325px',
+    'max-width': '325px',
     height: '38px',
+    width:'100%',
   },
   MEDIUM: {
-    width: '251px',
+    'max-width': '251px',
     height: '34px',
+    width:'100%',
   },
   SMALL: {
-    width: '177px',
+    'max-width': '177px',
     height: '30px',
+    width:'100%',
   },
 } as const;
 

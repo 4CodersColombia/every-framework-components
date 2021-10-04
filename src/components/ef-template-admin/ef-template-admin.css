@@ -17,6 +17,7 @@
   height: 100%;
   border-radius: 18px;
   background-color: white;
+  overflow-x: hidden;
 }
 .content-right {
   display: flex;
@@ -26,16 +27,9 @@
   width: 29%;
   height: 100%;
   border-radius: 18px;
+  overflow-x: hidden;
 }
 @media only screen and (max-width: 900px) {
-  .content-right {
-    width: 39%;
-  }
-  .content-left {
-    width: 59%;
-  }
-}
-@media only screen and (max-width: 600px) {
   .content-right {
     width: 0%;
   }
@@ -43,3 +37,23 @@
     width: 98%;
   }
 }
+/* clase extra para celulares transformers horizontal */
+@media only screen and (min-width: 550px) and (max-height: 400px) and (max-width: 760px) {
+  .content-right {
+    width: 0%;
+  }
+  .content-left {
+    width: 98%;
+  }
+}
+/* clase extra para celulares transformers vertical */
+@media only screen and (min-width: 550px) and (min-height: 400px) and (max-width: 760px) {
+  .content-right {
+    width: 0%;
+  }
+  .content-left {
+    width: 98%;
+  }
+
+}
+
