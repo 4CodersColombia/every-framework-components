@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
-  namespace: 'every-framework-components-prueba',
+  namespace: 'every-framework-components',
   outputTargets: [
     {
       type: 'dist',
