@@ -96,7 +96,7 @@ export namespace Components {
         "label": string;
         "message": string;
         "prependIcon": string;
-        "type": 'text' | 'password'|'number';
+        "type": 'text' | 'password' | 'number' | 'datepicker';
         "value": string;
     }
     interface EfLikeButton {
@@ -136,6 +136,15 @@ export namespace Components {
     }
     interface EfTemplateAdmin {
         "showModal": boolean;
+    }
+    interface EfTextarea {
+        "appendIcon": string;
+        "disabled": boolean;
+        "error": boolean;
+        "label": string;
+        "message": string;
+        "prependIcon": string;
+        "value": string;
     }
 }
 declare global {
@@ -265,6 +274,12 @@ declare global {
         prototype: HTMLEfTemplateAdminElement;
         new (): HTMLEfTemplateAdminElement;
     };
+    interface HTMLEfTextareaElement extends Components.EfTextarea, HTMLStencilElement {
+    }
+    var HTMLEfTextareaElement: {
+        prototype: HTMLEfTextareaElement;
+        new (): HTMLEfTextareaElement;
+    };
     interface HTMLElementTagNameMap {
         "ef-add-file": HTMLEfAddFileElement;
         "ef-add-file-image": HTMLEfAddFileImageElement;
@@ -287,6 +302,7 @@ declare global {
         "ef-switch": HTMLEfSwitchElement;
         "ef-tabs": HTMLEfTabsElement;
         "ef-template-admin": HTMLEfTemplateAdminElement;
+        "ef-textarea": HTMLEfTextareaElement;
     }
 }
 declare namespace LocalJSX {
@@ -391,7 +407,7 @@ declare namespace LocalJSX {
         "message"?: string;
         "onEvent"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
-        "type"?: 'text' | 'password'|'number';
+        "type"?: 'text' | 'password' | 'number' | 'datepicker';
         "value"?: string;
     }
     interface EfLikeButton {
@@ -436,6 +452,16 @@ declare namespace LocalJSX {
     interface EfTemplateAdmin {
         "showModal"?: boolean;
     }
+    interface EfTextarea {
+        "appendIcon"?: string;
+        "disabled"?: boolean;
+        "error"?: boolean;
+        "label"?: string;
+        "message"?: string;
+        "onEvent"?: (event: CustomEvent<string>) => void;
+        "prependIcon"?: string;
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "ef-add-file": EfAddFile;
         "ef-add-file-image": EfAddFileImage;
@@ -458,6 +484,7 @@ declare namespace LocalJSX {
         "ef-switch": EfSwitch;
         "ef-tabs": EfTabs;
         "ef-template-admin": EfTemplateAdmin;
+        "ef-textarea": EfTextarea;
     }
 }
 export { LocalJSX as JSX };
@@ -485,6 +512,7 @@ declare module "@stencil/core" {
             "ef-switch": LocalJSX.EfSwitch & JSXBase.HTMLAttributes<HTMLEfSwitchElement>;
             "ef-tabs": LocalJSX.EfTabs & JSXBase.HTMLAttributes<HTMLEfTabsElement>;
             "ef-template-admin": LocalJSX.EfTemplateAdmin & JSXBase.HTMLAttributes<HTMLEfTemplateAdminElement>;
+            "ef-textarea": LocalJSX.EfTextarea & JSXBase.HTMLAttributes<HTMLEfTextareaElement>;
         }
     }
 }

@@ -12,7 +12,7 @@ export class PrButton {
   @Prop() size: 'LARGE' | 'MEDIUM' | 'SMALL' = 'LARGE';
   @Prop() text: string;
   @Prop() urlIcon: string;
-  @State() styleEfButton: any;
+  @State() styleEfButton: {[key:string]:string};
   //Event to emit any action from of parent
   @Event() event: EventEmitter;
   eventButton() {

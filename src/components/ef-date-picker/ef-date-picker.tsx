@@ -17,6 +17,7 @@ export class EfDatePicker {
   @Prop({ attribute: 'prepend-icon' }) prependIcon: string;
 
   @State() selectedDate: string;
+
   //Event to emit any action from of parent
   @Event() event: EventEmitter<string>;
 
@@ -36,10 +37,10 @@ export class EfDatePicker {
   render() {
     return (
       <div>
-        <ef-input onClick={this.setModalDatePicker.bind(this)} value={this.date} label={this.label} prepend-Icon={this.prependIcon}></ef-input>
+        <ef-input type="datepicker" onClick={this.setModalDatePicker.bind(this)} value={this.date} label={this.label} prepend-Icon={this.prependIcon}></ef-input>
         <ef-modal show-modal={this.showModal}>
           <app-datepicker
-            class="datepicker-header"
+            class="datepicker-header" 
             alwaysResetValue={true}
             max={this.maxDate}
             min={this.minDate}

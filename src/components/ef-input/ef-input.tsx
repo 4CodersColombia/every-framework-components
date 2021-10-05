@@ -1,4 +1,5 @@
-import { Component, Host, h, Prop, Event, EventEmitter, State } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter, State, Watch } from '@stencil/core';
+import { parse } from 'path/posix';
 
 @Component({
   tag: 'ef-input',
@@ -9,11 +10,11 @@ export class PrInput {
   @Prop() disabled: boolean = false;
   @Prop() value: string;
   @Prop() message: string;
-  @Prop() error:boolean=false;
+  @Prop() error: boolean = false;
   @Prop() label: string;
   @Prop({ attribute: 'append-icon' }) appendIcon: string;
   @Prop({ attribute: 'prepend-icon' }) prependIcon: string;
-  @Prop() type: 'text' | 'password'|'number' = 'text';
+  @Prop() type: 'text' | 'password' | 'number' | 'datepicker' = 'text';
 
   //data of config input for text or password
   @State() configInputType: string;
@@ -23,12 +24,17 @@ export class PrInput {
   //event when component will load
   componentWillLoad() {
     this.configInputType = this.type;
+    if (this.type == 'number' || this.type == 'datepicker') this.configInputType = 'text';
   }
-
+  // function to prevent input in cases datepicker or numnber
+  preventInput(value: string) {
+    if(this.type=='datepicker') return ''
+    return this.type == 'number' && isNaN(+value) ? value.slice(0, value.length - 1) : value;
+  }
   //emit event of input text
   onInputChangeValue(event: Event) {
     const value = (event.target as HTMLInputElement).value;
-    if(this.type=='number'&& isNaN(parseInt(value))) event.preventDefault();
+    (event.target as HTMLInputElement).value = this.preventInput(value)
     this.event.emit(value);
   }
 
@@ -49,7 +55,7 @@ export class PrInput {
   }
 
   //get style message
-  getStyleMessage(){
+  getStyleMessage() {
     return this.error && !this.disabled ? 'error-message' : 'message';
   }
 
