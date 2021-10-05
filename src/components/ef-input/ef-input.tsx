@@ -27,13 +27,12 @@ export class PrInput {
   }
   // function to prevent input in cases datepicker or numnber
   preventInput(value: string) {
-    if(this.type=='datepicker') return ''
-    return this.type == 'number' && isNaN(+value) ? value.slice(0, value.length - 1) : value;
+    return this.type == 'number' && isNaN(+value) ||this.type == 'datepicker'  ? value.slice(0, value.length - 1) : value;
   }
   //emit event of input text
   onInputChangeValue(event: Event) {
     const value = (event.target as HTMLInputElement).value;
-    (event.target as HTMLInputElement).value = this.preventInput(value)
+    (event.target as HTMLInputElement).value = this.preventInput(value);
     this.event.emit(value);
   }
 
