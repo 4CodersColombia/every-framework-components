@@ -1,5 +1,4 @@
-import { Component, Host, h, Prop, Event, EventEmitter, State, Watch } from '@stencil/core';
-import { parse } from 'path/posix';
+import { Component, Host, h, Prop, Event, EventEmitter, State } from '@stencil/core';
 
 @Component({
   tag: 'ef-input',

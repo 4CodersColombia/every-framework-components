@@ -13,6 +13,7 @@ export class EfTextArea {
   @Prop() label: string;
   @Prop({ attribute: 'append-icon' }) appendIcon: string;
   @Prop({ attribute: 'prepend-icon' }) prependIcon: string;
+  @Prop() limitCounter: number;
 
   // state for transformYLabel to textarea label placeholder
   @State() transformYLabel: { [key: string]: string };
@@ -20,14 +21,15 @@ export class EfTextArea {
   //Event to emit any action from of parent
   @Event() event: EventEmitter<string>;
 
+  //prevent input caracteres
+  preventInput(value: string) {
+    return value.length > this.limitCounter ? value.slice(0, value.length - 1) : value;
+  }
   //emit event of textarea text
   onTextareaChangeValue(event: Event) {
     const element = event.target as HTMLTextAreaElement;
+    (event.target as HTMLTextAreaElement).value = this.preventInput(element.value);
     this.autoSizeTextArea(element);
-    this.transformYLabel = {
-      transform: `translateY(${15 - element.scrollHeight}px)`,
-      transition: '0s',
-    };
     const value = element.value;
     this.event.emit(value);
   }
@@ -49,9 +51,12 @@ export class EfTextArea {
   // auto size hight textarea
   autoSizeTextArea(element: HTMLTextAreaElement) {
     element.style.height = '45px';
-    element.style.height = element.scrollHeight-8 + 'px';
+    element.style.height = element.scrollHeight - 11 + 'px';
+    this.transformYLabel = {
+      transform: `translateY(${15 - element.scrollHeight}px)`,
+      transition: '0s',
+    };
   }
-
   render() {
     return (
       <Host>

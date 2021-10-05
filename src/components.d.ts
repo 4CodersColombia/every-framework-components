@@ -142,6 +142,7 @@ export namespace Components {
         "disabled": boolean;
         "error": boolean;
         "label": string;
+        "limitCounter": number;
         "message": string;
         "prependIcon": string;
         "value": string;
@@ -457,6 +458,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "error"?: boolean;
         "label"?: string;
+        "limitCounter"?: number;
         "message"?: string;
         "onEvent"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
