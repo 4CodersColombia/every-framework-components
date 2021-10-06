@@ -22,9 +22,9 @@
 
 ## Events
 
-| Event   | Description | Type                  |
-| ------- | ----------- | --------------------- |
-| `event` |             | `CustomEvent<string>` |
+| Event    | Description | Type                  |
+| -------- | ----------- | --------------------- |
+| `change` |             | `CustomEvent<string>` |
 
 
 ## Dependencies

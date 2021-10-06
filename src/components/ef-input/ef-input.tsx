@@ -9,27 +9,31 @@ export class PrInput {
   @Prop() disabled: boolean = false;
   @Prop() value: string;
   @Prop() message: string;
-  @Prop() error:boolean=false;
+  @Prop() error: boolean = false;
   @Prop() label: string;
   @Prop({ attribute: 'append-icon' }) appendIcon: string;
   @Prop({ attribute: 'prepend-icon' }) prependIcon: string;
-  @Prop() type: 'text' | 'password'|'number' = 'text';
+  @Prop() type: 'text' | 'password' | 'number' | 'datepicker' = 'text';
 
   //data of config input for text or password
   @State() configInputType: string;
   //Event to emit any action from of parent
-  @Event() event: EventEmitter<string>;
+  @Event() change: EventEmitter<string>;
 
   //event when component will load
   componentWillLoad() {
     this.configInputType = this.type;
+    if (this.type == 'number' || this.type == 'datepicker') this.configInputType = 'text';
   }
-
+  // function to prevent input in cases datepicker or numnber
+  preventInput(value: string) {
+    return this.type == 'number' && isNaN(+value) ||this.type == 'datepicker'  ? value.slice(0, value.length - 1) : value;
+  }
   //emit event of input text
   onInputChangeValue(event: Event) {
     const value = (event.target as HTMLInputElement).value;
-    if(this.type=='number'&& isNaN(parseInt(value))) event.preventDefault();
-    this.event.emit(value);
+    (event.target as HTMLInputElement).value = this.preventInput(value);
+    this.change.emit(value);
   }
 
   //set Visible Password
@@ -49,7 +53,7 @@ export class PrInput {
   }
 
   //get style message
-  getStyleMessage(){
+  getStyleMessage() {
     return this.error && !this.disabled ? 'error-message' : 'message';
   }
 

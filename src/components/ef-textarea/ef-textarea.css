@@ -37,14 +37,13 @@
   padding-right: 5px;
 }
 
-/* styles css for div input */
-.input {
+/* styles css for div textarea */
+.textarea {
   font-family: 'QuickSand', sans-serif;
   position: relative;
   align-items: center;
   flex-direction: row;
   width: 100%;
-  height: 45px;
   color: #091731;
   background: rgba(255, 255, 255, 0.8);
   border: 1.5px solid #939393;
@@ -58,38 +57,39 @@
   padding-right: 10px;
   padding-left: 5px;
   font-size: small;
+  min-height: 45px;
 }
 
-/* styles css for hover input */
-.input:hover {
+/* styles css for hover textarea */
+.textarea:hover {
   border: 1.5px solid #091731;
   outline: 0px solid;
 }
 
-/* styles css for focus  input */
-.input:focus-within {
+/* styles css for focus  textarea */
+.textarea:focus-within {
   border: 1.5px solid #67bf72;
 }
-.input:focus-within:hover {
+.textarea:focus-within:hover {
   border: 1.5px solid #67bf72;
 }
-.input:focus-within > .form-control + .control-label {
+.textarea:focus-within > .form-control + .control-label {
   visibility: visible;
   z-index: 1;
   opacity: 1;
   transform: translateY(-25px);
   transition: 0.2s ease-in-out transform;
 }
-.input:focus-within > .form-control::-webkit-input-placeholder {
+.textarea:focus-within > .form-control::-webkit-input-placeholder {
   color: transparent;
 }
 
-.input:focus-within > .form-control::-moz-placeholder {
+.textarea:focus-within > .form-control::-moz-placeholder {
   /* Firefox 19+ */
   color: transparent;
 }
 
-/* styles css for input inside div */
+/* styles css for textarea inside div */
 .form-control {
   font-family: 'Quicksand', sans-serif;
   font-style: normal;
@@ -103,7 +103,8 @@
   background-color: rgb(0, 0, 0, 0);
   border: 0px solid;
   outline: 0px solid;
-  color: #091731;
+  resize: none;
+  overflow: hidden;
 }
 
 /* styles css for label inside div */
@@ -169,7 +170,7 @@
 .error > .form-control + .control-label {
   color: #ee0000;
 }
-.error > .form-control::-webkit-input-placeholder {
+.error > .form-control::-webkit-textarea-placeholder {
   color: #ee0000;
 }
 
