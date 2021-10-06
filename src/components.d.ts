@@ -384,7 +384,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "maxDate"?: string;
         "minDate"?: string;
-        "onEvent"?: (event: CustomEvent<string>) => void;
+        "onChange"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
         "showModal"?: boolean;
         "textCancel"?: string;
@@ -406,7 +406,7 @@ declare namespace LocalJSX {
         "error"?: boolean;
         "label"?: string;
         "message"?: string;
-        "onEvent"?: (event: CustomEvent<string>) => void;
+        "onChange"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
         "type"?: 'text' | 'password' | 'number' | 'datepicker';
         "value"?: string;
@@ -460,7 +460,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "limitCounter"?: number;
         "message"?: string;
-        "onEvent"?: (event: CustomEvent<string>) => void;
+        "onChange"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
         "value"?: string;
     }

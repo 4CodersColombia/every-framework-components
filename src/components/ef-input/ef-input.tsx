@@ -18,7 +18,7 @@ export class PrInput {
   //data of config input for text or password
   @State() configInputType: string;
   //Event to emit any action from of parent
-  @Event() event: EventEmitter<string>;
+  @Event() change: EventEmitter<string>;
 
   //event when component will load
   componentWillLoad() {
@@ -33,7 +33,7 @@ export class PrInput {
   onInputChangeValue(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     (event.target as HTMLInputElement).value = this.preventInput(value);
-    this.event.emit(value);
+    this.change.emit(value);
   }
 
   //set Visible Password

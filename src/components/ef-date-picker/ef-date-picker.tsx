@@ -19,10 +19,10 @@ export class EfDatePicker {
   @State() selectedDate: string;
 
   //Event to emit any action from of parent
-  @Event() event: EventEmitter<string>;
+  @Event() change: EventEmitter<string>;
 
   eventDatePicker(newDate: string) {
-    this.event.emit(newDate);
+    this.change.emit(newDate);
   }
   setModalDatePicker() {
     if (this.date) this.selectedDate = this.date;
