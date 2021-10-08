@@ -22,7 +22,6 @@ export class PrDataTable {
     this.array_drawer_item = this.array_drawer_item.map((item, indexItem) => {
       return index == indexItem ? !item : item;
     });
-    console.log(this.array_drawer_item)
   }
 
   getImageArrowAlign(open: boolean) {

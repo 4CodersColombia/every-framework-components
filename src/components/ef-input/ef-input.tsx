@@ -25,17 +25,18 @@ export class PrInput {
     this.configInputType = this.type;
     if (this.type == 'number' || this.type == 'datepicker') this.configInputType = 'text';
   }
-  // function to prevent input in cases datepicker or numnber
-  preventInput(value: string) {
-    return this.type == 'number' && isNaN(+value) ||this.type == 'datepicker'  ? value.slice(0, value.length - 1) : value;
-  }
+
   //emit event of input text
   onInputChangeValue(event: Event) {
     const value = (event.target as HTMLInputElement).value;
-    (event.target as HTMLInputElement).value = this.preventInput(value);
-    this.change.emit(value);
+    const emitValue = this.preventInput(value);
+    (event.target as HTMLInputElement).value = emitValue;
+    this.change.emit(emitValue);
   }
-
+  // function to prevent input in cases datepicker or numnber
+  preventInput(value: string) {
+    return (this.type == 'number' && isNaN(+value)) || this.type == 'datepicker' ? value.slice(0, value.length - 1) : value;
+  }
   //set Visible Password
   setVisiblePasswod() {
     if (this.type === 'password') {
