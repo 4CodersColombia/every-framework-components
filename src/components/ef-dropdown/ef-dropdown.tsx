@@ -97,7 +97,7 @@ export class XuachGlobalDropdown {
   }
   render() {
     return (
-      <Host ref={Host => registerClickOutside(this, Host, () => this.clickOutSide())}>
+      <Host ref={HostEl => registerClickOutside(this, HostEl, () => this.clickOutSide())}>
         <div class="scroll-hide">
           <div class={this.getStyleErrorMessage() + ' dropdown ' + this.getStyleDisabled()}>
             <button disabled={this.disabled} class="form-control" onClick={this.changeVisibilityMenuDropdown.bind(this)}>
