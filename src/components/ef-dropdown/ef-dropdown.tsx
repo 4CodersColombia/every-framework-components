@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, EventEmitter, Event, State } from '@stencil/core';
-import { ClickOutside } from 'stencil-click-outside';
+import { registerClickOutside } from 'stencil-click-outside';
 import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIcons';
 @Component({
   tag: 'ef-dropdown',
@@ -18,7 +18,7 @@ export class XuachGlobalDropdown {
   @Prop({ attribute: 'error-message' }) errorMessage: string;
   @Prop() label: string;
   @Prop() urlIconLeft: string;
-  @Prop() urlIconRight:string=EVERYFRAMEWORKICONS['ARROW_DOWN'];
+  @Prop() urlIconRight: string = EVERYFRAMEWORKICONS['ARROW_DOWN'];
 
   //state visibility menu
   @State() visibilityMenuDropdown: boolean = false;
@@ -26,12 +26,10 @@ export class XuachGlobalDropdown {
   //Event to emit any action from of parent
   @Event() valueChange: EventEmitter<object>;
 
-  //click outside component
-  @ClickOutside()
-  clickOutComponent() {
+  //click outside
+  clickOutSide() {
     this.visibilityMenuDropdown = false;
   }
-
   //emit event of Dropdown text
   onDropdownChangeValue(newValue: object) {
     this.changeVisibilityMenuDropdown();
@@ -97,10 +95,9 @@ export class XuachGlobalDropdown {
       );
     });
   }
-
   render() {
     return (
-      <Host>
+      <Host ref={Host => registerClickOutside(this, Host, () => this.clickOutSide())}>
         <div class="scroll-hide">
           <div class={this.getStyleErrorMessage() + ' dropdown ' + this.getStyleDisabled()}>
             <button disabled={this.disabled} class="form-control" onClick={this.changeVisibilityMenuDropdown.bind(this)}>
@@ -114,7 +111,7 @@ export class XuachGlobalDropdown {
           </div>
           <span class="error-message">{this.errorMessage}</span>
           <ul class={this.getClassDropdownMenu()} role="listbox">
-            {this.label}
+            <span>{this.label}</span>
             {this.getOptionsValue()}
           </ul>
         </div>

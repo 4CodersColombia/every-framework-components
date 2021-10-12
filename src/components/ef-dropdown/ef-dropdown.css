@@ -25,7 +25,7 @@
   flex-direction: row;
   font-family: 'QuickSand', sans-serif;
   /*width: 100%;*/
-  height: 28px;
+  height: 45px;
   color: #091731;
   background: rgba(255, 255, 255, 0.8);
   border: 1.5px solid #939393;
@@ -54,9 +54,15 @@
   border: 1.5px solid #67bf72;
 }
 
-
 /* styles css for dropdown inside div */
 .form-control {
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  font-feature-settings: 'liga' off;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -141,7 +147,7 @@
   line-height: 20px;
   height: 20px;
   /* identical to box height, or 156% */
-  letter-spacing: 0.1 .5px;
+  letter-spacing: 0.1 0.5px;
   color: #ee0000;
 }
 
@@ -149,6 +155,11 @@
 styles for dropdown menu */
 
 .dropdown-menu {
+  font-family: 'QuickSand', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 20px;
   position: absolute;
   transform: translateY(-60px);
   background: #fff;
@@ -169,6 +180,11 @@ styles for dropdown menu */
 }
 
 .dropdown-menu-hide {
+  font-family: 'QuickSand', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 20px;
   position: absolute;
   background: #fff;
   box-shadow: 0 1px 4px rgba(150, 150, 150, 0.65);
@@ -185,6 +201,12 @@ styles for dropdown menu */
   font-size: 17px;
   font-weight: bold;
   margin-bottom: -100px;
+}
+.dropdown-menu span {
+  padding-left: 5px;
+}
+.dropdown-menu-hide span {
+  padding-left: 5px;
 }
 
 .dropdown-menu-hide > li {
