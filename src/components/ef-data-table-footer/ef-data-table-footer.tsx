@@ -29,7 +29,6 @@ export class EfDataTableFooter {
   @Event() changeValueFilter: EventEmitter<object>;
   @Event() changeValuePageActive: EventEmitter<number>;
 
-
   onValeChangePageActive(newValue: number) {
     this.pageActive = newValue;
     this.changeValuePageActive.emit(newValue);
@@ -56,7 +55,6 @@ export class EfDataTableFooter {
             }}
             class="ef-data-table-footer__dropdown"
           ></ef-dropdown>
-          <span class="ef-data-table-footer__text-bold"> {this.dataType} </span>
         </div>
         <div class="ef-data-table-center">
           <ef-paginator
