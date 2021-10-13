@@ -26,18 +26,18 @@ export class EfDataTableFooter {
   ];
   @Prop() itemsCount: string = '200';
 
-  @Event() valueChangeFilter: EventEmitter<object>;
-  @Event() valueChangePageActive: EventEmitter<number>;
+  @Event() changeValueFilter: EventEmitter<object>;
+  @Event() changeValuePageActive: EventEmitter<number>;
 
 
   onValeChangePageActive(newValue: number) {
     this.pageActive = newValue;
-    this.valueChangePageActive.emit(newValue);
+    this.changeValuePageActive.emit(newValue);
   }
 
   onDropdownChangeValue(newValue: { [key: string]: unknown }) {
     this.valueFilter = newValue.text as number;
-    this.valueChangeFilter.emit(newValue);
+    this.changeValueFilter.emit(newValue);
   }
 
   render() {
@@ -51,7 +51,7 @@ export class EfDataTableFooter {
             items={this.itemsFilter}
             errorMessage={this.errorMessageFilter}
             label={this.labelFilter}
-            onValueChange={value => {
+            onChangeValue={value => {
               this.onDropdownChangeValue(value.detail as { [key: string]: unknown });
             }}
             class="ef-data-table-footer__dropdown"

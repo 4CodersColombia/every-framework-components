@@ -1,5 +1,4 @@
-import { Component, Host, h, Prop, EventEmitter, Event, State } from '@stencil/core';
-import { registerClickOutside } from 'stencil-click-outside';
+import { Component, Host, h, Prop, EventEmitter, Event, State, Element } from '@stencil/core';
 import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIcons';
 @Component({
   tag: 'ef-dropdown',
@@ -19,13 +18,20 @@ export class XuachGlobalDropdown {
   @Prop() label: string;
   @Prop() urlIconLeft: string;
   @Prop() urlIconRight: string = EVERYFRAMEWORKICONS['ARROW_DOWN'];
+  @Element() private element: HTMLElement;
 
+  //state for dinamic width by element HTMLEMENT
+  @State() widthDropDownMenu:string;
   //state visibility menu
   @State() visibilityMenuDropdown: boolean = false;
 
   //Event to emit any action from of parent
-  @Event() valueChange: EventEmitter<object>;
+  @Event() changeValue: EventEmitter<object>;
 
+  //component load
+  componentWillUpdate(){
+    this.widthDropDownMenu=this.element.clientWidth+'px'
+  }
   //click outside
   clickOutSide() {
     this.visibilityMenuDropdown = false;
@@ -33,7 +39,7 @@ export class XuachGlobalDropdown {
   //emit event of Dropdown text
   onDropdownChangeValue(newValue: object) {
     this.changeVisibilityMenuDropdown();
-    this.valueChange.emit(newValue);
+    this.changeValue.emit(newValue);
   }
 
   //get style disabled
@@ -60,6 +66,7 @@ export class XuachGlobalDropdown {
   getClassDropdownMenu() {
     return this.visibilityMenuDropdown ? 'dropdown-menu' : 'dropdown-menu-hide';
   }
+
   //change status of visibility of dropdown menu
   changeVisibilityMenuDropdown() {
     this.visibilityMenuDropdown = !this.visibilityMenuDropdown;
@@ -97,7 +104,7 @@ export class XuachGlobalDropdown {
   }
   render() {
     return (
-      <Host ref={HostEl => registerClickOutside(this, HostEl, () => this.clickOutSide())}>
+      <Host onblur={this.clickOutSide.bind(this)}>
         <div class="scroll-hide">
           <div class={this.getStyleErrorMessage() + ' dropdown ' + this.getStyleDisabled()}>
             <button disabled={this.disabled} class="form-control" onClick={this.changeVisibilityMenuDropdown.bind(this)}>
@@ -110,7 +117,7 @@ export class XuachGlobalDropdown {
             <label class={this.getStyleLabel()}> {this.label}</label>
           </div>
           <span class="error-message">{this.errorMessage}</span>
-          <ul class={this.getClassDropdownMenu()} role="listbox">
+          <ul class={this.getClassDropdownMenu()} role="listbox" style={{'width':this.widthDropDownMenu}}>
             <span>{this.label}</span>
             {this.getOptionsValue()}
           </ul>

@@ -19,7 +19,7 @@ export class EfTextArea {
   @State() transformYLabel: { [key: string]: string };
 
   //Event to emit any action from of parent
-  @Event() change: EventEmitter<string>;
+  @Event() changeValue: EventEmitter<string>;
 
   //prevent input caracteres
   preventInput(value: string) {
@@ -31,7 +31,7 @@ export class EfTextArea {
     (event.target as HTMLTextAreaElement).value = this.preventInput(element.value);
     this.autoSizeTextArea(element);
     const value = element.value;
-    this.change.emit(value);
+    this.changeValue.emit(value);
   }
 
   //get style disabled

@@ -18,7 +18,7 @@ export class PrInput {
   //data of config input for text or password
   @State() configInputType: string;
   //Event to emit any action from of parent
-  @Event() change: EventEmitter<string>;
+  @Event() changeValue: EventEmitter<string>;
 
   //event when component will load
   componentWillLoad() {
@@ -31,7 +31,7 @@ export class PrInput {
     const value = (event.target as HTMLInputElement).value;
     const emitValue = this.preventInput(value);
     (event.target as HTMLInputElement).value = emitValue;
-    this.change.emit(emitValue);
+    this.changeValue.emit(emitValue);
   }
   // function to prevent input in cases datepicker or numnber
   preventInput(value: string) {

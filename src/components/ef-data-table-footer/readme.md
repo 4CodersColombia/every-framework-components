@@ -27,8 +27,8 @@
 
 | Event                   | Description | Type                  |
 | ----------------------- | ----------- | --------------------- |
-| `valueChangeFilter`     |             | `CustomEvent<object>` |
-| `valueChangePageActive` |             | `CustomEvent<number>` |
+| `changeValueFilter`     |             | `CustomEvent<object>` |
+| `changeValuePageActive` |             | `CustomEvent<number>` |
 
 
 ## Dependencies

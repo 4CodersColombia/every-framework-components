@@ -268,7 +268,6 @@ styles for dropdown menu */
 
 /* hide scroll bar */
 .scroll-hide ul {
-  position: relative;
   /* this will hide the scrollbar in mozilla based browsers */
   overflow: -moz-scrollbars-none;
   scrollbar-width: none;

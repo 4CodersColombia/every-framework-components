@@ -370,8 +370,8 @@ declare namespace LocalJSX {
         "itemsFilter"?: { id: string | number; text: string }[];
         "labelFilter"?: string;
         "leftText"?: string;
-        "onValueChangeFilter"?: (event: CustomEvent<object>) => void;
-        "onValueChangePageActive"?: (event: CustomEvent<number>) => void;
+        "onChangeValueFilter"?: (event: CustomEvent<object>) => void;
+        "onChangeValuePageActive"?: (event: CustomEvent<number>) => void;
         "pageActive"?: number;
         "pages"?: number;
         "rightText"?: string;
@@ -384,7 +384,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "maxDate"?: string;
         "minDate"?: string;
-        "onChange"?: (event: CustomEvent<string>) => void;
+        "onChangeValue"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
         "showModal"?: boolean;
         "textCancel"?: string;
@@ -395,7 +395,7 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "items"?: { id: string | number; text: string }[];
         "label"?: string;
-        "onValueChange"?: (event: CustomEvent<object>) => void;
+        "onChangeValue"?: (event: CustomEvent<object>) => void;
         "urlIconLeft"?: string;
         "urlIconRight"?: string;
         "value"?: string;
@@ -406,7 +406,7 @@ declare namespace LocalJSX {
         "error"?: boolean;
         "label"?: string;
         "message"?: string;
-        "onChange"?: (event: CustomEvent<string>) => void;
+        "onChangeValue"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
         "type"?: 'text' | 'password' | 'number' | 'datepicker';
         "value"?: string;
@@ -460,7 +460,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "limitCounter"?: number;
         "message"?: string;
-        "onChange"?: (event: CustomEvent<string>) => void;
+        "onChangeValue"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
         "value"?: string;
     }
