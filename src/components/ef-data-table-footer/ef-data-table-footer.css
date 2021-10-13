@@ -41,7 +41,7 @@
 }
 .ef-data-table-footer__dropdown {
   margin-top: 30px;
-  width: 77px;
+  min-width: 55px;
   padding-inline: 5px;
 }
 @media screen and (max-width: 600px) {
