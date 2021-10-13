@@ -20,7 +20,7 @@
 
 | Event         | Description | Type                  |
 | ------------- | ----------- | --------------------- |
-| `valueChange` |             | `CustomEvent<object>` |
+| `changeValue` |             | `CustomEvent<object>` |
 
 
 ## Dependencies

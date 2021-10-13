@@ -21,9 +21,9 @@
 
 ## Events
 
-| Event    | Description | Type                  |
-| -------- | ----------- | --------------------- |
-| `change` |             | `CustomEvent<string>` |
+| Event         | Description | Type                  |
+| ------------- | ----------- | --------------------- |
+| `changeValue` |             | `CustomEvent<string>` |
 
 
 ----------------------------------------------
