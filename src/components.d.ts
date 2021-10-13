@@ -309,7 +309,7 @@ declare global {
 declare namespace LocalJSX {
     interface EfAddFile {
         "buttonText"?: string;
-        "onEvent"?: (event: CustomEvent<File[]>) => void;
+        "onChangeValue"?: (event: CustomEvent<File[]>) => void;
         "title"?: string;
     }
     interface EfAddFileImage {

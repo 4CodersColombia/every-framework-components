@@ -11,9 +11,9 @@ export class EfAddFile {
   @Prop() buttonText: string = 'Add Files';
   @State() error: string;
   @State() files: File[] = [];
-  @Event() event: EventEmitter<File[]>;
+  @Event() changeValue: EventEmitter<File[]>;
   async eventUpload(files: File[]) {
-    this.event.emit(files);
+    this.changeValue.emit(files);
   }
 
   uploadFile(files: File[]) {
@@ -28,11 +28,12 @@ export class EfAddFile {
     this.files = this.files.filter(item => {
       return item.name !== nameFile;
     });
+    this.eventUpload(this.files);
   }
 
-  getTextFile( textName:string){
-    if(textName.length>=20) return textName.slice(0,20)+'...'
-    return textName
+  getTextFile(textName: string) {
+    if (textName.length >= 20) return textName.slice(0, 20) + '...';
+    return textName;
   }
   renderCardInfoFile = (file: File) => {
     const buttons = [{ urlIcon: EVERYFRAMEWORKICONS['TRASH'], id: file.name }];
@@ -67,7 +68,7 @@ export class EfAddFile {
           <input
             onChange={($event: any) => {
               this.uploadFile($event.target.files);
-              $event.target.value=null;
+              $event.target.value = null;
             }}
             accept=".pdf"
             type="file"
