@@ -52,8 +52,10 @@ export class EfTextArea {
   autoSizeTextArea(element: HTMLTextAreaElement) {
     element.style.height = '45px';
     element.style.height = element.scrollHeight - 11 + 'px';
+    const hight = element.scrollHeight;
+    const transformY = hight < 60 ? hight : hight - 10;
     this.transformYLabel = {
-      transform: `translateY(${15 - element.scrollHeight}px)`,
+      transform: `translateY(${15 - transformY}px)`,
       transition: '0s',
     };
   }
