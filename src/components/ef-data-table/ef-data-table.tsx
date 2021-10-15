@@ -6,14 +6,14 @@ import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIco
   shadow: true,
 })
 export class PrDataTable {
-  @Prop() headers: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+  @Prop() headers: { text: string; value: string; width?: string }[];
   @Prop() data: { [key: string]: string | number }[];
   @Prop() urlIconArrow: string = EVERYFRAMEWORKICONS['ARROW_DOWN'];
   @State() array_drawer_item: boolean[] = Array.from({ length: this.getLengthData() }, () => false);
 
   @Watch('data')
   watchPropHandler(newValue: boolean, oldValue: boolean) {
-   if(newValue!==oldValue) this.array_drawer_item= Array.from({ length: this.getLengthData() }, () => false);
+    if (newValue !== oldValue) this.array_drawer_item = Array.from({ length: this.getLengthData() }, () => false);
   }
   getLengthData() {
     return this.data ? this.data.length : 0;
@@ -31,28 +31,18 @@ export class PrDataTable {
   getArrowDrawer(index: number) {
     return <img onClick={this.setDrawerStateItem.bind(this, index)} src={this.urlIconArrow} alt="arrow_down" class={this.getImageArrowAlign(this.array_drawer_item[index])} />;
   }
-  
+
   renderRowData(dataRow: { [key: string]: string | number }, key: number) {
     return (
       <tr class="border-table">
         {this.headers.map(header => {
-          if (header.slot) {
-            return (
-              <td class={this.array_drawer_item[key] ? 'open' : 'close'}>
-                <span class="before-content-table">{header.text}</span>
-                {header.slot(dataRow)}
-                {this.getArrowDrawer(key)}
-              </td>
-            );
-          } else {
-            return (
-              <td class={this.array_drawer_item[key] ? 'open' : 'close'}>
-                <span class="before-content-table">{header.text}</span>
-                <slot name={`${key}${header.value}`}>{dataRow[header.value]}</slot>
-                {this.getArrowDrawer(key)}
-              </td>
-            );
-          }
+          return (
+            <td class={this.array_drawer_item[key] ? 'open' : 'close'} style={{ width: header.width || 'auto' }}>
+              <span class="before-content-table">{header.text}</span>
+              <slot name={`${key}${header.value}`}>{dataRow[header.value]}</slot>
+              {this.getArrowDrawer(key)}
+            </td>
+          );
         })}
       </tr>
     );
@@ -64,7 +54,7 @@ export class PrDataTable {
           <thead class="head-table">
             <tr class="border-table">
               {this.headers.map(header => (
-                <th>{header.text}</th>
+                <th style={{ width: header.width || 'auto' }}>{header.text}</th>
               ))}
             </tr>
           </thead>
