@@ -5,9 +5,9 @@ import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIco
   styleUrl: 'ef-data-table.css',
   shadow: true,
 })
-export class PrDataTable {
+export class PrDataTable<T> {
   @Prop() headers: { text: string; value: string; width?: string }[];
-  @Prop() data: { [key: string]: string | number }[];
+  @Prop() data: T[];
   @Prop() urlIconArrow: string = EVERYFRAMEWORKICONS['ARROW_DOWN'];
   @State() array_drawer_item: boolean[] = Array.from({ length: this.getLengthData() }, () => false);
 
@@ -32,7 +32,7 @@ export class PrDataTable {
     return <img onClick={this.setDrawerStateItem.bind(this, index)} src={this.urlIconArrow} alt="arrow_down" class={this.getImageArrowAlign(this.array_drawer_item[index])} />;
   }
 
-  renderRowData(dataRow: { [key: string]: string | number }, key: number) {
+  renderRowData(dataRow: T, key: number) {
     return (
       <tr class="border-table">
         {this.headers.map(header => {
