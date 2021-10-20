@@ -7,7 +7,7 @@ import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIco
 })
 export class PrDataTable<T> {
   @Prop() headers: { text: string; value: string; width?: string }[];
-  @Prop() data: T[];
+  @Prop() data: [];
   @Prop() urlIconArrow: string = EVERYFRAMEWORKICONS['ARROW_DOWN'];
   @State() array_drawer_item: boolean[] = Array.from({ length: this.getLengthData() }, () => false);
 

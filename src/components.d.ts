@@ -37,6 +37,8 @@ export namespace Components {
         "subtitle": string;
         "title": string;
     }
+    interface EfCarousel {
+    }
     interface EfCheckbox {
         "checked": boolean;
         "disabled": boolean;
@@ -51,8 +53,8 @@ export namespace Components {
         "value": string | number;
     }
     interface EfDataTable {
-        "data": { [key: string]: string | number }[];
-        "headers": { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+        "data": [];
+        "headers": { text: string; value: string; width?: string }[];
         "urlIconArrow": string;
     }
     interface EfDataTableFooter {
@@ -179,6 +181,12 @@ declare global {
         prototype: HTMLEfCardInfoElement;
         new (): HTMLEfCardInfoElement;
     };
+    interface HTMLEfCarouselElement extends Components.EfCarousel, HTMLStencilElement {
+    }
+    var HTMLEfCarouselElement: {
+        prototype: HTMLEfCarouselElement;
+        new (): HTMLEfCarouselElement;
+    };
     interface HTMLEfCheckboxElement extends Components.EfCheckbox, HTMLStencilElement {
     }
     var HTMLEfCheckboxElement: {
@@ -287,6 +295,7 @@ declare global {
         "ef-button": HTMLEfButtonElement;
         "ef-buttons-icon": HTMLEfButtonsIconElement;
         "ef-card-info": HTMLEfCardInfoElement;
+        "ef-carousel": HTMLEfCarouselElement;
         "ef-checkbox": HTMLEfCheckboxElement;
         "ef-chip": HTMLEfChipElement;
         "ef-data-table": HTMLEfDataTableElement;
@@ -342,6 +351,8 @@ declare namespace LocalJSX {
         "subtitle"?: string;
         "title"?: string;
     }
+    interface EfCarousel {
+    }
     interface EfCheckbox {
         "checked"?: boolean;
         "disabled"?: boolean;
@@ -358,8 +369,8 @@ declare namespace LocalJSX {
         "value"?: string | number;
     }
     interface EfDataTable {
-        "data"?: { [key: string]: string | number }[];
-        "headers"?: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+        "data"?: [];
+        "headers"?: { text: string; value: string; width?: string }[];
         "urlIconArrow"?: string;
     }
     interface EfDataTableFooter {
@@ -470,6 +481,7 @@ declare namespace LocalJSX {
         "ef-button": EfButton;
         "ef-buttons-icon": EfButtonsIcon;
         "ef-card-info": EfCardInfo;
+        "ef-carousel": EfCarousel;
         "ef-checkbox": EfCheckbox;
         "ef-chip": EfChip;
         "ef-data-table": EfDataTable;
@@ -498,6 +510,7 @@ declare module "@stencil/core" {
             "ef-button": LocalJSX.EfButton & JSXBase.HTMLAttributes<HTMLEfButtonElement>;
             "ef-buttons-icon": LocalJSX.EfButtonsIcon & JSXBase.HTMLAttributes<HTMLEfButtonsIconElement>;
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;
+            "ef-carousel": LocalJSX.EfCarousel & JSXBase.HTMLAttributes<HTMLEfCarouselElement>;
             "ef-checkbox": LocalJSX.EfCheckbox & JSXBase.HTMLAttributes<HTMLEfCheckboxElement>;
             "ef-chip": LocalJSX.EfChip & JSXBase.HTMLAttributes<HTMLEfChipElement>;
             "ef-data-table": LocalJSX.EfDataTable & JSXBase.HTMLAttributes<HTMLEfDataTableElement>;
