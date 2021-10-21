@@ -26,7 +26,7 @@ export class EfAddImages {
   async eventUpload(files: FileList) {
     const filesToEmit = await Promise.all(
       Array.from(files).map(async item => {
-        return await this.compressImage(item);
+        return this.compressImage(item);
       }),
     );
     this.changeValue.emit(filesToEmit);
@@ -45,7 +45,7 @@ export class EfAddImages {
   }
   onInputChange(files: FileList) {
     // check if 1 image is uploaded
-    Array.from(files).map(item => {
+    Array.from(files).forEach(item => {
       this.uploadImage(item);
     });
     this.eventUpload(files);
