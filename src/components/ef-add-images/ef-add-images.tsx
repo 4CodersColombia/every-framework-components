@@ -12,8 +12,8 @@ export class EfAddImages {
   @Prop({ mutable: true }) itemActive: number = 1;
   @Prop() addImage: boolean = false;
   @Prop() urlIcon: string = EVERYFRAMEWORKICONS['ADD_IMAGE'];
-  @Prop() title: string = 'Title';
-  @Prop() subTitle: string = 'subtitle';
+  @Prop() title: string = '';
+  @Prop() subTitle: string = '';
   @Prop() infoIcon: string = 'add';
   @Prop() circle: boolean = false;
   @Prop() multiple: boolean = false;
