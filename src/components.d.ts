@@ -38,6 +38,8 @@ export namespace Components {
         "title": string;
     }
     interface EfCarousel {
+        "itemActive": number;
+        "photosUrl": string[];
     }
     interface EfCheckbox {
         "checked": boolean;
@@ -352,6 +354,8 @@ declare namespace LocalJSX {
         "title"?: string;
     }
     interface EfCarousel {
+        "itemActive"?: number;
+        "photosUrl"?: string[];
     }
     interface EfCheckbox {
         "checked"?: boolean;

@@ -1,138 +1,37 @@
 :host {
   display: block;
-  overflow: hidden;
-}
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  10% {
-    transform: translateX(0);
-  }
-
-  15% {
-    transform: translateX(-100%);
-  }
-  30% {
-    transform: translateX(-100%);
-  }
-
-  35% {
-    transform: translateX(-200%);
-  }
-  50% {
-    transform: translateX(-200%);
-  }
-
-  55% {
-    transform: translateX(-300%);
-  }
-  70% {
-    transform: translateX(-300%);
-  }
-
-  75% {
-    transform: translateX(-400%);
-  }
-  90% {
-    transform: translateX(-400%);
-  }
-
-  95% {
-    transform: translateX(-500%);
-  }
-  100% {
-    transform: translateX(-500%);
-  }
 }
 
-* {
-  box-sizing: border-box;
-}
-
-
-.wrapper {
-  max-width: 100%;
-  margin: 0 auto;
-  scroll-behavior: smooth;
-}
-
-.slider {
-  position: relative;
-}
-
-.slides {
-  position: relative;
+.ef-carousel__container {
   display: flex;
-  overflow: hidden;
-  list-style: none;
-}
-
-.slide {
-  width: 100vw;
-  flex-shrink: 0;
-  animation-name: slide;
-  animation-duration: 20s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-.slides:hover .slide {
-  animation-play-state: paused;
-}
-
-.slide img {
-  width: 100%;
-  vertical-align: top;
-}
-
-.slide a {
-  width: 100%;
-  display: inline-block;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   position: relative;
+  border-radius: 12px;
 }
-
-.caption {
-  color: white;
-  text-shadow: 1px 1px black;
-  font-size: 8vw;
+.ef-carousel__arrow {
+  cursor: pointer;
+  padding: 10px;
   position: absolute;
-  bottom: 8vw;
-  right: 4vw;
-}
-
-.slide:target {
-  animation-name: none;
-  position: absolute;
-  left: 0;
-  top: 0;
   right: 0;
-  bottom: 0;
-  z-index: 50;
-}
-
-.slider-controler {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  text-align: center;
-  padding: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 10px;
   z-index: 100;
 }
-
-.slider-controler li {
-  margin: 0 0.5rem;
-  display: inline-block;
-  vertical-align: top;
+.ef-carousel__arrow-left {
+  left: 0;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  width: 10px;
 }
 
-.slider-controler a {
-  display: inline-block;
-  vertical-align: top;
-  text-decoration: none;
-  color: white;
-  font-size: 1.5rem;
+.ef-carousel__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  opacity: 1;
 }
-
