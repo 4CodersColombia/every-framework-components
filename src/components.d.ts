@@ -10,16 +10,6 @@ export namespace Components {
         "buttonText": string;
         "title": string;
     }
-    interface EfAddFileImage {
-        "circle": boolean;
-        "height": number;
-        "infoIcon": string;
-        "multiple": boolean;
-        "subTitle": string;
-        "title": string;
-        "urlIcon": string;
-        "width": number;
-    }
     interface EfButton {
         "color": 'PRIMARY' | 'SECONDARY';
         "disabled": boolean;
@@ -38,8 +28,18 @@ export namespace Components {
         "title": string;
     }
     interface EfCarousel {
+        "addImage": boolean;
+        "circle": boolean;
+        "error": string;
+        "height": number;
+        "infoIcon": string;
         "itemActive": number;
+        "multiple": boolean;
         "photosUrl": string[];
+        "subTitle": string;
+        "title": string;
+        "urlIcon": string;
+        "width": number;
     }
     interface EfCheckbox {
         "checked": boolean;
@@ -158,12 +158,6 @@ declare global {
     var HTMLEfAddFileElement: {
         prototype: HTMLEfAddFileElement;
         new (): HTMLEfAddFileElement;
-    };
-    interface HTMLEfAddFileImageElement extends Components.EfAddFileImage, HTMLStencilElement {
-    }
-    var HTMLEfAddFileImageElement: {
-        prototype: HTMLEfAddFileImageElement;
-        new (): HTMLEfAddFileImageElement;
     };
     interface HTMLEfButtonElement extends Components.EfButton, HTMLStencilElement {
     }
@@ -293,7 +287,6 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "ef-add-file": HTMLEfAddFileElement;
-        "ef-add-file-image": HTMLEfAddFileImageElement;
         "ef-button": HTMLEfButtonElement;
         "ef-buttons-icon": HTMLEfButtonsIconElement;
         "ef-card-info": HTMLEfCardInfoElement;
@@ -323,17 +316,6 @@ declare namespace LocalJSX {
         "onChangeValue"?: (event: CustomEvent<File[]>) => void;
         "title"?: string;
     }
-    interface EfAddFileImage {
-        "circle"?: boolean;
-        "height"?: number;
-        "infoIcon"?: string;
-        "multiple"?: boolean;
-        "onEvent"?: (event: CustomEvent<File>) => void;
-        "subTitle"?: string;
-        "title"?: string;
-        "urlIcon"?: string;
-        "width"?: number;
-    }
     interface EfButton {
         "color"?: 'PRIMARY' | 'SECONDARY';
         "disabled"?: boolean;
@@ -354,8 +336,18 @@ declare namespace LocalJSX {
         "title"?: string;
     }
     interface EfCarousel {
+        "addImage"?: boolean;
+        "circle"?: boolean;
+        "error"?: string;
+        "height"?: number;
+        "infoIcon"?: string;
         "itemActive"?: number;
+        "multiple"?: boolean;
         "photosUrl"?: string[];
+        "subTitle"?: string;
+        "title"?: string;
+        "urlIcon"?: string;
+        "width"?: number;
     }
     interface EfCheckbox {
         "checked"?: boolean;
@@ -481,7 +473,6 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "ef-add-file": EfAddFile;
-        "ef-add-file-image": EfAddFileImage;
         "ef-button": EfButton;
         "ef-buttons-icon": EfButtonsIcon;
         "ef-card-info": EfCardInfo;
@@ -510,7 +501,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ef-add-file": LocalJSX.EfAddFile & JSXBase.HTMLAttributes<HTMLEfAddFileElement>;
-            "ef-add-file-image": LocalJSX.EfAddFileImage & JSXBase.HTMLAttributes<HTMLEfAddFileImageElement>;
             "ef-button": LocalJSX.EfButton & JSXBase.HTMLAttributes<HTMLEfButtonElement>;
             "ef-buttons-icon": LocalJSX.EfButtonsIcon & JSXBase.HTMLAttributes<HTMLEfButtonsIconElement>;
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;
