@@ -109,7 +109,7 @@ export class EfAddImages {
   }
   getStyleWidthContainer() {
     return {
-      width: this.width * 2 + 'px',
+      width: this.width +40 + 'px',
     };
   }
 
