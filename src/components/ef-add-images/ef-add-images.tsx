@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
 import imageCompression from 'browser-image-compression';
 import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIcons';
 
@@ -21,6 +21,16 @@ export class EfAddImages {
   @Prop() height: number = 100;
   @Prop() error: string;
 
+  @Event() changeValue: EventEmitter<File[]>;
+
+  async eventUpload(files: FileList) {
+    const filesToEmit = await Promise.all(
+      Array.from(files).map(async item => {
+        return await this.compressImage(item);
+      }),
+    );
+    this.changeValue.emit(filesToEmit);
+  }
   async compressImage(photoP: File) {
     var options = {
       maxSizeMB: 0.7,
@@ -38,6 +48,7 @@ export class EfAddImages {
     Array.from(files).map(item => {
       this.uploadImage(item);
     });
+    this.eventUpload(files);
   }
   updatePhotos(file: File) {
     if (this.multiple) {
@@ -52,7 +63,6 @@ export class EfAddImages {
 
     reader.onload = () => {
       this.updatePhotos(file);
-      // this.eventUpload(file);
     };
 
     reader.onerror = err => {
@@ -87,8 +97,8 @@ export class EfAddImages {
   }
 
   getStyleAddImage() {
-    const position= this.multiple?'-1':'1'
-    return this.addImage && this.itemActive == this.photosUrl.length + 1 ? { opacity: '1' } : { opacity: '0','z-index':position };
+    const position = this.multiple ? '-1' : '1';
+    return this.addImage && this.itemActive == this.photosUrl.length + 1 ? { opacity: '1' } : { 'opacity': '0', 'z-index': position };
   }
   getStyleArchive() {
     if (this.circle) return { 'width': this.width + 'px', 'height': this.height + 'px', 'border-radius': '100%' };
@@ -107,7 +117,12 @@ export class EfAddImages {
     if (!this.multiple) return;
     const plusValue = option == 'left' ? -1 : 1;
     return (
-      <img onClick={this.setItemActive.bind(this, plusValue)} class={`ef-add-images__arrow ef-add-images__arrow-${option}`} src={this.getImageArrow(option)} alt={`arrow-${option}`} />
+      <img
+        onClick={this.setItemActive.bind(this, plusValue)}
+        class={`ef-add-images__arrow ef-add-images__arrow-${option}`}
+        src={this.getImageArrow(option)}
+        alt={`arrow-${option}`}
+      />
     );
   }
   renderItems() {

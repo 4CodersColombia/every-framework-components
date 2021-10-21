@@ -23,6 +23,13 @@
 | `width`      | `width`       |             | `number`   | `100`                              |
 
 
+## Events
+
+| Event         | Description | Type                  |
+| ------------- | ----------- | --------------------- |
+| `changeValue` |             | `CustomEvent<File[]>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
