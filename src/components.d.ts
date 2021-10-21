@@ -10,6 +10,20 @@ export namespace Components {
         "buttonText": string;
         "title": string;
     }
+    interface EfAddImages {
+        "addImage": boolean;
+        "circle": boolean;
+        "error": string;
+        "height": number;
+        "infoIcon": string;
+        "itemActive": number;
+        "multiple": boolean;
+        "photosUrl": string[];
+        "subTitle": string;
+        "title": string;
+        "urlIcon": string;
+        "width": number;
+    }
     interface EfButton {
         "color": 'PRIMARY' | 'SECONDARY';
         "disabled": boolean;
@@ -26,20 +40,6 @@ export namespace Components {
         "styleTitle": { [key: string]: string };
         "subtitle": string;
         "title": string;
-    }
-    interface EfCarousel {
-        "addImage": boolean;
-        "circle": boolean;
-        "error": string;
-        "height": number;
-        "infoIcon": string;
-        "itemActive": number;
-        "multiple": boolean;
-        "photosUrl": string[];
-        "subTitle": string;
-        "title": string;
-        "urlIcon": string;
-        "width": number;
     }
     interface EfCheckbox {
         "checked": boolean;
@@ -159,6 +159,12 @@ declare global {
         prototype: HTMLEfAddFileElement;
         new (): HTMLEfAddFileElement;
     };
+    interface HTMLEfAddImagesElement extends Components.EfAddImages, HTMLStencilElement {
+    }
+    var HTMLEfAddImagesElement: {
+        prototype: HTMLEfAddImagesElement;
+        new (): HTMLEfAddImagesElement;
+    };
     interface HTMLEfButtonElement extends Components.EfButton, HTMLStencilElement {
     }
     var HTMLEfButtonElement: {
@@ -176,12 +182,6 @@ declare global {
     var HTMLEfCardInfoElement: {
         prototype: HTMLEfCardInfoElement;
         new (): HTMLEfCardInfoElement;
-    };
-    interface HTMLEfCarouselElement extends Components.EfCarousel, HTMLStencilElement {
-    }
-    var HTMLEfCarouselElement: {
-        prototype: HTMLEfCarouselElement;
-        new (): HTMLEfCarouselElement;
     };
     interface HTMLEfCheckboxElement extends Components.EfCheckbox, HTMLStencilElement {
     }
@@ -287,10 +287,10 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "ef-add-file": HTMLEfAddFileElement;
+        "ef-add-images": HTMLEfAddImagesElement;
         "ef-button": HTMLEfButtonElement;
         "ef-buttons-icon": HTMLEfButtonsIconElement;
         "ef-card-info": HTMLEfCardInfoElement;
-        "ef-carousel": HTMLEfCarouselElement;
         "ef-checkbox": HTMLEfCheckboxElement;
         "ef-chip": HTMLEfChipElement;
         "ef-data-table": HTMLEfDataTableElement;
@@ -316,6 +316,20 @@ declare namespace LocalJSX {
         "onChangeValue"?: (event: CustomEvent<File[]>) => void;
         "title"?: string;
     }
+    interface EfAddImages {
+        "addImage"?: boolean;
+        "circle"?: boolean;
+        "error"?: string;
+        "height"?: number;
+        "infoIcon"?: string;
+        "itemActive"?: number;
+        "multiple"?: boolean;
+        "photosUrl"?: string[];
+        "subTitle"?: string;
+        "title"?: string;
+        "urlIcon"?: string;
+        "width"?: number;
+    }
     interface EfButton {
         "color"?: 'PRIMARY' | 'SECONDARY';
         "disabled"?: boolean;
@@ -334,20 +348,6 @@ declare namespace LocalJSX {
         "styleTitle"?: { [key: string]: string };
         "subtitle"?: string;
         "title"?: string;
-    }
-    interface EfCarousel {
-        "addImage"?: boolean;
-        "circle"?: boolean;
-        "error"?: string;
-        "height"?: number;
-        "infoIcon"?: string;
-        "itemActive"?: number;
-        "multiple"?: boolean;
-        "photosUrl"?: string[];
-        "subTitle"?: string;
-        "title"?: string;
-        "urlIcon"?: string;
-        "width"?: number;
     }
     interface EfCheckbox {
         "checked"?: boolean;
@@ -473,10 +473,10 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "ef-add-file": EfAddFile;
+        "ef-add-images": EfAddImages;
         "ef-button": EfButton;
         "ef-buttons-icon": EfButtonsIcon;
         "ef-card-info": EfCardInfo;
-        "ef-carousel": EfCarousel;
         "ef-checkbox": EfCheckbox;
         "ef-chip": EfChip;
         "ef-data-table": EfDataTable;
@@ -501,10 +501,10 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ef-add-file": LocalJSX.EfAddFile & JSXBase.HTMLAttributes<HTMLEfAddFileElement>;
+            "ef-add-images": LocalJSX.EfAddImages & JSXBase.HTMLAttributes<HTMLEfAddImagesElement>;
             "ef-button": LocalJSX.EfButton & JSXBase.HTMLAttributes<HTMLEfButtonElement>;
             "ef-buttons-icon": LocalJSX.EfButtonsIcon & JSXBase.HTMLAttributes<HTMLEfButtonsIconElement>;
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;
-            "ef-carousel": LocalJSX.EfCarousel & JSXBase.HTMLAttributes<HTMLEfCarouselElement>;
             "ef-checkbox": LocalJSX.EfCheckbox & JSXBase.HTMLAttributes<HTMLEfCheckboxElement>;
             "ef-chip": LocalJSX.EfChip & JSXBase.HTMLAttributes<HTMLEfChipElement>;
             "ef-data-table": LocalJSX.EfDataTable & JSXBase.HTMLAttributes<HTMLEfDataTableElement>;

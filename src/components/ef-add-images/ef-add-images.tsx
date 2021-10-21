@@ -1,13 +1,13 @@
-import { Component, Host, h, Prop, State, Watch } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
 import imageCompression from 'browser-image-compression';
 import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIcons';
 
 @Component({
-  tag: 'ef-carousel',
-  styleUrl: 'ef-carousel.css',
+  tag: 'ef-add-images',
+  styleUrl: 'ef-add-images.css',
   shadow: true,
 })
-export class EfCarousel {
+export class EfAddImages {
   @Prop({ mutable: true }) photosUrl: string[] = [];
   @Prop({ mutable: true }) itemActive: number = 1;
   @Prop() addImage: boolean = false;
@@ -83,7 +83,7 @@ export class EfCarousel {
   }
 
   getItemSelected(index) {
-    return index + 1 == this.itemActive ? 'ef-carousel__item-selected' : 'ef-carousel__item-off';
+    return index + 1 == this.itemActive ? 'ef-add-images__item-selected' : 'ef-add-images__item-off';
   }
 
   getStyleAddImage() {
@@ -107,21 +107,21 @@ export class EfCarousel {
     if (!this.multiple) return;
     const plusValue = option == 'left' ? -1 : 1;
     return (
-      <img onClick={this.setItemActive.bind(this, plusValue)} class={`ef-carousel__arrow ef-carousel__arrow-${option}`} src={this.getImageArrow(option)} alt={`arrow-${option}`} />
+      <img onClick={this.setItemActive.bind(this, plusValue)} class={`ef-add-images__arrow ef-add-images__arrow-${option}`} src={this.getImageArrow(option)} alt={`arrow-${option}`} />
     );
   }
   renderItems() {
     return this.photosUrl.map((item, index) => {
-      return <img src={item} alt={item + index} class={`ef-carousel__item ${this.getItemSelected(index)}`} style={this.getStyleArchive()} />;
+      return <img src={item} alt={item + index} class={`ef-add-images__item ${this.getItemSelected(index)}`} style={this.getStyleArchive()} />;
     });
   }
   renderAddImage() {
     if (this.addImage) {
       return (
-        <div class="`ef-carousel__add-image-content" style={this.getStyleAddImage()}>
-          <label htmlFor={'add-file'} class="ef-carousel__archive" style={this.getStyleArchive()}>
-            <img class="ef-carousel__archive-img" src={this.urlIcon} alt="addArchive" />
-            <span class="ef-carousel__archive-info">{this.infoIcon}</span>
+        <div class="`ef-add-images__add-image-content" style={this.getStyleAddImage()}>
+          <label htmlFor={'add-file'} class="ef-add-images__archive" style={this.getStyleArchive()}>
+            <img class="ef-add-images__archive-img" src={this.urlIcon} alt="addArchive" />
+            <span class="ef-add-images__archive-info">{this.infoIcon}</span>
           </label>
           <input
             onChange={($event: any) => {
@@ -134,7 +134,7 @@ export class EfCarousel {
             multiple={this.multiple}
             style={{ display: 'none', visibility: 'none' }}
           ></input>
-          <span class="ef-carousel__archive-error ">{this.error}</span>
+          <span class="ef-add-images__archive-error ">{this.error}</span>
         </div>
       );
     }
@@ -143,11 +143,11 @@ export class EfCarousel {
   render() {
     return (
       <Host>
-        <div class="ef-carousel__container" style={this.getStyleWidthContainer()}>
-          <span class="ef-carousel__archive-title">
-            {this.title} <span class="ef-carousel__archive-subtitle">{this.subTitle}</span>
+        <div class="ef-add-images__container" style={this.getStyleWidthContainer()}>
+          <span class="ef-add-images__archive-title">
+            {this.title} <span class="ef-add-images__archive-subtitle">{this.subTitle}</span>
           </span>
-          <div class="ed-carousel__slider">
+          <div class="ef-add-images__slider">
             {this.renderImageArrow('left')}
             {this.renderItems()}
             {this.renderAddImage()}

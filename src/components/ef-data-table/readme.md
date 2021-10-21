@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property       | Attribute        | Description | Type                                                                                                 | Default                             |
-| -------------- | ---------------- | ----------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| `data`         | --               |             | `{ [key: string]: string \| number; }[]`                                                             | `undefined`                         |
-| `headers`      | --               |             | `{ text: string; value: string; slot?: (item: { [key: string]: string \| number; }) => Element; }[]` | `undefined`                         |
-| `urlIconArrow` | `url-icon-arrow` |             | `string`                                                                                             | `EVERYFRAMEWORKICONS['ARROW_DOWN']` |
+| Property       | Attribute        | Description | Type                                                 | Default                             |
+| -------------- | ---------------- | ----------- | ---------------------------------------------------- | ----------------------------------- |
+| `data`         | --               |             | `[]`                                                 | `undefined`                         |
+| `headers`      | --               |             | `{ text: string; value: string; width?: string; }[]` | `undefined`                         |
+| `urlIconArrow` | `url-icon-arrow` |             | `string`                                             | `EVERYFRAMEWORKICONS['ARROW_DOWN']` |
 
 
 ----------------------------------------------
