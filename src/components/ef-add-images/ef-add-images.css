@@ -17,6 +17,8 @@
   position: relative;
 }
 .ef-add-images__arrow {
+  padding:8px;
+  margin: -6px;
   cursor: pointer;
   position: absolute;
   right:0;
