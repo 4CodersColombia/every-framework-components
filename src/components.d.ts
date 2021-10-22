@@ -10,11 +10,15 @@ export namespace Components {
         "buttonText": string;
         "title": string;
     }
-    interface EfAddFileImage {
+    interface EfAddImages {
+        "addImage": boolean;
         "circle": boolean;
+        "error": string;
         "height": number;
         "infoIcon": string;
+        "itemActive": number;
         "multiple": boolean;
+        "photosUrl": string[];
         "subTitle": string;
         "title": string;
         "urlIcon": string;
@@ -51,8 +55,8 @@ export namespace Components {
         "value": string | number;
     }
     interface EfDataTable {
-        "data": { [key: string]: string | number }[];
-        "headers": { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+        "data": [];
+        "headers": { text: string; value: string; width?: string }[];
         "urlIconArrow": string;
     }
     interface EfDataTableFooter {
@@ -155,11 +159,11 @@ declare global {
         prototype: HTMLEfAddFileElement;
         new (): HTMLEfAddFileElement;
     };
-    interface HTMLEfAddFileImageElement extends Components.EfAddFileImage, HTMLStencilElement {
+    interface HTMLEfAddImagesElement extends Components.EfAddImages, HTMLStencilElement {
     }
-    var HTMLEfAddFileImageElement: {
-        prototype: HTMLEfAddFileImageElement;
-        new (): HTMLEfAddFileImageElement;
+    var HTMLEfAddImagesElement: {
+        prototype: HTMLEfAddImagesElement;
+        new (): HTMLEfAddImagesElement;
     };
     interface HTMLEfButtonElement extends Components.EfButton, HTMLStencilElement {
     }
@@ -283,7 +287,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "ef-add-file": HTMLEfAddFileElement;
-        "ef-add-file-image": HTMLEfAddFileImageElement;
+        "ef-add-images": HTMLEfAddImagesElement;
         "ef-button": HTMLEfButtonElement;
         "ef-buttons-icon": HTMLEfButtonsIconElement;
         "ef-card-info": HTMLEfCardInfoElement;
@@ -312,12 +316,16 @@ declare namespace LocalJSX {
         "onChangeValue"?: (event: CustomEvent<File[]>) => void;
         "title"?: string;
     }
-    interface EfAddFileImage {
+    interface EfAddImages {
+        "addImage"?: boolean;
         "circle"?: boolean;
+        "error"?: string;
         "height"?: number;
         "infoIcon"?: string;
+        "itemActive"?: number;
         "multiple"?: boolean;
-        "onEvent"?: (event: CustomEvent<File>) => void;
+        "onChangeValue"?: (event: CustomEvent<File[]>) => void;
+        "photosUrl"?: string[];
         "subTitle"?: string;
         "title"?: string;
         "urlIcon"?: string;
@@ -358,8 +366,8 @@ declare namespace LocalJSX {
         "value"?: string | number;
     }
     interface EfDataTable {
-        "data"?: { [key: string]: string | number }[];
-        "headers"?: { text: string; value: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+        "data"?: [];
+        "headers"?: { text: string; value: string; width?: string }[];
         "urlIconArrow"?: string;
     }
     interface EfDataTableFooter {
@@ -466,7 +474,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "ef-add-file": EfAddFile;
-        "ef-add-file-image": EfAddFileImage;
+        "ef-add-images": EfAddImages;
         "ef-button": EfButton;
         "ef-buttons-icon": EfButtonsIcon;
         "ef-card-info": EfCardInfo;
@@ -494,7 +502,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ef-add-file": LocalJSX.EfAddFile & JSXBase.HTMLAttributes<HTMLEfAddFileElement>;
-            "ef-add-file-image": LocalJSX.EfAddFileImage & JSXBase.HTMLAttributes<HTMLEfAddFileImageElement>;
+            "ef-add-images": LocalJSX.EfAddImages & JSXBase.HTMLAttributes<HTMLEfAddImagesElement>;
             "ef-button": LocalJSX.EfButton & JSXBase.HTMLAttributes<HTMLEfButtonElement>;
             "ef-buttons-icon": LocalJSX.EfButtonsIcon & JSXBase.HTMLAttributes<HTMLEfButtonsIconElement>;
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;
