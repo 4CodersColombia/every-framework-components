@@ -11,7 +11,7 @@ export class EfAddFile {
   @Prop() buttonText: string = 'Add Files';
   @State() error: string;
   @State() files: File[] = [];
-  @Event() changeValue: EventEmitter<File[]>;
+  @Event({eventName:'change-value'}) changeValue: EventEmitter<File[]>;
   async eventUpload(files: File[]) {
     this.changeValue.emit(files);
   }

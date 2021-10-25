@@ -26,7 +26,7 @@ export class XuachGlobalDropdown {
   @State() visibilityMenuDropdown: boolean = false;
 
   //Event to emit any action from of parent
-  @Event() changeValue: EventEmitter<object>;
+  @Event({eventName:'change-value'}) changeValue: EventEmitter<object>;
 
   //component load
   componentWillUpdate(){

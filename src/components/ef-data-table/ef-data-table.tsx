@@ -11,6 +11,9 @@ export class PrDataTable<T> {
   @Prop() urlIconArrow: string = EVERYFRAMEWORKICONS['ARROW_DOWN'];
   @State() array_drawer_item: boolean[] = Array.from({ length: this.getLengthData() }, () => false);
 
+  componentWillLoad() {
+    this.array_drawer_item = Array.from({ length: this.getLengthData() }, () => false);
+  }
   @Watch('data')
   watchPropHandler(newValue: boolean, oldValue: boolean) {
     if (newValue !== oldValue) this.array_drawer_item = Array.from({ length: this.getLengthData() }, () => false);

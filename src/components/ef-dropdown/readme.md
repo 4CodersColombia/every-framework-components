@@ -18,9 +18,9 @@
 
 ## Events
 
-| Event         | Description | Type                  |
-| ------------- | ----------- | --------------------- |
-| `changeValue` |             | `CustomEvent<object>` |
+| Event          | Description | Type                  |
+| -------------- | ----------- | --------------------- |
+| `change-value` |             | `CustomEvent<object>` |
 
 
 ## Dependencies

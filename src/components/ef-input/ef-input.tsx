@@ -18,7 +18,7 @@ export class PrInput {
   //data of config input for text or password
   @State() configInputType: string;
   //Event to emit any action from of parent
-  @Event() changeValue: EventEmitter<string>;
+  @Event({eventName:'change-value'}) changeValue: EventEmitter<string>;
 
   //event when component will load
   componentWillLoad() {

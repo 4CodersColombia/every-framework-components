@@ -15,9 +15,9 @@
 
 ## Events
 
-| Event         | Description | Type                  |
-| ------------- | ----------- | --------------------- |
-| `changeValue` |             | `CustomEvent<File[]>` |
+| Event          | Description | Type                  |
+| -------------- | ----------- | --------------------- |
+| `change-value` |             | `CustomEvent<File[]>` |
 
 
 ## Dependencies

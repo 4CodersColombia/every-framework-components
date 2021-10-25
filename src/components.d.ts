@@ -313,7 +313,7 @@ declare global {
 declare namespace LocalJSX {
     interface EfAddFile {
         "buttonText"?: string;
-        "onChangeValue"?: (event: CustomEvent<File[]>) => void;
+        "onChange-value"?: (event: CustomEvent<File[]>) => void;
         "title"?: string;
     }
     interface EfAddImages {
@@ -324,7 +324,7 @@ declare namespace LocalJSX {
         "infoIcon"?: string;
         "itemActive"?: number;
         "multiple"?: boolean;
-        "onChangeValue"?: (event: CustomEvent<File[]>) => void;
+        "onChange-value"?: (event: CustomEvent<File[]>) => void;
         "photosUrl"?: string[];
         "subTitle"?: string;
         "title"?: string;
@@ -378,8 +378,8 @@ declare namespace LocalJSX {
         "itemsFilter"?: { id: string | number; text: string }[];
         "labelFilter"?: string;
         "leftText"?: string;
-        "onChangeValueFilter"?: (event: CustomEvent<object>) => void;
-        "onChangeValuePageActive"?: (event: CustomEvent<number>) => void;
+        "onChange-value-filter"?: (event: CustomEvent<object>) => void;
+        "onChange-value-page-active"?: (event: CustomEvent<number>) => void;
         "pageActive"?: number;
         "pages"?: number;
         "rightText"?: string;
@@ -392,7 +392,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "maxDate"?: string;
         "minDate"?: string;
-        "onChangeValue"?: (event: CustomEvent<string>) => void;
+        "onChange-value"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
         "showModal"?: boolean;
         "textCancel"?: string;
@@ -403,7 +403,7 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "items"?: { id: string | number; text: string }[];
         "label"?: string;
-        "onChangeValue"?: (event: CustomEvent<object>) => void;
+        "onChange-value"?: (event: CustomEvent<object>) => void;
         "urlIconLeft"?: string;
         "urlIconRight"?: string;
         "value"?: string;
@@ -414,7 +414,7 @@ declare namespace LocalJSX {
         "error"?: boolean;
         "label"?: string;
         "message"?: string;
-        "onChangeValue"?: (event: CustomEvent<string>) => void;
+        "onChange-value"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
         "type"?: 'text' | 'password' | 'number' | 'datepicker';
         "value"?: string;
@@ -468,7 +468,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "limitCounter"?: number;
         "message"?: string;
-        "onChangeValue"?: (event: CustomEvent<string>) => void;
+        "onChange-value"?: (event: CustomEvent<string>) => void;
         "prependIcon"?: string;
         "value"?: string;
     }

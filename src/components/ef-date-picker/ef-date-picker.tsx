@@ -19,7 +19,7 @@ export class EfDatePicker {
   @State() selectedDate: string;
 
   //Event to emit any action from of parent
-  @Event() changeValue: EventEmitter<string>;
+  @Event({eventName:'change-value'}) changeValue: EventEmitter<string>;
 
   eventDatePicker(newDate: string) {
     this.changeValue.emit(newDate);
@@ -38,7 +38,7 @@ export class EfDatePicker {
     return (
       <div>
         <ef-input type="datepicker" onClick={this.setModalDatePicker.bind(this)} value={this.date} label={this.label} prepend-Icon={this.prependIcon}></ef-input>
-        <ef-modal show-modal={this.showModal}>
+        <ef-modal showModal={this.showModal}>
           <app-datepicker
             class="datepicker-header" 
             alwaysResetValue={true}
