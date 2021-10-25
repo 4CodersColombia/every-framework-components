@@ -21,7 +21,7 @@ export class EfAddImages {
   @Prop() height: number = 100;
   @Prop() error: string;
 
-  @Event() changeValue: EventEmitter<File[]>;
+  @Event({eventName:'change-value'}) changeValue: EventEmitter<File[]>;
 
   async eventUpload(files: FileList) {
     const filesToEmit = await Promise.all(

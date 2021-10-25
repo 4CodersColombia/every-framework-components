@@ -19,7 +19,7 @@ export class EfTextArea {
   @State() transformYLabel: { [key: string]: string };
 
   //Event to emit any action from of parent
-  @Event() changeValue: EventEmitter<string>;
+  @Event({eventName:'change-value'}) changeValue: EventEmitter<string>;
 
   //prevent input caracteres
   preventInput(value: string) {

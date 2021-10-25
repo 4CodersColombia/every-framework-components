@@ -17,17 +17,17 @@
 | `itemActive` | `item-active` |             | `number`   | `1`                                |
 | `multiple`   | `multiple`    |             | `boolean`  | `false`                            |
 | `photosUrl`  | --            |             | `string[]` | `[]`                               |
-| `subTitle`   | `sub-title`   |             | `string`   | `'subtitle'`                       |
-| `title`      | `title`       |             | `string`   | `'Title'`                          |
+| `subTitle`   | `sub-title`   |             | `string`   | `''`                               |
+| `title`      | `title`       |             | `string`   | `''`                               |
 | `urlIcon`    | `url-icon`    |             | `string`   | `EVERYFRAMEWORKICONS['ADD_IMAGE']` |
 | `width`      | `width`       |             | `number`   | `100`                              |
 
 
 ## Events
 
-| Event         | Description | Type                  |
-| ------------- | ----------- | --------------------- |
-| `changeValue` |             | `CustomEvent<File[]>` |
+| Event          | Description | Type                  |
+| -------------- | ----------- | --------------------- |
+| `change-value` |             | `CustomEvent<File[]>` |
 
 
 ----------------------------------------------

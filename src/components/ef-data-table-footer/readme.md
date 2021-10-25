@@ -25,10 +25,10 @@
 
 ## Events
 
-| Event                   | Description | Type                  |
-| ----------------------- | ----------- | --------------------- |
-| `changeValueFilter`     |             | `CustomEvent<object>` |
-| `changeValuePageActive` |             | `CustomEvent<number>` |
+| Event                      | Description | Type                  |
+| -------------------------- | ----------- | --------------------- |
+| `change-value-filter`      |             | `CustomEvent<object>` |
+| `change-value-page-active` |             | `CustomEvent<number>` |
 
 
 ## Dependencies
