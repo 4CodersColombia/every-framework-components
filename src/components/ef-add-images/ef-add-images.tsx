@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter, State } from '@stencil/core';
 import imageCompression from 'browser-image-compression';
 import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIcons';
 
@@ -21,7 +21,8 @@ export class EfAddImages {
   @Prop() height: number = 100;
   @Prop() error: string;
 
-  @Event({eventName:'change-value'}) changeValue: EventEmitter<File[]>;
+  @State() photosToEmit: File[] = [];
+  @Event({ eventName: 'change-value' }) changeValue: EventEmitter<File[]>;
 
   async eventUpload(files: FileList) {
     const filesToEmit = await Promise.all(
@@ -29,7 +30,8 @@ export class EfAddImages {
         return this.compressImage(item);
       }),
     );
-    this.changeValue.emit(filesToEmit);
+    this.photosToEmit = [...this.photosToEmit, ...filesToEmit];
+    this.changeValue.emit(this.photosToEmit);
   }
   async compressImage(photoP: File) {
     var options = {
@@ -42,6 +44,12 @@ export class EfAddImages {
     } catch (error) {
       this.error = error;
     }
+  }
+  deletePhoto(photoUrl) {
+    const index = this.photosUrl.indexOf(photoUrl);
+    this.photosUrl = this.photosUrl.filter(item => item !== photoUrl);
+    this.photosToEmit = this.photosToEmit.filter((_item, indexItem) => indexItem !== index);
+    this.changeValue.emit(this.photosToEmit);
   }
   onInputChange(files: FileList) {
     // check if 1 image is uploaded
@@ -109,7 +117,7 @@ export class EfAddImages {
   }
   getStyleWidthContainer() {
     return {
-      width: this.width +40 + 'px',
+      width: this.width + 40 + 'px',
     };
   }
 
@@ -127,7 +135,20 @@ export class EfAddImages {
   }
   renderItems() {
     return this.photosUrl.map((item, index) => {
-      return <img src={item} alt={item + index} class={`ef-add-images__item ${this.getItemSelected(index)}`} style={this.getStyleArchive()} />;
+      const buttons = [{ urlIcon: EVERYFRAMEWORKICONS['TRASH'], id: item }];
+      return (
+        <div class={`ef-add-images__item ${this.getItemSelected(index)}`}>
+          <img src={item} alt={item + index} style={this.getStyleArchive()}></img>
+          <div class="ef-add-images__item-trash">
+            <ef-buttons-icon
+              buttons={buttons}
+              onEvent={value => {
+                this.deletePhoto(value.detail);
+              }}
+            ></ef-buttons-icon>
+          </div>
+        </div>
+      );
     });
   }
   renderAddImage() {
