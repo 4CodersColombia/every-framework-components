@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Event, EventEmitter, State } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter, State, Watch } from '@stencil/core';
 
 @Component({
   tag: 'ef-textarea',
@@ -14,6 +14,8 @@ export class EfTextArea {
   @Prop({ attribute: 'append-icon' }) appendIcon: string;
   @Prop({ attribute: 'prepend-icon' }) prependIcon: string;
   @Prop() limitCounter: number;
+
+  private textAreaElement?: HTMLTextAreaElement;
 
   // state for transformYLabel to textarea label placeholder
   @State() transformYLabel: { [key: string]: string };
@@ -32,6 +34,15 @@ export class EfTextArea {
     this.autoSizeTextArea(element);
     const value = element.value;
     this.changeValue.emit(value);
+    this.textAreaElement = element;
+  }
+
+  //Auto size hight textarea when value change
+  @Watch('value')
+  watchValue(newValue: string, oldValue: string) {
+    if (newValue !== oldValue && this.textAreaElement) {
+      this.autoSizeTextArea(this.textAreaElement);
+    }
   }
 
   //get style disabled
@@ -50,21 +61,34 @@ export class EfTextArea {
   }
   // auto size hight textarea
   autoSizeTextArea(element: HTMLTextAreaElement) {
-    element.style.height = '45px';
-    element.style.height = element.scrollHeight - 11 + 'px';
+    element.style.height = 'auto';
+    element.style.height = element.scrollHeight + 'px';
     const hight = element.scrollHeight;
-    const transformY = hight < 60 ? hight : hight - 10;
+    const transformY = hight < 60 ? hight : hight;
     this.transformYLabel = {
       transform: `translateY(${15 - transformY}px)`,
       transition: '0s',
     };
   }
+
+  onTextareaLoad(event: Event) {
+    this.textAreaElement = event.target as HTMLTextAreaElement;
+    this.autoSizeTextArea(this.textAreaElement);
+  }
+
   render() {
     return (
       <Host>
         <div class={this.getStyleErrorMessage() + ' textarea ' + this.getStyleDisabled()}>
           <img src={this.prependIcon} class="imagen" />
-          <textarea value={this.value} disabled={this.disabled} class="form-control" placeholder={this.label} onInput={this.onTextareaChangeValue.bind(this)} />
+          <textarea
+            onLoad={this.onTextareaLoad.bind(this)}
+            value={this.value}
+            disabled={this.disabled}
+            class="form-control"
+            placeholder={this.label}
+            onInput={this.onTextareaChangeValue.bind(this)}
+          />
           <label id="text-label" class="control-label" style={this.transformYLabel}>
             {this.label}
           </label>

@@ -40,7 +40,10 @@ export class PrDataTable<T> {
       <tr class="border-table">
         {this.headers.map(header => {
           return (
-            <td class={this.array_drawer_item[key] ? 'open' : 'close'} style={{ width: header.width || 'auto' }}>
+            <td 
+            key={`${key}${header.value}`} 
+            class={this.array_drawer_item[key] ? 'open' : 'close'}
+             style={{ width: header.width || 'auto' }}>
               <span class="before-content-table">{header.text}</span>
               <slot name={`${key}${header.value}`}>{dataRow[header.value]}</slot>
               {this.getArrowDrawer(key)}
@@ -57,7 +60,12 @@ export class PrDataTable<T> {
           <thead class="head-table">
             <tr class="border-table">
               {this.headers.map(header => (
-                <th style={{ width: header.width || 'auto' }}>{header.text}</th>
+                <th 
+                class="ef-data-table__header"
+                key={header.value} 
+                style={{ width: header.width || 'auto' }}>
+                  {header.text}
+                </th>
               ))}
             </tr>
           </thead>

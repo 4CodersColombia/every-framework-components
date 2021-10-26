@@ -30,6 +30,19 @@
 | `change-value` |             | `CustomEvent<File[]>` |
 
 
+## Dependencies
+
+### Depends on
+
+- [ef-buttons-icon](../ef-buttons-icon)
+
+### Graph
+```mermaid
+graph TD;
+  ef-add-images --> ef-buttons-icon
+  style ef-add-images fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

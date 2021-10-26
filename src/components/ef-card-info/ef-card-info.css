@@ -6,8 +6,7 @@
 .card-info-div {
   display: flex;
   flex-direction: row;
-  align-items: left;
-  justify-content: center;
+  justify-content: start;
 }
 
 .imagen {
@@ -45,6 +44,8 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 .subtitle-info {
   font-family: 'Quicksand', sans-serif;

@@ -20,7 +20,6 @@ export class EfDataTableFooter {
     { id: 0, text: '10' },
     { id: 1, text: '20' },
     { id: 2, text: '30' },
-    { id: 3, text: '40' },
     { id: 4, text: '40' },
     { id: 5, text: '50' },
   ];

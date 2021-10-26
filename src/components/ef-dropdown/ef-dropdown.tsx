@@ -8,12 +8,7 @@ import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIco
 export class XuachGlobalDropdown {
   @Prop() disabled: boolean = false;
   @Prop() value: string;
-  @Prop() items: { id: string | number; text: string }[] = [
-    { id: 0, text: 'option1' },
-    { id: 1, text: 'option2' },
-    { id: 2, text: 'option3' },
-    { id: 3, text: 'option4' },
-  ];
+  @Prop() items: { id: string | number; text: string }[] = [];
   @Prop({ attribute: 'error-message' }) errorMessage: string;
   @Prop() label: string;
   @Prop() urlIconLeft: string;
@@ -21,7 +16,7 @@ export class XuachGlobalDropdown {
   @Element() private element: HTMLElement;
 
   //state for dinamic width by element HTMLEMENT
-  @State() widthDropDownMenu:string;
+  @State() widthDropDownMenu: string;
   //state visibility menu
   @State() visibilityMenuDropdown: boolean = false;
 
@@ -29,8 +24,8 @@ export class XuachGlobalDropdown {
   @Event({eventName:'change-value'}) changeValue: EventEmitter<object>;
 
   //component load
-  componentWillUpdate(){
-    this.widthDropDownMenu=this.element.clientWidth+'px'
+  componentWillUpdate() {
+    this.widthDropDownMenu = this.element.clientWidth + 'px';
   }
   //click outside
   clickOutSide() {
@@ -117,7 +112,7 @@ export class XuachGlobalDropdown {
             <label class={this.getStyleLabel()}> {this.label}</label>
           </div>
           <span class="error-message">{this.errorMessage}</span>
-          <ul class={this.getClassDropdownMenu()} role="listbox" style={{'width':this.widthDropDownMenu}}>
+          <ul class={this.getClassDropdownMenu()} role="listbox" style={{ width: this.widthDropDownMenu }}>
             <span>{this.label}</span>
             {this.getOptionsValue()}
           </ul>

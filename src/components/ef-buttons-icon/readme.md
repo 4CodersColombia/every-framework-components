@@ -25,11 +25,13 @@
 ### Used by
 
  - [ef-add-file](../ef-add-file)
+ - [ef-add-images](../ef-add-images)
 
 ### Graph
 ```mermaid
 graph TD;
   ef-add-file --> ef-buttons-icon
+  ef-add-images --> ef-buttons-icon
   style ef-buttons-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
