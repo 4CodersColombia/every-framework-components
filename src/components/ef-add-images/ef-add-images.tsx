@@ -133,20 +133,26 @@ export class EfAddImages {
       />
     );
   }
+  renderTrash(item) {
+    const buttons = [{ urlIcon: EVERYFRAMEWORKICONS['TRASH'], id: item }];
+    if (this.multiple)
+      return (
+        <div class="ef-add-images__item-trash">
+          <ef-buttons-icon
+            buttons={buttons}
+            onEvent={value => {
+              this.deletePhoto(value.detail);
+            }}
+          ></ef-buttons-icon>
+        </div>
+      );
+  }
   renderItems() {
     return this.photosUrl.map((item, index) => {
-      const buttons = [{ urlIcon: EVERYFRAMEWORKICONS['TRASH'], id: item }];
       return (
         <div class={`ef-add-images__item ${this.getItemSelected(index)}`}>
           <img src={item} alt={item + index} style={this.getStyleArchive()}></img>
-          <div class="ef-add-images__item-trash">
-            <ef-buttons-icon
-              buttons={buttons}
-              onEvent={value => {
-                this.deletePhoto(value.detail);
-              }}
-            ></ef-buttons-icon>
-          </div>
+          {this.renderTrash(item)}
         </div>
       );
     });
