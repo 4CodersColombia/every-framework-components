@@ -4,7 +4,7 @@
 .ef-add-images__container {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
   justify-content: center;
 }
 .ef-add-images__slider{
@@ -21,12 +21,12 @@
   margin: -6px;
   cursor: pointer;
   position: absolute;
-  right:0;
+  right:-20px;
   width: 10px;
   z-index: 100;
 }
 .ef-add-images__arrow-left {
-  left: 0;
+  left: -20px;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -45,6 +45,16 @@
   object-fit: cover;
   transition: all 0.5s ease-out;
   border-radius: 12px;
+}
+.ef-add-images__item-trash{
+  position: absolute;
+  top:5px;
+  right: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 100%;
+}
+.ef-add-images__item-trash:hover{
+  transform: scale(1.1)
 }
 .ef-add-images__item-selected{
   opacity: 1;
