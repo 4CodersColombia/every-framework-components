@@ -21,12 +21,12 @@
   margin: -6px;
   cursor: pointer;
   position: absolute;
-  right:0;
+  right:-20px;
   width: 10px;
   z-index: 100;
 }
 .ef-add-images__arrow-left {
-  left: 0;
+  left: -20px;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
