@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface EfAddFile {
         "buttonText": string;
+        "dataFiles": File[];
         "title": string;
     }
     interface EfAddImages {
@@ -313,6 +314,7 @@ declare global {
 declare namespace LocalJSX {
     interface EfAddFile {
         "buttonText"?: string;
+        "dataFiles"?: File[];
         "onChange-value"?: (event: CustomEvent<File[]>) => void;
         "title"?: string;
     }

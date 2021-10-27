@@ -24,6 +24,17 @@ export class EfAddImages {
   @State() photosToEmit: File[] = [];
   @Event({ eventName: 'change-value' }) changeValue: EventEmitter<File[]>;
 
+  componentWillLoad() {
+    this.loadBlobsOfUrls();
+  }
+  async loadBlobsOfUrls() {
+    this.photosToEmit = await Promise.all(
+      this.photosUrl.map(async url => {
+        return (await fetch(url).then(r => r.blob())) as File;
+      }),
+    );
+  }
+
   async eventUpload(files: FileList) {
     const filesToEmit = await Promise.all(
       Array.from(files).map(async item => {

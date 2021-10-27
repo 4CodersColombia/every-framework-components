@@ -10,6 +10,7 @@
 | Property     | Attribute     | Description | Type     | Default           |
 | ------------ | ------------- | ----------- | -------- | ----------------- |
 | `buttonText` | `button-text` |             | `string` | `'Add Files'`     |
+| `dataFiles`  | --            |             | `File[]` | `[]`              |
 | `title`      | `title`       |             | `string` | `'add file here'` |
 
 

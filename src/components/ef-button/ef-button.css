@@ -22,6 +22,7 @@
 }
 .ef-button:disabled {
   cursor: initial;
+  color:gray
 }
 .imagen {
   max-width: 18px;
