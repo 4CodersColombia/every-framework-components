@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface EfAddFile {
         "buttonText": string;
-        "dataFiles": File[];
+        "files": File[];
         "title": string;
     }
     interface EfAddImages {
@@ -137,7 +137,7 @@ export namespace Components {
         "disabled": boolean;
     }
     interface EfTabs {
-        "titles": { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+        "titles": { text: string; value: string; icon?: string }[];
     }
     interface EfTemplateAdmin {
         "showModal": boolean;
@@ -314,7 +314,7 @@ declare global {
 declare namespace LocalJSX {
     interface EfAddFile {
         "buttonText"?: string;
-        "dataFiles"?: File[];
+        "files"?: File[];
         "onChange-value"?: (event: CustomEvent<File[]>) => void;
         "title"?: string;
     }
@@ -458,7 +458,8 @@ declare namespace LocalJSX {
         "onEvent"?: (event: CustomEvent<any>) => void;
     }
     interface EfTabs {
-        "titles"?: { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+        "onEvent"?: (event: CustomEvent<string>) => void;
+        "titles"?: { text: string; value: string; icon?: string }[];
     }
     interface EfTemplateAdmin {
         "showModal"?: boolean;

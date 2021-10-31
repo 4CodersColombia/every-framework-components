@@ -21,7 +21,7 @@ export class XuachGlobalDropdown {
   @State() visibilityMenuDropdown: boolean = false;
 
   //Event to emit any action from of parent
-  @Event({eventName:'change-value'}) changeValue: EventEmitter<object>;
+  @Event({ eventName: 'change-value' }) changeValue: EventEmitter<object>;
 
   //component load
   componentWillUpdate() {
@@ -113,7 +113,7 @@ export class XuachGlobalDropdown {
           </div>
           <span class="error-message">{this.errorMessage}</span>
           <ul class={this.getClassDropdownMenu()} role="listbox" style={{ width: this.widthDropDownMenu }}>
-            <span>{this.label}</span>
+            {this.label ? <span>{this.label}</span> : ''}
             {this.getOptionsValue()}
           </ul>
         </div>

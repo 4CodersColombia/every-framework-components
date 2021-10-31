@@ -1,22 +1,28 @@
-import { Component, h, Prop, State } from '@stencil/core';
+import { Component, h, Prop, State, Event, EventEmitter } from '@stencil/core';
 @Component({
   tag: 'ef-tabs',
   styleUrl: 'ef-tabs.css',
   shadow: true,
 })
 export class EfTabs {
-  @Prop() titles: { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+  @Prop() titles: { text: string; value: string; icon?: string }[];
 
   @State() tabActiveIndex: string | number = 0;
 
+  //Event to emit any action from of parent
+  @Event() event: EventEmitter<string>;
+  eventTab(id: string) {
+    this.event.emit(id);
+  }
   getContentActiveTab(indexTab) {
     return this.tabActiveIndex == indexTab ? 'ef-tab-content-active' : 'ef-tab-content-hidden';
   }
   getButtonActiveTab(indexTab) {
     return this.tabActiveIndex == indexTab ? 'ef-tab-button-active' : 'ef-tab-button-hidden';
   }
-  setContentActiveTab(newIndexTab) {
+  setContentActiveTab(newIndexTab,newValue) {
     this.tabActiveIndex = newIndexTab;
+    this.eventTab(newValue);
   }
   getAnimationLineTab(indexTab) {
     return indexTab * 90 + 'px';
@@ -29,7 +35,7 @@ export class EfTabs {
     return this.titles.map((item, index) => {
       return (
         <li>
-          <button class={this.getButtonActiveTab(index)} onClick={this.setContentActiveTab.bind(this, index)}>
+          <button class={this.getButtonActiveTab(index)} onClick={this.setContentActiveTab.bind(this, index,item.value)}>
             {this.renderIconTab(item)}
             {item.text}
           </button>
@@ -39,15 +45,11 @@ export class EfTabs {
   }
   renderTabs() {
     return this.titles.map((item, index) => {
-      if (item.slot) {
-        return <div class={this.getContentActiveTab(index)}>{item.slot({ value: item.value })}</div>;
-      } else {
-        return (
-          <div class={this.getContentActiveTab(index)}>
-            <slot name={item.value}>{item.text}</slot>
-          </div>
-        );
-      }
+      return (
+        <div class={this.getContentActiveTab(index)}>
+          <slot name={item.value}>{item.text}</slot>
+        </div>
+      );
     });
   }
 

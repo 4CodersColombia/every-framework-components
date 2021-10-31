@@ -9,16 +9,11 @@ import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIco
 export class EfAddFile {
   @Prop() title: string = 'add file here';
   @Prop() buttonText: string = 'Add Files';
-  @Prop() dataFiles: File[] = [];
+  @Prop() files: File[] = [];
   @State() error: string;
-  @State() files: File[] = [];
   @Event({ eventName: 'change-value' }) changeValue: EventEmitter<File[]>;
   async eventUpload(files: File[]) {
     this.changeValue.emit(files);
-  }
-
-  componentWillLoad() {
-    this.files = [...this.dataFiles];
   }
   uploadFile(files: File[]) {
     // create a new instance of HTML5 FileReader api to handle uploading
