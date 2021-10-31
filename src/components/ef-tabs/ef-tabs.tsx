@@ -6,10 +6,10 @@ import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIco
   shadow: true,
 })
 export class EfTabs {
-  @Prop() titles: { text: string; value: string; icon?: string }[] ;
+  @Prop() titles: { text: string; value: string; icon?: string }[];
   @Prop() arrows: boolean = false;
   @Prop() tabActiveIndex: number = 1;
-  @Prop() visiblesTabs: number = 1;
+  @Prop() visibleTabs: number = 1;
   @State() arrayVisiblesTabs: number[] = [];
 
   //Event to emit any action from of parent
@@ -20,8 +20,8 @@ export class EfTabs {
   componentWillLoad() {
     //ubicacion de la posicion inicial del tabActiveIndex en el paginador visible
     this.chargeArrayVisiblesTabs();
-    if (this.tabActiveIndex > this.visiblesTabs) {
-      this.arrayVisiblesTabs = this.arrayVisiblesTabs.map(index => index + this.tabActiveIndex - this.visiblesTabs);
+    if (this.tabActiveIndex > this.visibleTabs) {
+      this.arrayVisiblesTabs = this.arrayVisiblesTabs.map(index => index + this.tabActiveIndex - this.visibleTabs);
     }
   }
   //actualizacion de paginas visibles
@@ -31,7 +31,7 @@ export class EfTabs {
     }
   }
   chargeArrayVisiblesTabs() {
-    this.arrayVisiblesTabs = new Array(this.visiblesTabs).fill(undefined).map((_val, idx) => idx + 1);
+    this.arrayVisiblesTabs = new Array(this.visibleTabs).fill(undefined).map((_val, idx) => idx + 1);
   }
   setVisiblesTabs(newTabIndex: number) {
     //actualizador del paginador visible cuando se llegan a los extremos y aun existen paginas
@@ -74,10 +74,10 @@ export class EfTabs {
     });
   }
   renderTabs() {
-    return this.arrayVisiblesTabs.map(index => {
+    return this.titles.map((item,index) => {
       return (
-        <div class={this.getContentActiveTab(index)}>
-          <slot name={this.titles[index - 1].value}>{this.titles[index - 1].text}</slot>
+        <div class={this.getContentActiveTab(index+1)}>
+          <slot name={item.value}>{item.text}</slot>
         </div>
       );
     });

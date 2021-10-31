@@ -12,7 +12,7 @@
 | `arrows`         | `arrows`           |             | `boolean`                                           | `false`     |
 | `tabActiveIndex` | `tab-active-index` |             | `number`                                            | `1`         |
 | `titles`         | --                 |             | `{ text: string; value: string; icon?: string; }[]` | `undefined` |
-| `visiblesTabs`   | `visibles-tabs`    |             | `number`                                            | `1`         |
+| `visibleTabs`    | `visible-tabs`     |             | `number`                                            | `1`         |
 
 
 ## Events
