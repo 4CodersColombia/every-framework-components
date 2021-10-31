@@ -11,7 +11,14 @@
   width: 100%;
   height: 100%;
 }
-
+.ef-tabs-container__tabs{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
 .ef-tabs {
   width: 100%;
   list-style-type: none;
@@ -86,4 +93,16 @@
 }
 .ef-tab-content-hidden {
   display: none;
+}
+
+.ef-tab__arrow {
+  padding-inline:5px ;
+  width: 10px;
+}
+.ef-tab__arrow-left {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
 }

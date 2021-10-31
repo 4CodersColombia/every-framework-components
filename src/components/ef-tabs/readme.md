@@ -7,9 +7,12 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                                | Default     |
-| -------- | --------- | ----------- | --------------------------------------------------- | ----------- |
-| `titles` | --        |             | `{ text: string; value: string; icon?: string; }[]` | `undefined` |
+| Property         | Attribute          | Description | Type                                                | Default     |
+| ---------------- | ------------------ | ----------- | --------------------------------------------------- | ----------- |
+| `arrows`         | `arrows`           |             | `boolean`                                           | `false`     |
+| `tabActiveIndex` | `tab-active-index` |             | `number`                                            | `1`         |
+| `titles`         | --                 |             | `{ text: string; value: string; icon?: string; }[]` | `undefined` |
+| `visiblesTabs`   | `visibles-tabs`    |             | `number`                                            | `1`         |
 
 
 ## Events
