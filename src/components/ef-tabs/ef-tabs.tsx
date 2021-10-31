@@ -1,4 +1,4 @@
-import { Component, h, Prop, State, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Prop, State, Event, EventEmitter, Element } from '@stencil/core';
 import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIcons';
 @Component({
   tag: 'ef-tabs',
@@ -9,9 +9,9 @@ export class EfTabs {
   @Prop() titles: { text: string; value: string; icon?: string }[];
   @Prop() arrows: boolean = false;
   @Prop() tabActiveIndex: number = 1;
-  @Prop() visibleTabs: number = 1;
+  @State() visibleTabs: number = 1;
   @State() arrayVisiblesTabs: number[] = [];
-
+  @Element() private element: HTMLElement;
   //Event to emit any action from of parent
   @Event() event: EventEmitter<string>;
   eventTab(id: string) {
@@ -24,18 +24,25 @@ export class EfTabs {
       this.arrayVisiblesTabs = this.arrayVisiblesTabs.map(index => index + this.tabActiveIndex - this.visibleTabs);
     }
   }
+  componentDidLoad() {
+    //cargar cuantas paginas visibles se pueden renderizar
+    this.chargeVisibleTabs();
+  }
   //actualizacion de paginas visibles
   componentWillUpdate() {
     if (this.tabActiveIndex == 1) {
       this.chargeArrayVisiblesTabs();
     }
   }
+  chargeVisibleTabs() {
+    this.visibleTabs = (this.element.clientWidth - 90) / 100 >= this.titles.length ? this.titles.length : Math.ceil((this.element.clientWidth - 90) / 100);
+  }
   chargeArrayVisiblesTabs() {
     this.arrayVisiblesTabs = new Array(this.visibleTabs).fill(undefined).map((_val, idx) => idx + 1);
   }
   setVisiblesTabs(newTabIndex: number) {
     //actualizador del paginador visible cuando se llegan a los extremos y aun existen paginas
-    if(this.arrayVisiblesTabs.includes(newTabIndex))return;
+    if (this.arrayVisiblesTabs.includes(newTabIndex)) return;
     this.arrayVisiblesTabs = this.arrayVisiblesTabs.map((_item, index) => index + newTabIndex);
   }
 
@@ -54,7 +61,7 @@ export class EfTabs {
     return this.tabActiveIndex == indexTab ? 'ef-tab-button-active' : 'ef-tab-button-hidden';
   }
   getAnimationLineTab(indexTab) {
-    const left = this.arrayVisiblesTabs.indexOf(indexTab) 
+    const left = this.arrayVisiblesTabs.indexOf(indexTab);
     return left * 90 + 'px';
   }
 
@@ -63,20 +70,22 @@ export class EfTabs {
   }
   renderButtonsTabs() {
     return this.arrayVisiblesTabs.map(index => {
-      return (
-        <li>
-          <button class={this.getButtonActiveTab(index)} onClick={this.setTabActiveIndex.bind(this, index, this.titles[index-1].value)}>
-            {this.renderIconTab(this.titles[index - 1])}
-            {this.titles[index - 1].text}
-          </button>
-        </li>
-      );
+      if (index <= this.titles.length) {
+        return (
+          <li>
+            <button class={this.getButtonActiveTab(index)} onClick={this.setTabActiveIndex.bind(this, index, this.titles[index - 1].value)}>
+              {this.renderIconTab(this.titles[index - 1])}
+              {this.titles[index - 1].text}
+            </button>
+          </li>
+        );
+      }
     });
   }
   renderTabs() {
-    return this.titles.map((item,index) => {
+    return this.titles.map((item, index) => {
       return (
-        <div class={this.getContentActiveTab(index+1)}>
+        <div class={this.getContentActiveTab(index + 1)}>
           <slot name={item.value}>{item.text}</slot>
         </div>
       );
@@ -89,8 +98,8 @@ export class EfTabs {
   }
   renderImageArrow(option: string) {
     if (!this.arrows) return;
-    const plusValue = option == 'left' ? this.tabActiveIndex - 1  : this.tabActiveIndex + 1;
-    const newValue = plusValue <= 0 || plusValue > this.titles.length ? this.titles[0].value : this.titles[plusValue-1].value;
+    const plusValue = option == 'left' ? this.tabActiveIndex - 1 : this.tabActiveIndex + 1;
+    const newValue = plusValue <= 0 || plusValue > this.titles.length ? this.titles[0].value : this.titles[plusValue - 1].value;
     return (
       <img
         onClick={this.setTabActiveIndex.bind(this, plusValue, newValue)}

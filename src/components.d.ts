@@ -140,7 +140,6 @@ export namespace Components {
         "arrows": boolean;
         "tabActiveIndex": number;
         "titles": { text: string; value: string; icon?: string }[];
-        "visibleTabs": number;
     }
     interface EfTemplateAdmin {
         "showModal": boolean;
@@ -465,7 +464,6 @@ declare namespace LocalJSX {
         "onEvent"?: (event: CustomEvent<string>) => void;
         "tabActiveIndex"?: number;
         "titles"?: { text: string; value: string; icon?: string }[];
-        "visibleTabs"?: number;
     }
     interface EfTemplateAdmin {
         "showModal"?: boolean;
