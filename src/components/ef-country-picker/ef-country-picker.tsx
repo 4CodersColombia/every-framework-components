@@ -13,7 +13,7 @@ export class EfCountryPicker {
   @Prop({ attribute: 'error-message' }) errorMessage: string;
   @Prop() label: string;
   @Prop() flag: boolean = true;
-  @Prop() countryName: boolean = false;
+  @Prop() countryName: boolean = true;
   @Prop() CountryCode: boolean = true;
 
   getFlagUrl(countryCode) {

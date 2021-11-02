@@ -67,7 +67,7 @@ export class XuachGlobalDropdown {
   }
 
   //get icon item selected
-  getIconItemSelected(valueSelected:string) {
+  getIconItemSelected(valueSelected: string) {
     if (this.getItemSelected(valueSelected).iconUrl)
       return <img src={this.getItemSelected(valueSelected).iconUrl} alt={`${this.getItemSelected(valueSelected).id}`} class="dropdown-menu__item-icon" />;
   }
@@ -106,7 +106,7 @@ export class XuachGlobalDropdown {
       return (
         <li role="option" tabindex={item.id} onClick={this.onDropdownChangeValue.bind(this, item)}>
           {item.iconUrl ? <img src={item.iconUrl} alt={`${item.id}`} class="dropdown-menu__item-icon" /> : ''}
-          {' ' + item.text}
+          {item.text}
         </li>
       );
     });
