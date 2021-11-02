@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, Host, h, Prop,Event,EventEmitter } from '@stencil/core';
 import { COUNTRIES_INFO } from './infoCountries';
 import { countries } from 'country-flags-svg';
 
@@ -16,6 +16,11 @@ export class EfCountryPicker {
   @Prop() countryName: boolean = true;
   @Prop() CountryCode: boolean = true;
 
+  //Event to emit any action from of parent
+  @Event({ eventName: 'change-value' }) changeValue: EventEmitter<object>;
+  eventChangeValue(newValue) {
+    this.changeValue.emit(newValue);
+  }
   getFlagUrl(countryCode) {
     try {
       return countries.find(country => country.iso2 === countryCode).flag;
@@ -55,7 +60,7 @@ export class EfCountryPicker {
           items={this.getCountriesInfo()}
           errorMessage={this.errorMessage}
           label={this.label}
-          onChange-value={value => this.updateValue(value.detail)}
+          onChange-value={value => this.eventChangeValue.bind(this,value.detail)}
         />
       </Host>
     );
