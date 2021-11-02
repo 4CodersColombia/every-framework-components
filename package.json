@@ -28,6 +28,7 @@
     "@stencil/core": "^2.0.1",
     "app-datepicker": "^4.5.3",
     "browser-image-compression": "^1.0.15",
+    "country-flags-svg": "^1.1.1",
     "stencil-click-outside": "^1.7.1"
   },
   "devDependencies": {

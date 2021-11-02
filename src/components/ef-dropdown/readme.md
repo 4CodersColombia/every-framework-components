@@ -27,11 +27,13 @@
 
 ### Used by
 
+ - [ef-country-picker](../ef-country-picker)
  - [ef-data-table-footer](../ef-data-table-footer)
 
 ### Graph
 ```mermaid
 graph TD;
+  ef-country-picker --> ef-dropdown
   ef-data-table-footer --> ef-dropdown
   style ef-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```

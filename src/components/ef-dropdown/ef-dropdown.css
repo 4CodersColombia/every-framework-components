@@ -265,6 +265,16 @@ styles for dropdown menu */
   font-feature-settings: 'liga' off;
   color: #a5a4a4;
 }
+.dropdown-menu__item-icon{
+  width: 25px;
+  height: auto;
+}
+.dropdown-menu__item-selected{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 
 /* hide scroll bar */
 .scroll-hide ul {

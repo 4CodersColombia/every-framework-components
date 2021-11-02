@@ -8,7 +8,7 @@ import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIco
 export class XuachGlobalDropdown {
   @Prop() disabled: boolean = false;
   @Prop() value: string;
-  @Prop() items: { id: string | number; text: string }[] = [];
+  @Prop() items: { id: string | number; text: string; iconUrl?: string }[] = [];
   @Prop({ attribute: 'error-message' }) errorMessage: string;
   @Prop() label: string;
   @Prop() urlIconLeft: string;
@@ -33,7 +33,7 @@ export class XuachGlobalDropdown {
   }
   //emit event of Dropdown text
   onDropdownChangeValue(newValue: object) {
-    this.changeVisibilityMenuDropdown();
+    this.visibilityMenuDropdown = false;
     this.changeValue.emit(newValue);
   }
 
@@ -61,10 +61,9 @@ export class XuachGlobalDropdown {
   getClassDropdownMenu() {
     return this.visibilityMenuDropdown ? 'dropdown-menu' : 'dropdown-menu-hide';
   }
-
-  //change status of visibility of dropdown menu
-  changeVisibilityMenuDropdown() {
-    this.visibilityMenuDropdown = !this.visibilityMenuDropdown;
+  //get icon item selected
+  getItemSelected(valueSelected: string) {
+    return this.items.find(item => item.text == valueSelected);
   }
 
   //get value of select dropdown
@@ -75,7 +74,10 @@ export class XuachGlobalDropdown {
         return item.text;
       })
       .includes(this.value) ? (
-      <span class="dropdown-text">{this.value}</span>
+      <span class="dropdown-menu__item-selected">
+        <img src={this.getItemSelected(this.value).iconUrl} alt={`${this.getItemSelected(this.value).id}`} class="dropdown-menu__item-icon" />
+        <span class="dropdown-text">{this.value}</span>
+      </span>
     ) : (
       <span class="dropdown-text">{this.label}</span>
     );
@@ -84,7 +86,13 @@ export class XuachGlobalDropdown {
   getOptionsValue() {
     if (!this.items) {
       return (
-        <li role="option" tabIndex={0} onClick={this.changeVisibilityMenuDropdown.bind(this)}>
+        <li
+          role="option"
+          tabIndex={0}
+          onClick={() => {
+            this.visibilityMenuDropdown = false;
+          }}
+        >
           No hay opciones
         </li>
       );
@@ -92,7 +100,8 @@ export class XuachGlobalDropdown {
     return this.items.map(item => {
       return (
         <li role="option" tabindex={item.id} onClick={this.onDropdownChangeValue.bind(this, item)}>
-          {item.text}
+          {item.iconUrl ? <img src={item.iconUrl} alt={`${item.id}`} class="dropdown-menu__item-icon" /> : ''}
+          {' ' + item.text}
         </li>
       );
     });
@@ -102,7 +111,13 @@ export class XuachGlobalDropdown {
       <Host onblur={this.clickOutSide.bind(this)}>
         <div class="scroll-hide">
           <div class={this.getStyleErrorMessage() + ' dropdown ' + this.getStyleDisabled()}>
-            <button disabled={this.disabled} class="form-control" onClick={this.changeVisibilityMenuDropdown.bind(this)}>
+            <button
+              disabled={this.disabled}
+              class="form-control"
+              onClick={() => {
+                this.visibilityMenuDropdown = true;
+              }}
+            >
               <div class="dropdown-text">
                 <img src={this.urlIconLeft} class="imagen" />
                 {this.getValueOfSelectDropdown()}
