@@ -61,11 +61,16 @@ export class XuachGlobalDropdown {
   getClassDropdownMenu() {
     return this.visibilityMenuDropdown ? 'dropdown-menu' : 'dropdown-menu-hide';
   }
-  //get icon item selected
+  //get item item selected
   getItemSelected(valueSelected: string) {
     return this.items.find(item => item.text == valueSelected);
   }
 
+  //get icon item selected
+  getIconItemSelected(valueSelected:string) {
+    if (this.getItemSelected(valueSelected).iconUrl)
+      return <img src={this.getItemSelected(valueSelected).iconUrl} alt={`${this.getItemSelected(valueSelected).id}`} class="dropdown-menu__item-icon" />;
+  }
   //get value of select dropdown
   getValueOfSelectDropdown() {
     if (!this.items) return <span class="dropdown-text">{this.label}</span>;
@@ -75,7 +80,7 @@ export class XuachGlobalDropdown {
       })
       .includes(this.value) ? (
       <span class="dropdown-menu__item-selected">
-        <img src={this.getItemSelected(this.value).iconUrl} alt={`${this.getItemSelected(this.value).id}`} class="dropdown-menu__item-icon" />
+        {this.getIconItemSelected(this.value)}
         <span class="dropdown-text">{this.value}</span>
       </span>
     ) : (
