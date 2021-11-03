@@ -8,7 +8,7 @@ import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIco
 export class XuachGlobalDropdown {
   @Prop() disabled: boolean = false;
   @Prop() value: string;
-  @Prop() items: { id: string | number; text: string }[] = [];
+  @Prop() items: { id: string | number; text: string; iconUrl?: string }[] = [];
   @Prop({ attribute: 'error-message' }) errorMessage: string;
   @Prop() label: string;
   @Prop() urlIconLeft: string;
@@ -21,7 +21,7 @@ export class XuachGlobalDropdown {
   @State() visibilityMenuDropdown: boolean = false;
 
   //Event to emit any action from of parent
-  @Event({eventName:'change-value'}) changeValue: EventEmitter<object>;
+  @Event({ eventName: 'change-value' }) changeValue: EventEmitter<object>;
 
   //component load
   componentWillUpdate() {
@@ -33,7 +33,7 @@ export class XuachGlobalDropdown {
   }
   //emit event of Dropdown text
   onDropdownChangeValue(newValue: object) {
-    this.changeVisibilityMenuDropdown();
+    this.visibilityMenuDropdown = false;
     this.changeValue.emit(newValue);
   }
 
@@ -61,12 +61,16 @@ export class XuachGlobalDropdown {
   getClassDropdownMenu() {
     return this.visibilityMenuDropdown ? 'dropdown-menu' : 'dropdown-menu-hide';
   }
-
-  //change status of visibility of dropdown menu
-  changeVisibilityMenuDropdown() {
-    this.visibilityMenuDropdown = !this.visibilityMenuDropdown;
+  //get item item selected
+  getItemSelected(valueSelected: string) {
+    return this.items.find(item => item.text == valueSelected);
   }
 
+  //get icon item selected
+  getIconItemSelected(valueSelected: string) {
+    if (this.getItemSelected(valueSelected).iconUrl)
+      return <img src={this.getItemSelected(valueSelected).iconUrl} alt={`${this.getItemSelected(valueSelected).id}`} class="dropdown-menu__item-icon" />;
+  }
   //get value of select dropdown
   getValueOfSelectDropdown() {
     if (!this.items) return <span class="dropdown-text">{this.label}</span>;
@@ -75,7 +79,10 @@ export class XuachGlobalDropdown {
         return item.text;
       })
       .includes(this.value) ? (
-      <span class="dropdown-text">{this.value}</span>
+      <span class="dropdown-menu__item-selected">
+        {this.getIconItemSelected(this.value)}
+        <span class="dropdown-text">{this.value}</span>
+      </span>
     ) : (
       <span class="dropdown-text">{this.label}</span>
     );
@@ -84,7 +91,13 @@ export class XuachGlobalDropdown {
   getOptionsValue() {
     if (!this.items) {
       return (
-        <li role="option" tabIndex={0} onClick={this.changeVisibilityMenuDropdown.bind(this)}>
+        <li
+          role="option"
+          tabIndex={0}
+          onClick={() => {
+            this.visibilityMenuDropdown = false;
+          }}
+        >
           No hay opciones
         </li>
       );
@@ -92,6 +105,7 @@ export class XuachGlobalDropdown {
     return this.items.map(item => {
       return (
         <li role="option" tabindex={item.id} onClick={this.onDropdownChangeValue.bind(this, item)}>
+          {item.iconUrl ? <img src={item.iconUrl} alt={`${item.id}`} class="dropdown-menu__item-icon" /> : ''}
           {item.text}
         </li>
       );
@@ -102,7 +116,13 @@ export class XuachGlobalDropdown {
       <Host onblur={this.clickOutSide.bind(this)}>
         <div class="scroll-hide">
           <div class={this.getStyleErrorMessage() + ' dropdown ' + this.getStyleDisabled()}>
-            <button disabled={this.disabled} class="form-control" onClick={this.changeVisibilityMenuDropdown.bind(this)}>
+            <button
+              disabled={this.disabled}
+              class="form-control"
+              onClick={() => {
+                this.visibilityMenuDropdown = true;
+              }}
+            >
               <div class="dropdown-text">
                 <img src={this.urlIconLeft} class="imagen" />
                 {this.getValueOfSelectDropdown()}
@@ -113,7 +133,7 @@ export class XuachGlobalDropdown {
           </div>
           <span class="error-message">{this.errorMessage}</span>
           <ul class={this.getClassDropdownMenu()} role="listbox" style={{ width: this.widthDropDownMenu }}>
-            <span>{this.label}</span>
+            {this.label ? <span>{this.label}</span> : ''}
             {this.getOptionsValue()}
           </ul>
         </div>

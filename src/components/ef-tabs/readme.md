@@ -7,9 +7,18 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                                                                                                | Default     |
-| -------- | --------- | ----------- | ------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `titles` | --        |             | `{ text: string; value: string; icon?: string; slot?: (item: { [key: string]: string \| number; }) => Element; }[]` | `undefined` |
+| Property         | Attribute          | Description | Type                                                | Default     |
+| ---------------- | ------------------ | ----------- | --------------------------------------------------- | ----------- |
+| `arrows`         | `arrows`           |             | `boolean`                                           | `false`     |
+| `tabActiveIndex` | `tab-active-index` |             | `number`                                            | `1`         |
+| `titles`         | --                 |             | `{ text: string; value: string; icon?: string; }[]` | `undefined` |
+
+
+## Events
+
+| Event   | Description | Type                  |
+| ------- | ----------- | --------------------- |
+| `event` |             | `CustomEvent<string>` |
 
 
 ----------------------------------------------

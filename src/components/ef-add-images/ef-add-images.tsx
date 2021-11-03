@@ -42,6 +42,9 @@ export class EfAddImages {
       }),
     );
     this.photosToEmit = [...this.photosToEmit, ...filesToEmit];
+    if (!this.multiple) {
+      this.photosToEmit = [...filesToEmit];
+    }
     this.changeValue.emit(this.photosToEmit);
   }
   async compressImage(photoP: File) {
@@ -98,7 +101,6 @@ export class EfAddImages {
     )
       return;
     this.itemActive += option;
-    location.href = '#slide1';
   }
 
   getImageArrow(option: string) {

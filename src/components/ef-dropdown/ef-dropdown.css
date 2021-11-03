@@ -107,7 +107,7 @@
   visibility: visible;
   z-index: 1;
   opacity: 1;
-  transform: translateY(-10px);
+  transform: translateY(-25px);
 }
 
 /* style css for disable */
@@ -264,6 +264,17 @@ styles for dropdown menu */
   letter-spacing: 0.2px;
   font-feature-settings: 'liga' off;
   color: #a5a4a4;
+}
+.dropdown-menu__item-icon{
+  width: 25px;
+  height: auto;
+  padding-right:10px ;
+}
+.dropdown-menu__item-selected{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 /* hide scroll bar */

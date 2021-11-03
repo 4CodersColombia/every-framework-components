@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface EfAddFile {
         "buttonText": string;
-        "dataFiles": File[];
+        "files": File[];
         "title": string;
     }
     interface EfAddImages {
@@ -55,6 +55,15 @@ export namespace Components {
         "urlIcon": string;
         "value": string | number;
     }
+    interface EfCountryPicker {
+        "CountryCode": boolean;
+        "countryName": boolean;
+        "disabled": boolean;
+        "errorMessage": string;
+        "flag": boolean;
+        "label": string;
+        "value": string;
+    }
     interface EfDataTable {
         "data": [];
         "headers": { text: string; value: string; width?: string }[];
@@ -88,7 +97,7 @@ export namespace Components {
     interface EfDropdown {
         "disabled": boolean;
         "errorMessage": string;
-        "items": { id: string | number; text: string }[];
+        "items": { id: string | number; text: string; iconUrl?: string }[];
         "label": string;
         "urlIconLeft": string;
         "urlIconRight": string;
@@ -137,7 +146,9 @@ export namespace Components {
         "disabled": boolean;
     }
     interface EfTabs {
-        "titles": { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+        "arrows": boolean;
+        "tabActiveIndex": number;
+        "titles": { text: string; value: string; icon?: string }[];
     }
     interface EfTemplateAdmin {
         "showModal": boolean;
@@ -195,6 +206,12 @@ declare global {
     var HTMLEfChipElement: {
         prototype: HTMLEfChipElement;
         new (): HTMLEfChipElement;
+    };
+    interface HTMLEfCountryPickerElement extends Components.EfCountryPicker, HTMLStencilElement {
+    }
+    var HTMLEfCountryPickerElement: {
+        prototype: HTMLEfCountryPickerElement;
+        new (): HTMLEfCountryPickerElement;
     };
     interface HTMLEfDataTableElement extends Components.EfDataTable, HTMLStencilElement {
     }
@@ -294,6 +311,7 @@ declare global {
         "ef-card-info": HTMLEfCardInfoElement;
         "ef-checkbox": HTMLEfCheckboxElement;
         "ef-chip": HTMLEfChipElement;
+        "ef-country-picker": HTMLEfCountryPickerElement;
         "ef-data-table": HTMLEfDataTableElement;
         "ef-data-table-footer": HTMLEfDataTableFooterElement;
         "ef-date-picker": HTMLEfDatePickerElement;
@@ -314,7 +332,7 @@ declare global {
 declare namespace LocalJSX {
     interface EfAddFile {
         "buttonText"?: string;
-        "dataFiles"?: File[];
+        "files"?: File[];
         "onChange-value"?: (event: CustomEvent<File[]>) => void;
         "title"?: string;
     }
@@ -367,6 +385,15 @@ declare namespace LocalJSX {
         "urlIcon"?: string;
         "value"?: string | number;
     }
+    interface EfCountryPicker {
+        "CountryCode"?: boolean;
+        "countryName"?: boolean;
+        "disabled"?: boolean;
+        "errorMessage"?: string;
+        "flag"?: boolean;
+        "label"?: string;
+        "value"?: string;
+    }
     interface EfDataTable {
         "data"?: [];
         "headers"?: { text: string; value: string; width?: string }[];
@@ -403,7 +430,7 @@ declare namespace LocalJSX {
     interface EfDropdown {
         "disabled"?: boolean;
         "errorMessage"?: string;
-        "items"?: { id: string | number; text: string }[];
+        "items"?: { id: string | number; text: string; iconUrl?: string }[];
         "label"?: string;
         "onChange-value"?: (event: CustomEvent<object>) => void;
         "urlIconLeft"?: string;
@@ -458,7 +485,10 @@ declare namespace LocalJSX {
         "onEvent"?: (event: CustomEvent<any>) => void;
     }
     interface EfTabs {
-        "titles"?: { text: string; value: string; icon?: string; slot?: (item: { [key: string]: string | number }) => JSX.Element }[];
+        "arrows"?: boolean;
+        "onEvent"?: (event: CustomEvent<string>) => void;
+        "tabActiveIndex"?: number;
+        "titles"?: { text: string; value: string; icon?: string }[];
     }
     interface EfTemplateAdmin {
         "showModal"?: boolean;
@@ -482,6 +512,7 @@ declare namespace LocalJSX {
         "ef-card-info": EfCardInfo;
         "ef-checkbox": EfCheckbox;
         "ef-chip": EfChip;
+        "ef-country-picker": EfCountryPicker;
         "ef-data-table": EfDataTable;
         "ef-data-table-footer": EfDataTableFooter;
         "ef-date-picker": EfDatePicker;
@@ -510,6 +541,7 @@ declare module "@stencil/core" {
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;
             "ef-checkbox": LocalJSX.EfCheckbox & JSXBase.HTMLAttributes<HTMLEfCheckboxElement>;
             "ef-chip": LocalJSX.EfChip & JSXBase.HTMLAttributes<HTMLEfChipElement>;
+            "ef-country-picker": LocalJSX.EfCountryPicker & JSXBase.HTMLAttributes<HTMLEfCountryPickerElement>;
             "ef-data-table": LocalJSX.EfDataTable & JSXBase.HTMLAttributes<HTMLEfDataTableElement>;
             "ef-data-table-footer": LocalJSX.EfDataTableFooter & JSXBase.HTMLAttributes<HTMLEfDataTableFooterElement>;
             "ef-date-picker": LocalJSX.EfDatePicker & JSXBase.HTMLAttributes<HTMLEfDatePickerElement>;

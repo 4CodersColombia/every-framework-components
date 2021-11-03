@@ -1,0 +1,7 @@
+:host {
+  display: block;
+}
+@font-face {
+  font-family: 'QuickSand';
+  src: url('../../fonts/Quicksand-Regular.ttf');
+}
