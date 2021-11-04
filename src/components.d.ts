@@ -65,7 +65,7 @@ export namespace Components {
         "value": string;
     }
     interface EfDataTable {
-        "data": [];
+        "data": any[];
         "headers": { text: string; value: string; width?: string }[];
         "urlIconArrow": string;
     }
@@ -392,10 +392,11 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "flag"?: boolean;
         "label"?: string;
+        "onChange-value"?: (event: CustomEvent<object>) => void;
         "value"?: string;
     }
     interface EfDataTable {
-        "data"?: [];
+        "data"?: any[];
         "headers"?: { text: string; value: string; width?: string }[];
         "urlIconArrow"?: string;
     }

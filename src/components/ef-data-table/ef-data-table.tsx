@@ -7,7 +7,7 @@ import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIco
 })
 export class PrDataTable<T> {
   @Prop() headers: { text: string; value: string; width?: string }[];
-  @Prop() data: [];
+  @Prop() data: any[];
   @Prop() urlIconArrow: string = EVERYFRAMEWORKICONS['ARROW_DOWN'];
   @State() array_drawer_item: boolean[] = Array.from({ length: this.getLengthData() }, () => false);
 
@@ -40,10 +40,7 @@ export class PrDataTable<T> {
       <tr class="border-table">
         {this.headers.map(header => {
           return (
-            <td 
-            key={`${key}${header.value}`} 
-            class={this.array_drawer_item[key] ? 'open' : 'close'}
-             style={{ width: header.width || 'auto' }}>
+            <td key={`${key}${header.value}`} class={this.array_drawer_item[key] ? 'open' : 'close'} style={{ width: header.width || 'auto' }}>
               <span class="before-content-table">{header.text}</span>
               <slot name={`${key}${header.value}`}>{dataRow[header.value]}</slot>
               {this.getArrowDrawer(key)}
@@ -60,10 +57,7 @@ export class PrDataTable<T> {
           <thead class="head-table">
             <tr class="border-table">
               {this.headers.map(header => (
-                <th 
-                class="ef-data-table__header"
-                key={header.value} 
-                style={{ width: header.width || 'auto' }}>
+                <th class="ef-data-table__header" key={header.value} style={{ width: header.width || 'auto' }}>
                   {header.text}
                 </th>
               ))}

@@ -7,14 +7,22 @@
 
 ## Properties
 
-| Property       | Attribute        | Description | Type      | Default                             |
-| -------------- | ---------------- | ----------- | --------- | ----------------------------------- |
-| `disabled`     | `disabled`       |             | `boolean` | `false`                             |
-| `errorMessage` | `error-message`  |             | `string`  | `undefined`                         |
-| `label`        | `label`          |             | `string`  | `undefined`                         |
-| `urlIconLeft`  | `url-icon-left`  |             | `string`  | `undefined`                         |
-| `urlIconRight` | `url-icon-right` |             | `string`  | `EVERYFRAMEWORKICONS['ARROW_DOWN']` |
-| `value`        | `value`          |             | `string`  | `undefined`                         |
+| Property       | Attribute       | Description | Type      | Default     |
+| -------------- | --------------- | ----------- | --------- | ----------- |
+| `CountryCode`  | `country-code`  |             | `boolean` | `true`      |
+| `countryName`  | `country-name`  |             | `boolean` | `true`      |
+| `disabled`     | `disabled`      |             | `boolean` | `false`     |
+| `errorMessage` | `error-message` |             | `string`  | `undefined` |
+| `flag`         | `flag`          |             | `boolean` | `true`      |
+| `label`        | `label`         |             | `string`  | `undefined` |
+| `value`        | `value`         |             | `string`  | `undefined` |
+
+
+## Events
+
+| Event          | Description | Type                  |
+| -------------- | ----------- | --------------------- |
+| `change-value` |             | `CustomEvent<object>` |
 
 
 ## Dependencies
