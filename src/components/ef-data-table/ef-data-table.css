@@ -111,13 +111,15 @@
   .table-body tr td:first-child .icon-arrow {
     display: inline-block;
     position: absolute;
-    top: 40%;
+    top: 30%;
     right: 5%;
+    padding:10px;
   }
   .table-body tr td:first-child .icon-arrow-up {
     display: inline-block;
     position: absolute;
-    top: 40%;
+    top: 30%;
     right: 5%;
+    padding:10px;
   }
 }
