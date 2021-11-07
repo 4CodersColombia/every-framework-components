@@ -214,7 +214,7 @@ styles for dropdown menu */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 8px;
+  padding: 15px 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -235,7 +235,7 @@ styles for dropdown menu */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 8px;
+  padding: 15px 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -265,12 +265,12 @@ styles for dropdown menu */
   font-feature-settings: 'liga' off;
   color: #a5a4a4;
 }
-.dropdown-menu__item-icon{
+.dropdown-menu__item-icon {
   width: 25px;
   height: auto;
-  padding-right:10px ;
+  padding-right: 10px;
 }
-.dropdown-menu__item-selected{
+.dropdown-menu__item-selected {
   display: flex;
   flex-direction: row;
   align-items: center;
