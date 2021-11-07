@@ -231,7 +231,7 @@ styles for dropdown menu */
 }
 
 .dropdown-menu > li {
-  height: 12px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
