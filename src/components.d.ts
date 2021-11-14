@@ -42,6 +42,9 @@ export namespace Components {
         "subtitle": string;
         "title": string;
     }
+    interface EfCarrousel {
+        "items": { id: number | string; title: string }[];
+    }
     interface EfCheckbox {
         "checked": boolean;
         "disabled": boolean;
@@ -85,7 +88,7 @@ export namespace Components {
     }
     interface EfDatePicker {
         "appendIcon": string;
-        "date": string;
+        "disabled": boolean;
         "label": string;
         "maxDate": string;
         "minDate": string;
@@ -93,6 +96,7 @@ export namespace Components {
         "showModal": boolean;
         "textCancel": string;
         "textConfirm": string;
+        "value": string;
     }
     interface EfDropdown {
         "disabled": boolean;
@@ -147,6 +151,11 @@ export namespace Components {
     }
     interface EfTabs {
         "arrows": boolean;
+        "colorBackground": string;
+        "colorContent": string;
+        "colorItem": string;
+        "colorSlide": string;
+        "colorText": string;
         "tabActiveIndex": number;
         "titles": { text: string; value: string; icon?: string }[];
     }
@@ -194,6 +203,12 @@ declare global {
     var HTMLEfCardInfoElement: {
         prototype: HTMLEfCardInfoElement;
         new (): HTMLEfCardInfoElement;
+    };
+    interface HTMLEfCarrouselElement extends Components.EfCarrousel, HTMLStencilElement {
+    }
+    var HTMLEfCarrouselElement: {
+        prototype: HTMLEfCarrouselElement;
+        new (): HTMLEfCarrouselElement;
     };
     interface HTMLEfCheckboxElement extends Components.EfCheckbox, HTMLStencilElement {
     }
@@ -309,6 +324,7 @@ declare global {
         "ef-button": HTMLEfButtonElement;
         "ef-buttons-icon": HTMLEfButtonsIconElement;
         "ef-card-info": HTMLEfCardInfoElement;
+        "ef-carrousel": HTMLEfCarrouselElement;
         "ef-checkbox": HTMLEfCheckboxElement;
         "ef-chip": HTMLEfChipElement;
         "ef-country-picker": HTMLEfCountryPickerElement;
@@ -370,6 +386,9 @@ declare namespace LocalJSX {
         "subtitle"?: string;
         "title"?: string;
     }
+    interface EfCarrousel {
+        "items"?: { id: number | string; title: string }[];
+    }
     interface EfCheckbox {
         "checked"?: boolean;
         "disabled"?: boolean;
@@ -418,7 +437,7 @@ declare namespace LocalJSX {
     }
     interface EfDatePicker {
         "appendIcon"?: string;
-        "date"?: string;
+        "disabled"?: boolean;
         "label"?: string;
         "maxDate"?: string;
         "minDate"?: string;
@@ -427,6 +446,7 @@ declare namespace LocalJSX {
         "showModal"?: boolean;
         "textCancel"?: string;
         "textConfirm"?: string;
+        "value"?: string;
     }
     interface EfDropdown {
         "disabled"?: boolean;
@@ -487,7 +507,12 @@ declare namespace LocalJSX {
     }
     interface EfTabs {
         "arrows"?: boolean;
-        "onEvent"?: (event: CustomEvent<string>) => void;
+        "colorBackground"?: string;
+        "colorContent"?: string;
+        "colorItem"?: string;
+        "colorSlide"?: string;
+        "colorText"?: string;
+        "onChange-tab"?: (event: CustomEvent<string>) => void;
         "tabActiveIndex"?: number;
         "titles"?: { text: string; value: string; icon?: string }[];
     }
@@ -511,6 +536,7 @@ declare namespace LocalJSX {
         "ef-button": EfButton;
         "ef-buttons-icon": EfButtonsIcon;
         "ef-card-info": EfCardInfo;
+        "ef-carrousel": EfCarrousel;
         "ef-checkbox": EfCheckbox;
         "ef-chip": EfChip;
         "ef-country-picker": EfCountryPicker;
@@ -540,6 +566,7 @@ declare module "@stencil/core" {
             "ef-button": LocalJSX.EfButton & JSXBase.HTMLAttributes<HTMLEfButtonElement>;
             "ef-buttons-icon": LocalJSX.EfButtonsIcon & JSXBase.HTMLAttributes<HTMLEfButtonsIconElement>;
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;
+            "ef-carrousel": LocalJSX.EfCarrousel & JSXBase.HTMLAttributes<HTMLEfCarrouselElement>;
             "ef-checkbox": LocalJSX.EfCheckbox & JSXBase.HTMLAttributes<HTMLEfCheckboxElement>;
             "ef-chip": LocalJSX.EfChip & JSXBase.HTMLAttributes<HTMLEfChipElement>;
             "ef-country-picker": LocalJSX.EfCountryPicker & JSXBase.HTMLAttributes<HTMLEfCountryPickerElement>;

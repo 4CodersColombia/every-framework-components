@@ -10,7 +10,7 @@
 | Property      | Attribute      | Description | Type      | Default        |
 | ------------- | -------------- | ----------- | --------- | -------------- |
 | `appendIcon`  | `append-icon`  |             | `string`  | `undefined`    |
-| `date`        | `date`         |             | `string`  | `undefined`    |
+| `disabled`    | `disabled`     |             | `boolean` | `false`        |
 | `label`       | `label`        |             | `string`  | `undefined`    |
 | `maxDate`     | `max-date`     |             | `string`  | `undefined`    |
 | `minDate`     | `min-date`     |             | `string`  | `'1921-01-01'` |
@@ -18,6 +18,7 @@
 | `showModal`   | `show-modal`   |             | `boolean` | `false`        |
 | `textCancel`  | `text-cancel`  |             | `string`  | `'CANCELAR'`   |
 | `textConfirm` | `text-confirm` |             | `string`  | `'OK'`         |
+| `value`       | `value`        |             | `string`  | `undefined`    |
 
 
 ## Events

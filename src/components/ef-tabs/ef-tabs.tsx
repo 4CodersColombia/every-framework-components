@@ -9,11 +9,16 @@ export class EfTabs {
   @Prop() titles: { text: string; value: string; icon?: string }[];
   @Prop() arrows: boolean = false;
   @Prop() tabActiveIndex: number = 1;
+  @Prop() colorText: string = 'white';
+  @Prop() colorBackground: string = '#182845';
+  @Prop() colorItem: string = '#091731';
+  @Prop() colorSlide: string = 'white';
+  @Prop() colorContent:string='white'
   @State() visibleTabs: number = 1;
   @State() arrayVisiblesTabs: number[] = [];
   @Element() private element: HTMLElement;
   //Event to emit any action from of parent
-  @Event() event: EventEmitter<string>;
+  @Event({eventName:'change-tab'}) event: EventEmitter<string>;
   eventTab(id: string) {
     this.event.emit(id);
   }
@@ -73,7 +78,7 @@ export class EfTabs {
       if (index <= this.titles.length) {
         return (
           <li>
-            <button class={this.getButtonActiveTab(index)} onClick={this.setTabActiveIndex.bind(this, index, this.titles[index - 1].value)}>
+            <button class={this.getButtonActiveTab(index)} style={{color:this.colorText,'background-color':this.colorItem}} onClick={this.setTabActiveIndex.bind(this, index, this.titles[index - 1].value)}>
               {this.renderIconTab(this.titles[index - 1])}
               {this.titles[index - 1].text}
             </button>
@@ -85,7 +90,7 @@ export class EfTabs {
   renderTabs() {
     return this.titles.map((item, index) => {
       return (
-        <div class={this.getContentActiveTab(index + 1)}>
+        <div class={this.getContentActiveTab(index + 1)} style={{'background-color':this.colorContent}}>
           <slot name={item.value}>{item.text}</slot>
         </div>
       );
@@ -115,9 +120,9 @@ export class EfTabs {
       <div class="ef-tabs-container">
         <div class="ef-tabs-container__tabs">
           {this.renderImageArrow('left')}
-          <ul class="ef-tabs">
+          <ul class="ef-tabs" style={{'background-color':this.colorBackground}}>
             {this.renderButtonsTabs()}
-            <div class="ef-tabs-animation ef-tabs-animation-start" style={{ left: this.getAnimationLineTab(this.tabActiveIndex) }}></div>
+            <div class="ef-tabs-animation ef-tabs-animation-start" style={{ left: this.getAnimationLineTab(this.tabActiveIndex),'background-color':this.colorSlide }}></div>
           </ul>
           {this.renderImageArrow('right')}
         </div>
