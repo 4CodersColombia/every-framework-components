@@ -109,8 +109,8 @@ export class EfAddImages {
       (this.itemActive == 1 && option == 'left') ||
       (((this.itemActive == this.photosUrl.length && !this.addImage) || (this.itemActive == this.photosUrl.length + 1 && this.addImage)) && option == 'right')
     )
-      return EVERYFRAMEWORKICONS['ARROW_LEFT_DISABLED'];
-    return EVERYFRAMEWORKICONS['ARROW_LEFT'];
+      return EVERYFRAMEWORKICONS['ARROW_RIGHT_DISABLED'];
+    return EVERYFRAMEWORKICONS['ARROW_RIGHT'];
   }
 
   getItemSelected(index) {

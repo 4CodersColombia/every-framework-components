@@ -98,8 +98,8 @@ export class EfTabs {
   }
   getImageArrow(option: string) {
     //funcion para retornar el tipo de flecha desactivada o activada
-    if ((this.tabActiveIndex == 1 && option == 'left') || (this.tabActiveIndex == this.titles.length && option == 'right')) return EVERYFRAMEWORKICONS['ARROW_LEFT_DISABLED'];
-    return EVERYFRAMEWORKICONS['ARROW_LEFT'];
+    if ((this.tabActiveIndex == 1 && option == 'left') || (this.tabActiveIndex == this.titles.length && option == 'right')) return EVERYFRAMEWORKICONS['ARROW_RIGHT_DISABLED'];
+    return EVERYFRAMEWORKICONS['ARROW_RIGHT'];
   }
   renderImageArrow(option: string) {
     if (!this.arrows) return;

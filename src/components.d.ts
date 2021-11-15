@@ -45,10 +45,10 @@ export namespace Components {
     interface EfCarrousel {
         "arrows": boolean;
         "colorContainer": string;
-        "colorSelectedItem": string;
+        "colorSelectedItems": string;
         "itemActive": number;
         "items": { id: number | string; title: string }[];
-        "selectedItens": boolean;
+        "selectedItems": boolean;
     }
     interface EfCheckbox {
         "checked": boolean;
@@ -394,11 +394,11 @@ declare namespace LocalJSX {
     interface EfCarrousel {
         "arrows"?: boolean;
         "colorContainer"?: string;
-        "colorSelectedItem"?: string;
+        "colorSelectedItems"?: string;
         "itemActive"?: number;
         "items"?: { id: number | string; title: string }[];
         "onEvent"?: (event: CustomEvent<number>) => void;
-        "selectedItens"?: boolean;
+        "selectedItems"?: boolean;
     }
     interface EfCheckbox {
         "checked"?: boolean;

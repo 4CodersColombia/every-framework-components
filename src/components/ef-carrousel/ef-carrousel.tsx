@@ -7,12 +7,18 @@ import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIco
   shadow: true,
 })
 export class EfCarrousel {
-  @Prop() items: { id: number | string; title: string }[] = [];
+  @Prop() items: { id: number | string; title: string }[] = [
+    { id: 1, title: 'Item 1' },
+    { id: 2, title: 'Item 2' },
+    { id: 3, title: 'Item 3' },
+    { id: 4, title: 'Item 4' },
+    { id: 5, title: 'Item 5' },
+  ];
   @Prop() itemActive: number = 1;
-  @Prop() colorSelectedItem: string = 'white';
-  @Prop() colorContainer: string = 'rgba(128, 128, 128, 0.178)';
+  @Prop() colorSelectedItems: string = 'white';
+  @Prop() colorContainer: string = 'rgba(0, 0, 0, 0.55);';
   @Prop() arrows: boolean = true;
-  @Prop() selectedItens: boolean = true;
+  @Prop() selectedItems: boolean = true;
 
   //Event to emit any action from of parent
   @Event() event: EventEmitter<number>;
@@ -28,8 +34,8 @@ export class EfCarrousel {
   }
   getImageArrow(option: string) {
     //funcion para retornar el tipo de flecha desactivada o activada
-    if ((this.itemActive == 1 && option == 'left') || (this.itemActive == this.items.length && option == 'right')) return EVERYFRAMEWORKICONS['ARROW_LEFT_DISABLED'];
-    return EVERYFRAMEWORKICONS['ARROW_LEFT'];
+    if ((this.itemActive == 1 && option == 'left') || (this.itemActive == this.items.length && option == 'right')) return EVERYFRAMEWORKICONS['ARROW_RIGHT_DISABLED'];
+    return EVERYFRAMEWORKICONS['ARROW_RIGHT_WHITE'];
   }
   getItemActive(index: number) {
     return index == this.itemActive ? 'ef-carrousel__selected-item-active' : '';
@@ -50,12 +56,12 @@ export class EfCarrousel {
     );
   }
   renderSelectedItems() {
-    if (!this.selectedItens) return;
+    if (!this.selectedItems) return;
     return this.items.map((_item, index) => {
       return (
         <div
           class={`ef-carrousel__selected-item ${this.getItemActive(index + 1)}`}
-          style={{ 'background-color': this.colorSelectedItem }}
+          style={{ 'background-color': this.colorSelectedItems }}
           onClick={this.eventSelectedPage.bind(this, index + 1)}
         ></div>
       );
