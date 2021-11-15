@@ -13,7 +13,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-background-color: rgba(128, 128, 128, 0.178);
+  background-color: rgba(128, 128, 128, 0.178);
 }
 .ef-carrousel__slider {
   display: flex;
@@ -71,4 +71,11 @@ background-color: rgba(128, 128, 128, 0.178);
 
 .ef-carrousel__selected-item-active {
   transform: scale(1.5);
+}
+
+/* Don't need button navigation */
+@supports (scroll-snap-type:mandatory) {
+  .ef-carrousel__slider > a {
+    display: none;
+  }
 }

@@ -17,6 +17,8 @@ export class EfCarrousel {
   @Prop() itemActive: number = 1;
   @Prop() colorSelectedItem: string = 'white';
   @Prop() colorContainer: string = 'rgba(128, 128, 128, 0.178)';
+  @Prop() arrows: boolean = true;
+  @Prop() selectedItens: boolean = true;
 
   //Event to emit any action from of parent
   @Event() event: EventEmitter<number>;
@@ -41,8 +43,21 @@ export class EfCarrousel {
   getPositionItem(itemActive: number) {
     return { transform: `translateX(calc(${(itemActive - 1) * -100}%)` };
   }
+  renderArrow(option: string) {
+    if (!this.arrows) return;
+    const plusValue = option == 'left' ? -1 : 1;
+    return (
+      <img
+        onClick={this.setPageActive.bind(this, plusValue)}
+        class={`ef-carrousel__arrow ef-carrousel__arrow-${option}`}
+        src={this.getImageArrow(option)}
+        alt={`arrow-${option}`}
+      />
+    );
+  }
   renderSelectedItems() {
-    return this.items.map((item, index) => {
+    if (!this.selectedItens) return;
+    return this.items.map((_item, index) => {
       return (
         <div
           class={`ef-carrousel__selected-item ${this.getItemActive(index + 1)}`}
@@ -63,10 +78,10 @@ export class EfCarrousel {
     return (
       <Host>
         <div class="ef-carrousel__container" style={{ 'background-color': this.colorContainer }}>
-          <img onClick={this.setPageActive.bind(this, -1)} class="ef-carrousel__arrow ef-carrousel__arrow-left" src={this.getImageArrow('left')} alt="arrow-left" />
+          {this.renderArrow('left')}
           <div class="ef-carrousel__slider">{this.renderItems(this.items)}</div>
           <div class="ef-carrousel__selecteds-items-container"> {this.renderSelectedItems()}</div>
-          <img onClick={this.setPageActive.bind(this, 1)} class="ef-carrousel__arrow" src={this.getImageArrow('right')} alt="arrow-right" />
+          {this.renderArrow('right')}
         </div>
       </Host>
     );
