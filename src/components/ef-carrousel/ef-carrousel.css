@@ -72,10 +72,3 @@
 .ef-carrousel__selected-item-active {
   transform: scale(1.5);
 }
-
-/* Don't need button navigation */
-@supports (scroll-snap-type:mandatory) {
-  .ef-carrousel__slider > a {
-    display: none;
-  }
-}
