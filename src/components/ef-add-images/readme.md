@@ -28,6 +28,7 @@
 | Event          | Description | Type                  |
 | -------------- | ----------- | --------------------- |
 | `change-value` |             | `CustomEvent<File[]>` |
+| `delete-image` |             | `CustomEvent<number>` |
 
 
 ## Dependencies

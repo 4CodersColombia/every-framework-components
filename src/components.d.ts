@@ -366,6 +366,7 @@ declare namespace LocalJSX {
         "itemActive"?: number;
         "multiple"?: boolean;
         "onChange-value"?: (event: CustomEvent<File[]>) => void;
+        "onDelete-image"?: (event: CustomEvent<number>) => void;
         "photosUrl"?: string[];
         "subTitle"?: string;
         "title"?: string;
