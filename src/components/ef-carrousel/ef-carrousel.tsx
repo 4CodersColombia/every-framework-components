@@ -7,13 +7,7 @@ import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIco
   shadow: true,
 })
 export class EfCarrousel {
-  @Prop() items: { id: number | string; title: string }[] = [
-    { id: 1, title: 'Item 1' },
-    { id: 2, title: 'Item 2' },
-    { id: 3, title: 'Item 3' },
-    { id: 4, title: 'Item 4' },
-    { id: 5, title: 'Item 5' },
-  ];
+  @Prop() items: { id: number | string; title: string }[] = [];
   @Prop() itemActive: number = 1;
   @Prop() colorSelectedItems: string = 'white';
   @Prop() colorContainer: string = 'rgba(0, 0, 0, 0.55);';
