@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
-    "@stencil/core": "^2.0.1",
+    "@stencil/core": "2.10.0",
     "app-datepicker": "^4.5.3",
     "browser-image-compression": "^1.0.15",
     "country-flags-svg": "^1.1.1",
