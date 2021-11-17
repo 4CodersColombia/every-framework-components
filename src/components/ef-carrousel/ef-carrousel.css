@@ -1,0 +1,74 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ef-carrousel__container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(128, 128, 128, 0.178);
+}
+.ef-carrousel__slider {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.ef-carrousel__slider > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ef-carrousel__arrow {
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 1;
+}
+.ef-carrousel__arrow-left {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.ef-carrousel__selecteds-items-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.ef-carrousel__selected-item {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: white;
+  z-index: 1;
+  cursor: pointer;
+  margin-top: -40px;
+  margin-left: 10px;
+  transition: all 0.5s;
+}
+
+.ef-carrousel__selected-item-active {
+  transform: scale(1.5);
+}

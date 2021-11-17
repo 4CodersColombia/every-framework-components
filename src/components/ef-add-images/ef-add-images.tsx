@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Event, EventEmitter, State } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
 import imageCompression from 'browser-image-compression';
 import { EVERYFRAMEWORKICONS } from '../../everyFrameWorkIcons/everyFrameworkIcons';
 
@@ -21,31 +21,15 @@ export class EfAddImages {
   @Prop() height: number = 100;
   @Prop() error: string;
 
-  @State() photosToEmit: File[] = [];
   @Event({ eventName: 'change-value' }) changeValue: EventEmitter<File[]>;
-
-  componentWillLoad() {
-    this.loadBlobsOfUrls();
-  }
-  async loadBlobsOfUrls() {
-    this.photosToEmit = await Promise.all(
-      this.photosUrl.map(async url => {
-        return (await fetch(url).then(r => r.blob())) as File;
-      }),
-    );
-  }
-
+  @Event({ eventName: 'delete-image' }) deleteImage: EventEmitter<number>;
   async eventUpload(files: FileList) {
     const filesToEmit = await Promise.all(
       Array.from(files).map(async item => {
         return this.compressImage(item);
       }),
     );
-    this.photosToEmit = [...this.photosToEmit, ...filesToEmit];
-    if (!this.multiple) {
-      this.photosToEmit = [...filesToEmit];
-    }
-    this.changeValue.emit(this.photosToEmit);
+    this.changeValue.emit(filesToEmit);
   }
   async compressImage(photoP: File) {
     var options = {
@@ -61,9 +45,7 @@ export class EfAddImages {
   }
   deletePhoto(photoUrl) {
     const index = this.photosUrl.indexOf(photoUrl);
-    this.photosUrl = this.photosUrl.filter(item => item !== photoUrl);
-    this.photosToEmit = this.photosToEmit.filter((_item, indexItem) => indexItem !== index);
-    this.changeValue.emit(this.photosToEmit);
+    this.deleteImage.emit(index);
   }
   onInputChange(files: FileList) {
     // check if 1 image is uploaded
@@ -109,8 +91,8 @@ export class EfAddImages {
       (this.itemActive == 1 && option == 'left') ||
       (((this.itemActive == this.photosUrl.length && !this.addImage) || (this.itemActive == this.photosUrl.length + 1 && this.addImage)) && option == 'right')
     )
-      return EVERYFRAMEWORKICONS['ARROW_LEFT_DISABLED'];
-    return EVERYFRAMEWORKICONS['ARROW_LEFT'];
+      return EVERYFRAMEWORKICONS['ARROW_RIGHT_DISABLED'];
+    return EVERYFRAMEWORKICONS['ARROW_RIGHT'];
   }
 
   getItemSelected(index) {

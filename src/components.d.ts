@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface EfAddFile {
         "buttonText": string;
-        "files": File[];
+        "files": string[];
         "title": string;
     }
     interface EfAddImages {
@@ -41,6 +41,14 @@ export namespace Components {
         "styleTitle": { [key: string]: string };
         "subtitle": string;
         "title": string;
+    }
+    interface EfCarrousel {
+        "arrows": boolean;
+        "colorContainer": string;
+        "colorSelectedItems": string;
+        "itemActive": number;
+        "items": { id: number | string; title: string }[];
+        "selectedItems": boolean;
     }
     interface EfCheckbox {
         "checked": boolean;
@@ -85,7 +93,7 @@ export namespace Components {
     }
     interface EfDatePicker {
         "appendIcon": string;
-        "date": string;
+        "disabled": boolean;
         "label": string;
         "maxDate": string;
         "minDate": string;
@@ -93,6 +101,7 @@ export namespace Components {
         "showModal": boolean;
         "textCancel": string;
         "textConfirm": string;
+        "value": string;
     }
     interface EfDropdown {
         "disabled": boolean;
@@ -147,6 +156,11 @@ export namespace Components {
     }
     interface EfTabs {
         "arrows": boolean;
+        "colorBackground": string;
+        "colorContent": string;
+        "colorItem": string;
+        "colorSlide": string;
+        "colorText": string;
         "tabActiveIndex": number;
         "titles": { text: string; value: string; icon?: string }[];
     }
@@ -194,6 +208,12 @@ declare global {
     var HTMLEfCardInfoElement: {
         prototype: HTMLEfCardInfoElement;
         new (): HTMLEfCardInfoElement;
+    };
+    interface HTMLEfCarrouselElement extends Components.EfCarrousel, HTMLStencilElement {
+    }
+    var HTMLEfCarrouselElement: {
+        prototype: HTMLEfCarrouselElement;
+        new (): HTMLEfCarrouselElement;
     };
     interface HTMLEfCheckboxElement extends Components.EfCheckbox, HTMLStencilElement {
     }
@@ -309,6 +329,7 @@ declare global {
         "ef-button": HTMLEfButtonElement;
         "ef-buttons-icon": HTMLEfButtonsIconElement;
         "ef-card-info": HTMLEfCardInfoElement;
+        "ef-carrousel": HTMLEfCarrouselElement;
         "ef-checkbox": HTMLEfCheckboxElement;
         "ef-chip": HTMLEfChipElement;
         "ef-country-picker": HTMLEfCountryPickerElement;
@@ -332,8 +353,9 @@ declare global {
 declare namespace LocalJSX {
     interface EfAddFile {
         "buttonText"?: string;
-        "files"?: File[];
+        "files"?: string[];
         "onChange-value"?: (event: CustomEvent<File[]>) => void;
+        "onDelete-file"?: (event: CustomEvent<number>) => void;
         "title"?: string;
     }
     interface EfAddImages {
@@ -345,6 +367,7 @@ declare namespace LocalJSX {
         "itemActive"?: number;
         "multiple"?: boolean;
         "onChange-value"?: (event: CustomEvent<File[]>) => void;
+        "onDelete-image"?: (event: CustomEvent<number>) => void;
         "photosUrl"?: string[];
         "subTitle"?: string;
         "title"?: string;
@@ -369,6 +392,15 @@ declare namespace LocalJSX {
         "styleTitle"?: { [key: string]: string };
         "subtitle"?: string;
         "title"?: string;
+    }
+    interface EfCarrousel {
+        "arrows"?: boolean;
+        "colorContainer"?: string;
+        "colorSelectedItems"?: string;
+        "itemActive"?: number;
+        "items"?: { id: number | string; title: string }[];
+        "onEvent"?: (event: CustomEvent<number>) => void;
+        "selectedItems"?: boolean;
     }
     interface EfCheckbox {
         "checked"?: boolean;
@@ -418,7 +450,7 @@ declare namespace LocalJSX {
     }
     interface EfDatePicker {
         "appendIcon"?: string;
-        "date"?: string;
+        "disabled"?: boolean;
         "label"?: string;
         "maxDate"?: string;
         "minDate"?: string;
@@ -427,6 +459,7 @@ declare namespace LocalJSX {
         "showModal"?: boolean;
         "textCancel"?: string;
         "textConfirm"?: string;
+        "value"?: string;
     }
     interface EfDropdown {
         "disabled"?: boolean;
@@ -487,7 +520,12 @@ declare namespace LocalJSX {
     }
     interface EfTabs {
         "arrows"?: boolean;
-        "onEvent"?: (event: CustomEvent<string>) => void;
+        "colorBackground"?: string;
+        "colorContent"?: string;
+        "colorItem"?: string;
+        "colorSlide"?: string;
+        "colorText"?: string;
+        "onChange-tab"?: (event: CustomEvent<string>) => void;
         "tabActiveIndex"?: number;
         "titles"?: { text: string; value: string; icon?: string }[];
     }
@@ -511,6 +549,7 @@ declare namespace LocalJSX {
         "ef-button": EfButton;
         "ef-buttons-icon": EfButtonsIcon;
         "ef-card-info": EfCardInfo;
+        "ef-carrousel": EfCarrousel;
         "ef-checkbox": EfCheckbox;
         "ef-chip": EfChip;
         "ef-country-picker": EfCountryPicker;
@@ -540,6 +579,7 @@ declare module "@stencil/core" {
             "ef-button": LocalJSX.EfButton & JSXBase.HTMLAttributes<HTMLEfButtonElement>;
             "ef-buttons-icon": LocalJSX.EfButtonsIcon & JSXBase.HTMLAttributes<HTMLEfButtonsIconElement>;
             "ef-card-info": LocalJSX.EfCardInfo & JSXBase.HTMLAttributes<HTMLEfCardInfoElement>;
+            "ef-carrousel": LocalJSX.EfCarrousel & JSXBase.HTMLAttributes<HTMLEfCarrouselElement>;
             "ef-checkbox": LocalJSX.EfCheckbox & JSXBase.HTMLAttributes<HTMLEfCheckboxElement>;
             "ef-chip": LocalJSX.EfChip & JSXBase.HTMLAttributes<HTMLEfChipElement>;
             "ef-country-picker": LocalJSX.EfCountryPicker & JSXBase.HTMLAttributes<HTMLEfCountryPickerElement>;

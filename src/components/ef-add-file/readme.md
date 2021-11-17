@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property     | Attribute     | Description | Type     | Default           |
-| ------------ | ------------- | ----------- | -------- | ----------------- |
-| `buttonText` | `button-text` |             | `string` | `'Add Files'`     |
-| `files`      | --            |             | `File[]` | `[]`              |
-| `title`      | `title`       |             | `string` | `'add file here'` |
+| Property     | Attribute     | Description | Type       | Default           |
+| ------------ | ------------- | ----------- | ---------- | ----------------- |
+| `buttonText` | `button-text` |             | `string`   | `'Add Files'`     |
+| `files`      | --            |             | `string[]` | `[]`              |
+| `title`      | `title`       |             | `string`   | `'add file here'` |
 
 
 ## Events
@@ -19,6 +19,7 @@
 | Event          | Description | Type                  |
 | -------------- | ----------- | --------------------- |
 | `change-value` |             | `CustomEvent<File[]>` |
+| `delete-file`  |             | `CustomEvent<number>` |
 
 
 ## Dependencies

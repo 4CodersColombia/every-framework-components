@@ -51,8 +51,8 @@ export class EfPaginator {
   getImageArrow(option: string) {
     //funcion para retornar el tipo de flecha desactivada o activada
     if ((this.arrayVisiblesPages[0] == 1 && option == 'left') || (this.arrayVisiblesPages[this.visiblePages - 1] == this.pages && option == 'right'))
-      return EVERYFRAMEWORKICONS['ARROW_LEFT_DISABLED'];
-    return EVERYFRAMEWORKICONS['ARROW_LEFT'];
+      return EVERYFRAMEWORKICONS['ARROW_RIGHT_DISABLED'];
+    return EVERYFRAMEWORKICONS['ARROW_RIGHT'];
   }
   getSelectedPage(indexPage) {
     //funcion para obtencion de la clase de la animacion de la pagina seleccionada

@@ -7,7 +7,7 @@ import 'app-datepicker';
 })
 export class EfDatePicker {
   @Prop({ mutable: true }) showModal: boolean = false;
-  @Prop({ mutable: true }) date: string;
+  @Prop({ mutable: true }) value: string;
   @Prop() label: string;
   @Prop() minDate: string = '1921-01-01';
   @Prop() maxDate: string;
@@ -15,6 +15,7 @@ export class EfDatePicker {
   @Prop() textConfirm: string = 'OK';
   @Prop({ attribute: 'append-icon' }) appendIcon: string;
   @Prop({ attribute: 'prepend-icon' }) prependIcon: string;
+  @Prop() disabled: boolean = false;
 
   @State() selectedDate: string;
 
@@ -25,20 +26,20 @@ export class EfDatePicker {
     this.changeValue.emit(newDate);
   }
   setModalDatePicker() {
-    if (this.date) this.selectedDate = this.date;
+    if (this.value) this.selectedDate = this.value;
     this.showModal = !this.showModal;
   }
   setDateValue(newDate: string) {
-    this.date = newDate;
+    this.value = newDate;
     this.setModalDatePicker();
-    this.eventDatePicker(this.date);
+    this.eventDatePicker(this.value);
   }
 
   render() {
     return (
       <div>
-        <ef-input type="datepicker" onClick={this.setModalDatePicker.bind(this)} value={this.date} label={this.label} prepend-Icon={this.prependIcon}></ef-input>
-        <ef-modal showModal={this.showModal}>
+        <ef-input disabled={this.disabled} type="datepicker" onClick={this.setModalDatePicker.bind(this)} value={this.value} label={this.label} prepend-Icon={this.prependIcon}></ef-input>
+        <ef-modal showModal={this.showModal && !this.disabled}>
           <app-datepicker
             class="datepicker-header" 
             alwaysResetValue={true}
